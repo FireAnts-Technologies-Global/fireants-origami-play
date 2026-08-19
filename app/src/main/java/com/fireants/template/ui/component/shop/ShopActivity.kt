@@ -42,8 +42,16 @@ class ShopActivity : BaseActivity<ActivityShopBinding>() {
             viewModel.buyHint(amount = 1, cost = 100)
         }
 
-        binding.btnBuyBag.setOnClickListener {
-            viewModel.buyBag(amount = 1, cost = 200)
+        binding.btnWatchAdBag.setOnClickListener {
+            viewModel.buyBagWithAd()
+        }
+        
+        binding.btnBuy1Bag.setOnClickListener {
+            viewModel.buyBag(amount = 1, cost = 5)
+        }
+        
+        binding.btnBuy10Bags.setOnClickListener {
+            viewModel.buyBag(amount = 10, cost = 45)
         }
 
         binding.btnClaimFreeBag.setOnClickListener {
@@ -94,8 +102,8 @@ class ShopActivity : BaseActivity<ActivityShopBinding>() {
                     is ShopEvent.ShowMessage -> {
                         Toast.makeText(this@ShopActivity, event.result.toString(), Toast.LENGTH_SHORT).show()
                     }
-                    is ShopEvent.OnBagOpened -> {
-                        Toast.makeText(this@ShopActivity, "Bag Opened! Got: ${event.reward}", Toast.LENGTH_LONG).show()
+                    is ShopEvent.OnBagsOpened -> {
+                        Toast.makeText(this@ShopActivity, "Opened ${event.rewards.size} bags! Got: ${event.rewards}", Toast.LENGTH_LONG).show()
                     }
                 }
             }

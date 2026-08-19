@@ -8,11 +8,10 @@ class BuyBagUseCase @Inject constructor(
     private val userRepository: UserRepository
 ) {
     operator fun invoke(amount: Int, cost: Int): ShopResult {
-        if (userRepository.spendStars(cost)) {
-            // Usually we would increase a bag count, but the logic seems to open it immediately
-            // so this just deducts stars to allow opening.
+        if (cost == 0) return ShopResult.Success
+        if (userRepository.spendCoins(cost)) {
             return ShopResult.Success
         }
-        return ShopResult.NotEnoughStars
+        return ShopResult.NotEnoughCoins
     }
 }

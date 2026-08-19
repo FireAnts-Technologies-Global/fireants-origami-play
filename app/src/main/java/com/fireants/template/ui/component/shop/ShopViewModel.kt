@@ -106,18 +106,27 @@ class ShopViewModel @Inject constructor(
         viewModelScope.launch {
             val result = buyBagUseCase(amount, cost)
             if (result == ShopResult.Success) {
-                openBag()
+                openBags(amount)
             } else {
                 _eventFlow.emit(ShopEvent.ShowMessage(result))
             }
         }
     }
-
-    private fun openBag() {
+    
+    fun buyBagWithAd() {
         viewModelScope.launch {
-            val reward = openBagUseCase()
+            openBags(1)
+        }
+    }
+
+    private fun openBags(amount: Int) {
+        viewModelScope.launch {
+            val rewards = mutableListOf<BagReward>()
+            repeat(amount) {
+                rewards.add(openBagUseCase())
+            }
             loadData()
-            _eventFlow.emit(ShopEvent.OnBagOpened(reward))
+            _eventFlow.emit(ShopEvent.OnBagsOpened(rewards))
         }
     }
 
@@ -126,7 +135,7 @@ class ShopViewModel @Inject constructor(
             val now = System.currentTimeMillis()
             val result = claimDailyBagUseCase(now)
             if (result == ShopResult.Success) {
-                openBag()
+                openBags(1)
             } else {
                 _eventFlow.emit(ShopEvent.ShowMessage(result))
             }

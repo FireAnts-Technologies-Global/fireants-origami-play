@@ -141,18 +141,31 @@
                         android:textSize="18sp"
                         android:textStyle="bold" />
                     <Button
-                        android:id="@+id/btnBuyBag"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Open Bag (Cost: 200 Stars)" />
-                    <Button
                         android:id="@+id/btnClaimFreeBag"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Claim Free Daily Bag"
+                        android:text="Claim Free (1 Bag)"
                         android:backgroundTint="#4CAF50" />
+                    <Button
+                        android:id="@+id/btnWatchAdBag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Watch Ad (1 Bag)"
+                        android:backgroundTint="#FF9800" />
+                    <Button
+                        android:id="@+id/btnBuy1Bag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Buy 1 Bag (5 Coins)" />
+                    <Button
+                        android:id="@+id/btnBuy10Bags"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Buy 10 Bags (45 Coins)" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

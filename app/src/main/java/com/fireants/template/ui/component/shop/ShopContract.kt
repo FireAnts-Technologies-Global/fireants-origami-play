@@ -16,5 +16,5 @@ data class ShopState(
 
 sealed interface ShopEvent {
     data class ShowMessage(val result: ShopResult) : ShopEvent
-    data class OnBagOpened(val reward: BagReward) : ShopEvent
+    data class OnBagsOpened(val rewards: List<BagReward>) : ShopEvent
 }
