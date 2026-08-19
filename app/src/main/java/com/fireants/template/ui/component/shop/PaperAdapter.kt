@@ -1,38 +1,22 @@
 package com.fireants.template.ui.component.shop
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
+import com.fireants.template.R
 import com.fireants.template.data.model.game.PaperItem
 import com.fireants.template.databinding.ItemShopPaperBinding
+import com.fireants.template.ui.bases.BaseListAdapter
 
 class PaperAdapter(
     private val onBuyClick: (PaperItem) -> Unit,
     private val onSelectClick: (PaperItem) -> Unit
-) : ListAdapter<PaperItem, PaperAdapter.PaperViewHolder>(DiffCallback) {
+) : BaseListAdapter<PaperItem>(DiffCallback) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PaperViewHolder {
-        val binding = ItemShopPaperBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
-        )
-        return PaperViewHolder(binding)
-    }
+    override fun getItemLayout(viewType: Int): Int = R.layout.item_shop_paper
 
-    override fun onBindViewHolder(holder: PaperViewHolder, position: Int) {
-        holder.bind(getItem(position))
-    }
-
-    inner class PaperViewHolder(
-        private val binding: ItemShopPaperBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(item: PaperItem) {
+    override fun setData(binding: ViewDataBinding, item: PaperItem, layoutPosition: Int) {
+        if (binding is ItemShopPaperBinding) {
             binding.tvName.text = "Paper #${item.id}"
-            
-            // In a real implementation, you would load the image using Glide/Coil based on item.imagePreview
-            // For now, it stays a gray box.
             
             when {
                 item.isSelected -> {
@@ -44,14 +28,24 @@ class PaperAdapter(
                     binding.btnAction.text = "Select"
                     binding.btnAction.isEnabled = true
                     binding.btnAction.alpha = 1.0f
-                    binding.btnAction.setOnClickListener { onSelectClick(item) }
                 }
                 else -> {
                     // Locked
-                    binding.btnAction.text = "${item.price} Coins" // or use ShopConfig.paperUnlockCost
+                    binding.btnAction.text = "${item.price} Coins"
                     binding.btnAction.isEnabled = true
                     binding.btnAction.alpha = 1.0f
-                    binding.btnAction.setOnClickListener { onBuyClick(item) }
+                }
+            }
+        }
+    }
+
+    override fun onClickViews(binding: ViewDataBinding, obj: PaperItem, layoutPosition: Int) {
+        if (binding is ItemShopPaperBinding) {
+            binding.btnAction.setOnClickListener {
+                if (!obj.isSelected && obj.isUnlocked) {
+                    onSelectClick(obj)
+                } else if (!obj.isUnlocked) {
+                    onBuyClick(obj)
                 }
             }
         }
