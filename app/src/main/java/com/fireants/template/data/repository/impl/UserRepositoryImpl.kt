@@ -14,6 +14,30 @@ class UserRepositoryImpl @Inject constructor(
     override fun getPlayer(initialHintCount: Int): PlayerData =
         preference.getPlayer(initialHintCount)
 
+    override fun getUnlockedPaperIds(): Set<Int> {
+        return preference.unlockedPaperIds
+    }
+
+    override fun getSelectedPaperId(): Int {
+        return preference.selectedPaperId
+    }
+
+    override fun getLastClaimBagTime(): Long {
+        return preference.lastClaimBag
+    }
+
+    override fun setLastClaimBagTime(value: Long) {
+        preference.lastClaimBag = value
+    }
+
+    override fun getLastClaimTicketTime(): Long {
+        return preference.lastClaimTicket
+    }
+
+    override fun setLastClaimTicketTime(value: Long) {
+        preference.lastClaimTicket = value
+    }
+
     override fun addCoins(amount: Int) {
         require(amount >= 0)
         preference.coins += amount
@@ -72,8 +96,7 @@ class UserRepositoryImpl @Inject constructor(
     }
 
     override fun unlockPaper(paperId: Int) {
-        preference.unlockedPaperIds =
-            preference.unlockedPaperIds + paperId
+        preference.unlockedPaperIds += paperId
     }
 
     override fun isPaperUnlocked(paperId: Int): Boolean =

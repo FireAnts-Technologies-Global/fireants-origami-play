@@ -35,6 +35,10 @@ class GameRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun getPaper(paperId: Int): PaperItem? {
+        return getPapers().firstOrNull { it.id == paperId }
+    }
+
     override suspend fun getFoldHints(levelId: Int): List<AutoFoldStep> =
         assetDataSource.getFoldHints()[levelId.toString()].orEmpty()
 

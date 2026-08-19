@@ -8,6 +8,7 @@ interface GameRepository {
     suspend fun getLevels(): List<LevelEntity>
     suspend fun getLevel(levelId: Int): LevelEntity?
     suspend fun getPapers(): List<PaperItem>
+    suspend fun getPaper(paperId: Int): PaperItem?
     suspend fun getSelectedPaper(): PaperItem?
     suspend fun getFoldHints(levelId: Int): List<AutoFoldStep>
     

@@ -4,6 +4,15 @@ import com.fireants.template.data.model.player.PlayerData
 
 interface UserRepository {
     fun getPlayer(initialHintCount: Int = 0): PlayerData
+    
+    fun getUnlockedPaperIds(): Set<Int>
+    fun getSelectedPaperId(): Int
+    
+    fun getLastClaimBagTime(): Long
+    fun setLastClaimBagTime(value: Long)
+    
+    fun getLastClaimTicketTime(): Long
+    fun setLastClaimTicketTime(value: Long)
 
     fun addCoins(amount: Int)
     fun spendCoins(amount: Int): Boolean
