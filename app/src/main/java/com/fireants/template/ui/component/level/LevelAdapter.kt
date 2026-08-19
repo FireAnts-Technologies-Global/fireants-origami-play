@@ -18,7 +18,7 @@ class LevelAdapter(
             binding.tvLevelNumber.text = item.level.levelNumber.toString()
             
             // Check if locked
-            val isUnlocked = item.progress?.isUnlocked == true || !item.level.isLocked
+            val isUnlocked = true // item.progress?.isUnlocked == true || !item.level.isLocked
             
             if (!isUnlocked) {
                 // Locked state
@@ -43,7 +43,7 @@ class LevelAdapter(
     override fun onClickViews(binding: ViewDataBinding, obj: LevelItemUI, layoutPosition: Int) {
         if (binding is ItemLevelBinding) {
             binding.root.setOnClickListener {
-                val isUnlocked = obj.progress?.isUnlocked == true || !obj.level.isLocked
+                val isUnlocked = true // obj.progress?.isUnlocked == true || !obj.level.isLocked
                 if (isUnlocked) {
                     onLevelClick(obj)
                 }

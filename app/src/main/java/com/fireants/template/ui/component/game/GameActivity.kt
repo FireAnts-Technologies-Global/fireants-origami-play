@@ -11,6 +11,7 @@ import com.bumptech.glide.request.transition.Transition
 import com.fireants.template.R
 import com.fireants.template.databinding.ActivityGameBinding
 import com.fireants.template.ui.bases.BaseActivity
+import com.fireants.template.ui.component.custom.FoldPaperView.AutoFoldStep
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -75,7 +76,15 @@ class GameActivity : BaseActivity<ActivityGameBinding>() {
             viewModel.eventFlow.collectLatest { event ->
                 when (event) {
                     is GameEvent.ShowHint -> {
-                        mBinding.foldPaperView.showSuggest()
+                        val hints = viewModel.state.value.foldHints
+                        if (hints.isNotEmpty() && movesCount < hints.size) {
+                            val hint = hints[movesCount]
+                            val step = AutoFoldStep(hint.startXRatio, hint.startYRatio, hint.endXRatio, hint.endYRatio)
+                            mBinding.foldPaperView.startAutoFold(step)
+                            movesCount++
+                        } else {
+                            mBinding.foldPaperView.showSuggest()
+                        }
                     }
                     is GameEvent.ShowError -> {
                         Toast.makeText(this@GameActivity, event.message, Toast.LENGTH_SHORT).show()
