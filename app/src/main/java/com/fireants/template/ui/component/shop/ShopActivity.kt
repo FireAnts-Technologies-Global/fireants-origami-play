@@ -24,8 +24,6 @@ class ShopActivity : BaseActivity<ActivityShopBinding>() {
     private lateinit var paperAdapter: PaperAdapter
 
     override fun initViews() {
-        mBinding.viewModel = viewModel
-        
         paperAdapter = PaperAdapter(
             onBuyClick = { paper ->
                 viewModel.buyPaper(paper.id)

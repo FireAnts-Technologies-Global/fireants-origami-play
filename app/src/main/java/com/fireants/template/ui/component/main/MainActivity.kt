@@ -126,7 +126,7 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
             Routes.startShopActivity(this)
         }
         mBinding.btnGameMode.click {
-            Routes.startGameActivity(this)
+            Routes.startLevelActivity(this)
         }
 
         mBinding.btnKirigami.click {
