@@ -23,19 +23,9 @@ class ShopActivity : BaseActivity<ActivityShopBinding>() {
 
     private lateinit var paperAdapter: PaperAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun initViews() {
+        mBinding.viewModel = viewModel
         
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
-
-        setupRecyclerView()
-        setupClickListeners()
-        observeState()
-        observeEvents()
-    }
-
-    private fun setupRecyclerView() {
         paperAdapter = PaperAdapter(
             onBuyClick = { paper ->
                 viewModel.buyPaper(paper.id)
@@ -44,57 +34,54 @@ class ShopActivity : BaseActivity<ActivityShopBinding>() {
                 viewModel.selectPaper(paper.id)
             }
         )
-        binding.rvPapers.layoutManager = GridLayoutManager(this, 3)
-        binding.rvPapers.adapter = paperAdapter
+        mBinding.rvPapers.layoutManager = GridLayoutManager(this, 3)
+        mBinding.rvPapers.adapter = paperAdapter
     }
 
-    private fun setupClickListeners() {
-        binding.btnWatchAd.setOnClickListener {
+    override fun onClickViews() {
+        mBinding.btnWatchAd.setOnClickListener {
             // Mock Ad Watch
             viewModel.addRewardedCoin()
             Toast.makeText(this, "Watched Ad! +300 Coins", Toast.LENGTH_SHORT).show()
         }
 
-        binding.btnBuy1Hint.setOnClickListener {
+        mBinding.btnBuy1Hint.setOnClickListener {
             viewModel.buyHint(amount = 1, cost = 250)
         }
         
-        binding.btnBuy3Hints.setOnClickListener {
+        mBinding.btnBuy3Hints.setOnClickListener {
             viewModel.buyHint(amount = 3, cost = 637)
         }
         
-        binding.btnBuy5Hints.setOnClickListener {
-            // Note: Using 1000 coins instead of 100 as 100 is likely a typo for 5 hints
+        mBinding.btnBuy5Hints.setOnClickListener {
             viewModel.buyHint(amount = 5, cost = 1000)
         }
 
-        binding.btnWatchAdBag.setOnClickListener {
+        mBinding.btnWatchAdBag.setOnClickListener {
             viewModel.buyBagWithAd()
         }
         
-        binding.btnBuy1Bag.setOnClickListener {
+        mBinding.btnBuy1Bag.setOnClickListener {
             viewModel.buyBag(amount = 1, cost = 5)
         }
         
-        binding.btnBuy10Bags.setOnClickListener {
+        mBinding.btnBuy10Bags.setOnClickListener {
             viewModel.buyBag(amount = 10, cost = 45)
         }
 
-        binding.btnClaimFreeBag.setOnClickListener {
+        mBinding.btnClaimFreeBag.setOnClickListener {
             viewModel.claimDailyBag()
         }
-
-
     }
 
-    private fun observeState() {
+    override fun observeData() {
         lifecycleScope.launch {
             viewModel.state.collectLatest { state ->
                 state.player?.let { player ->
-                    binding.tvCoins.text = "Coins: ${player.coins}"
-                    binding.tvStars.text = "Stars: ${player.stars}"
-                    binding.tvHints.text = "Hints: ${player.hints}"
-                    binding.tvTickets.text = "Tickets: ${player.tickets}"
+                    mBinding.tvCoins.text = "Coins: ${player.coins}"
+                    mBinding.tvStars.text = "Stars: ${player.stars}"
+                    mBinding.tvHints.text = "Hints: ${player.hints}"
+                    mBinding.tvTickets.text = "Tickets: ${player.tickets}"
                 }
                 
                 paperAdapter.submitList(state.papers)
@@ -102,20 +89,18 @@ class ShopActivity : BaseActivity<ActivityShopBinding>() {
                 // Update free bag button state
                 state.bagStatus?.let { status ->
                     if (status.canClaim) {
-                        binding.btnClaimFreeBag.isEnabled = true
-                        binding.btnClaimFreeBag.text = "Claim Free Daily Bag"
+                        mBinding.btnClaimFreeBag.isEnabled = true
+                        mBinding.btnClaimFreeBag.text = "Claim Free Daily Bag"
                     } else {
-                        binding.btnClaimFreeBag.isEnabled = false
+                        mBinding.btnClaimFreeBag.isEnabled = false
                         val hours = status.remainingMillis / (1000 * 60 * 60)
                         val mins = (status.remainingMillis % (1000 * 60 * 60)) / (1000 * 60)
-                        binding.btnClaimFreeBag.text = "Next Free Bag in ${hours}h ${mins}m"
+                        mBinding.btnClaimFreeBag.text = "Next Free Bag in ${hours}h ${mins}m"
                     }
                 }
             }
         }
-    }
-
-    private fun observeEvents() {
+        
         lifecycleScope.launch {
             viewModel.eventFlow.collectLatest { event ->
                 when (event) {

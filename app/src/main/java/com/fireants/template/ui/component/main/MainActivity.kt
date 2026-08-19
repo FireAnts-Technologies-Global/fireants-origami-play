@@ -113,6 +113,10 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
 
     override fun onClickViews() {
         super.onClickViews()
+
+        mBinding.btnShop.click {
+            Routes.startShopActivity(this)
+        }
         mBinding.btnGameMode.click {
             Routes.startGameActivity(this)
         }
