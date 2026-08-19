@@ -2,6 +2,8 @@ package com.fireants.template.ui.component.main
 
 import android.os.Handler
 import android.os.Looper
+import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.fireants.template.BuildConfig
 import com.fireants.template.R
 import com.fireants.template.ads.AdRemoteConfig
@@ -15,13 +17,19 @@ import com.fireants.template.ui.bases.ConsentHandler
 import com.fireants.template.ui.bases.ext.click
 import com.fireants.template.ui.component.main.dialog.ForceUpdateDialog
 import com.fireants.template.ui.component.main.dialog.NoInternetDialog
+import com.fireants.template.ui.component.shop.ShopViewModel
 import com.fireants.template.utils.ConnectionLiveData
 import com.fireants.template.utils.Routes
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import timber.log.Timber
+import kotlin.getValue
 
 @AndroidEntryPoint
 class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
+
+    private val viewModel: MainViewModel by viewModels()
 
     override val bannerConfig = BannerConfig(AdRemoteConfig.banner_home, false)
     private lateinit var consentHandler: ConsentHandler
@@ -131,6 +139,21 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
 
         mBinding.btn3DOrigami.click {
             Routes.startOrigami3DActivity(this)
+        }
+    }
+
+    override fun observeData() {
+        super.observeData()
+        lifecycleScope.launch {
+            viewModel.state.collectLatest { state ->
+                state.player?.let { player ->
+                    mBinding.tvCoins.text = "Coins: ${player.coins}"
+                    mBinding.tvStars.text = "Stars: ${player.stars}"
+                    mBinding.tvHints.text = "Hints: ${player.hints}"
+                    mBinding.tvTickets.text = "Tickets: ${player.tickets}"
+                }
+
+            }
         }
     }
 }

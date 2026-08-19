@@ -1,9 +1,12 @@
 package com.fireants.template.data.repository
 
+import kotlinx.coroutines.flow.Flow
+
 import com.fireants.template.data.model.player.PlayerData
 
 interface UserRepository {
     fun getPlayer(initialHintCount: Int = 0): PlayerData
+    fun getPlayerFlow(initialHintCount: Int = 0): Flow<PlayerData>
     
     fun getUnlockedPaperIds(): Set<Int>
     fun getSelectedPaperId(): Int

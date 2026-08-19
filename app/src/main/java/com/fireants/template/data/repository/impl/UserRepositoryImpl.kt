@@ -1,5 +1,7 @@
 package com.fireants.template.data.repository.impl
 
+import kotlinx.coroutines.flow.Flow
+
 import com.fireants.template.data.local.pref.OrigamiPreference
 import com.fireants.template.data.model.player.PlayerData
 import com.fireants.template.data.repository.UserRepository
@@ -13,6 +15,9 @@ class UserRepositoryImpl @Inject constructor(
 
     override fun getPlayer(initialHintCount: Int): PlayerData =
         preference.getPlayer(initialHintCount)
+
+    override fun getPlayerFlow(initialHintCount: Int): Flow<PlayerData> =
+        preference.getPlayerFlow(initialHintCount)
 
     override fun getUnlockedPaperIds(): Set<Int> {
         return preference.unlockedPaperIds

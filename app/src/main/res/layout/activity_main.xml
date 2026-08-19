@@ -7,6 +7,48 @@
         android:layout_height="match_parent"
         android:background="@color/color_section_bg"
         android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvCoins"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Coins: 0"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvStars"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Stars: 0"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvHints"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Hints: 0"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTickets"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tickets: 0"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

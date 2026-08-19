@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -31,14 +32,21 @@ class LevelViewModel @Inject constructor(
 
     init {
         loadData()
+        
+        viewModelScope.launch {
+            getPlayerUseCase().collectLatest { player ->
+                _state.update {
+                    it.copy(player = player)
+                }
+            }
+        }
     }
 
-    fun loadData() {
+    private fun loadData() {
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true) }
             
             try {
-                val player = getPlayerUseCase()
                 val levels = getLevelsUseCase()
                 
                 val levelItems = levels.map { level ->
@@ -48,7 +56,6 @@ class LevelViewModel @Inject constructor(
                 
                 _state.update { 
                     it.copy(
-                        player = player,
                         levelItems = levelItems,
                         isLoading = false
                     ) 

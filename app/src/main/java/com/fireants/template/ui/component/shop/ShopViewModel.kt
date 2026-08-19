@@ -7,6 +7,7 @@ import com.fireants.template.data.model.shop.BagReward
 import com.fireants.template.data.model.shop.BagStatus
 import com.fireants.template.data.model.shop.ShopResult
 import com.fireants.template.data.model.shop.TicketStatus
+import com.fireants.template.domain.usecase.player.GetPlayerUseCase
 import com.fireants.template.domain.usecase.shop.*
 import com.fireants.template.ui.bases.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,6 +18,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,6 +26,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ShopViewModel @Inject constructor(
     private val getShopDataUseCase: GetShopDataUseCase,
+    private val getPlayerUseCase: GetPlayerUseCase,
     private val buyPaperUseCase: BuyPaperUseCase,
     private val selectPaperUseCase: SelectPaperUseCase,
     private val buyHintUseCase: BuyHintUseCase,
@@ -45,16 +48,24 @@ class ShopViewModel @Inject constructor(
 
     init {
         loadData()
+        
+        viewModelScope.launch {
+            getPlayerUseCase().collectLatest { player ->
+                _state.update {
+                    it.copy(player = player)
+                }
+                loadData()
+            }
+        }
     }
 
-    fun loadData() {
+    private fun loadData() {
         viewModelScope.launch {
-            val shopData = getShopDataUseCase()
+            val papers = getShopDataUseCase()
             val now = System.currentTimeMillis()
             _state.update {
                 it.copy(
-                    player = shopData.player,
-                    papers = shopData.papers,
+                    papers = papers,
                     bagStatus = getBagStatusUseCase(now),
                     ticketStatus = getTicketStatusUseCase(now)
                 )

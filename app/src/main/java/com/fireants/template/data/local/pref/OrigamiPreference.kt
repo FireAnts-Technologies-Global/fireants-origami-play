@@ -3,6 +3,9 @@ package com.fireants.template.data.local.pref
 import android.content.Context
 import com.fireants.template.data.model.game.LevelProgress
 import com.fireants.template.data.model.player.PlayerData
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.channels.awaitClose
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -17,6 +20,28 @@ class OrigamiPreference @Inject constructor(
         PreferenceKeys.PREF_NAME,
         Context.MODE_PRIVATE
     )
+
+    fun getPlayerFlow(initialHintCount: Int = 0): Flow<PlayerData> = callbackFlow {
+        val listener = android.content.SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
+            val relevantKeys = listOf(
+                PreferenceKeys.COINS, PreferenceKeys.STARS, PreferenceKeys.HINTS,
+                PreferenceKeys.TICKETS, PreferenceKeys.SELECTED_PAPER_ID, 
+                PreferenceKeys.UNLOCKED_PAPERS, PreferenceKeys.LAST_CLAIM_BAG, 
+                PreferenceKeys.LAST_CLAIM_TICKET
+            )
+            if (key in relevantKeys) {
+                trySend(getPlayer(initialHintCount))
+            }
+        }
+        
+        prefs.registerOnSharedPreferenceChangeListener(listener)
+        // Initial emit
+        trySend(getPlayer(initialHintCount))
+        
+        awaitClose {
+            prefs.unregisterOnSharedPreferenceChangeListener(listener)
+        }
+    }
 
     fun getPlayer(initialHintCount: Int = 0): PlayerData {
         val currentHints = if (prefs.contains(PreferenceKeys.HINTS)) {
