@@ -1,11 +1,13 @@
 package com.fireants.template.ui.component.level
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.fireants.template.R
 import com.fireants.template.databinding.ActivityLevelBinding
+import com.fireants.template.ui.component.game.GameActivity
 import com.fireants.template.ui.bases.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -21,7 +23,10 @@ class LevelActivity : BaseActivity<ActivityLevelBinding>() {
 
     override fun initViews() {
         levelAdapter = LevelAdapter { levelItem ->
-            Toast.makeText(this, "Clicked Level ${levelItem.level.levelNumber}", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this@LevelActivity, GameActivity::class.java).apply {
+                putExtra("LEVEL_ID", levelItem.level.id)
+            }
+            startActivity(intent)
         }
         
         mBinding.rvLevels.layoutManager = GridLayoutManager(this, 3)

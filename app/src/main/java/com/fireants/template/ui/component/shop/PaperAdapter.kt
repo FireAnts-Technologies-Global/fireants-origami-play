@@ -2,6 +2,7 @@ package com.fireants.template.ui.component.shop
 
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
+import com.bumptech.glide.Glide
 import com.fireants.template.R
 import com.fireants.template.data.model.game.PaperItem
 import com.fireants.template.databinding.ItemShopPaperBinding
@@ -17,6 +18,10 @@ class PaperAdapter(
     override fun setData(binding: ViewDataBinding, item: PaperItem, layoutPosition: Int) {
         if (binding is ItemShopPaperBinding) {
             binding.tvName.text = "Paper #${item.id}"
+            
+            Glide.with(binding.root.context)
+                .load("file:///android_asset/" + item.imagePreview)
+                .into(binding.ivPreview)
             
             when {
                 item.isSelected -> {
