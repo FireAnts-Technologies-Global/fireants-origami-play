@@ -1,5 +1,8 @@
 package com.fireants.template.data.model.origami
 
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
 data class ItemEntity(
     val id: Int,
     val categoryId: Int,

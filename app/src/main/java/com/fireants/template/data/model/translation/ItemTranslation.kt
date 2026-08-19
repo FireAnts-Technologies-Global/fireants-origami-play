@@ -1,5 +1,8 @@
 package com.fireants.template.data.model.translation
 
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
 data class ItemTranslation(
     val name: String,
     val en: String,

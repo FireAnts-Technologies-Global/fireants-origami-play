@@ -37,4 +37,20 @@ class GameRepositoryImpl @Inject constructor(
 
     override suspend fun getFoldHints(levelId: Int): List<AutoFoldStep> =
         assetDataSource.getFoldHints()[levelId.toString()].orEmpty()
+
+    override suspend fun getSelectedPaper(): PaperItem? {
+        return getPapers().firstOrNull { it.isSelected }
+    }
+
+    override suspend fun getLevelProgressList(): List<com.fireants.template.data.model.game.LevelProgress> {
+        return preference.getLevelProgressList()
+    }
+
+    override suspend fun getLevelProgress(levelId: Int): com.fireants.template.data.model.game.LevelProgress? {
+        return preference.getLevelProgress(levelId)
+    }
+
+    override suspend fun saveLevelProgress(progress: com.fireants.template.data.model.game.LevelProgress) {
+        preference.saveLevelProgress(progress)
+    }
 }

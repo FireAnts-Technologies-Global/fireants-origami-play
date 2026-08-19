@@ -1,5 +1,8 @@
 package com.fireants.template.data.model.game
 
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
 data class LevelEntity(
     val id: Int,
     val levelNumber: Int,

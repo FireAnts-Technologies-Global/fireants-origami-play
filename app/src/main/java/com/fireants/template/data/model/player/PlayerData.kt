@@ -1,5 +1,8 @@
 package com.fireants.template.data.model.player
 
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
 data class PlayerData(
     val coins: Int,
     val stars: Int,

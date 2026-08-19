@@ -1,5 +1,8 @@
 package com.fireants.template.data.model.kirigami
 
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
 data class KirigamiItemEntity(
     val id: Int,
     val categoryId: Int,

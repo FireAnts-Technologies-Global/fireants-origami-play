@@ -1,14 +1,17 @@
 package com.fireants.template.data.local.pref
 
 import android.content.Context
+import com.fireants.template.data.model.game.LevelProgress
 import com.fireants.template.data.model.player.PlayerData
+import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class OrigamiPreference @Inject constructor(
-    @ApplicationContext context: Context
+    @ApplicationContext context: Context,
+    private val moshi: Moshi
 ) {
     private val prefs = context.getSharedPreferences(
         PreferenceKeys.PREF_NAME,
@@ -93,5 +96,44 @@ class OrigamiPreference @Inject constructor(
 
     private fun putLong(key: String, value: Long) {
         prefs.edit().putLong(key, value).apply()
+    }
+
+    private val levelProgressAdapter by lazy {
+        moshi.adapter<List<LevelProgress>>(
+            com.squareup.moshi.Types.newParameterizedType(List::class.java, LevelProgress::class.java)
+        )
+    }
+
+    fun getLevelProgressList(): List<LevelProgress> {
+        val json = prefs.getString(PreferenceKeys.LEVEL_PROGRESS, null) ?: return emptyList()
+        return try {
+            levelProgressAdapter.fromJson(json).orEmpty()
+        } catch (e: Exception) {
+            emptyList()
+        }
+    }
+
+    fun getLevelProgress(levelId: Int): LevelProgress? {
+        return getLevelProgressList().firstOrNull { it.levelId == levelId }
+    }
+
+    fun saveLevelProgress(progress: LevelProgress) {
+        val currentList = getLevelProgressList().toMutableList()
+        val index = currentList.indexOfFirst { it.levelId == progress.levelId }
+        if (index != -1) {
+            currentList[index] = progress
+        } else {
+            currentList.add(progress)
+        }
+        saveAllLevelProgress(currentList)
+    }
+
+    fun saveAllLevelProgress(list: List<LevelProgress>) {
+        val json = levelProgressAdapter.toJson(list)
+        prefs.edit().putString(PreferenceKeys.LEVEL_PROGRESS, json).apply()
+    }
+
+    fun clearLevelProgress() {
+        prefs.edit().remove(PreferenceKeys.LEVEL_PROGRESS).apply()
     }
 }
