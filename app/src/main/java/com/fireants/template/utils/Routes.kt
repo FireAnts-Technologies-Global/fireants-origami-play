@@ -4,12 +4,17 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import com.fireants.template.app.AppConstants
+import com.fireants.template.ui.component.game.GameActivity
+import com.fireants.template.ui.component.kirigami.KirigamiActivity
 import com.fireants.template.ui.component.language.LanguageActivity
+import com.fireants.template.ui.component.level.LevelActivity
 import com.fireants.template.ui.component.main.MainActivity
 import com.fireants.template.ui.component.onboarding.OnBoardingActivity
+import com.fireants.template.ui.component.origami.OrigamiActivity
+import com.fireants.template.ui.component.origami3d.Origami3DActivity
 import com.fireants.template.ui.component.setting.SettingActivity
+import com.fireants.template.ui.component.shop.ShopActivity
 import com.fireants.template.ui.component.splash.SplashActivity
-import com.fireants.template.ui.component.uninstall.SurveyActivity
 import com.fireants.template.ui.component.welcome.WelcomeActivity
 
 object Routes {
@@ -17,7 +22,42 @@ object Routes {
         Intent(fromActivity, MainActivity::class.java).apply {
             putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
             fromActivity.startActivity(this)
-            fromActivity.applyOpenTransition()
+        }
+
+    fun startGameActivity(fromActivity: Activity) =
+        Intent(fromActivity, GameActivity::class.java).apply {
+            putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
+            fromActivity.startActivity(this)
+        }
+
+    fun startShopActivity(fromActivity: Activity) =
+        Intent(fromActivity, ShopActivity::class.java).apply {
+            putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
+            fromActivity.startActivity(this)
+        }
+
+    fun startLevelActivity(fromActivity: Activity) =
+        Intent(fromActivity, LevelActivity::class.java).apply {
+            putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
+            fromActivity.startActivity(this)
+        }
+
+    fun startKirigamiActivity(fromActivity: Activity) =
+        Intent(fromActivity, KirigamiActivity::class.java).apply {
+            putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
+            fromActivity.startActivity(this)
+        }
+
+    fun startOrigamiActivity(fromActivity: Activity) =
+        Intent(fromActivity, OrigamiActivity::class.java).apply {
+            putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
+            fromActivity.startActivity(this)
+        }
+
+    fun startOrigami3DActivity(fromActivity: Activity) =
+        Intent(fromActivity, Origami3DActivity::class.java).apply {
+            putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
+            fromActivity.startActivity(this)
         }
 
     fun startWelcomeActivity(fromActivity: Activity) {
@@ -30,7 +70,6 @@ object Routes {
         Intent(fromActivity, OnBoardingActivity::class.java).apply {
             putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
             fromActivity.startActivity(this)
-            fromActivity.applyOpenTransition()
         }
 
     fun startLanguageActivity(fromActivity: Activity, bundle: Bundle?) =
@@ -38,7 +77,6 @@ object Routes {
             putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
             bundle?.let { putExtras(it) }
             fromActivity.startActivity(this)
-            fromActivity.applyOpenTransition()
         }
 
     fun startSplashActivity(fromActivity: Activity) =
@@ -47,31 +85,15 @@ object Routes {
             fromActivity.startActivity(this)
         }
 
-    fun startSurveyActivity(fromActivity: Activity) =
-        Intent(fromActivity, SurveyActivity::class.java).apply {
-            putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
-            fromActivity.startActivity(this)
-            fromActivity.applyOpenTransition()
-        }
 
     fun startSettingActivity(fromActivity: Activity) =
         Intent(fromActivity, SettingActivity::class.java).apply {
             putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
             fromActivity.startActivity(this)
-            fromActivity.applyOpenTransition()
         }
 
     fun addTrackingMoveScreen(fromActivity: String, toActivity: String) {
         FireAntsTrackingHelper.fromScreenToScreen(fromActivity, toActivity)
     }
 
-}
-
-fun Activity.applyOpenTransition() {
-//    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-//        overrideActivityTransition(Activity.OVERRIDE_TRANSITION_OPEN, R.anim.slide_in_right, R.anim.slide_out_left)
-//    } else {
-//        @Suppress("DEPRECATION")
-//        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-//    }
 }

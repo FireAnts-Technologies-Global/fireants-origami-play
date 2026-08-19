@@ -1,46 +1,22 @@
 package com.fireants.template.ui.component.main
 
-import android.app.Dialog
-import android.graphics.Color
-import android.graphics.Typeface
-import android.graphics.drawable.GradientDrawable
 import android.os.Handler
 import android.os.Looper
-import android.view.Gravity
-import android.view.View
-import android.widget.LinearLayout
-import android.widget.TextView
-import com.fireants.adsdk.admob.AppOpenManager
-import com.fireants.adsdk.ads.FireAntsAdSdk
-import com.fireants.adsdk.ads.wrapper.ApNativeAd
-import com.fireants.devconfig.dialog.DialogAdminOrganicAds
 import com.fireants.template.BuildConfig
 import com.fireants.template.R
 import com.fireants.template.ads.AdRemoteConfig
-import com.fireants.template.ads.AdsManager
 import com.fireants.template.ads.RemoteConfigUtils
 import com.fireants.template.ads.banner_home
-import com.fireants.template.ads.inter_welcome
-import com.fireants.template.ads.native_welcome
-import com.fireants.template.ads.open_resume
-import com.fireants.template.ads.populateNativeAdView
-import com.fireants.template.app.ResumeAdsEntryMode
-import com.fireants.template.app.ResumeAdsEntryRule
 import com.fireants.template.data.model.ForceUpdateConfig
 import com.fireants.template.databinding.ActivityMainBinding
 import com.fireants.template.ui.bases.BannerConfig
 import com.fireants.template.ui.bases.BaseActivityWithBanner
 import com.fireants.template.ui.bases.ConsentHandler
 import com.fireants.template.ui.bases.ext.click
-import com.fireants.template.ui.bases.ext.goneView
-import com.fireants.template.ui.bases.ext.visibleView
 import com.fireants.template.ui.component.main.dialog.ForceUpdateDialog
 import com.fireants.template.ui.component.main.dialog.NoInternetDialog
 import com.fireants.template.utils.ConnectionLiveData
-import com.fireants.template.utils.FireAntsTrackingHelper
 import com.fireants.template.utils.Routes
-import com.hjq.permissions.dsl.xxPermissions
-import com.hjq.permissions.permission.PermissionLists
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -127,5 +103,24 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
         }
         noInternetDialog.dismiss()
         forceUpdateDialog.dismiss()
+    }
+
+    override fun onClickViews() {
+        super.onClickViews()
+        mBinding.btnGameMode.click {
+            Routes.startGameActivity(this)
+        }
+
+        mBinding.btnKirigami.click {
+            Routes.startKirigamiActivity(this)
+        }
+
+        mBinding.btnOrigamiMode.click {
+            Routes.startOrigamiActivity(this)
+        }
+
+        mBinding.btn3DOrigami.click {
+            Routes.startOrigami3DActivity(this)
+        }
     }
 }

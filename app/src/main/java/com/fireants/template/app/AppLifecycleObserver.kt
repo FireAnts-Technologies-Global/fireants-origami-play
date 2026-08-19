@@ -8,7 +8,6 @@ import com.fireants.adsdk.billing.AppPurchase
 import com.fireants.template.ui.component.language.LanguageActivity
 import com.fireants.template.ui.component.onboarding.OnBoardingActivity
 import com.fireants.template.ui.component.splash.SplashActivity
-import com.fireants.template.ui.component.uninstall.SurveyActivity
 import com.fireants.template.ui.component.welcome.WelcomeActivity
 import com.fireants.template.utils.Routes
 
@@ -19,7 +18,6 @@ class AppLifecycleObserver : DefaultLifecycleObserver {
         LanguageActivity::class.java,
         OnBoardingActivity::class.java,
         WelcomeActivity::class.java,
-        SurveyActivity::class.java,
     )
 
     override fun onStart(owner: LifecycleOwner) {

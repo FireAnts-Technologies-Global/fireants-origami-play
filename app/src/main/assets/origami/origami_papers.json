@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "textureRes": "#F0EFEC",
+    "imagePreview": "images/paper/paper_texture_white.webp",
+    "isUnlocked": true,
+    "isSelected": true
+  },
+  {
+    "id": 2,
+    "textureRes": "#F2ACBF",
+    "imagePreview": "images/paper/paper_texture_pink.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 3,
+    "textureRes": "#F85006",
+    "imagePreview": "images/paper/paper_texture_orange_splash.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 4,
+    "textureRes": "#F0E3A6",
+    "imagePreview": "images/paper/paper_texture_beige.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 5,
+    "textureRes": "#C3E0C0",
+    "imagePreview": "images/paper/paper_texture_sage_green.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 6,
+    "textureRes": "#F5B107",
+    "imagePreview": "images/paper/paper_texture_yellow.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 7,
+    "textureRes": "#72CC6C",
+    "imagePreview": "images/paper/paper_texture_green.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 8,
+    "textureRes": "#9FD3E6",
+    "imagePreview": "images/paper/paper_texture_sky_blue.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 9,
+    "textureRes": "#08C2E9",
+    "imagePreview": "images/paper/paper_texture_cyan.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 10,
+    "imagePreview": "images/paper/paper_texture_kraft.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 11,
+    "imagePreview": "images/paper/paper_texture_paper_texture_grid.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 12,
+    "imagePreview": "images/paper/paper_texture_noice.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  }
+]

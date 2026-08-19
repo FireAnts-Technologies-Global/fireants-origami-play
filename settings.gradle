@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "fireants-base"
+rootProject.name = "fireants-origami-play"
