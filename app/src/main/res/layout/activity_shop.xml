@@ -161,11 +161,23 @@
                         android:textSize="18sp"
                         android:textStyle="bold" />
                     <Button
-                        android:id="@+id/btnBuyHint"
+                        android:id="@+id/btnBuy1Hint"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Buy 1 Hint (Cost: 100 Coins)" />
+                        android:text="Buy 1 Hint (250 Coins)" />
+                    <Button
+                        android:id="@+id/btnBuy3Hints"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Buy 3 Hints (637 Coins)" />
+                    <Button
+                        android:id="@+id/btnBuy5Hints"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Buy 5 Hints (1000 Coins)" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

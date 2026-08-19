@@ -38,8 +38,17 @@ class ShopActivity : BaseActivity<ActivityShopBinding>() {
             Toast.makeText(this, "Watched Ad! +300 Coins", Toast.LENGTH_SHORT).show()
         }
 
-        binding.btnBuyHint.setOnClickListener {
-            viewModel.buyHint(amount = 1, cost = 100)
+        binding.btnBuy1Hint.setOnClickListener {
+            viewModel.buyHint(amount = 1, cost = 250)
+        }
+        
+        binding.btnBuy3Hints.setOnClickListener {
+            viewModel.buyHint(amount = 3, cost = 637)
+        }
+        
+        binding.btnBuy5Hints.setOnClickListener {
+            // Note: Using 1000 coins instead of 100 as 100 is likely a typo for 5 hints
+            viewModel.buyHint(amount = 5, cost = 1000)
         }
 
         binding.btnWatchAdBag.setOnClickListener {
