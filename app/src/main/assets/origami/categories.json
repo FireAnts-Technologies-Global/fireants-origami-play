@@ -1,0 +1,80 @@
+[
+  {
+    "id": 0,
+    "name": "all",
+    "image": "images/category/all.webp",
+    "order": 0
+  },
+  {
+    "id": 10,
+    "name": "ninja",
+    "image": "images/category/ninja.webp",
+    "order": 1
+  },
+  {
+    "id": 12,
+    "name": "festival",
+    "image": "images/category/festival.webp",
+    "order": 2
+  },
+  {
+    "id": 9,
+    "name": "gun",
+    "image": "images/category/gun.webp",
+    "order": 3
+  },
+  {
+    "id": 1,
+    "name": "animal",
+    "image": "images/category/animal.webp",
+    "order": 4
+  },
+  {
+    "id": 2,
+    "name": "flower",
+    "image": "images/category/flower.webp",
+    "order": 5
+  },
+  {
+    "id": 3,
+    "name": "objects",
+    "image": "images/category/objects.webp",
+    "order": 6
+  },
+  {
+    "id": 4,
+    "name": "toy",
+    "image": "images/category/toy.webp",
+    "order": 7
+  },
+  {
+    "id": 5,
+    "name": "fruit",
+    "image": "images/category/fruit.webp",
+    "order": 8
+  },
+  {
+    "id": 6,
+    "name": "weapons",
+    "image": "images/category/weapons.webp",
+    "order": 9
+  },
+  {
+    "id": 7,
+    "name": "vehicle",
+    "image": "images/category/vehicle.webp",
+    "order": 10
+  },
+  {
+    "id": 8,
+    "name": "handicrafts",
+    "image": "images/category/insects.webp",
+    "order": 11
+  },
+  {
+    "id": 11,
+    "name": "dinosaur",
+    "image": "images/category/dinosaur.webp",
+    "order": 12
+  }
+]

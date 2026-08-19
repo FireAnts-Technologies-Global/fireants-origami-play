@@ -275,11 +275,11 @@ object AdsManager {
         ) {
             FireAntsAdSdk.getInstance()
                 .forceShowInterstitial(context, interstitial, object : AdCallback() {
-                override fun onNextAction() {
-                    super.onNextAction()
-                    onAction()
-                }
-            }, false)
+                    override fun onNextAction() {
+                        super.onNextAction()
+                        onAction()
+                    }
+                }, false)
         } else {
             onAction()
         }

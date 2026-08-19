@@ -26,16 +26,17 @@
                 android:src="@drawable/ic_arrow_right"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
-                android:text="Select a language"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_13sdp"
+                android:text="Select a language"
                 android:textColor="#000000"
                 android:textSize="@dimen/_15sdp"
-                app:layout_constraintStart_toEndOf="@id/imgBack"
                 android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/imgBack"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
@@ -47,9 +48,9 @@
                 android:background="@drawable/bg_done_selector"
                 android:fontFamily="@font/bold"
                 android:paddingHorizontal="@dimen/_12sdp"
-                android:textAllCaps="true"
                 android:paddingVertical="@dimen/_5sdp"
                 android:text="Next"
+                android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_11sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvTitle"

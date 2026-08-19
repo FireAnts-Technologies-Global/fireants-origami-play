@@ -2,8 +2,7 @@
 <data-extraction-rules>
 
     <!-- ===== CLOUD BACKUP (Google Drive) ===== -->
-    <cloud-backup
-        disableIfNoEncryptionCapabilities="true">
+    <cloud-backup disableIfNoEncryptionCapabilities="true">
 
         <!-- INCLUDE -->
         <include

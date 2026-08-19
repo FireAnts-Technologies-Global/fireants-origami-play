@@ -18,8 +18,8 @@
             android:id="@+id/ad_media"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
             android:paddingBottom="@dimen/_8sdp" />
 
         <!-- Block 1: Icon & Headline Group -->
@@ -37,9 +37,9 @@
                 android:adjustViewBounds="true"
                 android:contentDescription="@null"
                 android:src="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/ad_icon"

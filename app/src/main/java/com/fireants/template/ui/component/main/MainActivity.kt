@@ -42,6 +42,7 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
         checkConsentStatus()
         maybeShowForceUpdateDialog()
     }
+
     private fun initConsentHandler() {
         consentHandler = ConsentHandler(
             activity = this,
@@ -59,11 +60,13 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
             }
         )
     }
+
     private fun checkConsentStatus() {
         if (appSharedPref.isConfirmConsent.not() && appSharedPref.isUserGlobal.not()) {
             delayShowConsentDialog()
         }
     }
+
     private fun delayShowConsentDialog() {
         if (!RemoteConfigUtils.getOnShowDialogConsent()) {
             return
@@ -73,6 +76,7 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
         }
         delayHandler.postDelayed(delayRunnable!!, 5000L)
     }
+
     private fun checkInternet() {
         ConnectionLiveData(this).observe(this) { isNetwork ->
             if (isNetwork) {
@@ -84,6 +88,7 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
             }
         }
     }
+
     private fun maybeShowForceUpdateDialog() {
         val config = RemoteConfigUtils.getForceUpdateConfig() ?: return
         if (config.storeLink.isBlank()) return
@@ -93,6 +98,7 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
             forceUpdateDialog.show(config)
         }
     }
+
     override fun onDestroy() {
         super.onDestroy()
         if (::consentHandler.isInitialized) {

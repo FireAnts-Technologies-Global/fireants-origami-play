@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "categoryId": 1,
+    "name": "goose_3d",
+    "image": "images/3d/goose_3d_30.webp",
+    "hasVideo": true,
+    "showReward": true,
+    "order": 1
+  },
+  {
+    "id": 2,
+    "categoryId": 1,
+    "name": "naruto_3d",
+    "image": "images/3d/naruto_3d_20.webp",
+    "hasVideo": true,
+    "showReward": true,
+    "order": 2
+  },
+  {
+    "id": 3,
+    "categoryId": 1,
+    "name": "dragon_3d",
+    "image": "images/3d/dragon_3d_22.webp",
+    "hasVideo": true,
+    "showReward": true,
+    "order": 3
+  },
+  {
+    "id": 4,
+    "categoryId": 1,
+    "name": "spider_3d",
+    "image": "images/3d/spider_3d_20.webp",
+    "hasVideo": true,
+    "showReward": true,
+    "order": 4
+  },
+  {
+    "id": 5,
+    "categoryId": 1,
+    "name": "kimono_3d",
+    "image": "images/3d/kimono_3d_23.webp",
+    "hasVideo": true,
+    "showReward": true,
+    "order": 5
+  },
+  {
+    "id": 6,
+    "categoryId": 1,
+    "name": "peacock_3d",
+    "image": "images/3d/peacock_3d_30.webp",
+    "hasVideo": true,
+    "showReward": true,
+    "order": 6
+  },
+  {
+    "id": 7,
+    "categoryId": 1,
+    "name": "pokeball_3d",
+    "image": "images/3d/pokeball_3d_20.webp",
+    "hasVideo": true,
+    "showReward": true,
+    "order": 7
+  }
+]

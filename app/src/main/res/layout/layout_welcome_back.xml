@@ -7,8 +7,8 @@
     <eightbitlab.com.blurview.BlurTarget
         android:id="@+id/blurTarget"
         android:layout_width="match_parent"
-        app:blurOverlayColor="@color/gntGray"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:blurOverlayColor="@color/gntGray">
 
         <ImageView
             android:id="@+id/blurSourceImage"

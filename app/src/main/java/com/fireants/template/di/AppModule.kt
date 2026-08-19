@@ -25,4 +25,11 @@ class AppModule {
         @ApplicationContext context: Context
     ): AppSharedPref = AppSharedPreferencesApp(context)
 
+    @Singleton
+    @Provides
+    fun provideMoshi(): com.squareup.moshi.Moshi {
+        return com.squareup.moshi.Moshi.Builder()
+            .addLast(com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory())
+            .build()
+    }
 }

@@ -24,29 +24,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="2"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:layout_marginBottom="@dimen/_5sdp"
+            app:layout_constraintBottom_toTopOf="@id/tv_sub_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/tv_sub_title"  />
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
             android:id="@+id/tv_sub_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_22sdp"
             android:ellipsize="end"
             android:gravity="center_horizontal"
             android:maxLines="2"
             android:textColor="@color/white"
             android:textSize="14sp"
-            android:layout_marginBottom="@dimen/_22sdp"
+            app:layout_constraintBottom_toTopOf="@id/ll_circle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/ll_circle"  />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <LinearLayout
             android:id="@+id/ll_circle"
@@ -55,7 +56,7 @@
             android:layout_marginHorizontal="@dimen/_16sdp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@id/fr_ads" >
+            app:layout_constraintBottom_toTopOf="@id/fr_ads">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/view_1"
@@ -94,14 +95,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
                 android:background="@drawable/bg_white_corner_100"
-                android:text="@string/next"
-                android:textColor="@color/black"
+                android:gravity="center_vertical"
                 android:paddingHorizontal="@dimen/_15sdp"
                 android:paddingTop="6dp"
                 android:paddingBottom="7dp"
-                android:textSize="14sp"/>
+                android:text="@string/next"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -112,7 +113,8 @@
             android:orientation="vertical"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent">
-            <include
+
+        <include
                 android:id="@+id/shimmer_ads"
                 layout="@layout/layout_shimmer_native_large" />
         </FrameLayout>

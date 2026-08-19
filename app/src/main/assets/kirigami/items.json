@@ -1,0 +1,299 @@
+[
+  {
+    "id": 1,
+    "categoryId": 1,
+    "name": "sapphire_crystal",
+    "image": "images/kirigami/sapphire_crystal_7.webp",
+    "order": 1
+  },
+  {
+    "id": 2,
+    "categoryId": 1,
+    "name": "classic_ice_crystal",
+    "image": "images/kirigami/classic_ice_crystal_9.webp",
+    "order": 2
+  },
+  {
+    "id": 3,
+    "categoryId": 1,
+    "name": "mystic_purple_frost",
+    "image": "images/kirigami/mystic_purple_frost_12.webp",
+    "showReward": true,
+    "order": 3
+  },
+  {
+    "id": 4,
+    "categoryId": 1,
+    "name": "pink_quartz_snowflake",
+    "image": "images/kirigami/pink_quartz_snowflake_9.webp",
+    "order": 4
+  },
+  {
+    "id": 36,
+    "categoryId": 1,
+    "name": "crystal",
+    "image": "images/kirigami/crystal_7.webp",
+    "showReward": true,
+    "order": 5
+  },
+  {
+    "id": 37,
+    "categoryId": 1,
+    "name": "snowflower",
+    "image": "images/kirigami/snowflower_7.webp",
+    "showReward": true,
+    "order": 6
+  },
+  {
+    "id": 5,
+    "categoryId": 5,
+    "name": "handheld_origami_pine",
+    "image": "images/kirigami/handheld_origami_pine_18.webp",
+    "order": 7
+  },
+  {
+    "id": 6,
+    "categoryId": 2,
+    "name": "heart",
+    "image": "images/kirigami/heart_7.webp",
+    "showReward": true,
+    "order": 8
+  },
+  {
+    "id": 7,
+    "categoryId": 2,
+    "name": "heart_to_heart",
+    "image": "images/kirigami/heart_to_heart_5.webp",
+    "showReward": true,
+    "order": 9
+  },
+  {
+    "id": 8,
+    "categoryId": 2,
+    "name": "heart_flower",
+    "image": "images/kirigami/heart_flower_5.webp",
+    "showReward": true,
+    "order": 10
+  },
+  {
+    "id": 9,
+    "categoryId": 2,
+    "name": "pop_heart",
+    "image": "images/kirigami/pop_heart_5.webp",
+    "showReward": true,
+    "order": 11
+  },
+  {
+    "id": 10,
+    "categoryId": 3,
+    "name": "plum_blossom",
+    "image": "images/kirigami/plum_blossom_9.webp",
+    "order": 12
+  },
+  {
+    "id": 11,
+    "categoryId": 3,
+    "name": "sakura",
+    "image": "images/kirigami/sakura_9.webp",
+    "order": 13
+  },
+  {
+    "id": 12,
+    "categoryId": 3,
+    "name": "fancy_blossom",
+    "image": "images/kirigami/fancy_blossom_9.webp",
+    "showReward": true,
+    "order": 14
+  },
+  {
+    "id": 13,
+    "categoryId": 3,
+    "name": "double_sakura",
+    "image": "images/kirigami/double_sakura_9.webp",
+    "showReward": true,
+    "order": 15
+  },
+  {
+    "id": 14,
+    "categoryId": 3,
+    "name": "tulips",
+    "image": "images/kirigami/tulips_9.webp",
+    "showReward": true,
+    "order": 16
+  },
+  {
+    "id": 15,
+    "categoryId": 3,
+    "name": "four_petal_flower",
+    "image": "images/kirigami/four_petal_flower_5.webp",
+    "showReward": true,
+    "order": 17
+  },
+  {
+    "id": 16,
+    "categoryId": 3,
+    "name": "stylized_lotus",
+    "image": "images/kirigami/stylized_lotus_7.webp",
+    "showReward": true,
+    "order": 18
+  },
+  {
+    "id": 17,
+    "categoryId": 3,
+    "name": "camellia",
+    "image": "images/kirigami/camellia_9.webp",
+    "order": 19
+  },
+  {
+    "id": 18,
+    "categoryId": 3,
+    "name": "peacock_flower",
+    "image": "images/kirigami/peacock_flower_7.webp",
+    "order": 20
+  },
+  {
+    "id": 38,
+    "categoryId": 3,
+    "name": "fiddleheads",
+    "image": "images/kirigami/fiddleheads_7.webp",
+    "showReward": true,
+    "order": 21
+  },
+  {
+    "id": 19,
+    "categoryId": 4,
+    "name": "butterfly",
+    "image": "images/kirigami/butterfly_9.webp",
+    "showReward": true,
+    "order": 22
+  },
+  {
+    "id": 20,
+    "categoryId": 4,
+    "name": "bird",
+    "image": "images/kirigami/bird_7.webp",
+    "order": 23
+  },
+  {
+    "id": 21,
+    "categoryId": 4,
+    "name": "cats",
+    "image": "images/kirigami/cats_7.webp",
+    "showReward": true,
+    "order": 24
+  },
+  {
+    "id": 22,
+    "categoryId": 4,
+    "name": "bat",
+    "image": "images/kirigami/bat_7.webp",
+    "showReward": true,
+    "order": 25
+  },
+  {
+    "id": 23,
+    "categoryId": 5,
+    "name": "umbrellas",
+    "image": "images/kirigami/umbrellas_9.webp",
+    "showReward": true,
+    "order": 26
+  },
+  {
+    "id": 24,
+    "categoryId": 5,
+    "name": "tribal_sun",
+    "image": "images/kirigami/tribal_sun_5.webp",
+    "order": 27
+  },
+  {
+    "id": 25,
+    "categoryId": 5,
+    "name": "arrows",
+    "image": "images/kirigami/arrows_5.webp",
+    "order": 28
+  },
+  {
+    "id": 26,
+    "categoryId": 5,
+    "name": "circle_of_friends",
+    "image": "images/kirigami/circle_of_friends_7.webp",
+    "showReward": true,
+    "order": 29
+  },
+  {
+    "id": 27,
+    "categoryId": 5,
+    "name": "angels",
+    "image": "images/kirigami/angels_7.webp",
+    "order": 30
+  },
+  {
+    "id": 28,
+    "categoryId": 5,
+    "name": "easter_eggs",
+    "image": "images/kirigami/easter_eggs_7.webp",
+    "showReward": true,
+    "order": 31
+  },
+  {
+    "id": 29,
+    "categoryId": 5,
+    "name": "pineapples",
+    "image": "images/kirigami/pineapples_5.webp",
+    "showReward": true,
+    "order": 32
+  },
+  {
+    "id": 30,
+    "categoryId": 5,
+    "name": "lucky_horseshoes",
+    "image": "images/kirigami/lucky_horseshoes_7.webp",
+    "showReward": true,
+    "order": 33
+  },
+  {
+    "id": 39,
+    "categoryId": 5,
+    "name": "starburst",
+    "image": "images/kirigami/starburst_9.webp",
+    "showReward": true,
+    "order": 34
+  },
+  {
+    "id": 31,
+    "categoryId": 6,
+    "name": "geometric",
+    "image": "images/kirigami/geometric_5.webp",
+    "order": 35
+  },
+  {
+    "id": 32,
+    "categoryId": 6,
+    "name": "bubbles",
+    "image": "images/kirigami/bubbles_7.webp",
+    "showReward": true,
+    "order": 36
+  },
+  {
+    "id": 33,
+    "categoryId": 6,
+    "name": "star",
+    "image": "images/kirigami/star_9.webp",
+    "order": 37
+  },
+  {
+    "id": 34,
+    "categoryId": 6,
+    "name": "directions",
+    "image": "images/kirigami/directions_5.webp",
+    "order": 38
+  },
+  {
+    "id": 35,
+    "categoryId": 6,
+    "name": "curves",
+    "image": "images/kirigami/curves_5.webp",
+    "showReward": true,
+    "order": 39
+  }
+]
