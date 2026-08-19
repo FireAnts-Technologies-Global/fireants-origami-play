@@ -8,6 +8,7 @@ import com.fireants.template.R
 import com.fireants.template.databinding.ActivityShopBinding
 import com.fireants.template.ui.bases.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -20,15 +21,31 @@ class ShopActivity : BaseActivity<ActivityShopBinding>() {
         return R.layout.activity_shop
     }
 
+    private lateinit var paperAdapter: PaperAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
+        setupRecyclerView()
         setupClickListeners()
         observeState()
         observeEvents()
+    }
+
+    private fun setupRecyclerView() {
+        paperAdapter = PaperAdapter(
+            onBuyClick = { paper ->
+                viewModel.buyPaper(paper.id)
+            },
+            onSelectClick = { paper ->
+                viewModel.selectPaper(paper.id)
+            }
+        )
+        binding.rvPapers.layoutManager = GridLayoutManager(this, 3)
+        binding.rvPapers.adapter = paperAdapter
     }
 
     private fun setupClickListeners() {
@@ -67,15 +84,7 @@ class ShopActivity : BaseActivity<ActivityShopBinding>() {
             viewModel.claimDailyBag()
         }
 
-        binding.btnBuyPaper.setOnClickListener {
-            // Mock picking a random locked paper to buy (Normally selected from a list)
-            val lockedPapers = viewModel.state.value.papers.filter { !it.isUnlocked }
-            if (lockedPapers.isNotEmpty()) {
-                viewModel.buyPaper(lockedPapers.random().id)
-            } else {
-                Toast.makeText(this, "All papers are unlocked!", Toast.LENGTH_SHORT).show()
-            }
-        }
+
     }
 
     private fun observeState() {
@@ -87,6 +96,8 @@ class ShopActivity : BaseActivity<ActivityShopBinding>() {
                     binding.tvHints.text = "Hints: ${player.hints}"
                     binding.tvTickets.text = "Tickets: ${player.tickets}"
                 }
+                
+                paperAdapter.submitList(state.papers)
                 
                 // Update free bag button state
                 state.bagStatus?.let { status ->
