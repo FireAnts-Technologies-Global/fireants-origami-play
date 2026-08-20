@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.fireants.template.ui.component.custom.GlowBackgroundView
         android:id="@+id/glowBackground"
@@ -12,10 +14,26 @@
 
             <include
                 android:id="@+id/toolBar"
-                layout="@layout/layout_toolbar" />
+                layout="@layout/layout_toolbar"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_48sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
+            <include
+                android:id="@+id/searchBar"
+                layout="@layout/layout_search"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolBar"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.fireants.template.ui.component.custom.GlowBackgroundView>
+
 </layout>
