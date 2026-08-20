@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F4F2FD"
-        android:orientation="vertical">
-
+        android:background="#F4F2FD">
         <RelativeLayout
+            android:id="@+id/toolBar"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_marginTop="@dimen/_8sdp"
-            android:paddingHorizontal="@dimen/_12sdp"
-            app:layout_constraintTop_toTopOf="parent">
+            android:paddingHorizontal="@dimen/_12sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
+                android:gravity="center_vertical"
                 android:layout_centerVertical="true"
                 android:layout_toStartOf="@id/imgSetting"
                 android:orientation="vertical">
@@ -26,18 +27,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/medium"
+                    android:fontFamily="sans-serif"
                     android:text="@string/welcome_back"
                     android:textColor="#6E629B"
-                    android:textSize="@dimen/_11sdp" />
+                    android:textSize="11sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/bold"
+                    android:fontFamily="sans-serif-medium"
                     android:text="@string/origami_master"
                     android:textColor="#1F0E5A"
-                    android:textSize="@dimen/_17sdp" />
+                    android:textSize="17sp" />
             </LinearLayout>
 
             <ImageView
@@ -48,61 +49,222 @@
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_setting" />
         </RelativeLayout>
-        <LinearLayout
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="center"
-            android:orientation="vertical"
+            android:fillViewport="true"
             app:layout_constraintBottom_toTopOf="@id/fr_banner"
-            app:layout_constraintTop_toTopOf="parent">
-            <Button
-                android:id="@+id/btnShop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Shop"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-            <Button
-                android:id="@+id/btnOrigamiMode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Origami Mode"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/toolBar">
 
-            <Button
-                android:id="@+id/btn3DOrigami"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="3D Origami Mode"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/_12sdp">
 
-            <Button
-                android:id="@+id/btnKirigami"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kirigami Mode"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/btnGameMode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Game Mode"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vpBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_17sdp"
+                    android:fontFamily="@font/semi_bold"
+                    android:text="@string/explore_modes"
+                    android:textColor="@color/color_1F0E5A"
+                    android:textSize="@dimen/_13sdp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <LinearLayout
+                        android:id="@+id/btnOrigamiMode"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_64sdp"
+                            android:layout_height="@dimen/_64sdp"
+                            android:src="@drawable/img_origami" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:fontFamily="@font/semi_bold"
+                            android:text="@string/origami"
+                            android:textColor="#1F0E5A"
+                            android:textSize="@dimen/_10sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btn3DOrigami"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_64sdp"
+                            android:layout_height="@dimen/_64sdp"
+                            android:src="@drawable/img_3d" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:fontFamily="@font/semi_bold"
+                            android:text="@string/mode_3d"
+                            android:textColor="#1F0E5A"
+                            android:textSize="@dimen/_10sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnKirigami"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_64sdp"
+                            android:layout_height="@dimen/_64sdp"
+                            android:src="@drawable/img_kirigami" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:fontFamily="@font/semi_bold"
+                            android:text="@string/kirigami"
+                            android:textColor="#1F0E5A"
+                            android:textSize="@dimen/_10sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnGameMode"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_64sdp"
+                            android:layout_height="@dimen/_64sdp"
+                            android:src="@drawable/img_game" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:fontFamily="@font/semi_bold"
+                            android:text="@string/mode_game"
+                            android:textColor="#1F0E5A"
+                            android:textSize="@dimen/_10sdp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_16sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/semi_bold"
+                        android:text="@string/recommended_for_you"
+                        android:textColor="@color/color_1F0E5A"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <TextView
+                        android:id="@+id/tvSeeAllRecommend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:drawableEnd="@drawable/ic_arrow_left"
+                        android:drawablePadding="4dp"
+                        android:fontFamily="@font/regular"
+                        android:text="@string/see_all"
+                        android:textColor="#6E629B"
+                        android:textSize="@dimen/_11sdp" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvRecommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_16sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/semi_bold"
+                        android:text="@string/hot"
+                        android:textColor="@color/color_1F0E5A"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <TextView
+                        android:id="@+id/tvSeeAllHot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:drawableEnd="@drawable/ic_arrow_left"
+                        android:drawablePadding="4dp"
+                        android:fontFamily="@font/regular"
+                        android:text="@string/see_all"
+                        android:textColor="#6E629B"
+                        android:textSize="@dimen/_11sdp" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvHot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
         <FrameLayout
             android:id="@+id/fr_banner"

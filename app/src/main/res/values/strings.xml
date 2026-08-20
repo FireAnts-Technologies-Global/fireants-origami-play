@@ -36,6 +36,7 @@
     <string name="survey_3">I don’t need it</string>
     <string name="survey_4">Other</string>
     <string name="loading_label">Loading</string>
+    <string name="loading">Please wait a moment</string>
     <string name="no_internet_title">No Internet Connection</string>
     <string name="no_internet_message">Please check your network settings to continue using the app.</string>
     <string name="open_settings">Open Settings</string>
@@ -65,4 +66,13 @@
     <string name="kirigami" translatable="false">Kirigami</string>
     <string name="origami_3d" translatable="false">3D Origami</string>
     <string name="origami" translatable="false">Origami</string>
+    <string name="processing">Processing</string>
+    <string name="daily_challenge">Daily Challenge</string>
+    <string name="start_challenge">Start challenge</string>
+    <string name="explore_modes">Explore Modes</string>
+    <string name="mode_3d" translatable="false">3D</string>
+    <string name="mode_game">Game</string>
+    <string name="recommended_for_you">Recommended for you</string>
+    <string name="see_all">See all</string>
+    <string name="hot">Hot 🔥</string>
 </resources>

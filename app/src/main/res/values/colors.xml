@@ -42,4 +42,10 @@
     <color name="color_787878">#787878</color>
     <color name="color_888888">#888888</color>
 
+    <integer-array name="loading_colors">
+        <item>@color/color_FF9E44</item>
+        <item>@color/color_5BC2FB</item>
+        <item>@color/color_48D0B0</item>
+    </integer-array>
+
 </resources>

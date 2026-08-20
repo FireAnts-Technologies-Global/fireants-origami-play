@@ -3,15 +3,18 @@ package com.fireants.template.di
 import android.content.Context
 import com.fireants.template.data.pref.AppSharedPref
 import com.fireants.template.data.pref.AppSharedPreferencesApp
+import com.fireants.template.data.remote.ProductApiService
 import com.fireants.template.data.repository.GameRepository
 import com.fireants.template.data.repository.KirigamiRepository
 import com.fireants.template.data.repository.Origami3DRepository
 import com.fireants.template.data.repository.OrigamiRepository
+import com.fireants.template.data.repository.ProductRepository
 import com.fireants.template.data.repository.UserRepository
 import com.fireants.template.data.repository.impl.GameRepositoryImpl
 import com.fireants.template.data.repository.impl.KirigamiRepositoryImpl
 import com.fireants.template.data.repository.impl.Origami3DRepositoryImpl
 import com.fireants.template.data.repository.impl.OrigamiRepositoryImpl
+import com.fireants.template.data.repository.impl.ProductRepositoryImpl
 import com.fireants.template.data.repository.impl.UserRepositoryImpl
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -20,6 +23,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -47,6 +52,21 @@ class AppModule {
 
     @Singleton
     @Provides
+    fun provideRetrofit(moshi: Moshi): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl("https://api.mocki.io/v2/oc06gxfd/")
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideProductApiService(retrofit: Retrofit): ProductApiService {
+        return retrofit.create(ProductApiService::class.java)
+    }
+
+    @Singleton
+    @Provides
     fun provideGameRepository(impl: GameRepositoryImpl): GameRepository = impl
 
     @Singleton
@@ -64,4 +84,8 @@ class AppModule {
     @Singleton
     @Provides
     fun provideUserRepository(impl: UserRepositoryImpl): UserRepository = impl
+
+    @Singleton
+    @Provides
+    fun provideProductRepository(impl: ProductRepositoryImpl): ProductRepository = impl
 }
