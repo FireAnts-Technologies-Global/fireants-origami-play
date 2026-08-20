@@ -24,10 +24,16 @@ import dagger.hilt.android.AndroidEntryPoint
 class SettingActivity : BaseActivity<ActivitySettingBinding>() {
     override fun getLayoutActivity(): Int = R.layout.activity_setting
 
+
+    override fun initViews() {
+        super.initViews()
+        mBinding.toolBar.tvTitle.text = getString(R.string.setting)
+
+    }
     override fun onClickViews() {
         super.onClickViews()
         mBinding.apply {
-            imvBack.click { finish() }
+            toolBar.imgBack.click { finish() }
             rltLanguage.click {
                 val bundle = Bundle()
                 bundle.putBoolean(AppConstants.KEY_SETTING, true)

@@ -19,7 +19,8 @@ class LevelAdapter(
         if (binding is ItemLevelBinding) {
             val context = binding.root.context
             binding.tvLevelNumber.text = item.level.levelNumber.toString()
-            val isUnlocked = item.progress?.isUnlocked == true || !item.level.isLocked
+//            val isUnlocked = item.progress?.isUnlocked == true || !item.level.isLocked
+            val isUnlocked = true
             if (!isUnlocked) {
                 binding.container.setBackgroundResource(R.drawable.bg_level_lock)
                 binding.ivLock.visibleView()
@@ -63,7 +64,8 @@ class LevelAdapter(
     override fun onClickViews(binding: ViewDataBinding, obj: LevelItemUI, layoutPosition: Int) {
         if (binding is ItemLevelBinding) {
             binding.root.setOnClickListener {
-                val isUnlocked = obj.progress?.isUnlocked == true || !obj.level.isLocked
+//                val isUnlocked = obj.progress?.isUnlocked == true || !obj.level.isLocked
+                val isUnlocked = true
                 if (isUnlocked) {
                     onLevelClick(obj)
                 }
