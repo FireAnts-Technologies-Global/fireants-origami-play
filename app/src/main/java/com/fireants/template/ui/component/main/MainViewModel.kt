@@ -1,9 +1,9 @@
 package com.fireants.template.ui.component.main
 
 import androidx.lifecycle.viewModelScope
+import com.fireants.template.domain.usecase.game.GetLevelsUseCase
 import com.fireants.template.domain.usecase.player.GetPlayerUseCase
 import com.fireants.template.ui.bases.BaseViewModel
-import com.fireants.template.ui.component.shop.ShopState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val getPlayerUseCase: GetPlayerUseCase
+    private val getPlayerUseCase: GetPlayerUseCase,
+    private val getLevelsUseCase: GetLevelsUseCase
 ) : BaseViewModel(
 
 ){
@@ -29,6 +30,15 @@ class MainViewModel @Inject constructor(
                 _state.update {
                     it.copy(player = player)
                 }
+            }
+        }
+
+        viewModelScope.launch {
+            try {
+                // Preload to cache
+                getLevelsUseCase()
+            } catch (e: Exception) {
+                // Ignore preload errors
             }
         }
     }

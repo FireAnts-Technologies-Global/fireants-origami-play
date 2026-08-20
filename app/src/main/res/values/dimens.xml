@@ -10,4 +10,5 @@
     <dimen name="border_dialog">@dimen/_8sdp</dimen>
 
     <dimen name="space_horizontal_common">@dimen/_12sdp</dimen>
+    <dimen name="space_level">@dimen/_4sdp</dimen>
 </resources>

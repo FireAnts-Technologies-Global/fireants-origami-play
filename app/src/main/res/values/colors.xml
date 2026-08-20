@@ -32,5 +32,11 @@
     <color name="color_native_card">#E3F2FD</color>
     <color name="color_flag_card">#FFF3E0</color>
     <color name="color_util_card">#E8F5E9</color>
+    <color name="color_FF9E44">#FF9E44</color>
+    <color name="color_1F0E5A">#1F0E5A</color>
+    <color name="color_1A1A1A">#1A1A1A</color>
+    <color name="color_5A5A5A">#5A5A5A</color>
+    <color name="color_787878">#787878</color>
+    <color name="color_888888">#888888</color>
 
 </resources>

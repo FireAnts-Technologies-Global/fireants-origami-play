@@ -10,14 +10,30 @@ import javax.inject.Singleton
 class GameAssetDataSource @Inject constructor(
     private val reader: AssetJsonReader
 ) {
-    suspend fun getLevels(): List<LevelEntity> =
-        reader.read(LEVELS_PATH)
+    private var cachedLevels: List<LevelEntity>? = null
+    private var cachedPapers: List<PaperItem>? = null
+    private var cachedFoldHints: Map<String, List<AutoFoldStep>>? = null
 
-    suspend fun getPapers(): List<PaperItem> =
-        reader.read(PAPERS_PATH)
+    suspend fun getLevels(): List<LevelEntity> {
+        if (cachedLevels == null) {
+            cachedLevels = reader.read(LEVELS_PATH)
+        }
+        return cachedLevels!!
+    }
 
-    suspend fun getFoldHints(): Map<String, List<AutoFoldStep>> =
-        reader.read(FOLD_HINTS_PATH)
+    suspend fun getPapers(): List<PaperItem> {
+        if (cachedPapers == null) {
+            cachedPapers = reader.read(PAPERS_PATH)
+        }
+        return cachedPapers!!
+    }
+
+    suspend fun getFoldHints(): Map<String, List<AutoFoldStep>> {
+        if (cachedFoldHints == null) {
+            cachedFoldHints = reader.read(FOLD_HINTS_PATH)
+        }
+        return cachedFoldHints!!
+    }
 
     companion object {
         private const val LEVELS_PATH = "game/levels.json"

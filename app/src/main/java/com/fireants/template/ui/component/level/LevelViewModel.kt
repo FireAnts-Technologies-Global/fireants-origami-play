@@ -1,7 +1,7 @@
 package com.fireants.template.ui.component.level
 
 import androidx.lifecycle.viewModelScope
-import com.fireants.template.domain.usecase.game.GetLevelProgressUseCase
+import com.fireants.template.domain.usecase.game.GetLevelProgressListUseCase
 import com.fireants.template.domain.usecase.game.GetLevelsUseCase
 import com.fireants.template.domain.usecase.player.GetPlayerUseCase
 import com.fireants.template.ui.bases.BaseViewModel
@@ -12,15 +12,15 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class LevelViewModel @Inject constructor(
     private val getLevelsUseCase: GetLevelsUseCase,
-    private val getLevelProgressUseCase: GetLevelProgressUseCase,
+    private val getLevelProgressListUseCase: GetLevelProgressListUseCase,
     private val getPlayerUseCase: GetPlayerUseCase
 ) : BaseViewModel() {
 
@@ -48,9 +48,10 @@ class LevelViewModel @Inject constructor(
             
             try {
                 val levels = getLevelsUseCase()
+                val allProgress = getLevelProgressListUseCase()
                 
                 val levelItems = levels.map { level ->
-                    val progress = getLevelProgressUseCase(level.id)
+                    val progress = allProgress.find { it.levelId == level.id }
                     LevelItemUI(level, progress)
                 }
                 

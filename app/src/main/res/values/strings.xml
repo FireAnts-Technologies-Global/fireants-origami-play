@@ -20,13 +20,11 @@
     <string name="onboarding_des_3">Consent, updates, and core app states are handled in one consistent flow.</string>
     <string name="onboarding_title_4">Ready when you are</string>
     <string name="onboarding_des_4">Finish setup and start exploring the app with everything prepared.</string>
-
     <string name="applying_selected_language" translatable="false">Applying selected language...</string>
     <string name="text_restart_app">Restart App</string>
     <string name="crash_info_title">Crash Information</string>
     <string name="close">Close</string>
     <string name="ad_config_invalid_message">Invalid ad configuration. Please verify ad_config.json.</string>
-    <!--    Uninstall-->
     <string name="content_confirm_uninstall">Why are you removing the app?</string>
     <string name="try_again">Try Again</string>
     <string name="still_want_to_uninstall">Still want to uninstall?</string>
@@ -60,4 +58,6 @@
     <string name="dont_miss">Before you uninstall, consider keeping the app for the tools and settings you already set up.</string>
     <string name="over92">Many users keep the app because it remains useful over time.</string>
     <string name="start">Start</string>
+    <string name="game_mode">Game Mode</string>
+    <string name="level">Level</string>
 </resources>
