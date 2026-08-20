@@ -169,6 +169,9 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
 
     override fun onClickViews() {
         super.onClickViews()
+        mBinding.imgStore.click {
+            Routes.startShopActivity(this)
+        }
         mBinding.imgSetting.click {
             Routes.startSettingActivity(this)
         }

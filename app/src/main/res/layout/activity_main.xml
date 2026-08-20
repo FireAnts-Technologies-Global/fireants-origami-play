@@ -21,7 +21,7 @@
                 android:layout_alignParentStart="true"
                 android:gravity="center_vertical"
                 android:layout_centerVertical="true"
-                android:layout_toStartOf="@id/imgSetting"
+                android:layout_toStartOf="@id/imgStore"
                 android:orientation="vertical">
 
                 <TextView
@@ -40,7 +40,14 @@
                     android:textColor="#1F0E5A"
                     android:textSize="17sp" />
             </LinearLayout>
-
+            <ImageView
+                android:id="@+id/imgStore"
+                android:layout_width="@dimen/_33sdp"
+                android:layout_height="@dimen/_33sdp"
+                android:layout_toStartOf="@id/imgSetting"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/img_store" />
             <ImageView
                 android:id="@+id/imgSetting"
                 android:layout_width="@dimen/_33sdp"
