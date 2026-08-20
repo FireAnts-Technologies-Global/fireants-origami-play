@@ -25,6 +25,7 @@
                 android:id="@+id/searchBar"
                 layout="@layout/layout_search"
                 android:layout_width="0dp"
+                android:layout_marginTop="@dimen/_12sdp"
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginStart="@dimen/_12sdp"
                 android:layout_marginEnd="@dimen/_12sdp"

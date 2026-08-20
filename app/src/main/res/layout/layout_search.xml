@@ -19,6 +19,11 @@
         <EditText
             android:id="@+id/edtInput"
             android:layout_width="match_parent"
+            android:hint="@string/search_tutorials"
+            android:textColorHint="#6E629B"
+            android:fontFamily="@font/regular"
+            android:textSize="@dimen/_11sdp"
+            android:textColor="@color/color_1F0E5A"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_6sdp"
