@@ -17,14 +17,11 @@ import com.fireants.template.ui.bases.ConsentHandler
 import com.fireants.template.ui.bases.ext.click
 import com.fireants.template.ui.component.main.dialog.ForceUpdateDialog
 import com.fireants.template.ui.component.main.dialog.NoInternetDialog
-import com.fireants.template.ui.component.shop.ShopViewModel
 import com.fireants.template.utils.ConnectionLiveData
 import com.fireants.template.utils.Routes
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import timber.log.Timber
-import kotlin.getValue
 
 @AndroidEntryPoint
 class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
@@ -121,7 +118,9 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
 
     override fun onClickViews() {
         super.onClickViews()
-
+        mBinding.imgSetting.click {
+            Routes.startSettingActivity(this)
+        }
         mBinding.btnShop.click {
             Routes.startShopActivity(this)
         }
@@ -145,15 +144,6 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
     override fun observeData() {
         super.observeData()
         lifecycleScope.launch {
-            viewModel.state.collectLatest { state ->
-                state.player?.let { player ->
-                    mBinding.tvCoins.text = "Coins: ${player.coins}"
-                    mBinding.tvStars.text = "Stars: ${player.stars}"
-                    mBinding.tvHints.text = "Hints: ${player.hints}"
-                    mBinding.tvTickets.text = "Tickets: ${player.tickets}"
-                }
-
-            }
         }
     }
 }
