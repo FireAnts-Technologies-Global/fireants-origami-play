@@ -3,199 +3,123 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.fireants.template.ui.component.custom.GlowBackgroundView
+        android:id="@+id/glowBackground"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#F5F5F5">
+        android:layout_height="match_parent">
 
-        <!-- Top Bar Info -->
-        <LinearLayout
-            android:id="@+id/topBar"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:elevation="4dp"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tvCoins"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Coins: 0"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvStars"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Stars: 0"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvHints"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Hints: 0"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvTickets"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Tickets: 0"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/topBar"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/topBar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_height="?actionBarSize"
+                android:paddingHorizontal="@dimen/_12sdp"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <!-- Card 1: Buy Coin -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/imgBack"
+                    android:layout_width="@dimen/_33sdp"
+                    android:layout_height="@dimen/_33sdp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_back_circle" />
+
+                <LinearLayout
+                    android:id="@+id/lnHint"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="4dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_6sdp"
+                    android:layout_toStartOf="@id/lnStat"
+                    android:background="@drawable/bg_coin"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:paddingVertical="@dimen/_6sdp">
+
+                    <TextView
+                        android:id="@+id/tvHints"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Get Coins"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                        <Button
-                            android:id="@+id/btnWatchAd"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Watch Ad (+300 Coins)" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:fontFamily="@font/bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13sdp"
+                        tools:text="128" />
 
-                <!-- Card 2: Buy Bag -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:src="@drawable/ic_hint" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnStat"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="4dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_6sdp"
+                    android:layout_toStartOf="@id/lnCoin"
+                    android:background="@drawable/bg_coin"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:paddingVertical="@dimen/_6sdp">
+
+                    <TextView
+                        android:id="@+id/tvStars"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Lucky Bag"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                        <Button
-                            android:id="@+id/btnClaimFreeBag"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Claim Free (1 Bag)"
-                            android:backgroundTint="#4CAF50" />
-                        <Button
-                            android:id="@+id/btnWatchAdBag"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Watch Ad (1 Bag)"
-                            android:backgroundTint="#FF9800" />
-                        <Button
-                            android:id="@+id/btnBuy1Bag"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Buy 1 Bag (5 Coins)" />
-                        <Button
-                            android:id="@+id/btnBuy10Bags"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Buy 10 Bags (45 Coins)" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:fontFamily="@font/bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13sdp"
+                        tools:text="128" />
 
-                <!-- Card 3: Buy Hint -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:src="@drawable/img_star" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnCoin"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="4dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_coin"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:paddingVertical="@dimen/_6sdp">
+
+                    <TextView
+                        android:id="@+id/tvCoins"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Buy Hints"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                        <Button
-                            android:id="@+id/btnBuy1Hint"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Buy 1 Hint (250 Coins)" />
-                        <Button
-                            android:id="@+id/btnBuy3Hints"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Buy 3 Hints (637 Coins)" />
-                        <Button
-                            android:id="@+id/btnBuy5Hints"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Buy 5 Hints (1000 Coins)" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                
-                <!-- Section 4: Paper List -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Paper Collection"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginTop="8dp"/>
-                    
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvPapers"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    tools:listitem="@layout/item_shop_paper" />
+                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:fontFamily="@font/bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13sdp"
+                        tools:text="8" />
 
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:src="@drawable/img_coin" />
+                </LinearLayout>
+            </RelativeLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvShop"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_12sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/topBar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.fireants.template.ui.component.custom.GlowBackgroundView>
+
 </layout>

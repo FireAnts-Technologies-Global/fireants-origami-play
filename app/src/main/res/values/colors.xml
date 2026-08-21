@@ -41,6 +41,7 @@
     <color name="color_5A5A5A">#5A5A5A</color>
     <color name="color_787878">#787878</color>
     <color name="color_888888">#888888</color>
+    <color name="color_0B0C1A">#0B0C1A</color>
 
     <integer-array name="loading_colors">
         <item>@color/color_FF9E44</item>

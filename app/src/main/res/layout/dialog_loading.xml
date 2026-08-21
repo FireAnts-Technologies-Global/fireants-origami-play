@@ -32,13 +32,14 @@
 
                     <com.google.android.material.progressindicator.CircularProgressIndicator
                         android:id="@+id/progressLoading"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
                         android:indeterminate="true"
                         android:layout_gravity="center"
                         app:indicatorColor="@array/loading_colors"
-                        app:indicatorSize="48dp"
-                        app:trackThickness="4dp"
+                        app:indicatorSize="@dimen/_40sdp"
+                        app:trackCornerRadius="@dimen/_2sdp"
+                        app:trackThickness="@dimen/_4sdp"
                         app:trackColor="@android:color/transparent" />
 
                 </FrameLayout>
@@ -47,13 +48,13 @@
                     android:id="@+id/tvLoadingMessage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/medium"
+                    android:fontFamily="@font/semi_bold"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
                     android:lineSpacingExtra="2dp"
-                    android:text="@string/loading"
+                    android:textSize="@dimen/_12sdp"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_11sdp" />
+                    app:loadingText="@string/loading_label" />
 
             </LinearLayout>
 

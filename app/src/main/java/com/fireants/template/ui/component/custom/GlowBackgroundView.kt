@@ -1,4 +1,4 @@
-package com.fireants.template.ui.component.custom // Thay bằng package của bạn
+package com.fireants.template.ui.component.custom
 
 import android.content.Context
 import android.graphics.Canvas
@@ -17,7 +17,12 @@ class GlowBackgroundView @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private val baseBgColor = "#F6F5FA".toColorInt()
+
+    var baseBgColor: Int = "#F6F5FA".toColorInt()
+        set(value) {
+            field = value
+            invalidate()
+        }
 
     var glowColor: Int = "#FFC2A2".toColorInt()
         set(value) {
@@ -39,32 +44,19 @@ class GlowBackgroundView @JvmOverloads constructor(
         if (width <= 0 || height <= 0) return
 
         val radius = width * 0.65f
-        val softGlowColor = Color.argb(
-            100,
-            Color.red(glowColor),
-            Color.green(glowColor),
-            Color.blue(glowColor)
-        )
+        val red = Color.red(glowColor)
+        val green = Color.green(glowColor)
+        val blue = Color.blue(glowColor)
+
+        val softGlowColor = Color.argb(100, red, green, blue)
+        val faintGlowColor = Color.argb(25, red, green, blue)
 
         paint.shader = RadialGradient(
             width / 2f,
             height * 0.08f,
             radius,
-            intArrayOf(
-                softGlowColor,
-                Color.argb(
-                    25,
-                    Color.red(glowColor),
-                    Color.green(glowColor),
-                    Color.blue(glowColor)
-                ),
-                Color.TRANSPARENT
-            ),
-            floatArrayOf(
-                0f,
-                0.55f,
-                1f
-            ),
+            intArrayOf(softGlowColor, faintGlowColor, Color.TRANSPARENT),
+            floatArrayOf(0f, 0.55f, 1f),
             Shader.TileMode.CLAMP
         )
     }
