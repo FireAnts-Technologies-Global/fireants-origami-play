@@ -4,7 +4,6 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.GridLayoutManager
 import com.fireants.template.R
 import com.fireants.template.data.model.game.PaperItem
 import com.fireants.template.databinding.ActivityShopBinding
@@ -32,15 +31,7 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
 
         shopAdapter = ShopMultiTypeAdapter(this)
 
-        val layoutManager = GridLayoutManager(this, 3)
-        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-            override fun getSpanSize(position: Int): Int {
-                return when (shopAdapter.getItemViewType(position)) {
-                    R.layout.item_shop_paper -> 1
-                    else -> 3
-                }
-            }
-        }
+        val layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         mBinding.rvShop.layoutManager = layoutManager
         mBinding.rvShop.adapter = shopAdapter
 
@@ -58,8 +49,7 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
         }
     }
 
-    private var cachedPaperItems: List<ShopItem.Paper> = emptyList()
-    private var lastPapersRef: List<PaperItem>? = null
+
 
     override fun observeData() {
         lifecycleScope.launch {
@@ -75,11 +65,9 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
                 items.add(ShopItem.LuckyBag(state.bagStatus))
                 items.add(ShopItem.BuyHints)
 
-                if (state.papers !== lastPapersRef) {
-                    cachedPaperItems = state.papers.map { ShopItem.Paper(it) }
-                    lastPapersRef = state.papers
+                if (state.papers.isNotEmpty()) {
+                    items.add(ShopItem.PaperGroup(state.papers))
                 }
-                items.addAll(cachedPaperItems)
                 
                 shopAdapter.submitList(items)
             }

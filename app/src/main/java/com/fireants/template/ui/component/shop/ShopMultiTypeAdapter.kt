@@ -3,6 +3,7 @@ package com.fireants.template.ui.component.shop
 import androidx.core.content.ContextCompat
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.fireants.template.R
 import com.fireants.template.data.model.game.PaperItem
@@ -10,6 +11,7 @@ import com.fireants.template.databinding.ItemShopBuyHintsBinding
 import com.fireants.template.databinding.ItemShopGetCoinsBinding
 import com.fireants.template.databinding.ItemShopLuckyBagBinding
 import com.fireants.template.databinding.ItemShopPaperBinding
+import com.fireants.template.databinding.ItemShopPaperGroupBinding
 import com.fireants.template.ui.bases.BaseListAdapter
 
 interface ShopInteractionListener {
@@ -34,7 +36,7 @@ class ShopMultiTypeAdapter(
             is ShopItem.GetCoins -> R.layout.item_shop_get_coins
             is ShopItem.LuckyBag -> R.layout.item_shop_lucky_bag
             is ShopItem.BuyHints -> R.layout.item_shop_buy_hints
-            is ShopItem.Paper -> R.layout.item_shop_paper
+            is ShopItem.PaperGroup -> R.layout.item_shop_paper_group
         }
     }
 
@@ -91,33 +93,20 @@ class ShopMultiTypeAdapter(
             }
 
             is ShopItem.BuyHints -> {}
-            is ShopItem.Paper -> {
-                if (binding is ItemShopPaperBinding) {
-                    binding.tvName.text = "Paper #${item.paper.id}"
+            is ShopItem.PaperGroup -> {
+                if (binding is ItemShopPaperGroupBinding) {
+                    var innerAdapter = binding.rvPapers.adapter as? InnerPaperAdapter
+                    if (innerAdapter == null) {
+                        innerAdapter = InnerPaperAdapter(listener)
+                        binding.rvPapers.layoutManager = GridLayoutManager(binding.root.context, 4)
+                        binding.rvPapers.adapter = innerAdapter
 
-                    Glide.with(binding.root.context)
-                        .load("file:///android_asset/" + item.paper.imagePreview)
-                        .into(binding.ivPreview)
-
-                    when {
-                        item.paper.isSelected -> {
-                            binding.btnAction.text = "Selected"
-                            binding.btnAction.isEnabled = false
-                            binding.btnAction.alpha = 0.5f
-                        }
-
-                        item.paper.isUnlocked -> {
-                            binding.btnAction.text = "Select"
-                            binding.btnAction.isEnabled = true
-                            binding.btnAction.alpha = 1.0f
-                        }
-
-                        else -> {
-                            binding.btnAction.text = "${item.paper.price} Coins"
-                            binding.btnAction.isEnabled = true
-                            binding.btnAction.alpha = 1.0f
+                        val animator = binding.rvPapers.itemAnimator
+                        if (animator is androidx.recyclerview.widget.SimpleItemAnimator) {
+                            animator.supportsChangeAnimations = false
                         }
                     }
+                    innerAdapter.submitList(item.papers)
                 }
             }
         }
@@ -148,29 +137,66 @@ class ShopMultiTypeAdapter(
                 }
             }
 
-            is ShopItem.Paper -> {
-                if (binding is ItemShopPaperBinding) {
-                    binding.btnAction.setOnClickListener {
-                        if (!obj.paper.isSelected && obj.paper.isUnlocked) {
-                            listener.onSelectPaperClick(obj.paper)
-                        } else if (!obj.paper.isUnlocked) {
-                            listener.onBuyPaperClick(obj.paper)
-                        }
-                    }
-                }
-            }
+            is ShopItem.PaperGroup -> {}
         }
     }
 
     object DiffCallback : DiffUtil.ItemCallback<ShopItem>() {
         override fun areItemsTheSame(oldItem: ShopItem, newItem: ShopItem): Boolean {
-            if (oldItem is ShopItem.Paper && newItem is ShopItem.Paper) {
-                return oldItem.paper.id == newItem.paper.id
-            }
             return oldItem::class == newItem::class
         }
 
         override fun areContentsTheSame(oldItem: ShopItem, newItem: ShopItem): Boolean =
             oldItem == newItem
+    }
+}
+
+class InnerPaperAdapter(
+    private val listener: ShopInteractionListener
+) : BaseListAdapter<PaperItem>(DiffCallback) {
+
+    override fun getItemViewType(position: Int): Int = R.layout.item_shop_paper
+    override fun getItemLayout(viewType: Int): Int = R.layout.item_shop_paper
+
+    override fun setData(binding: ViewDataBinding, item: PaperItem, layoutPosition: Int) {
+        if (binding is ItemShopPaperBinding) {
+            Glide.with(binding.root.context)
+                .load("file:///android_asset/" + item.imagePreview)
+                .into(binding.ivPreview)
+
+            when {
+                item.isSelected -> {
+                    binding.container.setBackgroundResource(R.drawable.bg_paper_selected)
+
+                }
+
+                item.isUnlocked -> {
+                    binding.container.setBackgroundResource(R.drawable.bg_paper_unselected)
+                }
+
+                else -> {
+                    binding.container.setBackgroundResource(R.drawable.bg_paper_unselected)
+                }
+            }
+        }
+    }
+
+    override fun onClickViews(binding: ViewDataBinding, obj: PaperItem, layoutPosition: Int) {
+        if (binding is ItemShopPaperBinding) {
+            binding.container.setOnClickListener {
+                if (!obj.isSelected && obj.isUnlocked) {
+                    listener.onSelectPaperClick(obj)
+                } else if (!obj.isUnlocked) {
+                    listener.onBuyPaperClick(obj)
+                }
+            }
+        }
+    }
+
+    object DiffCallback : DiffUtil.ItemCallback<PaperItem>() {
+        override fun areItemsTheSame(oldItem: PaperItem, newItem: PaperItem) =
+            oldItem.id == newItem.id
+
+        override fun areContentsTheSame(oldItem: PaperItem, newItem: PaperItem) = oldItem == newItem
     }
 }
