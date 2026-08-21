@@ -98,9 +98,8 @@ class ShopViewModel @Inject constructor(
             val result = buyPaperUseCase(paperId)
             if (result == ShopResult.Success) {
                 loadData()
-            } else {
-                _eventFlow.emit(ShopEvent.ShowMessage(result))
             }
+            _eventFlow.emit(ShopEvent.ShowMessage(result))
         }
     }
 
@@ -116,9 +115,8 @@ class ShopViewModel @Inject constructor(
             val result = buyHintUseCase(amount, cost)
             if (result == ShopResult.Success) {
                 loadData()
-            } else {
-                _eventFlow.emit(ShopEvent.ShowMessage(result))
             }
+            _eventFlow.emit(ShopEvent.ShowMessage(result))
         }
     }
 
@@ -127,9 +125,8 @@ class ShopViewModel @Inject constructor(
             val result = buyTicketUseCase(amount, cost)
             if (result == ShopResult.Success) {
                 loadData()
-            } else {
-                _eventFlow.emit(ShopEvent.ShowMessage(result))
             }
+            _eventFlow.emit(ShopEvent.ShowMessage(result))
         }
     }
 

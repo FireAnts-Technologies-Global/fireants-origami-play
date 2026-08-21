@@ -95,7 +95,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- 4. ITEM 2: 3 HINTS -->
         <LinearLayout
             android:id="@+id/btnBuy3Hints"
             android:layout_width="0dp"

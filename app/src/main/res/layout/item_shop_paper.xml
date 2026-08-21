@@ -33,16 +33,18 @@
                 android:paddingVertical="@dimen/_2sdp">
 
                 <ImageView
+                    android:id="@+id/imgCoin"
                     android:layout_width="@dimen/_12sdp"
                     android:layout_height="@dimen/_12sdp"
                     android:layout_marginEnd="@dimen/_2sdp"
                     android:src="@drawable/img_coin" />
 
                 <TextView
+                    android:id="@+id/tvStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bold"
-                    android:text="500"
+                    android:text="800"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_9sdp" />
             </LinearLayout>

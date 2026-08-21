@@ -9,9 +9,10 @@ class BuyBagUseCase @Inject constructor(
 ) {
     operator fun invoke(amount: Int, cost: Int): ShopResult {
         if (cost == 0) return ShopResult.Success
-        if (userRepository.spendCoins(cost)) {
+        if (userRepository.spendStars(cost)) {
             return ShopResult.Success
         }
-        return ShopResult.NotEnoughCoins
+        val currentStars = userRepository.getPlayer().stars
+        return ShopResult.NotEnoughStars(cost - currentStars)
     }
 }

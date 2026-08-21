@@ -12,6 +12,7 @@ class BuyHintUseCase @Inject constructor(
             userRepository.addHints(amount)
             return ShopResult.Success
         }
-        return ShopResult.NotEnoughCoins
+        val currentCoins = userRepository.getPlayer().coins
+        return ShopResult.NotEnoughCoins(cost - currentCoins)
     }
 }

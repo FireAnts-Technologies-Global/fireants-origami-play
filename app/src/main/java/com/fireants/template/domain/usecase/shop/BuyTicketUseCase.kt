@@ -12,6 +12,7 @@ class BuyTicketUseCase @Inject constructor(
             userRepository.addTickets(amount)
             return ShopResult.Success
         }
-        return ShopResult.NotEnoughCoins
+        val currentCoins = userRepository.getPlayer().coins
+        return ShopResult.NotEnoughCoins(cost - currentCoins)
     }
 }

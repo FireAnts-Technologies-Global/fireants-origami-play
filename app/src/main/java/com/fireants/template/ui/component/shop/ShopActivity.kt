@@ -6,9 +6,11 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.fireants.template.R
 import com.fireants.template.data.model.game.PaperItem
+import com.fireants.template.data.model.shop.ShopConfig
 import com.fireants.template.databinding.ActivityShopBinding
 import com.fireants.template.ui.bases.BaseActivity
 import com.fireants.template.ui.bases.ext.click
+import com.fireants.template.ui.component.dialog.DialogBuy
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -77,7 +79,24 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
             viewModel.eventFlow.collectLatest { event ->
                 when (event) {
                     is ShopEvent.ShowMessage -> {
-                        Toast.makeText(this@ShopActivity, event.result.toString(), Toast.LENGTH_SHORT).show()
+                        val msg = when (val result = event.result) {
+                            is com.fireants.template.data.model.shop.ShopResult.Success -> getString(
+                                R.string.purchase_success
+                            )
+
+                            is com.fireants.template.data.model.shop.ShopResult.NotEnoughCoins -> getString(
+                                R.string.not_enough_coins,
+                                result.missingAmount
+                            )
+
+                            is com.fireants.template.data.model.shop.ShopResult.NotEnoughStars -> getString(
+                                R.string.not_enough_stars,
+                                result.missingAmount
+                            )
+
+                            else -> result.toString()
+                        }
+                        Toast.makeText(this@ShopActivity, msg, Toast.LENGTH_SHORT).show()
                     }
                     is ShopEvent.OnBagsOpened -> {
                         Toast.makeText(this@ShopActivity, "Opened ${event.rewards.size} bags! Got: ${event.rewards}", Toast.LENGTH_LONG).show()
@@ -108,16 +127,35 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
         viewModel.buyBag(amount = 10, cost = 45)
     }
 
+    private fun showBuyDialog(cost: Int, onBuy: () -> Unit) {
+        val currentCoins = viewModel.state.value.player?.coins ?: 0
+        DialogBuy(
+            context = this,
+            cost = cost,
+            currentCoins = currentCoins,
+            onBuyClick = onBuy,
+            onAdsClick = {
+                onWatchAdClick()
+            }
+        ).show()
+    }
+
     override fun onBuy1HintClick() {
-        viewModel.buyHint(amount = 1, cost = 250)
+        showBuyDialog(250) {
+            viewModel.buyHint(amount = 1, cost = 250)
+        }
     }
 
     override fun onBuy3HintsClick() {
-        viewModel.buyHint(amount = 3, cost = 637)
+        showBuyDialog(637) {
+            viewModel.buyHint(amount = 3, cost = 637)
+        }
     }
 
     override fun onBuy5HintsClick() {
-        viewModel.buyHint(amount = 5, cost = 1000)
+        showBuyDialog(1000) {
+            viewModel.buyHint(amount = 5, cost = 1000)
+        }
     }
 
     override fun onSelectPaperClick(paper: PaperItem) {
@@ -125,6 +163,9 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
     }
 
     override fun onBuyPaperClick(paper: PaperItem) {
-        viewModel.buyPaper(paper.id)
+        val config = ShopConfig()
+        showBuyDialog(config.paperUnlockCost) {
+            viewModel.buyPaper(paper.id)
+        }
     }
 }

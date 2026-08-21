@@ -13,6 +13,7 @@ import com.fireants.template.databinding.ItemShopLuckyBagBinding
 import com.fireants.template.databinding.ItemShopPaperBinding
 import com.fireants.template.databinding.ItemShopPaperGroupBinding
 import com.fireants.template.ui.bases.BaseListAdapter
+import com.fireants.template.ui.bases.ext.goneView
 
 interface ShopInteractionListener {
     fun onWatchAdClick()
@@ -166,14 +167,17 @@ class InnerPaperAdapter(
 
             when {
                 item.isSelected -> {
+                    binding.tvStatus.text = context?.getString(R.string.selected)
+                    binding.imgCoin.goneView()
                     binding.container.setBackgroundResource(R.drawable.bg_paper_selected)
 
                 }
 
                 item.isUnlocked -> {
+                    binding.tvStatus.text = context?.getString(R.string.unlocked)
+                    binding.imgCoin.goneView()
                     binding.container.setBackgroundResource(R.drawable.bg_paper_unselected)
                 }
-
                 else -> {
                     binding.container.setBackgroundResource(R.drawable.bg_paper_unselected)
                 }

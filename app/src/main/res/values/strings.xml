@@ -91,4 +91,10 @@
     <string name="hint_3">X3 Hint</string>
     <string name="hint_5">X5 Hint</string>
     <string name="claim">Claim</string>
+    <string name="not_enough_stars">Not enough stars! You need %d more stars</string>
+    <string name="not_enough_coins">Not enough coins! You need %d more coins</string>
+    <string name="purchase_success">Purchase successful!</string>
+    <string name="confirm_purchase">Confirm purchase</string>
+    <string name="unlocked">Unlocked</string>
+    <string name="selected">Selected</string>
 </resources>

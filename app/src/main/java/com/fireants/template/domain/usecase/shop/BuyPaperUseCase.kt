@@ -19,7 +19,8 @@ class BuyPaperUseCase @Inject constructor(
             userRepository.unlockPaper(paperId)
             return ShopResult.Success
         }
-        
-        return ShopResult.NotEnoughCoins
+
+        val currentCoins = userRepository.getPlayer().coins
+        return ShopResult.NotEnoughCoins(config.paperUnlockCost - currentCoins)
     }
 }
