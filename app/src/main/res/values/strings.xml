@@ -74,6 +74,10 @@
     <string name="mode_game">Game</string>
     <string name="recommended_for_you">Recommended for you</string>
     <string name="see_all">See all</string>
+    <string name="coins">COINS</string>
     <string name="hot">Hot 🔥</string>
     <string name="search_tutorials">Search tutorials...</string>
+    <string name="watch_ads">Watch Ad</string>
+    <string name="get_300_coins_completely_free">Get 300 COINS completely free!</string>
+    <string name="title_shop">✨ THE SHOP ✨</string>
 </resources>
