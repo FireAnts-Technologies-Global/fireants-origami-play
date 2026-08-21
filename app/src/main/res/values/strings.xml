@@ -76,6 +76,7 @@
     <string name="see_all">See all</string>
     <string name="coins">Coins</string>
     <string name="mystery_bag">Mystery Bag</string>
+    <string name="hint_pack">Hint Pack</string>
     <string name="hot">Hot 🔥</string>
     <string name="search_tutorials">Search tutorials...</string>
     <string name="watch_ads">Watch Ad</string>
@@ -85,5 +86,8 @@
     <string name="free_bag">Free Bag</string>
     <string name="bag_1">1 Bag</string>
     <string name="bag_10">10 Bag</string>
+    <string name="hint_1">X1 Hint</string>
+    <string name="hint_3">X3 Hint</string>
+    <string name="hint_5">X5 Hint</string>
     <string name="claim">Claim</string>
 </resources>

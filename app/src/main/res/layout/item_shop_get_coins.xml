@@ -71,7 +71,7 @@
                     android:layout_centerVertical="true"
                     android:background="@drawable/bg_get_coin"
                     android:gravity="center"
-                    android:paddingHorizontal="@dimen/_6sdp"
+                    android:paddingHorizontal="@dimen/_8sdp"
                     android:paddingVertical="@dimen/_4sdp">
 
                     <ImageView

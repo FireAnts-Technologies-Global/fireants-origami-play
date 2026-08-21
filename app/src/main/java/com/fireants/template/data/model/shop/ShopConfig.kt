@@ -6,5 +6,5 @@ data class ShopConfig(
     val smallCoinReward: Int = 50,
     val largeCoinReward: Int = 300,
     val fallbackCoinReward: Int = 400,
-    val dailyRewardIntervalMillis: Long = 5_000L
+    val dailyRewardIntervalMillis: Long = 86_400_000L
 )

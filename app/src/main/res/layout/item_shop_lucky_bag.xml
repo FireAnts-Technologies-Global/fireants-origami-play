@@ -73,7 +73,7 @@
                     android:background="@drawable/bg_get_coin"
                     android:backgroundTint="#8B5CF6"
                     android:gravity="center"
-                    android:paddingHorizontal="@dimen/_6sdp"
+                    android:paddingHorizontal="@dimen/_8sdp"
                     android:paddingVertical="@dimen/_4sdp">
 
                     <ImageView
