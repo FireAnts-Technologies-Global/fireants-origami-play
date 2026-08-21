@@ -9,6 +9,7 @@ import com.fireants.template.R
 import com.fireants.template.data.model.game.PaperItem
 import com.fireants.template.databinding.ActivityShopBinding
 import com.fireants.template.ui.bases.BaseActivity
+import com.fireants.template.ui.bases.ext.click
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -23,6 +24,9 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
     private lateinit var shopAdapter: ShopMultiTypeAdapter
 
     override fun initViews() {
+        mBinding.tvHints.isSelected = true
+        mBinding.tvStars.isSelected = true
+        mBinding.tvCoins.isSelected = true
         mBinding.glowBackground.glowColor = ContextCompat.getColor(this, R.color.color_48D0B0)
         mBinding.glowBackground.baseBgColor = ContextCompat.getColor(this, R.color.color_0B0C1A)
 
@@ -39,11 +43,23 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
         }
         mBinding.rvShop.layoutManager = layoutManager
         mBinding.rvShop.adapter = shopAdapter
+
+        val animator = mBinding.rvShop.itemAnimator
+        if (animator is androidx.recyclerview.widget.SimpleItemAnimator) {
+            animator.supportsChangeAnimations = false
+        }
     }
 
+
     override fun onClickViews() {
-        // Events handled by ShopInteractionListener
+        super.onClickViews()
+        mBinding.imgBack.click {
+            onBackPressed()
+        }
     }
+
+    private var cachedPaperItems: List<ShopItem.Paper> = emptyList()
+    private var lastPapersRef: List<PaperItem>? = null
 
     override fun observeData() {
         lifecycleScope.launch {
@@ -58,9 +74,13 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
                 items.add(ShopItem.GetCoins)
                 items.add(ShopItem.LuckyBag(state.bagStatus))
                 items.add(ShopItem.BuyHints)
-                items.add(ShopItem.PaperTitle)
-                items.addAll(state.papers.map { ShopItem.Paper(it) })
 
+                if (state.papers !== lastPapersRef) {
+                    cachedPaperItems = state.papers.map { ShopItem.Paper(it) }
+                    lastPapersRef = state.papers
+                }
+                items.addAll(cachedPaperItems)
+                
                 shopAdapter.submitList(items)
             }
         }

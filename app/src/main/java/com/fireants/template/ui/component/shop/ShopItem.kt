@@ -7,6 +7,5 @@ sealed interface ShopItem {
     object GetCoins : ShopItem
     data class LuckyBag(val bagStatus: BagStatus?) : ShopItem
     object BuyHints : ShopItem
-    object PaperTitle : ShopItem
     data class Paper(val paper: PaperItem) : ShopItem
 }

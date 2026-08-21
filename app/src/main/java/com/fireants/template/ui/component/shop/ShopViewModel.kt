@@ -1,14 +1,21 @@
 package com.fireants.template.ui.component.shop
 
 import androidx.lifecycle.viewModelScope
-import com.fireants.template.data.model.game.PaperItem
-import com.fireants.template.data.model.player.PlayerData
 import com.fireants.template.data.model.shop.BagReward
-import com.fireants.template.data.model.shop.BagStatus
 import com.fireants.template.data.model.shop.ShopResult
-import com.fireants.template.data.model.shop.TicketStatus
 import com.fireants.template.domain.usecase.player.GetPlayerUseCase
-import com.fireants.template.domain.usecase.shop.*
+import com.fireants.template.domain.usecase.shop.AddRewardedCoinUseCase
+import com.fireants.template.domain.usecase.shop.BuyBagUseCase
+import com.fireants.template.domain.usecase.shop.BuyHintUseCase
+import com.fireants.template.domain.usecase.shop.BuyPaperUseCase
+import com.fireants.template.domain.usecase.shop.BuyTicketUseCase
+import com.fireants.template.domain.usecase.shop.ClaimDailyBagUseCase
+import com.fireants.template.domain.usecase.shop.ClaimDailyTicketUseCase
+import com.fireants.template.domain.usecase.shop.GetBagStatusUseCase
+import com.fireants.template.domain.usecase.shop.GetShopDataUseCase
+import com.fireants.template.domain.usecase.shop.GetTicketStatusUseCase
+import com.fireants.template.domain.usecase.shop.OpenBagUseCase
+import com.fireants.template.domain.usecase.shop.SelectPaperUseCase
 import com.fireants.template.ui.bases.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -17,8 +24,8 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -55,6 +62,19 @@ class ShopViewModel @Inject constructor(
                     it.copy(player = player)
                 }
                 loadData()
+            }
+        }
+
+        viewModelScope.launch {
+            while (true) {
+                kotlinx.coroutines.delay(1000)
+                val now = System.currentTimeMillis()
+                _state.update {
+                    it.copy(
+                        bagStatus = getBagStatusUseCase(now),
+                        ticketStatus = getTicketStatusUseCase(now)
+                    )
+                }
             }
         }
     }

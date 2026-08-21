@@ -74,10 +74,16 @@
     <string name="mode_game">Game</string>
     <string name="recommended_for_you">Recommended for you</string>
     <string name="see_all">See all</string>
-    <string name="coins">COINS</string>
+    <string name="coins">Coins</string>
+    <string name="mystery_bag">Mystery Bag</string>
     <string name="hot">Hot 🔥</string>
     <string name="search_tutorials">Search tutorials...</string>
     <string name="watch_ads">Watch Ad</string>
     <string name="get_300_coins_completely_free">Get 300 COINS completely free!</string>
+    <string name="get_free_mystery_bag">Get 1 FREE Mystery Bag!</string>
     <string name="title_shop">✨ THE SHOP ✨</string>
+    <string name="free_bag">Free Bag</string>
+    <string name="bag_1">1 Bag</string>
+    <string name="bag_10">10 Bag</string>
+    <string name="claim">Claim</string>
 </resources>

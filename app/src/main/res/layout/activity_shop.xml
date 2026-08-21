@@ -41,13 +41,21 @@
 
                     <TextView
                         android:id="@+id/tvHints"
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/_20sdp"
+                        android:ellipsize="marquee"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/_2sdp"
                         android:fontFamily="@font/bold"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_13sdp"
-                        tools:text="128" />
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:maxLines="1"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_12sdp"
+                        tools:text="99999" />
 
                     <ImageView
                         android:layout_width="@dimen/_15sdp"
@@ -69,13 +77,21 @@
 
                     <TextView
                         android:id="@+id/tvStars"
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/_20sdp"
+                        android:ellipsize="marquee"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/_2sdp"
                         android:fontFamily="@font/bold"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_13sdp"
-                        tools:text="128" />
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:maxLines="1"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_12sdp"
+                        tools:text="99999" />
 
                     <ImageView
                         android:layout_width="@dimen/_15sdp"
@@ -96,13 +112,21 @@
 
                     <TextView
                         android:id="@+id/tvCoins"
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/_20sdp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/_2sdp"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center"
                         android:fontFamily="@font/bold"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:maxLines="1"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_13sdp"
-                        tools:text="8" />
+                        android:textSize="@dimen/_12sdp"
+                        tools:text="20" />
 
                     <ImageView
                         android:layout_width="@dimen/_15sdp"

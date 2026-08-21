@@ -1,5 +1,6 @@
 package com.fireants.template.ui.component.shop
 
+import androidx.core.content.ContextCompat
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import com.bumptech.glide.Glide
@@ -33,7 +34,6 @@ class ShopMultiTypeAdapter(
             is ShopItem.GetCoins -> R.layout.item_shop_get_coins
             is ShopItem.LuckyBag -> R.layout.item_shop_lucky_bag
             is ShopItem.BuyHints -> R.layout.item_shop_buy_hints
-            is ShopItem.PaperTitle -> R.layout.item_shop_paper_title
             is ShopItem.Paper -> R.layout.item_shop_paper
         }
     }
@@ -48,21 +48,49 @@ class ShopMultiTypeAdapter(
                     val status = item.bagStatus
                     if (status != null && status.canClaim) {
                         binding.btnClaimFreeBag.isEnabled = true
-                        binding.btnClaimFreeBag.text = "Claim Free Daily Bag"
+                        binding.lnClaim.setBackgroundResource(R.drawable.bg_claim)
+                        binding.tvClam.text = context?.getString(R.string.claim)
+                        context?.let {
+                            binding.tvClam.setTextColor(
+                                ContextCompat.getColor(
+                                    it,
+                                    R.color.color_4FEF44
+                                )
+                            )
+                        }
                     } else if (status != null) {
                         binding.btnClaimFreeBag.isEnabled = false
-                        val hours = status.remainingMillis / (1000 * 60 * 60)
-                        val mins = (status.remainingMillis % (1000 * 60 * 60)) / (1000 * 60)
-                        binding.btnClaimFreeBag.text = "Next Free Bag in ${hours}h ${mins}m"
+                        binding.lnClaim.setBackgroundResource(R.drawable.bg_time)
+                        val totalSeconds = status.remainingMillis / 1000
+                        val hours = totalSeconds / 3600
+                        val mins = (totalSeconds % 3600) / 60
+                        val secs = totalSeconds % 60
+                        binding.tvClam.text = String.format("%02d:%02d:%02d", hours, mins, secs)
+                        context?.let {
+                            binding.tvClam.setTextColor(
+                                ContextCompat.getColor(
+                                    it,
+                                    R.color.color_EF4444
+                                )
+                            )
+                        }
                     } else {
                         binding.btnClaimFreeBag.isEnabled = false
-                        binding.btnClaimFreeBag.text = "Claim Free Daily Bag"
+                        binding.lnClaim.setBackgroundResource(R.drawable.bg_claim)
+                        binding.tvClam.text = context?.getString(R.string.claim)
+                        context?.let {
+                            binding.tvClam.setTextColor(
+                                ContextCompat.getColor(
+                                    it,
+                                    R.color.color_4FEF44
+                                )
+                            )
+                        }
                     }
                 }
             }
 
             is ShopItem.BuyHints -> {}
-            is ShopItem.PaperTitle -> {}
             is ShopItem.Paper -> {
                 if (binding is ItemShopPaperBinding) {
                     binding.tvName.text = "Paper #${item.paper.id}"
@@ -120,7 +148,6 @@ class ShopMultiTypeAdapter(
                 }
             }
 
-            is ShopItem.PaperTitle -> {}
             is ShopItem.Paper -> {
                 if (binding is ItemShopPaperBinding) {
                     binding.btnAction.setOnClickListener {
