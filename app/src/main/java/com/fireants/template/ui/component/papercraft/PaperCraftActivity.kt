@@ -1,14 +1,26 @@
 package com.fireants.template.ui.component.papercraft
 
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import com.fireants.template.R
+import com.fireants.template.data.model.product.GameType
 import com.fireants.template.databinding.ActivityPaperCraftBinding
 import com.fireants.template.ui.bases.BaseActivity
 import com.fireants.template.ui.bases.ext.click
+import com.fireants.template.ui.component.custom.GridSpacingItemDecoration
+import com.fireants.template.utils.Routes
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class PaperCraftActivity : BaseActivity<ActivityPaperCraftBinding>() {
+
+    private val viewModel: PaperCraftViewModel by viewModels()
+    private lateinit var adapter: PaperCraftAdapter
+    private lateinit var mode: PaperCraftMode
 
     override fun getLayoutActivity(): Int {
         return R.layout.activity_paper_craft
@@ -16,10 +28,23 @@ class PaperCraftActivity : BaseActivity<ActivityPaperCraftBinding>() {
 
     override fun initViews() {
         super.initViews()
-        val mode = PaperCraftMode.fromValue(intent.getStringExtra(EXTRA_MODE))
+        mode = PaperCraftMode.fromValue(intent.getStringExtra(EXTRA_MODE))
 
         mBinding.toolBar.tvTitle.text = getString(mode.titleRes)
         mBinding.glowBackground.glowColor = ContextCompat.getColor(this, mode.glowColorRes)
+
+        adapter = PaperCraftAdapter(
+            onItemClick = { item -> Routes.startStepActivity(this, item) },
+            onFavoriteClick = { item -> viewModel.toggleFavorite(item) }
+        )
+        mBinding.rvItems.layoutManager = GridLayoutManager(this, SPAN_COUNT)
+        mBinding.rvItems.addItemDecoration(
+            GridSpacingItemDecoration(
+                spanCount = SPAN_COUNT,
+                spacing = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._10sdp)
+            )
+        )
+        mBinding.rvItems.adapter = adapter
     }
 
     override fun onClickViews() {
@@ -27,16 +52,36 @@ class PaperCraftActivity : BaseActivity<ActivityPaperCraftBinding>() {
         mBinding.toolBar.imgBack.click {
             onBackPressed()
         }
+        mBinding.searchBar.edtInput.doOnTextChanged { text, _, _, _ ->
+            viewModel.search(text?.toString().orEmpty())
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (::mode.isInitialized) {
+            viewModel.load(mode.gameType)
+        }
+    }
+
+    override fun observeData() {
+        super.observeData()
+        lifecycleScope.launch {
+            viewModel.state.collect { state ->
+                adapter.submitList(state.visibleItems)
+            }
+        }
     }
 
     enum class PaperCraftMode(
         val value: String,
         val titleRes: Int,
-        val glowColorRes: Int
+        val glowColorRes: Int,
+        val gameType: GameType
     ) {
-        KIRIGAMI("kirigami", R.string.kirigami, R.color.color_48D0B0),
-        ORIGAMI("origami", R.string.origami, R.color.color_9779F4),
-        ORIGAMI_3D("origami_3d", R.string.origami_3d, R.color.color_5BC2FB);
+        KIRIGAMI("kirigami", R.string.kirigami, R.color.color_48D0B0, GameType.KIRIGAMI),
+        ORIGAMI("origami", R.string.origami, R.color.color_9779F4, GameType.ORIGAMI),
+        ORIGAMI_3D("origami_3d", R.string.origami_3d, R.color.color_5BC2FB, GameType.ORIGAMI_3D);
 
         companion object {
             fun fromValue(value: String?): PaperCraftMode {
@@ -47,5 +92,6 @@ class PaperCraftActivity : BaseActivity<ActivityPaperCraftBinding>() {
 
     companion object {
         const val EXTRA_MODE = "paper_craft_mode"
+        private const val SPAN_COUNT = 2
     }
 }

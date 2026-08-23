@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_14sdp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_92sdp"
+            android:background="@drawable/bg_card_image"
+            android:clipToOutline="true">
+
+            <ImageView
+                android:id="@+id/ivProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/tvStepBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_gravity="top|start"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/bg_step_badge"
+                android:fontFamily="@font/semi_bold"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_8sdp"
+                tools:text="12 Steps" />
+
+            <ImageView
+                android:id="@+id/ivHeart"
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_26sdp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_7sdp"
+                android:src="@drawable/ic_favourite_off" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/semi_bold"
+            android:maxLines="1"
+            android:textColor="@color/color_1F0E5A"
+            android:textSize="@dimen/_10sdp"
+            tools:text="Paper Crane" />
+
+        <TextView
+            android:id="@+id/tvMeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/medium"
+            android:maxLines="1"
+            android:textColor="#6E629B"
+            android:textSize="@dimen/_8sdp"
+            tools:text="Easy • 15 min" />
+    </LinearLayout>
+</layout>
