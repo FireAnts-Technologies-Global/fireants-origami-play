@@ -5,5 +5,6 @@ import com.fireants.template.data.model.product.ProductItem
 data class ProductData(
     val banners: List<ProductItem>,
     val recommendations: List<ProductItem>,
-    val hotItems: List<ProductItem>
+    val hotItems: List<ProductItem>,
+    val favorites: List<ProductItem> = emptyList()
 )

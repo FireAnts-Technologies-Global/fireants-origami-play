@@ -24,13 +24,29 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
     override fun initViews() {
         super.initViews()
         val productId = intent.getIntExtra(EXTRA_PRODUCT_ID, 0)
+        val favoriteId = intent.getIntExtra(EXTRA_FAVORITE_ID, 0)
         val gameType = GameType.entries.firstOrNull {
             it.name == intent.getStringExtra(EXTRA_GAME_TYPE)
         } ?: GameType.ORIGAMI
+        val productName = intent.getStringExtra(EXTRA_PRODUCT_NAME).orEmpty()
+        val productImage = intent.getStringExtra(EXTRA_PRODUCT_IMAGE).orEmpty()
+        val difficulty = intent.getStringExtra(EXTRA_DIFFICULTY).orEmpty()
+        val stepCount = intent.getIntExtra(EXTRA_STEP_COUNT, 0)
+        val estimatedTime = intent.getStringExtra(EXTRA_ESTIMATED_TIME).orEmpty()
 
         if (productId > 0) {
             viewModel.load(productId, gameType)
         }
+        viewModel.loadFavorite(
+            favoriteId = favoriteId,
+            sourceId = productId,
+            gameType = gameType,
+            name = productName,
+            image = productImage,
+            difficulty = difficulty,
+            stepCount = stepCount,
+            estimatedTime = estimatedTime
+        )
     }
 
     override fun onClickViews() {
@@ -40,6 +56,9 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
         }
         mBinding.imgStore.click {
             Routes.startShopActivity(this)
+        }
+        mBinding.imgFavourite.click {
+            viewModel.toggleFavorite()
         }
         mBinding.btnLeft.click {
             viewModel.previousStep()
@@ -59,6 +78,9 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
                     state.currentIndex + 1,
                     state.steps.size
                 )
+                mBinding.imgFavourite.setImageResource(
+                    if (state.isFavorite) R.drawable.ic_favourite_on else R.drawable.ic_favourite_off
+                )
 
                 Glide.with(this@StepActivity)
                     .load(ASSET_PREFIX + currentStep.image)
@@ -70,8 +92,13 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
 
     companion object {
         const val EXTRA_PRODUCT_ID = "extra_product_id"
+        const val EXTRA_FAVORITE_ID = "extra_favorite_id"
         const val EXTRA_GAME_TYPE = "extra_game_type"
         const val EXTRA_PRODUCT_NAME = "extra_product_name"
+        const val EXTRA_PRODUCT_IMAGE = "extra_product_image"
+        const val EXTRA_DIFFICULTY = "extra_difficulty"
+        const val EXTRA_STEP_COUNT = "extra_step_count"
+        const val EXTRA_ESTIMATED_TIME = "extra_estimated_time"
         private const val ASSET_PREFIX = "file:///android_asset/"
     }
 }

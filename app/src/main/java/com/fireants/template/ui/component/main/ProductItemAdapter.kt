@@ -9,7 +9,8 @@ import com.fireants.template.databinding.ItemProductCardBinding
 import com.fireants.template.ui.bases.BaseListAdapter
 
 class ProductItemAdapter(
-    private val onItemClick: (ProductItem) -> Unit = {}
+    private val onItemClick: (ProductItem) -> Unit = {},
+    private val onFavoriteClick: (ProductItem) -> Unit = {}
 ) : BaseListAdapter<ProductItem>(DiffCallback) {
 
     override fun getItemLayout(viewType: Int): Int = R.layout.item_product_card
@@ -18,6 +19,9 @@ class ProductItemAdapter(
         if (binding is ItemProductCardBinding) {
             binding.tvName.text = ProductDisplayFormatter.name(item)
             binding.tvType.text = ProductDisplayFormatter.metadata(item)
+            binding.ivHeart.setImageResource(
+                if (item.isFavorite) R.drawable.ic_favourite_on else R.drawable.ic_favourite_off
+            )
 
             if (item.image.isNotEmpty()) {
                 Glide.with(binding.root.context)
@@ -30,6 +34,7 @@ class ProductItemAdapter(
     override fun onClickViews(binding: ViewDataBinding, obj: ProductItem, layoutPosition: Int) {
         if (binding is ItemProductCardBinding) {
             binding.root.setOnClickListener { onItemClick(obj) }
+            binding.ivHeart.setOnClickListener { onFavoriteClick(obj) }
         }
     }
 

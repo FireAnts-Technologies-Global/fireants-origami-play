@@ -3,6 +3,8 @@ package com.fireants.template.ui.component.step
 import androidx.lifecycle.viewModelScope
 import com.fireants.template.data.model.product.GameType
 import com.fireants.template.domain.model.step.StepGuide
+import com.fireants.template.domain.usecase.favorite.IsFavoriteUseCase
+import com.fireants.template.domain.usecase.favorite.ToggleFavoriteByIdUseCase
 import com.fireants.template.domain.usecase.step.GetStepGuidesUseCase
 import com.fireants.template.ui.bases.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +17,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class StepViewModel @Inject constructor(
-    private val getStepGuidesUseCase: GetStepGuidesUseCase
+    private val getStepGuidesUseCase: GetStepGuidesUseCase,
+    private val isFavoriteUseCase: IsFavoriteUseCase,
+    private val toggleFavoriteByIdUseCase: ToggleFavoriteByIdUseCase
 ) : BaseViewModel() {
 
     private val _state = MutableStateFlow(StepState())
@@ -28,6 +32,54 @@ class StepViewModel @Inject constructor(
                     steps = getStepGuidesUseCase(productId, gameType),
                     currentIndex = 0
                 )
+            }
+        }
+    }
+
+    fun loadFavorite(
+        favoriteId: Int,
+        sourceId: Int,
+        gameType: GameType,
+        name: String,
+        image: String,
+        difficulty: String,
+        stepCount: Int,
+        estimatedTime: String
+    ) {
+        viewModelScope.launch {
+            _state.update {
+                it.copy(
+                    favoriteId = favoriteId,
+                    sourceId = sourceId,
+                    gameType = gameType,
+                    name = name,
+                    image = image,
+                    difficulty = difficulty,
+                    stepCount = stepCount,
+                    estimatedTime = estimatedTime,
+                    isFavorite = favoriteId > 0 && isFavoriteUseCase(favoriteId)
+                )
+            }
+        }
+    }
+
+    fun toggleFavorite() {
+        val currentState = _state.value
+        if (currentState.favoriteId <= 0) return
+
+        viewModelScope.launch {
+            val isFavorite = toggleFavoriteByIdUseCase(
+                id = currentState.favoriteId,
+                sourceId = currentState.sourceId,
+                gameType = currentState.gameType.name,
+                name = currentState.name,
+                image = currentState.image,
+                difficulty = currentState.difficulty,
+                stepCount = currentState.stepCount,
+                estimatedTime = currentState.estimatedTime
+            )
+            _state.update {
+                it.copy(isFavorite = isFavorite)
             }
         }
     }
@@ -47,7 +99,16 @@ class StepViewModel @Inject constructor(
 
 data class StepState(
     val steps: List<StepGuide> = emptyList(),
-    val currentIndex: Int = 0
+    val currentIndex: Int = 0,
+    val favoriteId: Int = 0,
+    val sourceId: Int = 0,
+    val gameType: GameType = GameType.ORIGAMI,
+    val name: String = "",
+    val image: String = "",
+    val difficulty: String = "",
+    val stepCount: Int = 0,
+    val estimatedTime: String = "",
+    val isFavorite: Boolean = false
 ) {
     val currentStep: StepGuide?
         get() = steps.getOrNull(currentIndex)

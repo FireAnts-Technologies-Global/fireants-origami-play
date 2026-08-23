@@ -56,8 +56,13 @@ object Routes {
         Intent(fromActivity, StepActivity::class.java).apply {
             putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
             putExtra(StepActivity.EXTRA_PRODUCT_ID, item.sourceId)
+            putExtra(StepActivity.EXTRA_FAVORITE_ID, item.id)
             putExtra(StepActivity.EXTRA_GAME_TYPE, item.gameType.name)
             putExtra(StepActivity.EXTRA_PRODUCT_NAME, item.name)
+            putExtra(StepActivity.EXTRA_PRODUCT_IMAGE, item.image)
+            putExtra(StepActivity.EXTRA_DIFFICULTY, item.difficulty)
+            putExtra(StepActivity.EXTRA_STEP_COUNT, item.stepCount)
+            putExtra(StepActivity.EXTRA_ESTIMATED_TIME, item.estimatedTime)
             fromActivity.startActivity(this)
         }
 

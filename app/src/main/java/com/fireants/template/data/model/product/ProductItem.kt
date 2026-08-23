@@ -12,6 +12,7 @@ data class ProductItem(
     @Json(name = "order") val order: Int,
     @Json(name = "showReward") val showReward: Boolean = false,
     @Json(name = "hasVideo") val hasVideo: Boolean = false,
+    @Json(name = "isFavorite") val isFavorite: Boolean = false,
     @Json(name = "gameType") val gameType: GameType = GameType.ORIGAMI,
     @Json(name = "difficulty") val difficulty: String = "",
     @Json(name = "stepCount") val stepCount: Int = 0,

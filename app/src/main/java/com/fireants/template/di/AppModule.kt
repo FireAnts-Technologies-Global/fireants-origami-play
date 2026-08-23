@@ -1,14 +1,19 @@
 package com.fireants.template.di
 
 import android.content.Context
+import androidx.room.Room
+import com.fireants.template.data.local.db.AppDatabase
+import com.fireants.template.data.local.db.favorite.FavoriteDao
 import com.fireants.template.data.pref.AppSharedPref
 import com.fireants.template.data.pref.AppSharedPreferencesApp
+import com.fireants.template.data.repository.FavoriteRepository
 import com.fireants.template.data.repository.GameRepository
 import com.fireants.template.data.repository.KirigamiRepository
 import com.fireants.template.data.repository.Origami3DRepository
 import com.fireants.template.data.repository.OrigamiRepository
 import com.fireants.template.data.repository.ProductRepository
 import com.fireants.template.data.repository.UserRepository
+import com.fireants.template.data.repository.impl.FavoriteRepositoryImpl
 import com.fireants.template.data.repository.impl.GameRepositoryImpl
 import com.fireants.template.data.repository.impl.KirigamiRepositoryImpl
 import com.fireants.template.data.repository.impl.Origami3DRepositoryImpl
@@ -49,6 +54,21 @@ class AppModule {
 
     @Singleton
     @Provides
+    fun provideAppDatabase(
+        @ApplicationContext context: Context
+    ): AppDatabase {
+        return Room.databaseBuilder(
+            context,
+            AppDatabase::class.java,
+            "origami_play.db"
+        ).build()
+    }
+
+    @Provides
+    fun provideFavoriteDao(database: AppDatabase): FavoriteDao = database.favoriteDao()
+
+    @Singleton
+    @Provides
     fun provideGameRepository(impl: GameRepositoryImpl): GameRepository = impl
 
     @Singleton
@@ -70,4 +90,8 @@ class AppModule {
     @Singleton
     @Provides
     fun provideProductRepository(impl: ProductRepositoryImpl): ProductRepository = impl
+
+    @Singleton
+    @Provides
+    fun provideFavoriteRepository(impl: FavoriteRepositoryImpl): FavoriteRepository = impl
 }

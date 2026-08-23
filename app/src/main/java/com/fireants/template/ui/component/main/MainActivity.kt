@@ -41,12 +41,18 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
     private lateinit var dialogLoading: DialogLoading
     private var cachedForceUpdateConfig: ForceUpdateConfig? = null
 
-    private val recommendAdapter = ProductItemAdapter { item ->
-        Routes.startStepActivity(this, item)
-    }
-    private val hotAdapter = ProductItemAdapter { item ->
-        Routes.startStepActivity(this, item)
-    }
+    private val recommendAdapter = ProductItemAdapter(
+        onItemClick = { item -> Routes.startStepActivity(this, item) },
+        onFavoriteClick = { item -> viewModel.toggleFavorite(item) }
+    )
+    private val hotAdapter = ProductItemAdapter(
+        onItemClick = { item -> Routes.startStepActivity(this, item) },
+        onFavoriteClick = { item -> viewModel.toggleFavorite(item) }
+    )
+    private val favoriteAdapter = ProductItemAdapter(
+        onItemClick = { item -> Routes.startStepActivity(this, item) },
+        onFavoriteClick = { item -> viewModel.toggleFavorite(item) }
+    )
     private val bannerAdapter = BannerAdapter { item ->
         Routes.startStepActivity(this, item)
     }
@@ -54,6 +60,11 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
     private var autoSlideRunnable: Runnable? = null
 
     override fun getLayoutActivity(): Int = R.layout.activity_main
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.refreshFavoriteState()
+    }
 
     override fun initViews() {
         super.initViews()
@@ -76,6 +87,10 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
         mBinding.rvHot.apply {
             layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = hotAdapter
+        }
+        mBinding.rvFavorite.apply {
+            layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = favoriteAdapter
         }
     }
 
@@ -204,6 +219,10 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
                 state.productData?.let { productData ->
                     recommendAdapter.submitList(productData.recommendations)
                     hotAdapter.submitList(productData.hotItems)
+                    favoriteAdapter.submitList(productData.favorites)
+                    val hasFavorites = productData.favorites.isNotEmpty()
+                    mBinding.layoutFavoriteHeader.visibility = if (hasFavorites) View.VISIBLE else View.GONE
+                    mBinding.rvFavorite.visibility = if (hasFavorites) View.VISIBLE else View.GONE
 
                     if (productData.banners.isNotEmpty()) {
                         bannerAdapter.submitList(productData.banners)
