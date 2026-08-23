@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import com.fireants.template.app.AppConstants
+import com.fireants.template.data.model.product.ProductItem
 import com.fireants.template.ui.component.game.GameActivity
 import com.fireants.template.ui.component.language.LanguageActivity
 import com.fireants.template.ui.component.level.LevelActivity
@@ -14,6 +15,7 @@ import com.fireants.template.ui.component.papercraft.PaperCraftActivity.PaperCra
 import com.fireants.template.ui.component.setting.SettingActivity
 import com.fireants.template.ui.component.shop.ShopActivity
 import com.fireants.template.ui.component.splash.SplashActivity
+import com.fireants.template.ui.component.step.StepActivity
 import com.fireants.template.ui.component.welcome.WelcomeActivity
 
 object Routes {
@@ -49,6 +51,15 @@ object Routes {
 
     fun startOrigami3DActivity(fromActivity: Activity) =
         startPaperCraftActivity(fromActivity, PaperCraftMode.ORIGAMI_3D)
+
+    fun startStepActivity(fromActivity: Activity, item: ProductItem) =
+        Intent(fromActivity, StepActivity::class.java).apply {
+            putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
+            putExtra(StepActivity.EXTRA_PRODUCT_ID, item.sourceId)
+            putExtra(StepActivity.EXTRA_GAME_TYPE, item.gameType.name)
+            putExtra(StepActivity.EXTRA_PRODUCT_NAME, item.name)
+            fromActivity.startActivity(this)
+        }
 
     private fun startPaperCraftActivity(fromActivity: Activity, mode: PaperCraftMode) =
         Intent(fromActivity, PaperCraftActivity::class.java).apply {

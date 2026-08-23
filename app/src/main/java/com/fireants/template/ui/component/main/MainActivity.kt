@@ -41,9 +41,15 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
     private lateinit var dialogLoading: DialogLoading
     private var cachedForceUpdateConfig: ForceUpdateConfig? = null
 
-    private val recommendAdapter = ProductItemAdapter()
-    private val hotAdapter = ProductItemAdapter()
-    private val bannerAdapter = BannerAdapter()
+    private val recommendAdapter = ProductItemAdapter { item ->
+        Routes.startStepActivity(this, item)
+    }
+    private val hotAdapter = ProductItemAdapter { item ->
+        Routes.startStepActivity(this, item)
+    }
+    private val bannerAdapter = BannerAdapter { item ->
+        Routes.startStepActivity(this, item)
+    }
     private val autoSlideHandler = Handler(Looper.getMainLooper())
     private var autoSlideRunnable: Runnable? = null
 

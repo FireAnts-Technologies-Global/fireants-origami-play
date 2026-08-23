@@ -35,7 +35,8 @@ class ProductAssetDataSource @Inject constructor(
             gameType = gameType,
             difficulty = difficulty,
             stepCount = stepCount,
-            estimatedTime = estimatedTime
+            estimatedTime = estimatedTime,
+            sourceId = id
         )
     }
 
@@ -51,7 +52,8 @@ class ProductAssetDataSource @Inject constructor(
             gameType = gameType,
             difficulty = difficulty,
             stepCount = stepCount,
-            estimatedTime = estimatedTime
+            estimatedTime = estimatedTime,
+            sourceId = id
         )
     }
 
@@ -67,7 +69,8 @@ class ProductAssetDataSource @Inject constructor(
             gameType = gameType,
             difficulty = difficulty,
             stepCount = stepCount,
-            estimatedTime = estimatedTime
+            estimatedTime = estimatedTime,
+            sourceId = id
         )
     }
 

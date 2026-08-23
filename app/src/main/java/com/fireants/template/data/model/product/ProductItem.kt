@@ -15,5 +15,6 @@ data class ProductItem(
     @Json(name = "gameType") val gameType: GameType = GameType.ORIGAMI,
     @Json(name = "difficulty") val difficulty: String = "",
     @Json(name = "stepCount") val stepCount: Int = 0,
-    @Json(name = "estimatedTime") val estimatedTime: String = ""
+    @Json(name = "estimatedTime") val estimatedTime: String = "",
+    @Json(name = "sourceId") val sourceId: Int = id
 )
