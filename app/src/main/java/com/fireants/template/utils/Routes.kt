@@ -5,13 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 import com.fireants.template.app.AppConstants
 import com.fireants.template.ui.component.game.GameActivity
-import com.fireants.template.ui.component.kirigami.KirigamiActivity
 import com.fireants.template.ui.component.language.LanguageActivity
 import com.fireants.template.ui.component.level.LevelActivity
 import com.fireants.template.ui.component.main.MainActivity
 import com.fireants.template.ui.component.onboarding.OnBoardingActivity
-import com.fireants.template.ui.component.origami.OrigamiActivity
-import com.fireants.template.ui.component.origami3d.Origami3DActivity
+import com.fireants.template.ui.component.papercraft.PaperCraftActivity
+import com.fireants.template.ui.component.papercraft.PaperCraftActivity.PaperCraftMode
 import com.fireants.template.ui.component.setting.SettingActivity
 import com.fireants.template.ui.component.shop.ShopActivity
 import com.fireants.template.ui.component.splash.SplashActivity
@@ -43,20 +42,18 @@ object Routes {
         }
 
     fun startKirigamiActivity(fromActivity: Activity) =
-        Intent(fromActivity, KirigamiActivity::class.java).apply {
-            putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
-            fromActivity.startActivity(this)
-        }
+        startPaperCraftActivity(fromActivity, PaperCraftMode.KIRIGAMI)
 
     fun startOrigamiActivity(fromActivity: Activity) =
-        Intent(fromActivity, OrigamiActivity::class.java).apply {
-            putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
-            fromActivity.startActivity(this)
-        }
+        startPaperCraftActivity(fromActivity, PaperCraftMode.ORIGAMI)
 
     fun startOrigami3DActivity(fromActivity: Activity) =
-        Intent(fromActivity, Origami3DActivity::class.java).apply {
+        startPaperCraftActivity(fromActivity, PaperCraftMode.ORIGAMI_3D)
+
+    private fun startPaperCraftActivity(fromActivity: Activity, mode: PaperCraftMode) =
+        Intent(fromActivity, PaperCraftActivity::class.java).apply {
             putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
+            putExtra(PaperCraftActivity.EXTRA_MODE, mode.value)
             fromActivity.startActivity(this)
         }
 
