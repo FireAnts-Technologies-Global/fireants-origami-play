@@ -5,17 +5,22 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.fireants.template.R
 import com.fireants.template.data.model.product.GameType
+import com.fireants.template.data.model.product.ProductItem
 import com.fireants.template.databinding.ActivityStepBinding
 import com.fireants.template.ui.bases.BaseActivity
 import com.fireants.template.ui.bases.ext.click
 import com.fireants.template.utils.Routes
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.getValue
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class StepActivity : BaseActivity<ActivityStepBinding>(){
     private val viewModel: StepViewModel by viewModels()
+    private var autoResultJob: Job? = null
+    private var resultOpened = false
 
     override fun getLayoutActivity(): Int {
         return R.layout.activity_step
@@ -61,10 +66,18 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
             viewModel.toggleFavorite()
         }
         mBinding.btnLeft.click {
+            cancelAutoResult()
             viewModel.previousStep()
         }
         mBinding.btnRight.click {
-            viewModel.nextStep()
+            val state = viewModel.state.value
+            if (state.steps.isEmpty()) return@click
+            if (state.currentIndex >= state.steps.lastIndex) {
+                openResult(state)
+            } else {
+                cancelAutoResult()
+                viewModel.nextStep()
+            }
         }
     }
 
@@ -86,8 +99,39 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
                     .load(ASSET_PREFIX + currentStep.image)
                     .fitCenter()
                     .into(mBinding.imgPreview)
+                scheduleAutoResultIfNeeded(state)
             }
         }
+    }
+
+    private fun scheduleAutoResultIfNeeded(state: StepState) {
+        if (state.steps.isEmpty() || state.currentIndex < state.steps.lastIndex || resultOpened) {
+            cancelAutoResult()
+            return
+        }
+        if (autoResultJob?.isActive == true) return
+
+        autoResultJob = lifecycleScope.launch {
+            delay(AUTO_RESULT_DELAY_MS)
+            openResult(viewModel.state.value)
+        }
+    }
+
+    private fun cancelAutoResult() {
+        autoResultJob?.cancel()
+        autoResultJob = null
+    }
+
+    private fun openResult(state: StepState) {
+        if (resultOpened || state.steps.isEmpty()) return
+        resultOpened = true
+        cancelAutoResult()
+        Routes.startResultActivity(this, state.toProductItem())
+    }
+
+    override fun onDestroy() {
+        cancelAutoResult()
+        super.onDestroy()
     }
 
     companion object {
@@ -100,5 +144,20 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
         const val EXTRA_STEP_COUNT = "extra_step_count"
         const val EXTRA_ESTIMATED_TIME = "extra_estimated_time"
         private const val ASSET_PREFIX = "file:///android_asset/"
+        private const val AUTO_RESULT_DELAY_MS = 3_000L
     }
 }
+
+private fun StepState.toProductItem() = ProductItem(
+    id = favoriteId,
+    sourceId = sourceId,
+    categoryId = 0,
+    name = name,
+    image = image,
+    order = 0,
+    gameType = gameType,
+    difficulty = difficulty,
+    stepCount = stepCount,
+    estimatedTime = estimatedTime,
+    isFavorite = isFavorite
+)

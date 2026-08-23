@@ -12,6 +12,7 @@ import com.fireants.template.ui.component.main.MainActivity
 import com.fireants.template.ui.component.onboarding.OnBoardingActivity
 import com.fireants.template.ui.component.papercraft.PaperCraftActivity
 import com.fireants.template.ui.component.papercraft.PaperCraftActivity.PaperCraftMode
+import com.fireants.template.ui.component.result.ResultActivity
 import com.fireants.template.ui.component.setting.SettingActivity
 import com.fireants.template.ui.component.shop.ShopActivity
 import com.fireants.template.ui.component.splash.SplashActivity
@@ -72,6 +73,20 @@ object Routes {
             putExtra(StepActivity.EXTRA_DIFFICULTY, item.difficulty)
             putExtra(StepActivity.EXTRA_STEP_COUNT, item.stepCount)
             putExtra(StepActivity.EXTRA_ESTIMATED_TIME, item.estimatedTime)
+            fromActivity.startActivity(this)
+        }
+
+    fun startResultActivity(fromActivity: Activity, item: ProductItem) =
+        Intent(fromActivity, ResultActivity::class.java).apply {
+            putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
+            putExtra(ResultActivity.EXTRA_PRODUCT_ID, item.sourceId)
+            putExtra(ResultActivity.EXTRA_FAVORITE_ID, item.id)
+            putExtra(ResultActivity.EXTRA_GAME_TYPE, item.gameType.name)
+            putExtra(ResultActivity.EXTRA_PRODUCT_NAME, item.name)
+            putExtra(ResultActivity.EXTRA_PRODUCT_IMAGE, item.image)
+            putExtra(ResultActivity.EXTRA_DIFFICULTY, item.difficulty)
+            putExtra(ResultActivity.EXTRA_STEP_COUNT, item.stepCount)
+            putExtra(ResultActivity.EXTRA_ESTIMATED_TIME, item.estimatedTime)
             fromActivity.startActivity(this)
         }
 

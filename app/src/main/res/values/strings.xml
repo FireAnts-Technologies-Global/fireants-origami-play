@@ -115,4 +115,11 @@
     <string name="reward">Reward</string>
     <string name="step_progress" translatable="false">Step %1$d/%2$d</string>
     <string name="favorites">Favorites</string>
+    <string name="congrats">Congrats!</string>
+    <string name="you_completed_it">YOU COMPLETED IT!</string>
+    <string name="share_my_creation">Share My Creation</string>
+    <string name="explore_more">Explore More</string>
+    <string name="you_may_like">You May Like</string>
+    <string name="view_all">View All ></string>
+    <string name="share_creation_message">I completed %1$s in %2$s!</string>
 </resources>
