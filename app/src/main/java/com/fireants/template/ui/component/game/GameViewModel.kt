@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.fireants.template.domain.usecase.game.CompleteLevelUseCase
 import com.fireants.template.domain.usecase.game.GetFoldHintsUseCase
 import com.fireants.template.domain.usecase.game.GetLevelUseCase
+import com.fireants.template.domain.usecase.game.GetLevelsUseCase
 import com.fireants.template.domain.usecase.game.GetSelectedPaperUseCase
 import com.fireants.template.domain.usecase.player.GetPlayerUseCase
 import com.fireants.template.domain.usecase.player.UseHintUseCase
@@ -23,6 +24,7 @@ import javax.inject.Inject
 @HiltViewModel
 class GameViewModel @Inject constructor(
     private val getLevelUseCase: GetLevelUseCase,
+    private val getLevelsUseCase: GetLevelsUseCase,
     private val getFoldHintsUseCase: GetFoldHintsUseCase,
     private val getSelectedPaperUseCase: GetSelectedPaperUseCase,
     private val getPlayerUseCase: GetPlayerUseCase,
@@ -49,12 +51,20 @@ class GameViewModel @Inject constructor(
             _state.update { it.copy(isLoading = true) }
             try {
                 val level = getLevelUseCase(levelId)
+                val levels = getLevelsUseCase()
                 val hints = getFoldHintsUseCase(levelId)
                 val paper = getSelectedPaperUseCase()
+                val currentIndex = levels.indexOfFirst { it.id == levelId }
+                val nextLevelId = if (currentIndex != -1) {
+                    levels.getOrNull(currentIndex + 1)?.id
+                } else {
+                    null
+                }
                 
                 _state.update { 
                     it.copy(
                         currentLevel = level,
+                        nextLevelId = nextLevelId,
                         foldHints = hints,
                         selectedPaper = paper,
                         isLoading = false
@@ -76,7 +86,7 @@ class GameViewModel @Inject constructor(
             }
         } else {
             viewModelScope.launch {
-                _eventFlow.emit(GameEvent.ShowError("Not enough hints!"))
+                _eventFlow.emit(GameEvent.OpenStore)
             }
         }
     }

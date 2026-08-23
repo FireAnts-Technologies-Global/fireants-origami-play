@@ -39,6 +39,7 @@ class FoldPaperView @JvmOverloads constructor(
     var onLevelCompleted: ((Int) -> Unit)? = null
     var onReplay: (() -> Unit)? = null
     var onLevelWinAction: ((() -> Unit) -> Unit)? = null
+    var onFoldHistoryChanged: ((Int) -> Unit)? = null
 
     var isManualFolded: Boolean = false
         private set
@@ -220,6 +221,7 @@ class FoldPaperView @JvmOverloads constructor(
         foldHistory.clear()
         historyBitmaps.push(initialBitmap)
         currentBackgroundBitmap = initialBitmap
+        onFoldHistoryChanged?.invoke(foldHistory.size)
         
         resetTouchData()
         invalidate()
@@ -453,6 +455,7 @@ class FoldPaperView @JvmOverloads constructor(
                 foldHistory.push(FoldGesture(touchStartX, touchStartY, touchX, touchY))
                 saveStepAndNext(false)
                 applyFoldClip(dx, dy)
+                onFoldHistoryChanged?.invoke(foldHistory.size)
                 resetTouchData()
                 invalidate()
             }
@@ -576,6 +579,7 @@ class FoldPaperView @JvmOverloads constructor(
             foldHistory.pop()
             reconstructFromHistory()
         }
+        onFoldHistoryChanged?.invoke(foldHistory.size)
         resetTouchData()
         invalidate()
     }

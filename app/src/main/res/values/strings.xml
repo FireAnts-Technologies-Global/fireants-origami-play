@@ -98,4 +98,8 @@
     <string name="confirm_purchase">Confirm purchase</string>
     <string name="unlocked">Unlocked</string>
     <string name="selected">Selected</string>
+    <string name="complete">Complete!</string>
+    <string name="play_again">Play Again</string>
+    <string name="continue_game">Continue</string>
+    <string name="reward">Reward</string>
 </resources>
