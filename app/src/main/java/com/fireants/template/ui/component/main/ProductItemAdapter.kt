@@ -16,10 +16,8 @@ class ProductItemAdapter(
 
     override fun setData(binding: ViewDataBinding, item: ProductItem, layoutPosition: Int) {
         if (binding is ItemProductCardBinding) {
-            binding.tvName.text = item.name
-            binding.tvType.text = item.gameType.folderName
-                .replaceFirstChar { it.uppercaseChar() }
-                .replace("3d", "3D")
+            binding.tvName.text = ProductDisplayFormatter.name(item)
+            binding.tvType.text = ProductDisplayFormatter.metadata(item)
 
             if (item.image.isNotEmpty()) {
                 Glide.with(binding.root.context)

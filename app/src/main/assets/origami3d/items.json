@@ -6,7 +6,10 @@
     "image": "images/3d/goose_3d_30.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 1
+    "order": 1,
+    "difficulty": "Hard",
+    "stepCount": 29,
+    "estimatedTime": "1 hour"
   },
   {
     "id": 2,
@@ -15,7 +18,10 @@
     "image": "images/3d/naruto_3d_20.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 2
+    "order": 2,
+    "difficulty": "Medium",
+    "stepCount": 19,
+    "estimatedTime": "40 min"
   },
   {
     "id": 3,
@@ -24,7 +30,10 @@
     "image": "images/3d/dragon_3d_22.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 3
+    "order": 3,
+    "difficulty": "Medium",
+    "stepCount": 21,
+    "estimatedTime": "45 min"
   },
   {
     "id": 4,
@@ -33,7 +42,10 @@
     "image": "images/3d/spider_3d_20.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 4
+    "order": 4,
+    "difficulty": "Medium",
+    "stepCount": 19,
+    "estimatedTime": "40 min"
   },
   {
     "id": 5,
@@ -42,7 +54,10 @@
     "image": "images/3d/kimono_3d_23.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 5
+    "order": 5,
+    "difficulty": "Medium",
+    "stepCount": 23,
+    "estimatedTime": "50 min"
   },
   {
     "id": 6,
@@ -51,7 +66,10 @@
     "image": "images/3d/peacock_3d_30.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 6
+    "order": 6,
+    "difficulty": "Hard",
+    "stepCount": 30,
+    "estimatedTime": "1 hour"
   },
   {
     "id": 7,
@@ -60,6 +78,9 @@
     "image": "images/3d/pokeball_3d_20.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 7
+    "order": 7,
+    "difficulty": "Medium",
+    "stepCount": 20,
+    "estimatedTime": "40 min"
   }
 ]

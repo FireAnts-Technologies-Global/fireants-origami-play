@@ -4,14 +4,20 @@
     "categoryId": 1,
     "name": "sapphire_crystal",
     "image": "images/kirigami/sapphire_crystal_7.webp",
-    "order": 1
+    "order": 1,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 2,
     "categoryId": 1,
     "name": "classic_ice_crystal",
     "image": "images/kirigami/classic_ice_crystal_9.webp",
-    "order": 2
+    "order": 2,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 3,
@@ -19,14 +25,20 @@
     "name": "mystic_purple_frost",
     "image": "images/kirigami/mystic_purple_frost_12.webp",
     "showReward": true,
-    "order": 3
+    "order": 3,
+    "difficulty": "Easy",
+    "stepCount": 12,
+    "estimatedTime": "25 min"
   },
   {
     "id": 4,
     "categoryId": 1,
     "name": "pink_quartz_snowflake",
     "image": "images/kirigami/pink_quartz_snowflake_9.webp",
-    "order": 4
+    "order": 4,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 36,
@@ -34,7 +46,10 @@
     "name": "crystal",
     "image": "images/kirigami/crystal_7.webp",
     "showReward": true,
-    "order": 5
+    "order": 5,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 37,
@@ -42,14 +57,20 @@
     "name": "snowflower",
     "image": "images/kirigami/snowflower_7.webp",
     "showReward": true,
-    "order": 6
+    "order": 6,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 5,
     "categoryId": 5,
     "name": "handheld_origami_pine",
     "image": "images/kirigami/handheld_origami_pine_18.webp",
-    "order": 7
+    "order": 7,
+    "difficulty": "Medium",
+    "stepCount": 18,
+    "estimatedTime": "40 min"
   },
   {
     "id": 6,
@@ -57,7 +78,10 @@
     "name": "heart",
     "image": "images/kirigami/heart_7.webp",
     "showReward": true,
-    "order": 8
+    "order": 8,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 7,
@@ -65,7 +89,10 @@
     "name": "heart_to_heart",
     "image": "images/kirigami/heart_to_heart_5.webp",
     "showReward": true,
-    "order": 9
+    "order": 9,
+    "difficulty": "Easy",
+    "stepCount": 5,
+    "estimatedTime": "10 min"
   },
   {
     "id": 8,
@@ -73,7 +100,10 @@
     "name": "heart_flower",
     "image": "images/kirigami/heart_flower_5.webp",
     "showReward": true,
-    "order": 10
+    "order": 10,
+    "difficulty": "Easy",
+    "stepCount": 5,
+    "estimatedTime": "10 min"
   },
   {
     "id": 9,
@@ -81,21 +111,30 @@
     "name": "pop_heart",
     "image": "images/kirigami/pop_heart_5.webp",
     "showReward": true,
-    "order": 11
+    "order": 11,
+    "difficulty": "Easy",
+    "stepCount": 5,
+    "estimatedTime": "10 min"
   },
   {
     "id": 10,
     "categoryId": 3,
     "name": "plum_blossom",
     "image": "images/kirigami/plum_blossom_9.webp",
-    "order": 12
+    "order": 12,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 11,
     "categoryId": 3,
     "name": "sakura",
     "image": "images/kirigami/sakura_9.webp",
-    "order": 13
+    "order": 13,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 12,
@@ -103,7 +142,10 @@
     "name": "fancy_blossom",
     "image": "images/kirigami/fancy_blossom_9.webp",
     "showReward": true,
-    "order": 14
+    "order": 14,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 13,
@@ -111,7 +153,10 @@
     "name": "double_sakura",
     "image": "images/kirigami/double_sakura_9.webp",
     "showReward": true,
-    "order": 15
+    "order": 15,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 14,
@@ -119,7 +164,10 @@
     "name": "tulips",
     "image": "images/kirigami/tulips_9.webp",
     "showReward": true,
-    "order": 16
+    "order": 16,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 15,
@@ -127,7 +175,10 @@
     "name": "four_petal_flower",
     "image": "images/kirigami/four_petal_flower_5.webp",
     "showReward": true,
-    "order": 17
+    "order": 17,
+    "difficulty": "Easy",
+    "stepCount": 5,
+    "estimatedTime": "10 min"
   },
   {
     "id": 16,
@@ -135,21 +186,30 @@
     "name": "stylized_lotus",
     "image": "images/kirigami/stylized_lotus_7.webp",
     "showReward": true,
-    "order": 18
+    "order": 18,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 17,
     "categoryId": 3,
     "name": "camellia",
     "image": "images/kirigami/camellia_9.webp",
-    "order": 19
+    "order": 19,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 18,
     "categoryId": 3,
     "name": "peacock_flower",
     "image": "images/kirigami/peacock_flower_7.webp",
-    "order": 20
+    "order": 20,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 38,
@@ -157,7 +217,10 @@
     "name": "fiddleheads",
     "image": "images/kirigami/fiddleheads_7.webp",
     "showReward": true,
-    "order": 21
+    "order": 21,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 19,
@@ -165,14 +228,20 @@
     "name": "butterfly",
     "image": "images/kirigami/butterfly_9.webp",
     "showReward": true,
-    "order": 22
+    "order": 22,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 20,
     "categoryId": 4,
     "name": "bird",
     "image": "images/kirigami/bird_7.webp",
-    "order": 23
+    "order": 23,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 21,
@@ -180,7 +249,10 @@
     "name": "cats",
     "image": "images/kirigami/cats_7.webp",
     "showReward": true,
-    "order": 24
+    "order": 24,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 22,
@@ -188,7 +260,10 @@
     "name": "bat",
     "image": "images/kirigami/bat_7.webp",
     "showReward": true,
-    "order": 25
+    "order": 25,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 23,
@@ -196,21 +271,30 @@
     "name": "umbrellas",
     "image": "images/kirigami/umbrellas_9.webp",
     "showReward": true,
-    "order": 26
+    "order": 26,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 24,
     "categoryId": 5,
     "name": "tribal_sun",
     "image": "images/kirigami/tribal_sun_5.webp",
-    "order": 27
+    "order": 27,
+    "difficulty": "Easy",
+    "stepCount": 5,
+    "estimatedTime": "10 min"
   },
   {
     "id": 25,
     "categoryId": 5,
     "name": "arrows",
     "image": "images/kirigami/arrows_5.webp",
-    "order": 28
+    "order": 28,
+    "difficulty": "Easy",
+    "stepCount": 5,
+    "estimatedTime": "10 min"
   },
   {
     "id": 26,
@@ -218,14 +302,20 @@
     "name": "circle_of_friends",
     "image": "images/kirigami/circle_of_friends_7.webp",
     "showReward": true,
-    "order": 29
+    "order": 29,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 27,
     "categoryId": 5,
     "name": "angels",
     "image": "images/kirigami/angels_7.webp",
-    "order": 30
+    "order": 30,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 28,
@@ -233,7 +323,10 @@
     "name": "easter_eggs",
     "image": "images/kirigami/easter_eggs_7.webp",
     "showReward": true,
-    "order": 31
+    "order": 31,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 29,
@@ -241,7 +334,10 @@
     "name": "pineapples",
     "image": "images/kirigami/pineapples_5.webp",
     "showReward": true,
-    "order": 32
+    "order": 32,
+    "difficulty": "Easy",
+    "stepCount": 5,
+    "estimatedTime": "10 min"
   },
   {
     "id": 30,
@@ -249,7 +345,10 @@
     "name": "lucky_horseshoes",
     "image": "images/kirigami/lucky_horseshoes_7.webp",
     "showReward": true,
-    "order": 33
+    "order": 33,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 39,
@@ -257,14 +356,20 @@
     "name": "starburst",
     "image": "images/kirigami/starburst_9.webp",
     "showReward": true,
-    "order": 34
+    "order": 34,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 31,
     "categoryId": 6,
     "name": "geometric",
     "image": "images/kirigami/geometric_5.webp",
-    "order": 35
+    "order": 35,
+    "difficulty": "Easy",
+    "stepCount": 5,
+    "estimatedTime": "10 min"
   },
   {
     "id": 32,
@@ -272,21 +377,30 @@
     "name": "bubbles",
     "image": "images/kirigami/bubbles_7.webp",
     "showReward": true,
-    "order": 36
+    "order": 36,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 33,
     "categoryId": 6,
     "name": "star",
     "image": "images/kirigami/star_9.webp",
-    "order": 37
+    "order": 37,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 34,
     "categoryId": 6,
     "name": "directions",
     "image": "images/kirigami/directions_5.webp",
-    "order": 38
+    "order": 38,
+    "difficulty": "Easy",
+    "stepCount": 5,
+    "estimatedTime": "10 min"
   },
   {
     "id": 35,
@@ -294,6 +408,9 @@
     "name": "curves",
     "image": "images/kirigami/curves_5.webp",
     "showReward": true,
-    "order": 39
+    "order": 39,
+    "difficulty": "Easy",
+    "stepCount": 5,
+    "estimatedTime": "10 min"
   }
 ]

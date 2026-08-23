@@ -3,7 +3,6 @@ package com.fireants.template.di
 import android.content.Context
 import com.fireants.template.data.pref.AppSharedPref
 import com.fireants.template.data.pref.AppSharedPreferencesApp
-import com.fireants.template.data.remote.ProductApiService
 import com.fireants.template.data.repository.GameRepository
 import com.fireants.template.data.repository.KirigamiRepository
 import com.fireants.template.data.repository.Origami3DRepository
@@ -23,8 +22,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -48,21 +45,6 @@ class AppModule {
         return Moshi.Builder()
             .addLast(KotlinJsonAdapterFactory())
             .build()
-    }
-
-    @Singleton
-    @Provides
-    fun provideRetrofit(moshi: Moshi): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl("https://api.mocki.io/v2/oc06gxfd/")
-            .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .build()
-    }
-
-    @Singleton
-    @Provides
-    fun provideProductApiService(retrofit: Retrofit): ProductApiService {
-        return retrofit.create(ProductApiService::class.java)
     }
 
     @Singleton

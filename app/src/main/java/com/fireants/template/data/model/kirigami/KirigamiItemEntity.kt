@@ -11,5 +11,8 @@ data class KirigamiItemEntity(
     val isFavorite: Boolean = false,
     val hasVideo: Boolean = false,
     val showReward: Boolean = false,
-    val order: Int = 0
+    val order: Int = 0,
+    val difficulty: String = "",
+    val stepCount: Int = 0,
+    val estimatedTime: String = ""
 )

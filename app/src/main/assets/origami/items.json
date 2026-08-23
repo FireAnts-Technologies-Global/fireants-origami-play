@@ -6,7 +6,10 @@
     "image": "images/product/crown_26.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 1
+    "order": 1,
+    "difficulty": "Hard",
+    "stepCount": 26,
+    "estimatedTime": "55 min"
   },
   {
     "id": 98,
@@ -15,7 +18,10 @@
     "image": "images/product/cute_cat_20.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 2
+    "order": 2,
+    "difficulty": "Medium",
+    "stepCount": 20,
+    "estimatedTime": "40 min"
   },
   {
     "id": 99,
@@ -24,7 +30,10 @@
     "image": "images/product/rose_box_42.webp",
     "hasVideo": true,
     "showReward": false,
-    "order": 3
+    "order": 3,
+    "difficulty": "Hard",
+    "stepCount": 42,
+    "estimatedTime": "1 hour 25 min"
   },
   {
     "id": 93,
@@ -33,7 +42,10 @@
     "image": "images/product/box_with_lid_33.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 4
+    "order": 4,
+    "difficulty": "Hard",
+    "stepCount": 33,
+    "estimatedTime": "1 hour 10 min"
   },
   {
     "id": 94,
@@ -42,7 +54,10 @@
     "image": "images/product/stress_ball_35.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 5
+    "order": 5,
+    "difficulty": "Hard",
+    "stepCount": 35,
+    "estimatedTime": "1 hour 10 min"
   },
   {
     "id": 95,
@@ -51,7 +66,10 @@
     "image": "images/product/snowflake_32.webp",
     "hasVideo": true,
     "showReward": false,
-    "order": 6
+    "order": 6,
+    "difficulty": "Hard",
+    "stepCount": 32,
+    "estimatedTime": "1 hour 5 min"
   },
   {
     "id": 96,
@@ -60,7 +78,10 @@
     "image": "images/product/ninja_men_19.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 7
+    "order": 7,
+    "difficulty": "Medium",
+    "stepCount": 19,
+    "estimatedTime": "40 min"
   },
   {
     "id": 107,
@@ -69,7 +90,10 @@
     "image": "images/product/a_church_20.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 8
+    "order": 8,
+    "difficulty": "Medium",
+    "stepCount": 20,
+    "estimatedTime": "40 min"
   },
   {
     "id": 97,
@@ -78,7 +102,10 @@
     "image": "images/product/magic_color_spin_29.webp",
     "hasVideo": true,
     "showReward": false,
-    "order": 9
+    "order": 9,
+    "difficulty": "Hard",
+    "stepCount": 29,
+    "estimatedTime": "1 hour"
   },
   {
     "id": 91,
@@ -87,7 +114,10 @@
     "image": "images/product/eagle_78.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 10
+    "order": 10,
+    "difficulty": "Hard",
+    "stepCount": 78,
+    "estimatedTime": "2 hours 40 min"
   },
   {
     "id": 89,
@@ -96,7 +126,10 @@
     "image": "images/product/finger_trap_26.webp",
     "hasVideo": true,
     "showReward": false,
-    "order": 11
+    "order": 11,
+    "difficulty": "Hard",
+    "stepCount": 26,
+    "estimatedTime": "55 min"
   },
   {
     "id": 90,
@@ -105,7 +138,10 @@
     "image": "images/product/koi_fish_39.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 12
+    "order": 12,
+    "difficulty": "Hard",
+    "stepCount": 39,
+    "estimatedTime": "1 hour 20 min"
   },
   {
     "id": 76,
@@ -114,7 +150,10 @@
     "image": "images/product/football_26.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 13
+    "order": 13,
+    "difficulty": "Hard",
+    "stepCount": 26,
+    "estimatedTime": "55 min"
   },
   {
     "id": 29,
@@ -123,7 +162,10 @@
     "image": "images/product/mushroom_12.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 14
+    "order": 14,
+    "difficulty": "Easy",
+    "stepCount": 12,
+    "estimatedTime": "25 min"
   },
   {
     "id": 74,
@@ -131,7 +173,10 @@
     "name": "dragon",
     "image": "images/product/dragon_20.webp",
     "hasVideo": true,
-    "order": 15
+    "order": 15,
+    "difficulty": "Medium",
+    "stepCount": 20,
+    "estimatedTime": "40 min"
   },
   {
     "id": 30,
@@ -140,7 +185,10 @@
     "image": "images/product/mouse_15.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 16
+    "order": 16,
+    "difficulty": "Medium",
+    "stepCount": 15,
+    "estimatedTime": "30 min"
   },
   {
     "id": 72,
@@ -148,7 +196,10 @@
     "name": "camel",
     "image": "images/product/camel_23.webp",
     "hasVideo": true,
-    "order": 17
+    "order": 17,
+    "difficulty": "Medium",
+    "stepCount": 23,
+    "estimatedTime": "50 min"
   },
   {
     "id": 77,
@@ -156,7 +207,10 @@
     "name": "ninja_star",
     "image": "images/product/ninja_star_28.webp",
     "hasVideo": true,
-    "order": 18
+    "order": 18,
+    "difficulty": "Hard",
+    "stepCount": 28,
+    "estimatedTime": "1 hour"
   },
   {
     "id": 78,
@@ -164,7 +218,10 @@
     "name": "supersonic_jet_32",
     "image": "images/product/supersonic_jet_32.webp",
     "hasVideo": true,
-    "order": 19
+    "order": 19,
+    "difficulty": "Hard",
+    "stepCount": 32,
+    "estimatedTime": "1 hour 5 min"
   },
   {
     "id": 79,
@@ -172,7 +229,10 @@
     "name": "squid",
     "image": "images/product/squid_33.webp",
     "hasVideo": true,
-    "order": 20
+    "order": 20,
+    "difficulty": "Hard",
+    "stepCount": 33,
+    "estimatedTime": "1 hour 10 min"
   },
   {
     "id": 62,
@@ -180,7 +240,10 @@
     "name": "brontosaurus",
     "image": "images/product/brontosaurus_16.webp",
     "hasVideo": true,
-    "order": 21
+    "order": 21,
+    "difficulty": "Medium",
+    "stepCount": 16,
+    "estimatedTime": "35 min"
   },
   {
     "id": 63,
@@ -189,7 +252,10 @@
     "image": "images/product/dinosaur_19.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 22
+    "order": 22,
+    "difficulty": "Medium",
+    "stepCount": 19,
+    "estimatedTime": "40 min"
   },
   {
     "id": 108,
@@ -198,7 +264,10 @@
     "image": "images/product/a_skeleton_gost_14.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 23
+    "order": 23,
+    "difficulty": "Medium",
+    "stepCount": 14,
+    "estimatedTime": "30 min"
   },
   {
     "id": 64,
@@ -206,7 +275,10 @@
     "name": "hatchet",
     "image": "images/product/hatchet_14.webp",
     "hasVideo": true,
-    "order": 24
+    "order": 24,
+    "difficulty": "Medium",
+    "stepCount": 14,
+    "estimatedTime": "30 min"
   },
   {
     "id": 65,
@@ -215,7 +287,10 @@
     "image": "images/product/hidden_blade_16.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 25
+    "order": 25,
+    "difficulty": "Medium",
+    "stepCount": 16,
+    "estimatedTime": "35 min"
   },
   {
     "id": 101,
@@ -224,7 +299,10 @@
     "image": "images/product/jumping_frog_16.webp",
     "hasVideo": false,
     "showReward": false,
-    "order": 26
+    "order": 26,
+    "difficulty": "Medium",
+    "stepCount": 16,
+    "estimatedTime": "35 min"
   },
   {
     "id": 66,
@@ -232,7 +310,10 @@
     "name": "karambit",
     "image": "images/product/karambit_9.webp",
     "hasVideo": true,
-    "order": 27
+    "order": 27,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 67,
@@ -240,7 +321,10 @@
     "name": "kunai",
     "image": "images/product/kunai_18.webp",
     "hasVideo": true,
-    "order": 28
+    "order": 28,
+    "difficulty": "Medium",
+    "stepCount": 18,
+    "estimatedTime": "40 min"
   },
   {
     "id": 68,
@@ -249,7 +333,10 @@
     "image": "images/product/scorpion_34.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 29
+    "order": 29,
+    "difficulty": "Hard",
+    "stepCount": 34,
+    "estimatedTime": "1 hour 10 min"
   },
   {
     "id": 69,
@@ -258,7 +345,10 @@
     "image": "images/product/shark_35.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 30
+    "order": 30,
+    "difficulty": "Hard",
+    "stepCount": 35,
+    "estimatedTime": "1 hour 10 min"
   },
   {
     "id": 70,
@@ -266,7 +356,10 @@
     "name": "t_rex",
     "image": "images/product/t_rex_17.webp",
     "hasVideo": true,
-    "order": 31
+    "order": 31,
+    "difficulty": "Medium",
+    "stepCount": 17,
+    "estimatedTime": "35 min"
   },
   {
     "id": 71,
@@ -275,7 +368,10 @@
     "image": "images/product/torosaurus_31.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 32
+    "order": 32,
+    "difficulty": "Hard",
+    "stepCount": 31,
+    "estimatedTime": "1 hour 5 min"
   },
   {
     "id": 59,
@@ -284,7 +380,10 @@
     "image": "images/product/saber_31.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 33
+    "order": 33,
+    "difficulty": "Hard",
+    "stepCount": 31,
+    "estimatedTime": "1 hour 5 min"
   },
   {
     "id": 1,
@@ -292,7 +391,10 @@
     "name": "penguin",
     "image": "images/product/penguin_8.webp",
     "hasVideo": true,
-    "order": 34
+    "order": 34,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 2,
@@ -301,7 +403,10 @@
     "image": "images/product/sea_lion_14.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 35
+    "order": 35,
+    "difficulty": "Medium",
+    "stepCount": 14,
+    "estimatedTime": "30 min"
   },
   {
     "id": 3,
@@ -309,7 +414,10 @@
     "name": "whale",
     "image": "images/product/whale_8.webp",
     "hasVideo": true,
-    "order": 36
+    "order": 36,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 5,
@@ -317,7 +425,10 @@
     "name": "rabbit",
     "image": "images/product/rabbit_9.webp",
     "hasVideo": true,
-    "order": 37
+    "order": 37,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 7,
@@ -325,7 +436,10 @@
     "name": "tulip",
     "image": "images/product/tulip_8.webp",
     "hasVideo": true,
-    "order": 38
+    "order": 38,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 109,
@@ -334,7 +448,10 @@
     "image": "images/product/a_spider_26.webp",
     "hasVideo": false,
     "showReward": false,
-    "order": 39
+    "order": 39,
+    "difficulty": "Hard",
+    "stepCount": 26,
+    "estimatedTime": "55 min"
   },
   {
     "id": 8,
@@ -342,7 +459,10 @@
     "name": "grass",
     "image": "images/product/grass_8.webp",
     "hasVideo": true,
-    "order": 40
+    "order": 40,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 102,
@@ -351,7 +471,10 @@
     "image": "images/product/rhinoceros_19.webp",
     "hasVideo": false,
     "showReward": false,
-    "order": 41
+    "order": 41,
+    "difficulty": "Medium",
+    "stepCount": 19,
+    "estimatedTime": "40 min"
   },
   {
     "id": 14,
@@ -359,7 +482,10 @@
     "name": "tie",
     "image": "images/product/tie_11.webp",
     "hasVideo": true,
-    "order": 42
+    "order": 42,
+    "difficulty": "Easy",
+    "stepCount": 11,
+    "estimatedTime": "25 min"
   },
   {
     "id": 18,
@@ -367,7 +493,10 @@
     "name": "truck",
     "image": "images/product/truck_8.webp",
     "hasVideo": true,
-    "order": 43
+    "order": 43,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 23,
@@ -376,7 +505,10 @@
     "image": "images/product/banana_8.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 44
+    "order": 44,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 26,
@@ -385,7 +517,10 @@
     "image": "images/product/eggplant_8.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 45
+    "order": 45,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 28,
@@ -394,7 +529,10 @@
     "image": "images/product/duck_8.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 46
+    "order": 46,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 73,
@@ -402,7 +540,10 @@
     "name": "cat",
     "image": "images/product/cat_8.webp",
     "hasVideo": false,
-    "order": 47
+    "order": 47,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 75,
@@ -410,7 +551,10 @@
     "name": "fog",
     "image": "images/product/fog_14.webp",
     "hasVideo": false,
-    "order": 48
+    "order": 48,
+    "difficulty": "Medium",
+    "stepCount": 14,
+    "estimatedTime": "30 min"
   },
   {
     "id": 60,
@@ -418,7 +562,10 @@
     "name": "ninja_face",
     "image": "images/product/ninja_face_8.webp",
     "hasVideo": false,
-    "order": 49
+    "order": 49,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 49,
@@ -427,7 +574,10 @@
     "image": "images/product/ak_rifle_39.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 50
+    "order": 50,
+    "difficulty": "Hard",
+    "stepCount": 39,
+    "estimatedTime": "1 hour 20 min"
   },
   {
     "id": 50,
@@ -435,7 +585,10 @@
     "name": "double_barrel_pistol",
     "image": "images/product/double_barrel_pistol_25.webp",
     "hasVideo": false,
-    "order": 51
+    "order": 51,
+    "difficulty": "Medium",
+    "stepCount": 25,
+    "estimatedTime": "50 min"
   },
   {
     "id": 51,
@@ -444,7 +597,10 @@
     "image": "images/product/handgun_47.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 52
+    "order": 52,
+    "difficulty": "Hard",
+    "stepCount": 47,
+    "estimatedTime": "1 hour 35 min"
   },
   {
     "id": 52,
@@ -452,7 +608,10 @@
     "name": "scattergun",
     "image": "images/product/scattergun_7.webp",
     "hasVideo": false,
-    "order": 53
+    "order": 53,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 53,
@@ -460,7 +619,10 @@
     "name": "shotgun",
     "image": "images/product/shotgun_42.webp",
     "hasVideo": false,
-    "order": 54
+    "order": 54,
+    "difficulty": "Hard",
+    "stepCount": 42,
+    "estimatedTime": "1 hour 25 min"
   },
   {
     "id": 110,
@@ -469,7 +631,10 @@
     "image": "images/product/dracula_12.webp",
     "hasVideo": false,
     "showReward": false,
-    "order": 55
+    "order": 55,
+    "difficulty": "Easy",
+    "stepCount": 12,
+    "estimatedTime": "25 min"
   },
   {
     "id": 103,
@@ -478,7 +643,10 @@
     "image": "images/product/butterfly_11.webp",
     "hasVideo": false,
     "showReward": false,
-    "order": 56
+    "order": 56,
+    "difficulty": "Easy",
+    "stepCount": 11,
+    "estimatedTime": "25 min"
   },
   {
     "id": 54,
@@ -487,7 +655,10 @@
     "image": "images/product/toy_double_barrel_gun_16.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 57
+    "order": 57,
+    "difficulty": "Medium",
+    "stepCount": 16,
+    "estimatedTime": "35 min"
   },
   {
     "id": 55,
@@ -496,7 +667,10 @@
     "image": "images/product/helicopter_26.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 58
+    "order": 58,
+    "difficulty": "Hard",
+    "stepCount": 26,
+    "estimatedTime": "55 min"
   },
   {
     "id": 56,
@@ -505,7 +679,10 @@
     "image": "images/product/heavy_tank_23.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 59
+    "order": 59,
+    "difficulty": "Medium",
+    "stepCount": 23,
+    "estimatedTime": "50 min"
   },
   {
     "id": 57,
@@ -513,7 +690,10 @@
     "name": "jet",
     "image": "images/product/jet_10.webp",
     "hasVideo": false,
-    "order": 60
+    "order": 60,
+    "difficulty": "Easy",
+    "stepCount": 10,
+    "estimatedTime": "20 min"
   },
   {
     "id": 58,
@@ -521,7 +701,10 @@
     "name": "warplane",
     "image": "images/product/warplane_13.webp",
     "hasVideo": false,
-    "order": 61
+    "order": 61,
+    "difficulty": "Medium",
+    "stepCount": 13,
+    "estimatedTime": "30 min"
   },
   {
     "id": 38,
@@ -530,7 +713,10 @@
     "image": "images/product/claws_9.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 62
+    "order": 62,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 41,
@@ -539,7 +725,10 @@
     "image": "images/product/popper_8.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 63
+    "order": 63,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 42,
@@ -548,7 +737,10 @@
     "image": "images/product/sword_12.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 64
+    "order": 64,
+    "difficulty": "Easy",
+    "stepCount": 12,
+    "estimatedTime": "25 min"
   },
   {
     "id": 37,
@@ -556,7 +748,10 @@
     "name": "axe",
     "image": "images/product/axe_9.webp",
     "hasVideo": false,
-    "order": 65
+    "order": 65,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 39,
@@ -564,7 +759,10 @@
     "name": "darts",
     "image": "images/product/darts_11.webp",
     "hasVideo": false,
-    "order": 66
+    "order": 66,
+    "difficulty": "Easy",
+    "stepCount": 11,
+    "estimatedTime": "25 min"
   },
   {
     "id": 40,
@@ -572,7 +770,10 @@
     "name": "knife",
     "image": "images/product/knife_7.webp",
     "hasVideo": false,
-    "order": 67
+    "order": 67,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 31,
@@ -581,7 +782,10 @@
     "image": "images/product/fighter_jet_24.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 68
+    "order": 68,
+    "difficulty": "Medium",
+    "stepCount": 24,
+    "estimatedTime": "50 min"
   },
   {
     "id": 32,
@@ -590,7 +794,10 @@
     "image": "images/product/tank_10.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 69
+    "order": 69,
+    "difficulty": "Easy",
+    "stepCount": 10,
+    "estimatedTime": "20 min"
   },
   {
     "id": 104,
@@ -599,7 +806,10 @@
     "image": "images/product/parasaurolophus_18.webp",
     "hasVideo": false,
     "showReward": false,
-    "order": 70
+    "order": 70,
+    "difficulty": "Medium",
+    "stepCount": 18,
+    "estimatedTime": "40 min"
   },
   {
     "id": 111,
@@ -608,7 +818,10 @@
     "image": "images/product/jack_o_lantern_13.webp",
     "hasVideo": false,
     "showReward": false,
-    "order": 71
+    "order": 71,
+    "difficulty": "Medium",
+    "stepCount": 13,
+    "estimatedTime": "30 min"
   },
   {
     "id": 33,
@@ -616,7 +829,10 @@
     "name": "convertible",
     "image": "images/product/convertible_7.webp",
     "hasVideo": false,
-    "order": 72
+    "order": 72,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 34,
@@ -624,7 +840,10 @@
     "name": "van",
     "image": "images/product/van_6.webp",
     "hasVideo": false,
-    "order": 73
+    "order": 73,
+    "difficulty": "Easy",
+    "stepCount": 6,
+    "estimatedTime": "15 min"
   },
   {
     "id": 35,
@@ -633,7 +852,10 @@
     "image": "images/product/stealth_fighter_jet_7.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 74
+    "order": 74,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 36,
@@ -641,14 +863,20 @@
     "name": "car",
     "image": "images/product/car_6.webp",
     "hasVideo": false,
-    "order": 75
+    "order": 75,
+    "difficulty": "Easy",
+    "stepCount": 6,
+    "estimatedTime": "15 min"
   },
   {
     "id": 4,
     "categoryId": 1,
     "name": "elephant",
     "image": "images/product/elephant_9.webp",
-    "order": 76
+    "order": 76,
+    "difficulty": "Easy",
+    "stepCount": 9,
+    "estimatedTime": "20 min"
   },
   {
     "id": 6,
@@ -657,56 +885,80 @@
     "image": "images/product/fox_58.webp",
     "showReward": true,
     "order": 77,
-    "hasVideo": true
+    "hasVideo": true,
+    "difficulty": "Hard",
+    "stepCount": 58,
+    "estimatedTime": "2 hours"
   },
   {
     "id": 9,
     "categoryId": 2,
     "name": "sunflower",
     "image": "images/product/sunflower_11.webp",
-    "order": 78
+    "order": 78,
+    "difficulty": "Easy",
+    "stepCount": 11,
+    "estimatedTime": "25 min"
   },
   {
     "id": 10,
     "categoryId": 2,
     "name": "tree",
     "image": "images/product/tree_8.webp",
-    "order": 79
+    "order": 79,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 11,
     "categoryId": 3,
     "name": "pencil",
     "image": "images/product/pencil_8.webp",
-    "order": 80
+    "order": 80,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 12,
     "categoryId": 3,
     "name": "medal",
     "image": "images/product/medal_10.webp",
-    "order": 81
+    "order": 81,
+    "difficulty": "Easy",
+    "stepCount": 11,
+    "estimatedTime": "25 min"
   },
   {
     "id": 13,
     "categoryId": 3,
     "name": "lamp",
     "image": "images/product/lamp_10.webp",
-    "order": 82
+    "order": 82,
+    "difficulty": "Easy",
+    "stepCount": 11,
+    "estimatedTime": "25 min"
   },
   {
     "id": 15,
     "categoryId": 3,
     "name": "envelope",
     "image": "images/product/envelope_8.webp",
-    "order": 83
+    "order": 83,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 16,
     "categoryId": 4,
     "name": "plane",
     "image": "images/product/plane_8.webp",
-    "order": 84
+    "order": 84,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 105,
@@ -715,14 +967,20 @@
     "image": "images/product/triceratops_22.webp",
     "hasVideo": false,
     "showReward": false,
-    "order": 85
+    "order": 85,
+    "difficulty": "Medium",
+    "stepCount": 22,
+    "estimatedTime": "45 min"
   },
   {
     "id": 17,
     "categoryId": 4,
     "name": "yacht",
     "image": "images/product/yacht_8.webp",
-    "order": 86
+    "order": 86,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 112,
@@ -731,14 +989,20 @@
     "image": "images/product/One_eyed_kid_13.webp",
     "hasVideo": false,
     "showReward": false,
-    "order": 87
+    "order": 87,
+    "difficulty": "Medium",
+    "stepCount": 13,
+    "estimatedTime": "30 min"
   },
   {
     "id": 19,
     "categoryId": 4,
     "name": "taxi",
     "image": "images/product/taxi_8.webp",
-    "order": 88
+    "order": 88,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 20,
@@ -746,42 +1010,60 @@
     "name": "santa_claus",
     "image": "images/product/santa_claus_12.webp",
     "showReward": true,
-    "order": 89
+    "order": 89,
+    "difficulty": "Easy",
+    "stepCount": 12,
+    "estimatedTime": "25 min"
   },
   {
     "id": 21,
     "categoryId": 4,
     "name": "rocket",
     "image": "images/product/rocket_11.webp",
-    "order": 90
+    "order": 90,
+    "difficulty": "Easy",
+    "stepCount": 11,
+    "estimatedTime": "25 min"
   },
   {
     "id": 22,
     "categoryId": 5,
     "name": "pumkin",
     "image": "images/product/pumkin_10.webp",
-    "order": 91
+    "order": 91,
+    "difficulty": "Easy",
+    "stepCount": 11,
+    "estimatedTime": "25 min"
   },
   {
     "id": 24,
     "categoryId": 5,
     "name": "tomato",
     "image": "images/product/tomato_11.webp",
-    "order": 92
+    "order": 92,
+    "difficulty": "Easy",
+    "stepCount": 11,
+    "estimatedTime": "25 min"
   },
   {
     "id": 25,
     "categoryId": 5,
     "name": "strawberry",
     "image": "images/product/strawberry_11.webp",
-    "order": 93
+    "order": 93,
+    "difficulty": "Easy",
+    "stepCount": 11,
+    "estimatedTime": "25 min"
   },
   {
     "id": 27,
     "categoryId": 5,
     "name": "radish",
     "image": "images/product/radish_11.webp",
-    "order": 94
+    "order": 94,
+    "difficulty": "Easy",
+    "stepCount": 11,
+    "estimatedTime": "25 min"
   },
   {
     "id": 43,
@@ -789,7 +1071,10 @@
     "name": "bee",
     "image": "images/product/bee_8.webp",
     "hasVideo": false,
-    "order": 95
+    "order": 95,
+    "difficulty": "Easy",
+    "stepCount": 8,
+    "estimatedTime": "20 min"
   },
   {
     "id": 44,
@@ -798,7 +1083,10 @@
     "image": "images/product/beetle_7.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 96
+    "order": 96,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 45,
@@ -806,7 +1094,10 @@
     "name": "caterpillar",
     "image": "images/product/caterpillar_7.webp",
     "hasVideo": false,
-    "order": 97
+    "order": 97,
+    "difficulty": "Easy",
+    "stepCount": 7,
+    "estimatedTime": "15 min"
   },
   {
     "id": 46,
@@ -815,7 +1106,10 @@
     "image": "images/product/cicada_6.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 98
+    "order": 98,
+    "difficulty": "Easy",
+    "stepCount": 6,
+    "estimatedTime": "15 min"
   },
   {
     "id": 47,
@@ -823,7 +1117,10 @@
     "name": "ladybug",
     "image": "images/product/ladybug_6.webp",
     "hasVideo": false,
-    "order": 99
+    "order": 99,
+    "difficulty": "Easy",
+    "stepCount": 6,
+    "estimatedTime": "15 min"
   },
   {
     "id": 106,
@@ -832,7 +1129,10 @@
     "image": "images/product/tyrannosaurus_16.webp",
     "hasVideo": false,
     "showReward": false,
-    "order": 100
+    "order": 100,
+    "difficulty": "Medium",
+    "stepCount": 16,
+    "estimatedTime": "35 min"
   },
   {
     "id": 48,
@@ -841,7 +1141,10 @@
     "image": "images/product/mantis_12.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 101
+    "order": 101,
+    "difficulty": "Easy",
+    "stepCount": 12,
+    "estimatedTime": "25 min"
   },
   {
     "id": 100,
@@ -850,7 +1153,10 @@
     "image": "images/product/binoculars_13.webp",
     "hasVideo": true,
     "showReward": true,
-    "order": 102
+    "order": 102,
+    "difficulty": "Medium",
+    "stepCount": 13,
+    "estimatedTime": "30 min"
   },
   {
     "id": 113,
@@ -859,6 +1165,9 @@
     "image": "images/product/pumpkins_17.webp",
     "hasVideo": false,
     "showReward": true,
-    "order": 103
+    "order": 103,
+    "difficulty": "Medium",
+    "stepCount": 17,
+    "estimatedTime": "35 min"
   }
 ]
