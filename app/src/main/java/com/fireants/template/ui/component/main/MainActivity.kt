@@ -208,6 +208,15 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
         mBinding.btn3DOrigami.click {
             Routes.startOrigami3DActivity(this)
         }
+        mBinding.tvSeeAllRecommend.click {
+            Routes.startRecommendedActivity(this)
+        }
+        mBinding.tvSeeAllHot.click {
+            Routes.startHotActivity(this)
+        }
+        mBinding.tvSeeAllFavorite.click {
+            Routes.startFavoriteActivity(this)
+        }
     }
 
     override fun observeData() {

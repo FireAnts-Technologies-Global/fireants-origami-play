@@ -52,6 +52,15 @@ object Routes {
     fun startOrigami3DActivity(fromActivity: Activity) =
         startPaperCraftActivity(fromActivity, PaperCraftMode.ORIGAMI_3D)
 
+    fun startRecommendedActivity(fromActivity: Activity) =
+        startPaperCraftActivity(fromActivity, PaperCraftMode.RECOMMENDED)
+
+    fun startHotActivity(fromActivity: Activity) =
+        startPaperCraftActivity(fromActivity, PaperCraftMode.HOT)
+
+    fun startFavoriteActivity(fromActivity: Activity) =
+        startPaperCraftActivity(fromActivity, PaperCraftMode.FAVORITES)
+
     fun startStepActivity(fromActivity: Activity, item: ProductItem) =
         Intent(fromActivity, StepActivity::class.java).apply {
             putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)

@@ -17,17 +17,29 @@ object ProductDisplayFormatter {
             }
     }
 
-    fun metadata(item: ProductItem): String {
+    fun listMetadata(item: ProductItem): String {
         return if (item.stepCount > 0 && item.difficulty.isNotBlank()) {
             "${item.stepCount} ${stepLabel(item.stepCount)} • ${item.difficulty}"
         } else {
-            item.gameType.folderName
-                .replaceFirstChar { it.uppercaseChar() }
-                .replace("3d", "3D")
+            gameTypeLabel(item)
+        }
+    }
+
+    fun bannerMetadata(item: ProductItem): String {
+        return if (item.stepCount > 0 && item.difficulty.isNotBlank()) {
+            "${item.difficulty} • ${item.stepCount} ${stepLabel(item.stepCount)}"
+        } else {
+            gameTypeLabel(item)
         }
     }
 
     private fun stepLabel(stepCount: Int): String {
         return if (stepCount == 1) "step" else "steps"
+    }
+
+    private fun gameTypeLabel(item: ProductItem): String {
+        return item.gameType.folderName
+            .replaceFirstChar { it.uppercaseChar() }
+            .replace("3d", "3D")
     }
 }

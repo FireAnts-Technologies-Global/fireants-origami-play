@@ -17,7 +17,7 @@ class BannerAdapter(
     override fun setData(binding: ViewDataBinding, item: ProductItem, layoutPosition: Int) {
         if (binding is ItemBannerCardBinding) {
             binding.tvBannerTitle.text = ProductDisplayFormatter.name(item)
-            binding.tvBannerType.text = ProductDisplayFormatter.metadata(item)
+            binding.tvBannerType.text = ProductDisplayFormatter.bannerMetadata(item)
 
             if (item.image.isNotEmpty()) {
                 Glide.with(binding.root.context)

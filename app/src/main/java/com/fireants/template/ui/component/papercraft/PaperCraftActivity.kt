@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.fireants.template.R
 import com.fireants.template.data.model.product.GameType
 import com.fireants.template.databinding.ActivityPaperCraftBinding
+import com.fireants.template.domain.model.product.HomeProductSection
 import com.fireants.template.ui.bases.BaseActivity
 import com.fireants.template.ui.bases.ext.click
 import com.fireants.template.ui.component.custom.GridSpacingItemDecoration
@@ -60,7 +61,8 @@ class PaperCraftActivity : BaseActivity<ActivityPaperCraftBinding>() {
     override fun onResume() {
         super.onResume()
         if (::mode.isInitialized) {
-            viewModel.load(mode.gameType)
+            mode.gameType?.let { viewModel.load(it) }
+            mode.section?.let { viewModel.load(it) }
         }
     }
 
@@ -77,11 +79,20 @@ class PaperCraftActivity : BaseActivity<ActivityPaperCraftBinding>() {
         val value: String,
         val titleRes: Int,
         val glowColorRes: Int,
-        val gameType: GameType
+        val gameType: GameType? = null,
+        val section: HomeProductSection? = null
     ) {
-        KIRIGAMI("kirigami", R.string.kirigami, R.color.color_48D0B0, GameType.KIRIGAMI),
-        ORIGAMI("origami", R.string.origami, R.color.color_9779F4, GameType.ORIGAMI),
-        ORIGAMI_3D("origami_3d", R.string.origami_3d, R.color.color_5BC2FB, GameType.ORIGAMI_3D);
+        KIRIGAMI("kirigami", R.string.kirigami, R.color.color_48D0B0, gameType = GameType.KIRIGAMI),
+        ORIGAMI("origami", R.string.origami, R.color.color_9779F4, gameType = GameType.ORIGAMI),
+        ORIGAMI_3D("origami_3d", R.string.origami_3d, R.color.color_5BC2FB, gameType = GameType.ORIGAMI_3D),
+        RECOMMENDED(
+            "recommended",
+            R.string.recommended_for_you,
+            R.color.color_9779F4,
+            section = HomeProductSection.RECOMMENDED
+        ),
+        HOT("hot", R.string.hot, R.color.color_5BC2FB, section = HomeProductSection.HOT),
+        FAVORITES("favorites", R.string.favorites, R.color.color_48D0B0, section = HomeProductSection.FAVORITES);
 
         companion object {
             fun fromValue(value: String?): PaperCraftMode {

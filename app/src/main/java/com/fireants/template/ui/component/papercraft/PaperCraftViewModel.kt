@@ -3,7 +3,9 @@ package com.fireants.template.ui.component.papercraft
 import androidx.lifecycle.viewModelScope
 import com.fireants.template.data.model.product.GameType
 import com.fireants.template.data.model.product.ProductItem
+import com.fireants.template.domain.model.product.HomeProductSection
 import com.fireants.template.domain.usecase.favorite.ToggleFavoriteProductUseCase
+import com.fireants.template.domain.usecase.product.GetHomeProductsBySectionUseCase
 import com.fireants.template.domain.usecase.product.GetProductsByTypeUseCase
 import com.fireants.template.ui.bases.BaseViewModel
 import com.fireants.template.ui.component.main.ProductDisplayFormatter
@@ -18,6 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PaperCraftViewModel @Inject constructor(
     private val getProductsByTypeUseCase: GetProductsByTypeUseCase,
+    private val getHomeProductsBySectionUseCase: GetHomeProductsBySectionUseCase,
     private val toggleFavoriteProductUseCase: ToggleFavoriteProductUseCase
 ) : BaseViewModel() {
 
@@ -30,7 +33,21 @@ class PaperCraftViewModel @Inject constructor(
             _state.update {
                 it.copy(
                     allItems = items,
-                    visibleItems = items.filterByQuery(it.query)
+                    visibleItems = items.filterByQuery(it.query),
+                    section = null
+                )
+            }
+        }
+    }
+
+    fun load(section: HomeProductSection) {
+        viewModelScope.launch {
+            val items = getHomeProductsBySectionUseCase(section)
+            _state.update {
+                it.copy(
+                    allItems = items,
+                    visibleItems = items.filterByQuery(it.query),
+                    section = section
                 )
             }
         }
@@ -49,7 +66,11 @@ class PaperCraftViewModel @Inject constructor(
         viewModelScope.launch {
             val isFavorite = toggleFavoriteProductUseCase(item)
             _state.update { state ->
-                val allItems = state.allItems.updateFavorite(item.id, isFavorite)
+                val allItems = if (state.section == HomeProductSection.FAVORITES && !isFavorite) {
+                    state.allItems.filterNot { it.id == item.id }
+                } else {
+                    state.allItems.updateFavorite(item.id, isFavorite)
+                }
                 state.copy(
                     allItems = allItems,
                     visibleItems = allItems.filterByQuery(state.query)
@@ -81,5 +102,6 @@ class PaperCraftViewModel @Inject constructor(
 data class PaperCraftState(
     val allItems: List<ProductItem> = emptyList(),
     val visibleItems: List<ProductItem> = emptyList(),
-    val query: String = ""
+    val query: String = "",
+    val section: HomeProductSection? = null
 )

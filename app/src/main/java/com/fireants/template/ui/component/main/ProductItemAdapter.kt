@@ -18,7 +18,7 @@ class ProductItemAdapter(
     override fun setData(binding: ViewDataBinding, item: ProductItem, layoutPosition: Int) {
         if (binding is ItemProductCardBinding) {
             binding.tvName.text = ProductDisplayFormatter.name(item)
-            binding.tvType.text = ProductDisplayFormatter.metadata(item)
+            binding.tvType.text = ProductDisplayFormatter.listMetadata(item)
             binding.ivHeart.setImageResource(
                 if (item.isFavorite) R.drawable.ic_favourite_on else R.drawable.ic_favourite_off
             )
