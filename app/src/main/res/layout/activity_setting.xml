@@ -11,135 +11,258 @@
             android:id="@+id/toolBar"
             layout="@layout/layout_toolbar" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_12sdp"
-            android:background="@drawable/rounded_dialog"
-            android:padding="@dimen/_12sdp"
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:paddingHorizontal="@dimen/_18sdp"
+            android:paddingTop="@dimen/_18sdp"
+            android:paddingBottom="@dimen/_28sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolBar">
 
-            <RelativeLayout
-                android:id="@+id/rlt_language"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="@dimen/_12sdp">
+                android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/imv_language"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_language" />
+                    android:background="@drawable/bg_setting_card"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/_14sdp"
+                    android:paddingVertical="@dimen/_10sdp">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/text_regular_12"
-                    android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:id="@+id/rlt_music"
+                        style="@style/SettingRow">
+
+                        <FrameLayout style="@style/SettingIconContainer">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/SettingIcon"
+                                android:src="@drawable/ic_setting_music" />
+                        </FrameLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/SettingTitle"
+                            android:text="@string/music" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/switch_music"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:thumbTint="@color/white"
+                            app:trackTint="@color/color_9779F4" />
+                    </LinearLayout>
+
+                    <View style="@style/SettingDivider" />
+
+                    <LinearLayout
+                        android:id="@+id/rlt_sound_fx"
+                        style="@style/SettingRow">
+
+                        <FrameLayout style="@style/SettingIconContainer">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/SettingIcon"
+                                android:src="@drawable/ic_setting_volume" />
+                        </FrameLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/SettingTitle"
+                            android:text="@string/sound_fx" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/switch_sound_fx"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:thumbTint="@color/white"
+                            app:trackTint="@color/color_9779F4" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_toEndOf="@id/imv_language"
-                    android:text="@string/language"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp" />
-            </RelativeLayout>
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@drawable/bg_setting_card"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/_14sdp"
+                    android:paddingVertical="@dimen/_10sdp">
 
-            <RelativeLayout
-                android:id="@+id/rlt_rate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/rlt_language"
-                android:paddingVertical="@dimen/_12sdp">
+                    <LinearLayout
+                        android:id="@+id/rlt_language"
+                        style="@style/SettingRow">
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/imv_rate"
-                    android:layout_width="wrap_content"
+                        <FrameLayout style="@style/SettingIconContainer">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/SettingIcon"
+                                android:src="@drawable/ic_language"
+                                app:tint="@color/color_9779F4" />
+                        </FrameLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/SettingTitle"
+                            android:text="@string/language" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_language_value"
+                            style="@style/SettingValue" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/SettingChevron" />
+                    </LinearLayout>
+
+                    <View style="@style/SettingDivider" />
+
+                    <LinearLayout
+                        android:id="@+id/rlt_share"
+                        style="@style/SettingRow">
+
+                        <FrameLayout style="@style/SettingIconContainer">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/SettingIcon"
+                                android:src="@drawable/ic_share"
+                                app:tint="@color/color_9779F4" />
+                        </FrameLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/SettingTitle"
+                            android:text="@string/share_with_friend" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/SettingChevron" />
+                    </LinearLayout>
+
+                    <View style="@style/SettingDivider" />
+
+                    <LinearLayout
+                        android:id="@+id/rlt_rate"
+                        style="@style/SettingRow">
+
+                        <FrameLayout style="@style/SettingIconContainer">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/SettingIcon"
+                                android:src="@drawable/ic_rate"
+                                app:tint="@color/color_9779F4" />
+                        </FrameLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/SettingTitle"
+                            android:text="@string/rate_5_stars" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/SettingChevron" />
+                    </LinearLayout>
+
+                    <View style="@style/SettingDivider" />
+
+                    <LinearLayout
+                        android:id="@+id/rlt_feedback"
+                        style="@style/SettingRow">
+
+                        <FrameLayout style="@style/SettingIconContainer">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/SettingIcon"
+                                android:src="@drawable/ic_feedback"
+                                app:tint="@color/color_9779F4" />
+                        </FrameLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/SettingTitle"
+                            android:text="@string/feedback" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/SettingChevron" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_rate" />
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@drawable/bg_setting_card"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/_14sdp"
+                    android:paddingVertical="@dimen/_10sdp">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/text_regular_12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_toEndOf="@id/imv_rate"
-                    android:text="@string/rate"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp" />
-            </RelativeLayout>
+                    <LinearLayout
+                        android:id="@+id/rlt_policy"
+                        style="@style/SettingRow">
 
-            <RelativeLayout
-                android:id="@+id/rlt_feedback"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/rlt_rate"
-                android:paddingVertical="@dimen/_12sdp">
+                        <FrameLayout style="@style/SettingIconContainer">
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/imv_feedback"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_feedback" />
+                            <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/SettingIcon"
+                                android:src="@drawable/ic_policy"
+                                app:tint="@color/color_9779F4" />
+                        </FrameLayout>
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/text_regular_12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_toEndOf="@id/imv_feedback"
-                    android:text="@string/feedback"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp" />
-            </RelativeLayout>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/SettingTitle"
+                            android:text="@string/privacy_policy" />
 
-            <RelativeLayout
-                android:id="@+id/rlt_share"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/rlt_feedback"
-                android:paddingVertical="@dimen/_12sdp">
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/SettingChevron" />
+                    </LinearLayout>
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/imv_share"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_share" />
+                    <View style="@style/SettingDivider" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/text_regular_12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_toEndOf="@id/imv_share"
-                    android:text="@string/share_with_friend"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp" />
-            </RelativeLayout>
+                    <LinearLayout
+                        android:id="@+id/rlt_terms"
+                        style="@style/SettingRow">
 
-            <RelativeLayout
-                android:id="@+id/rlt_policy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/rlt_share"
-                android:paddingVertical="@dimen/_12sdp">
+                        <FrameLayout style="@style/SettingIconContainer">
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/imv_policy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_policy" />
+                            <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/SettingIcon"
+                                android:src="@drawable/ic_setting_terms" />
+                        </FrameLayout>
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_toEndOf="@id/imv_policy"
-                    android:text="@string/privacy_policy"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp" />
-            </RelativeLayout>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/SettingTitle"
+                            android:text="@string/terms_of_use" />
 
-        </RelativeLayout>
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/SettingChevron" />
+                    </LinearLayout>
 
+                    <View style="@style/SettingDivider" />
+
+                    <LinearLayout
+                        android:id="@+id/rlt_check_update"
+                        style="@style/SettingRow">
+
+                        <FrameLayout style="@style/SettingIconContainer">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/SettingIcon"
+                                android:src="@drawable/ic_setting_update" />
+                        </FrameLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/SettingTitle"
+                            android:text="@string/check_for_update" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_version"
+                            style="@style/SettingValue" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/SettingChevron" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

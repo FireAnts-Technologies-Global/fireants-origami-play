@@ -44,10 +44,21 @@
     <string name="update_now">Update Now</string>
     <string name="update_later">Maybe Later</string>
     <string name="setting">Settings</string>
+    <string name="music">Music</string>
+    <string name="sound_fx">Sound Fx</string>
     <string name="rate">Rate</string>
+    <string name="rate_5_stars">Rate 5 Stars</string>
     <string name="feedback">Feedback</string>
     <string name="share_with_friend">Share with friends</string>
     <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_of_use">Terms of Use</string>
+    <string name="check_for_update">Check for Update</string>
+    <string name="version_format" translatable="false">v%s</string>
+    <string name="privacy_policy_not_configured">Privacy Policy URL is not configured</string>
+    <string name="terms_not_configured">Terms of Use URL is not configured</string>
+    <string name="no_app_available_to_open_link">No app available to open this link</string>
+    <string name="unable_to_open_link">Unable to open link</string>
+    <string name="latest_version_message">You are using the latest version</string>
     <string name="let_me_recommend">Let me recommend this app</string>
     <string name="share_to">Share to</string>
     <string name="we_re_better_than_ever">The app keeps getting better</string>

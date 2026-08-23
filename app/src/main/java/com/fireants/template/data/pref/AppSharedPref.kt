@@ -19,4 +19,8 @@ interface AppSharedPref {
     var isUserGlobal: Boolean
 
     var isRate: Boolean
+
+    var isMusicEnabled: Boolean
+
+    var isSoundFxEnabled: Boolean
 }
