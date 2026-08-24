@@ -75,7 +75,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <ImageView
+        <com.fireants.template.ui.component.custom.InteractiveImageView
             android:id="@+id/imgPreview"
             android:layout_width="0dp"
             android:layout_height="@dimen/_350sdp"

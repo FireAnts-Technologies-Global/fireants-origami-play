@@ -24,6 +24,7 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
     private var autoResultJob: Job? = null
     private var rateDialogJob: Job? = null
     private var resultOpened = false
+    private var currentPreviewImage: String? = null
 
     override fun getLayoutActivity(): Int {
         return R.layout.activity_step
@@ -103,14 +104,38 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
                     if (state.isFavorite) R.drawable.ic_favourite_on else R.drawable.ic_favourite_off
                 )
 
-                Glide.with(this@StepActivity)
-                    .load(ASSET_PREFIX + currentStep.image)
-                    .fitCenter()
-                    .into(mBinding.imgPreview)
+                loadStepImageIfNeeded(currentStep.image, state)
                 scheduleRateDialogIfNeeded(state)
                 scheduleAutoResultIfNeeded(state)
             }
         }
+    }
+
+    private fun loadStepImageIfNeeded(image: String, state: StepState) {
+        if (currentPreviewImage == image) {
+            preloadNeighborImages(state)
+            return
+        }
+
+        currentPreviewImage = image
+        mBinding.imgPreview.resetTransformOnNextImage()
+        Glide.with(this@StepActivity)
+            .load(ASSET_PREFIX + image)
+            .dontAnimate()
+            .fitCenter()
+            .into(mBinding.imgPreview)
+        preloadNeighborImages(state)
+    }
+
+    private fun preloadNeighborImages(state: StepState) {
+        listOf(state.currentIndex - 1, state.currentIndex + 1)
+            .mapNotNull { state.steps.getOrNull(it)?.image }
+            .forEach { image ->
+                Glide.with(this@StepActivity)
+                    .load(ASSET_PREFIX + image)
+                    .dontAnimate()
+                    .preload()
+            }
     }
 
     private fun scheduleRateDialogIfNeeded(state: StepState) {
