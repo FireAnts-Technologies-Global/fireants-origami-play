@@ -2,6 +2,7 @@ package com.pegas.origami.paper.folding.art.ui.component.game
 
 import android.content.Context
 import androidx.lifecycle.viewModelScope
+import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.domain.usecase.game.CompleteLevelUseCase
 import com.pegas.origami.paper.folding.art.domain.usecase.game.GetFoldHintsUseCase
@@ -76,7 +77,7 @@ class GameViewModel @Inject constructor(
                 }
             } catch (e: Exception) {
                 _state.update { it.copy(isLoading = false) }
-                _eventFlow.emit(GameEvent.ShowError(e.message ?: "Failed to load level"))
+                _eventFlow.emit(GameEvent.ShowError(e.message ?: context.getString(R.string.failed_to_load_level)))
             }
         }
     }
@@ -102,7 +103,7 @@ class GameViewModel @Inject constructor(
                 completeLevelUseCase(levelId, stars, moves, coinReward)
                 _eventFlow.emit(GameEvent.LevelCompleted(stars, coinReward))
             } catch (e: Exception) {
-                _eventFlow.emit(GameEvent.ShowError(e.message ?: "Failed to complete level"))
+                _eventFlow.emit(GameEvent.ShowError(e.message ?: context.getString(R.string.failed_to_complete_level)))
             }
         }
     }

@@ -141,7 +141,7 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
 
     override fun onWatchAdClick() {
         viewModel.addRewardedCoin()
-        Toast.makeText(this, "Watched Ad! +300 Coins", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.watched_ad_reward), Toast.LENGTH_SHORT).show()
     }
 
     override fun onClaimFreeBagClick() {

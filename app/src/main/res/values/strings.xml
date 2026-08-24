@@ -174,4 +174,7 @@
     <string name="bag_reward_coins_summary">%1$d coins</string>
     <string name="bag_reward_hints_summary">%1$d hints</string>
     <string name="bag_reward_papers_summary">%1$d paper styles</string>
+    <string name="watched_ad_reward">Watched Ad! +300 Coins</string>
+    <string name="failed_to_load_level">Failed to load level</string>
+    <string name="failed_to_complete_level">Failed to complete level</string>
 </resources>

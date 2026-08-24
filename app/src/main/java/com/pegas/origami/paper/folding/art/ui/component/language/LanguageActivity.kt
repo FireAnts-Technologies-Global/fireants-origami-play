@@ -231,9 +231,9 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
     }
 
     private fun forceEnableShowAd() {
-        mBinding.tvTitle.setOnAdminAdToggleListener {
-            Routes.startSplashActivity(this@LanguageActivity)
-            finish()
-        }
+//        mBinding.tvTitle.setOnAdminAdToggleListener {
+//            Routes.startSplashActivity(this@LanguageActivity)
+//            finish()
+//        }
     }
 }
