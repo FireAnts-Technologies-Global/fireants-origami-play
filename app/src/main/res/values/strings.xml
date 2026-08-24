@@ -148,8 +148,16 @@
     <string name="premium_content">Premium Content</string>
     <string name="unlock_this_content_by_purchasing_a_premium_package_or_watching_an_ad.">Unlock this content by purchasing a Premium package or watching an ad.</string>
     <string name="buy_premium">Buy Premium</string>
+    <string name="premium">Premium</string>
     <string name="premium_required_title">Premium Required</string>
     <string name="premium_required_message">Unlock Premium to access this content, use unlimited hints, and open every paper style.</string>
     <string name="premium_not_now">Not Now</string>
     <string name="premium_upgrade">Unlock Premium</string>
+    <string name="bag_reward_coin">Mystery Bag opened! You got %1$d coins.</string>
+    <string name="bag_reward_hint">Mystery Bag opened! You got %1$d hint.</string>
+    <string name="bag_reward_paper">Mystery Bag opened! You unlocked a new paper style.</string>
+    <string name="bag_reward_multi">Mystery Bags opened! You got %1$s.</string>
+    <string name="bag_reward_coins_summary">%1$d coins</string>
+    <string name="bag_reward_hints_summary">%1$d hints</string>
+    <string name="bag_reward_papers_summary">%1$d paper styles</string>
 </resources>

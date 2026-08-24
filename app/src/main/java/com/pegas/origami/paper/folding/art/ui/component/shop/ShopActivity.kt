@@ -7,12 +7,14 @@ import androidx.lifecycle.lifecycleScope
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.data.model.game.PaperItem
+import com.pegas.origami.paper.folding.art.data.model.shop.BagReward
 import com.pegas.origami.paper.folding.art.data.model.shop.ShopConfig
 import com.pegas.origami.paper.folding.art.data.model.shop.ShopResult
 import com.pegas.origami.paper.folding.art.databinding.ActivityShopBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BaseActivity
 import com.pegas.origami.paper.folding.art.ui.bases.ext.click
-import com.pegas.origami.paper.folding.art.ui.component.dialog.DialogBuy
+import com.pegas.origami.paper.folding.art.ui.component.dialog.DialogPremium
+import com.pegas.origami.paper.folding.art.utils.Routes
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -104,11 +106,36 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
                         Toast.makeText(this@ShopActivity, msg, Toast.LENGTH_SHORT).show()
                     }
                     is ShopEvent.OnBagsOpened -> {
-                        Toast.makeText(this@ShopActivity, "Opened ${event.rewards.size} bags! Got: ${event.rewards}", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            this@ShopActivity,
+                            formatBagRewardMessage(event.rewards),
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                 }
             }
         }
+    }
+
+    private fun formatBagRewardMessage(rewards: List<BagReward>): String {
+        if (rewards.size == 1) {
+            return when (val reward = rewards.first()) {
+                is BagReward.Coin -> getString(R.string.bag_reward_coin, reward.amount)
+                is BagReward.Hint -> getString(R.string.bag_reward_hint, reward.amount)
+                is BagReward.Paper -> getString(R.string.bag_reward_paper)
+            }
+        }
+
+        val coins = rewards.filterIsInstance<BagReward.Coin>().sumOf { it.amount }
+        val hints = rewards.filterIsInstance<BagReward.Hint>().sumOf { it.amount }
+        val papers = rewards.count { it is BagReward.Paper }
+        val summary = buildList {
+            if (coins > 0) add(getString(R.string.bag_reward_coins_summary, coins))
+            if (hints > 0) add(getString(R.string.bag_reward_hints_summary, hints))
+            if (papers > 0) add(getString(R.string.bag_reward_papers_summary, papers))
+        }.joinToString(", ")
+
+        return getString(R.string.bag_reward_multi, summary)
     }
 
     override fun onWatchAdClick() {
@@ -132,33 +159,31 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
         viewModel.buyBag(amount = 10, cost = 45)
     }
 
-    private fun showBuyDialog(cost: Int, onBuy: () -> Unit) {
+    private fun buyWithCoinsOrShowPremium(cost: Int, onBuy: () -> Unit) {
         val currentCoins = viewModel.state.value.player?.coins ?: 0
-        DialogBuy(
-            context = this,
-            cost = cost,
-            currentCoins = currentCoins,
-            onBuyClick = onBuy,
-            onAdsClick = {
-                onWatchAdClick()
-            }
-        ).show()
+        if (currentCoins >= cost) {
+            onBuy()
+        } else {
+            DialogPremium(this) {
+                Routes.startIapActivity(this)
+            }.show()
+        }
     }
 
     override fun onBuy1HintClick() {
-        showBuyDialog(250) {
+        buyWithCoinsOrShowPremium(250) {
             viewModel.buyHint(amount = 1, cost = 250)
         }
     }
 
     override fun onBuy3HintsClick() {
-        showBuyDialog(637) {
+        buyWithCoinsOrShowPremium(637) {
             viewModel.buyHint(amount = 3, cost = 637)
         }
     }
 
     override fun onBuy5HintsClick() {
-        showBuyDialog(1000) {
+        buyWithCoinsOrShowPremium(1000) {
             viewModel.buyHint(amount = 5, cost = 1000)
         }
     }
@@ -169,7 +194,7 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
 
     override fun onBuyPaperClick(paper: PaperItem) {
         val config = ShopConfig()
-        showBuyDialog(config.paperUnlockCost) {
+        buyWithCoinsOrShowPremium(config.paperUnlockCost) {
             viewModel.buyPaper(paper.id)
         }
     }
