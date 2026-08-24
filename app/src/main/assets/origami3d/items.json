@@ -2,85 +2,85 @@
   {
     "id": 1,
     "categoryId": 1,
-    "name": "goose_3d",
-    "image": "images/3d/goose_3d_30.webp",
+    "name": "dragon",
+    "image": "images/3d/dragon_12.webp",
     "hasVideo": true,
     "showReward": true,
     "order": 1,
-    "difficulty": "Hard",
-    "stepCount": 29,
-    "estimatedTime": "1 hour"
+    "difficulty": "Easy",
+    "stepCount": 12,
+    "estimatedTime": "36 min"
   },
   {
     "id": 2,
     "categoryId": 1,
-    "name": "naruto_3d",
-    "image": "images/3d/naruto_3d_20.webp",
+    "name": "goose_3d",
+    "image": "images/3d/goose_3d_12.webp",
     "hasVideo": true,
     "showReward": true,
     "order": 2,
-    "difficulty": "Medium",
-    "stepCount": 19,
-    "estimatedTime": "40 min"
+    "difficulty": "Easy",
+    "stepCount": 12,
+    "estimatedTime": "36 min"
   },
   {
     "id": 3,
     "categoryId": 1,
-    "name": "dragon_3d",
-    "image": "images/3d/dragon_3d_22.webp",
+    "name": "kimono",
+    "image": "images/3d/kimono_12.webp",
     "hasVideo": true,
     "showReward": true,
     "order": 3,
-    "difficulty": "Medium",
-    "stepCount": 21,
-    "estimatedTime": "45 min"
+    "difficulty": "Easy",
+    "stepCount": 12,
+    "estimatedTime": "36 min"
   },
   {
     "id": 4,
     "categoryId": 1,
-    "name": "spider_3d",
-    "image": "images/3d/spider_3d_20.webp",
+    "name": "naruto",
+    "image": "images/3d/naruto_12.webp",
     "hasVideo": true,
     "showReward": true,
     "order": 4,
-    "difficulty": "Medium",
-    "stepCount": 19,
-    "estimatedTime": "40 min"
+    "difficulty": "Easy",
+    "stepCount": 12,
+    "estimatedTime": "36 min"
   },
   {
     "id": 5,
     "categoryId": 1,
-    "name": "kimono_3d",
-    "image": "images/3d/kimono_3d_23.webp",
+    "name": "peacock",
+    "image": "images/3d/peacock_12.webp",
     "hasVideo": true,
     "showReward": true,
     "order": 5,
-    "difficulty": "Medium",
-    "stepCount": 23,
-    "estimatedTime": "50 min"
+    "difficulty": "Easy",
+    "stepCount": 12,
+    "estimatedTime": "36 min"
   },
   {
     "id": 6,
     "categoryId": 1,
-    "name": "peacock_3d",
-    "image": "images/3d/peacock_3d_30.webp",
+    "name": "pokeball",
+    "image": "images/3d/pokeball_12.webp",
     "hasVideo": true,
     "showReward": true,
     "order": 6,
-    "difficulty": "Hard",
-    "stepCount": 30,
-    "estimatedTime": "1 hour"
+    "difficulty": "Easy",
+    "stepCount": 12,
+    "estimatedTime": "36 min"
   },
   {
     "id": 7,
     "categoryId": 1,
-    "name": "pokeball_3d",
-    "image": "images/3d/pokeball_3d_20.webp",
+    "name": "spider",
+    "image": "images/3d/spider_12.webp",
     "hasVideo": true,
     "showReward": true,
     "order": 7,
-    "difficulty": "Medium",
-    "stepCount": 20,
-    "estimatedTime": "40 min"
+    "difficulty": "Easy",
+    "stepCount": 12,
+    "estimatedTime": "36 min"
   }
 ]

@@ -2,43 +2,31 @@
   {
     "id": 0,
     "name": "all",
-    "image": "images/category/all.webp",
+    "image": "images/category/plum_blossom.webp",
     "order": 0
   },
   {
     "id": 1,
     "name": "snowflakes",
-    "image": "images/category/snowflakes.webp",
-    "order": 4
+    "image": "images/category/classic_ice_crystal.webp",
+    "order": 1
   },
   {
     "id": 2,
     "name": "heart",
     "image": "images/category/heart.webp",
-    "order": 3
+    "order": 2
   },
   {
     "id": 3,
     "name": "flower",
-    "image": "images/category/kirigami_flower.webp",
-    "order": 2
+    "image": "images/category/plum_blossom.webp",
+    "order": 3
   },
   {
     "id": 4,
-    "name": "animal",
-    "image": "images/category/kirigami_animal.webp",
-    "order": 1
-  },
-  {
-    "id": 5,
     "name": "other",
-    "image": "images/category/other.webp",
-    "order": 5
-  },
-  {
-    "id": 6,
-    "name": "geometry",
-    "image": "images/category/geometry.webp",
-    "order": 6
+    "image": "images/category/handheld_origami_pine.webp",
+    "order": 4
   }
 ]

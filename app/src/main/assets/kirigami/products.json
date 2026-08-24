@@ -1,1760 +1,1460 @@
 [
-    {
-        "productId": 1,
-        "image": "images/kirigami/sapphire_crystal_1.webp",
-        "stepNumber": 1,
-        "id": 101
-    },
-    {
-        "productId": 1,
-        "image": "images/kirigami/sapphire_crystal_2.webp",
-        "stepNumber": 2,
-        "id": 102
-    },
-    {
-        "productId": 1,
-        "image": "images/kirigami/sapphire_crystal_3.webp",
-        "stepNumber": 3,
-        "id": 103
-    },
-    {
-        "productId": 1,
-        "image": "images/kirigami/sapphire_crystal_4.webp",
-        "stepNumber": 4,
-        "id": 104
-    },
-    {
-        "productId": 1,
-        "image": "images/kirigami/sapphire_crystal_5.webp",
-        "stepNumber": 5,
-        "id": 105
-    },
-    {
-        "productId": 1,
-        "image": "images/kirigami/sapphire_crystal_6.webp",
-        "stepNumber": 6,
-        "id": 106
-    },
-    {
-        "productId": 1,
-        "image": "images/kirigami/sapphire_crystal_7.webp",
-        "stepNumber": 7,
-        "id": 107
-    },
-    {
-        "productId": 2,
-        "image": "images/kirigami/classic_ice_crystal_1.webp",
-        "stepNumber": 1,
-        "id": 201
-    },
-    {
-        "productId": 2,
-        "image": "images/kirigami/classic_ice_crystal_2.webp",
-        "stepNumber": 2,
-        "id": 202
-    },
-    {
-        "productId": 2,
-        "image": "images/kirigami/classic_ice_crystal_3.webp",
-        "stepNumber": 3,
-        "id": 203
-    },
-    {
-        "productId": 2,
-        "image": "images/kirigami/classic_ice_crystal_4.webp",
-        "stepNumber": 4,
-        "id": 204
-    },
-    {
-        "productId": 2,
-        "image": "images/kirigami/classic_ice_crystal_5.webp",
-        "stepNumber": 5,
-        "id": 205
-    },
-    {
-        "productId": 2,
-        "image": "images/kirigami/classic_ice_crystal_6.webp",
-        "stepNumber": 6,
-        "id": 206
-    },
-    {
-        "productId": 2,
-        "image": "images/kirigami/classic_ice_crystal_7.webp",
-        "stepNumber": 7,
-        "id": 207
-    },
-    {
-        "productId": 2,
-        "image": "images/kirigami/classic_ice_crystal_8.webp",
-        "stepNumber": 8,
-        "id": 208
-    },
-    {
-        "productId": 2,
-        "image": "images/kirigami/classic_ice_crystal_9.webp",
-        "stepNumber": 9,
-        "id": 209
-    },
-    {
-        "productId": 3,
-        "image": "images/kirigami/mystic_purple_frost_1.webp",
-        "stepNumber": 1,
-        "id": 301
-    },
-    {
-        "productId": 3,
-        "image": "images/kirigami/mystic_purple_frost_2.webp",
-        "stepNumber": 2,
-        "id": 302
-    },
-    {
-        "productId": 3,
-        "image": "images/kirigami/mystic_purple_frost_3.webp",
-        "stepNumber": 3,
-        "id": 303
-    },
-    {
-        "productId": 3,
-        "image": "images/kirigami/mystic_purple_frost_4.webp",
-        "stepNumber": 4,
-        "id": 304
-    },
-    {
-        "productId": 3,
-        "image": "images/kirigami/mystic_purple_frost_5.webp",
-        "stepNumber": 5,
-        "id": 305
-    },
-    {
-        "productId": 3,
-        "image": "images/kirigami/mystic_purple_frost_6.webp",
-        "stepNumber": 6,
-        "id": 306
-    },
-    {
-        "productId": 3,
-        "image": "images/kirigami/mystic_purple_frost_7.webp",
-        "stepNumber": 7,
-        "id": 307
-    },
-    {
-        "productId": 3,
-        "image": "images/kirigami/mystic_purple_frost_8.webp",
-        "stepNumber": 8,
-        "id": 308
-    },
-    {
-        "productId": 3,
-        "image": "images/kirigami/mystic_purple_frost_9.webp",
-        "stepNumber": 9,
-        "id": 309
-    },
-    {
-        "productId": 3,
-        "image": "images/kirigami/mystic_purple_frost_10.webp",
-        "stepNumber": 10,
-        "id": 310
-    },
-    {
-        "productId": 3,
-        "image": "images/kirigami/mystic_purple_frost_11.webp",
-        "stepNumber": 11,
-        "id": 311
-    },
-    {
-        "productId": 3,
-        "image": "images/kirigami/mystic_purple_frost_12.webp",
-        "stepNumber": 12,
-        "id": 312
-    },
-    {
-        "productId": 4,
-        "image": "images/kirigami/pink_quartz_snowflake_1.webp",
-        "stepNumber": 1,
-        "id": 401
-    },
-    {
-        "productId": 4,
-        "image": "images/kirigami/pink_quartz_snowflake_2.webp",
-        "stepNumber": 2,
-        "id": 402
-    },
-    {
-        "productId": 4,
-        "image": "images/kirigami/pink_quartz_snowflake_3.webp",
-        "stepNumber": 3,
-        "id": 403
-    },
-    {
-        "productId": 4,
-        "image": "images/kirigami/pink_quartz_snowflake_4.webp",
-        "stepNumber": 4,
-        "id": 404
-    },
-    {
-        "productId": 4,
-        "image": "images/kirigami/pink_quartz_snowflake_5.webp",
-        "stepNumber": 5,
-        "id": 405
-    },
-    {
-        "productId": 4,
-        "image": "images/kirigami/pink_quartz_snowflake_6.webp",
-        "stepNumber": 6,
-        "id": 406
-    },
-    {
-        "productId": 4,
-        "image": "images/kirigami/pink_quartz_snowflake_7.webp",
-        "stepNumber": 7,
-        "id": 407
-    },
-    {
-        "productId": 4,
-        "image": "images/kirigami/pink_quartz_snowflake_8.webp",
-        "stepNumber": 8,
-        "id": 408
-    },
-    {
-        "productId": 4,
-        "image": "images/kirigami/pink_quartz_snowflake_9.webp",
-        "stepNumber": 9,
-        "id": 409
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_1.webp",
-        "stepNumber": 1,
-        "id": 501
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_2.webp",
-        "stepNumber": 2,
-        "id": 502
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_3.webp",
-        "stepNumber": 3,
-        "id": 503
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_4.webp",
-        "stepNumber": 4,
-        "id": 504
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_5.webp",
-        "stepNumber": 5,
-        "id": 505
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_6.webp",
-        "stepNumber": 6,
-        "id": 506
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_7.webp",
-        "stepNumber": 7,
-        "id": 507
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_8.webp",
-        "stepNumber": 8,
-        "id": 508
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_9.webp",
-        "stepNumber": 9,
-        "id": 509
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_10.webp",
-        "stepNumber": 10,
-        "id": 510
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_11.webp",
-        "stepNumber": 11,
-        "id": 511
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_12.webp",
-        "stepNumber": 12,
-        "id": 512
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_13.webp",
-        "stepNumber": 13,
-        "id": 513
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_14.webp",
-        "stepNumber": 14,
-        "id": 514
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_15.webp",
-        "stepNumber": 15,
-        "id": 515
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_16.webp",
-        "stepNumber": 16,
-        "id": 516
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_17.webp",
-        "stepNumber": 17,
-        "id": 517
-    },
-    {
-        "productId": 5,
-        "image": "images/kirigami/handheld_origami_pine_18.webp",
-        "stepNumber": 18,
-        "id": 518
-    },
-    {
-        "productId": 6,
-        "image": "images/kirigami/heart_1.webp",
-        "stepNumber": 1,
-        "id": 601
-    },
-    {
-        "productId": 6,
-        "image": "images/kirigami/heart_2.webp",
-        "stepNumber": 2,
-        "id": 602
-    },
-    {
-        "productId": 6,
-        "image": "images/kirigami/heart_3.webp",
-        "stepNumber": 3,
-        "id": 603
-    },
-    {
-        "productId": 6,
-        "image": "images/kirigami/heart_4.webp",
-        "stepNumber": 4,
-        "id": 604
-    },
-    {
-        "productId": 6,
-        "image": "images/kirigami/heart_5.webp",
-        "stepNumber": 5,
-        "id": 605
-    },
-    {
-        "productId": 6,
-        "image": "images/kirigami/heart_6.webp",
-        "stepNumber": 6,
-        "id": 606
-    },
-    {
-        "productId": 6,
-        "image": "images/kirigami/heart_7.webp",
-        "stepNumber": 7,
-        "id": 607
-    },
-    {
-        "productId": 7,
-        "image": "images/kirigami/heart_to_heart_1.webp",
-        "stepNumber": 1,
-        "id": 701
-    },
-    {
-        "productId": 7,
-        "image": "images/kirigami/heart_to_heart_2.webp",
-        "stepNumber": 2,
-        "id": 702
-    },
-    {
-        "productId": 7,
-        "image": "images/kirigami/heart_to_heart_3.webp",
-        "stepNumber": 3,
-        "id": 703
-    },
-    {
-        "productId": 7,
-        "image": "images/kirigami/heart_to_heart_4.webp",
-        "stepNumber": 4,
-        "id": 704
-    },
-    {
-        "productId": 7,
-        "image": "images/kirigami/heart_to_heart_5.webp",
-        "stepNumber": 5,
-        "id": 705
-    },
-    {
-        "productId": 8,
-        "image": "images/kirigami/heart_flower_1.webp",
-        "stepNumber": 1,
-        "id": 801
-    },
-    {
-        "productId": 8,
-        "image": "images/kirigami/heart_flower_2.webp",
-        "stepNumber": 2,
-        "id": 802
-    },
-    {
-        "productId": 8,
-        "image": "images/kirigami/heart_flower_3.webp",
-        "stepNumber": 3,
-        "id": 803
-    },
-    {
-        "productId": 8,
-        "image": "images/kirigami/heart_flower_4.webp",
-        "stepNumber": 4,
-        "id": 804
-    },
-    {
-        "productId": 8,
-        "image": "images/kirigami/heart_flower_5.webp",
-        "stepNumber": 5,
-        "id": 805
-    },
-    {
-        "productId": 9,
-        "image": "images/kirigami/pop_heart_1.webp",
-        "stepNumber": 1,
-        "id": 901
-    },
-    {
-        "productId": 9,
-        "image": "images/kirigami/pop_heart_2.webp",
-        "stepNumber": 2,
-        "id": 902
-    },
-    {
-        "productId": 9,
-        "image": "images/kirigami/pop_heart_3.webp",
-        "stepNumber": 3,
-        "id": 903
-    },
-    {
-        "productId": 9,
-        "image": "images/kirigami/pop_heart_4.webp",
-        "stepNumber": 4,
-        "id": 904
-    },
-    {
-        "productId": 9,
-        "image": "images/kirigami/pop_heart_5.webp",
-        "stepNumber": 5,
-        "id": 905
-    },
-    {
-        "productId": 10,
-        "image": "images/kirigami/plum_blossom_1.webp",
-        "stepNumber": 1,
-        "id": 1001
-    },
-    {
-        "productId": 10,
-        "image": "images/kirigami/plum_blossom_2.webp",
-        "stepNumber": 2,
-        "id": 1002
-    },
-    {
-        "productId": 10,
-        "image": "images/kirigami/plum_blossom_3.webp",
-        "stepNumber": 3,
-        "id": 1003
-    },
-    {
-        "productId": 10,
-        "image": "images/kirigami/plum_blossom_4.webp",
-        "stepNumber": 4,
-        "id": 1004
-    },
-    {
-        "productId": 10,
-        "image": "images/kirigami/plum_blossom_5.webp",
-        "stepNumber": 5,
-        "id": 1005
-    },
-    {
-        "productId": 10,
-        "image": "images/kirigami/plum_blossom_6.webp",
-        "stepNumber": 6,
-        "id": 1006
-    },
-    {
-        "productId": 10,
-        "image": "images/kirigami/plum_blossom_7.webp",
-        "stepNumber": 7,
-        "id": 1007
-    },
-    {
-        "productId": 10,
-        "image": "images/kirigami/plum_blossom_8.webp",
-        "stepNumber": 8,
-        "id": 1008
-    },
-    {
-        "productId": 10,
-        "image": "images/kirigami/plum_blossom_9.webp",
-        "stepNumber": 9,
-        "id": 1009
-    },
-    {
-        "productId": 11,
-        "image": "images/kirigami/sakura_1.webp",
-        "stepNumber": 1,
-        "id": 1101
-    },
-    {
-        "productId": 11,
-        "image": "images/kirigami/sakura_2.webp",
-        "stepNumber": 2,
-        "id": 1102
-    },
-    {
-        "productId": 11,
-        "image": "images/kirigami/sakura_3.webp",
-        "stepNumber": 3,
-        "id": 1103
-    },
-    {
-        "productId": 11,
-        "image": "images/kirigami/sakura_4.webp",
-        "stepNumber": 4,
-        "id": 1104
-    },
-    {
-        "productId": 11,
-        "image": "images/kirigami/sakura_5.webp",
-        "stepNumber": 5,
-        "id": 1105
-    },
-    {
-        "productId": 11,
-        "image": "images/kirigami/sakura_6.webp",
-        "stepNumber": 6,
-        "id": 1106
-    },
-    {
-        "productId": 11,
-        "image": "images/kirigami/sakura_7.webp",
-        "stepNumber": 7,
-        "id": 1107
-    },
-    {
-        "productId": 11,
-        "image": "images/kirigami/sakura_8.webp",
-        "stepNumber": 8,
-        "id": 1108
-    },
-    {
-        "productId": 11,
-        "image": "images/kirigami/sakura_9.webp",
-        "stepNumber": 9,
-        "id": 1109
-    },
-    {
-        "productId": 12,
-        "image": "images/kirigami/fancy_blossom_1.webp",
-        "stepNumber": 1,
-        "id": 1201
-    },
-    {
-        "productId": 12,
-        "image": "images/kirigami/fancy_blossom_2.webp",
-        "stepNumber": 2,
-        "id": 1202
-    },
-    {
-        "productId": 12,
-        "image": "images/kirigami/fancy_blossom_3.webp",
-        "stepNumber": 3,
-        "id": 1203
-    },
-    {
-        "productId": 12,
-        "image": "images/kirigami/fancy_blossom_4.webp",
-        "stepNumber": 4,
-        "id": 1204
-    },
-    {
-        "productId": 12,
-        "image": "images/kirigami/fancy_blossom_5.webp",
-        "stepNumber": 5,
-        "id": 1205
-    },
-    {
-        "productId": 12,
-        "image": "images/kirigami/fancy_blossom_6.webp",
-        "stepNumber": 6,
-        "id": 1206
-    },
-    {
-        "productId": 12,
-        "image": "images/kirigami/fancy_blossom_7.webp",
-        "stepNumber": 7,
-        "id": 1207
-    },
-    {
-        "productId": 12,
-        "image": "images/kirigami/fancy_blossom_8.webp",
-        "stepNumber": 8,
-        "id": 1208
-    },
-    {
-        "productId": 12,
-        "image": "images/kirigami/fancy_blossom_9.webp",
-        "stepNumber": 9,
-        "id": 1209
-    },
-    {
-        "productId": 13,
-        "image": "images/kirigami/double_sakura_1.webp",
-        "stepNumber": 1,
-        "id": 1301
-    },
-    {
-        "productId": 13,
-        "image": "images/kirigami/double_sakura_2.webp",
-        "stepNumber": 2,
-        "id": 1302
-    },
-    {
-        "productId": 13,
-        "image": "images/kirigami/double_sakura_3.webp",
-        "stepNumber": 3,
-        "id": 1303
-    },
-    {
-        "productId": 13,
-        "image": "images/kirigami/double_sakura_4.webp",
-        "stepNumber": 4,
-        "id": 1304
-    },
-    {
-        "productId": 13,
-        "image": "images/kirigami/double_sakura_5.webp",
-        "stepNumber": 5,
-        "id": 1305
-    },
-    {
-        "productId": 13,
-        "image": "images/kirigami/double_sakura_6.webp",
-        "stepNumber": 6,
-        "id": 1306
-    },
-    {
-        "productId": 13,
-        "image": "images/kirigami/double_sakura_7.webp",
-        "stepNumber": 7,
-        "id": 1307
-    },
-    {
-        "productId": 13,
-        "image": "images/kirigami/double_sakura_8.webp",
-        "stepNumber": 8,
-        "id": 1308
-    },
-    {
-        "productId": 13,
-        "image": "images/kirigami/double_sakura_9.webp",
-        "stepNumber": 9,
-        "id": 1309
-    },
-    {
-        "productId": 14,
-        "image": "images/kirigami/tulips_1.webp",
-        "stepNumber": 1,
-        "id": 1401
-    },
-    {
-        "productId": 14,
-        "image": "images/kirigami/tulips_2.webp",
-        "stepNumber": 2,
-        "id": 1402
-    },
-    {
-        "productId": 14,
-        "image": "images/kirigami/tulips_3.webp",
-        "stepNumber": 3,
-        "id": 1403
-    },
-    {
-        "productId": 14,
-        "image": "images/kirigami/tulips_4.webp",
-        "stepNumber": 4,
-        "id": 1404
-    },
-    {
-        "productId": 14,
-        "image": "images/kirigami/tulips_5.webp",
-        "stepNumber": 5,
-        "id": 1405
-    },
-    {
-        "productId": 14,
-        "image": "images/kirigami/tulips_6.webp",
-        "stepNumber": 6,
-        "id": 1406
-    },
-    {
-        "productId": 14,
-        "image": "images/kirigami/tulips_7.webp",
-        "stepNumber": 7,
-        "id": 1407
-    },
-    {
-        "productId": 14,
-        "image": "images/kirigami/tulips_8.webp",
-        "stepNumber": 8,
-        "id": 1408
-    },
-    {
-        "productId": 14,
-        "image": "images/kirigami/tulips_9.webp",
-        "stepNumber": 9,
-        "id": 1409
-    },
-    {
-        "productId": 15,
-        "image": "images/kirigami/four_petal_flower_1.webp",
-        "stepNumber": 1,
-        "id": 1501
-    },
-    {
-        "productId": 15,
-        "image": "images/kirigami/four_petal_flower_2.webp",
-        "stepNumber": 2,
-        "id": 1502
-    },
-    {
-        "productId": 15,
-        "image": "images/kirigami/four_petal_flower_3.webp",
-        "stepNumber": 3,
-        "id": 1503
-    },
-    {
-        "productId": 15,
-        "image": "images/kirigami/four_petal_flower_4.webp",
-        "stepNumber": 4,
-        "id": 1504
-    },
-    {
-        "productId": 15,
-        "image": "images/kirigami/four_petal_flower_5.webp",
-        "stepNumber": 5,
-        "id": 1505
-    },
-    {
-        "productId": 16,
-        "image": "images/kirigami/stylized_lotus_1.webp",
-        "stepNumber": 1,
-        "id": 1601
-    },
-    {
-        "productId": 16,
-        "image": "images/kirigami/stylized_lotus_2.webp",
-        "stepNumber": 2,
-        "id": 1602
-    },
-    {
-        "productId": 16,
-        "image": "images/kirigami/stylized_lotus_3.webp",
-        "stepNumber": 3,
-        "id": 1603
-    },
-    {
-        "productId": 16,
-        "image": "images/kirigami/stylized_lotus_4.webp",
-        "stepNumber": 4,
-        "id": 1604
-    },
-    {
-        "productId": 16,
-        "image": "images/kirigami/stylized_lotus_5.webp",
-        "stepNumber": 5,
-        "id": 1605
-    },
-    {
-        "productId": 16,
-        "image": "images/kirigami/stylized_lotus_6.webp",
-        "stepNumber": 6,
-        "id": 1606
-    },
-    {
-        "productId": 16,
-        "image": "images/kirigami/stylized_lotus_7.webp",
-        "stepNumber": 7,
-        "id": 1607
-    },
-    {
-        "productId": 17,
-        "image": "images/kirigami/camellia_1.webp",
-        "stepNumber": 1,
-        "id": 1701
-    },
-    {
-        "productId": 17,
-        "image": "images/kirigami/camellia_2.webp",
-        "stepNumber": 2,
-        "id": 1702
-    },
-    {
-        "productId": 17,
-        "image": "images/kirigami/camellia_3.webp",
-        "stepNumber": 3,
-        "id": 1703
-    },
-    {
-        "productId": 17,
-        "image": "images/kirigami/camellia_4.webp",
-        "stepNumber": 4,
-        "id": 1704
-    },
-    {
-        "productId": 17,
-        "image": "images/kirigami/camellia_5.webp",
-        "stepNumber": 5,
-        "id": 1705
-    },
-    {
-        "productId": 17,
-        "image": "images/kirigami/camellia_6.webp",
-        "stepNumber": 6,
-        "id": 1706
-    },
-    {
-        "productId": 17,
-        "image": "images/kirigami/camellia_7.webp",
-        "stepNumber": 7,
-        "id": 1707
-    },
-    {
-        "productId": 17,
-        "image": "images/kirigami/camellia_8.webp",
-        "stepNumber": 8,
-        "id": 1708
-    },
-    {
-        "productId": 17,
-        "image": "images/kirigami/camellia_9.webp",
-        "stepNumber": 9,
-        "id": 1709
-    },
-    {
-        "productId": 18,
-        "image": "images/kirigami/peacock_flower_1.webp",
-        "stepNumber": 1,
-        "id": 1801
-    },
-    {
-        "productId": 18,
-        "image": "images/kirigami/peacock_flower_2.webp",
-        "stepNumber": 2,
-        "id": 1802
-    },
-    {
-        "productId": 18,
-        "image": "images/kirigami/peacock_flower_3.webp",
-        "stepNumber": 3,
-        "id": 1803
-    },
-    {
-        "productId": 18,
-        "image": "images/kirigami/peacock_flower_4.webp",
-        "stepNumber": 4,
-        "id": 1804
-    },
-    {
-        "productId": 18,
-        "image": "images/kirigami/peacock_flower_5.webp",
-        "stepNumber": 5,
-        "id": 1805
-    },
-    {
-        "productId": 18,
-        "image": "images/kirigami/peacock_flower_6.webp",
-        "stepNumber": 6,
-        "id": 1806
-    },
-    {
-        "productId": 18,
-        "image": "images/kirigami/peacock_flower_7.webp",
-        "stepNumber": 7,
-        "id": 1807
-    },
-    {
-        "productId": 19,
-        "image": "images/kirigami/butterfly_1.webp",
-        "stepNumber": 1,
-        "id": 1901
-    },
-    {
-        "productId": 19,
-        "image": "images/kirigami/butterfly_2.webp",
-        "stepNumber": 2,
-        "id": 1902
-    },
-    {
-        "productId": 19,
-        "image": "images/kirigami/butterfly_3.webp",
-        "stepNumber": 3,
-        "id": 1903
-    },
-    {
-        "productId": 19,
-        "image": "images/kirigami/butterfly_4.webp",
-        "stepNumber": 4,
-        "id": 1904
-    },
-    {
-        "productId": 19,
-        "image": "images/kirigami/butterfly_5.webp",
-        "stepNumber": 5,
-        "id": 1905
-    },
-    {
-        "productId": 19,
-        "image": "images/kirigami/butterfly_6.webp",
-        "stepNumber": 6,
-        "id": 1906
-    },
-    {
-        "productId": 19,
-        "image": "images/kirigami/butterfly_7.webp",
-        "stepNumber": 7,
-        "id": 1907
-    },
-    {
-        "productId": 19,
-        "image": "images/kirigami/butterfly_8.webp",
-        "stepNumber": 8,
-        "id": 1908
-    },
-    {
-        "productId": 19,
-        "image": "images/kirigami/butterfly_9.webp",
-        "stepNumber": 9,
-        "id": 1909
-    },
-    {
-        "productId": 20,
-        "image": "images/kirigami/bird_1.webp",
-        "stepNumber": 1,
-        "id": 2001
-    },
-    {
-        "productId": 20,
-        "image": "images/kirigami/bird_2.webp",
-        "stepNumber": 2,
-        "id": 2002
-    },
-    {
-        "productId": 20,
-        "image": "images/kirigami/bird_3.webp",
-        "stepNumber": 3,
-        "id": 2003
-    },
-    {
-        "productId": 20,
-        "image": "images/kirigami/bird_4.webp",
-        "stepNumber": 4,
-        "id": 2004
-    },
-    {
-        "productId": 20,
-        "image": "images/kirigami/bird_5.webp",
-        "stepNumber": 5,
-        "id": 2005
-    },
-    {
-        "productId": 20,
-        "image": "images/kirigami/bird_6.webp",
-        "stepNumber": 6,
-        "id": 2006
-    },
-    {
-        "productId": 20,
-        "image": "images/kirigami/bird_7.webp",
-        "stepNumber": 7,
-        "id": 2007
-    },
-    {
-        "productId": 21,
-        "image": "images/kirigami/cats_1.webp",
-        "stepNumber": 1,
-        "id": 2101
-    },
-    {
-        "productId": 21,
-        "image": "images/kirigami/cats_2.webp",
-        "stepNumber": 2,
-        "id": 2102
-    },
-    {
-        "productId": 21,
-        "image": "images/kirigami/cats_3.webp",
-        "stepNumber": 3,
-        "id": 2103
-    },
-    {
-        "productId": 21,
-        "image": "images/kirigami/cats_4.webp",
-        "stepNumber": 4,
-        "id": 2104
-    },
-    {
-        "productId": 21,
-        "image": "images/kirigami/cats_5.webp",
-        "stepNumber": 5,
-        "id": 2105
-    },
-    {
-        "productId": 21,
-        "image": "images/kirigami/cats_6.webp",
-        "stepNumber": 6,
-        "id": 2106
-    },
-    {
-        "productId": 21,
-        "image": "images/kirigami/cats_7.webp",
-        "stepNumber": 7,
-        "id": 2107
-    },
-    {
-        "productId": 22,
-        "image": "images/kirigami/bat_1.webp",
-        "stepNumber": 1,
-        "id": 2201
-    },
-    {
-        "productId": 22,
-        "image": "images/kirigami/bat_2.webp",
-        "stepNumber": 2,
-        "id": 2202
-    },
-    {
-        "productId": 22,
-        "image": "images/kirigami/bat_3.webp",
-        "stepNumber": 3,
-        "id": 2203
-    },
-    {
-        "productId": 22,
-        "image": "images/kirigami/bat_4.webp",
-        "stepNumber": 4,
-        "id": 2204
-    },
-    {
-        "productId": 22,
-        "image": "images/kirigami/bat_5.webp",
-        "stepNumber": 5,
-        "id": 2205
-    },
-    {
-        "productId": 22,
-        "image": "images/kirigami/bat_6.webp",
-        "stepNumber": 6,
-        "id": 2206
-    },
-    {
-        "productId": 22,
-        "image": "images/kirigami/bat_7.webp",
-        "stepNumber": 7,
-        "id": 2207
-    },
-    {
-        "productId": 23,
-        "image": "images/kirigami/umbrellas_1.webp",
-        "stepNumber": 1,
-        "id": 2301
-    },
-    {
-        "productId": 23,
-        "image": "images/kirigami/umbrellas_2.webp",
-        "stepNumber": 2,
-        "id": 2302
-    },
-    {
-        "productId": 23,
-        "image": "images/kirigami/umbrellas_3.webp",
-        "stepNumber": 3,
-        "id": 2303
-    },
-    {
-        "productId": 23,
-        "image": "images/kirigami/umbrellas_4.webp",
-        "stepNumber": 4,
-        "id": 2304
-    },
-    {
-        "productId": 23,
-        "image": "images/kirigami/umbrellas_5.webp",
-        "stepNumber": 5,
-        "id": 2305
-    },
-    {
-        "productId": 23,
-        "image": "images/kirigami/umbrellas_6.webp",
-        "stepNumber": 6,
-        "id": 2306
-    },
-    {
-        "productId": 23,
-        "image": "images/kirigami/umbrellas_7.webp",
-        "stepNumber": 7,
-        "id": 2307
-    },
-    {
-        "productId": 23,
-        "image": "images/kirigami/umbrellas_8.webp",
-        "stepNumber": 8,
-        "id": 2308
-    },
-    {
-        "productId": 23,
-        "image": "images/kirigami/umbrellas_9.webp",
-        "stepNumber": 9,
-        "id": 2309
-    },
-    {
-        "productId": 24,
-        "image": "images/kirigami/tribal_sun_1.webp",
-        "stepNumber": 1,
-        "id": 2401
-    },
-    {
-        "productId": 24,
-        "image": "images/kirigami/tribal_sun_2.webp",
-        "stepNumber": 2,
-        "id": 2402
-    },
-    {
-        "productId": 24,
-        "image": "images/kirigami/tribal_sun_3.webp",
-        "stepNumber": 3,
-        "id": 2403
-    },
-    {
-        "productId": 24,
-        "image": "images/kirigami/tribal_sun_4.webp",
-        "stepNumber": 4,
-        "id": 2404
-    },
-    {
-        "productId": 24,
-        "image": "images/kirigami/tribal_sun_5.webp",
-        "stepNumber": 5,
-        "id": 2405
-    },
-    {
-        "productId": 25,
-        "image": "images/kirigami/arrows_1.webp",
-        "stepNumber": 1,
-        "id": 2501
-    },
-    {
-        "productId": 25,
-        "image": "images/kirigami/arrows_2.webp",
-        "stepNumber": 2,
-        "id": 2502
-    },
-    {
-        "productId": 25,
-        "image": "images/kirigami/arrows_3.webp",
-        "stepNumber": 3,
-        "id": 2503
-    },
-    {
-        "productId": 25,
-        "image": "images/kirigami/arrows_4.webp",
-        "stepNumber": 4,
-        "id": 2504
-    },
-    {
-        "productId": 25,
-        "image": "images/kirigami/arrows_5.webp",
-        "stepNumber": 5,
-        "id": 2505
-    },
-    {
-        "productId": 26,
-        "image": "images/kirigami/circle_of_friends_1.webp",
-        "stepNumber": 1,
-        "id": 2601
-    },
-    {
-        "productId": 26,
-        "image": "images/kirigami/circle_of_friends_2.webp",
-        "stepNumber": 2,
-        "id": 2602
-    },
-    {
-        "productId": 26,
-        "image": "images/kirigami/circle_of_friends_3.webp",
-        "stepNumber": 3,
-        "id": 2603
-    },
-    {
-        "productId": 26,
-        "image": "images/kirigami/circle_of_friends_4.webp",
-        "stepNumber": 4,
-        "id": 2604
-    },
-    {
-        "productId": 26,
-        "image": "images/kirigami/circle_of_friends_5.webp",
-        "stepNumber": 5,
-        "id": 2605
-    },
-    {
-        "productId": 26,
-        "image": "images/kirigami/circle_of_friends_6.webp",
-        "stepNumber": 6,
-        "id": 2606
-    },
-    {
-        "productId": 26,
-        "image": "images/kirigami/circle_of_friends_7.webp",
-        "stepNumber": 7,
-        "id": 2607
-    },
-    {
-        "productId": 27,
-        "image": "images/kirigami/angels_1.webp",
-        "stepNumber": 1,
-        "id": 2701
-    },
-    {
-        "productId": 27,
-        "image": "images/kirigami/angels_2.webp",
-        "stepNumber": 2,
-        "id": 2702
-    },
-    {
-        "productId": 27,
-        "image": "images/kirigami/angels_3.webp",
-        "stepNumber": 3,
-        "id": 2703
-    },
-    {
-        "productId": 27,
-        "image": "images/kirigami/angels_4.webp",
-        "stepNumber": 4,
-        "id": 2704
-    },
-    {
-        "productId": 27,
-        "image": "images/kirigami/angels_5.webp",
-        "stepNumber": 5,
-        "id": 2705
-    },
-    {
-        "productId": 27,
-        "image": "images/kirigami/angels_6.webp",
-        "stepNumber": 6,
-        "id": 2706
-    },
-    {
-        "productId": 27,
-        "image": "images/kirigami/angels_7.webp",
-        "stepNumber": 7,
-        "id": 2707
-    },
-    {
-        "productId": 28,
-        "image": "images/kirigami/easter_eggs_1.webp",
-        "stepNumber": 1,
-        "id": 2801
-    },
-    {
-        "productId": 28,
-        "image": "images/kirigami/easter_eggs_2.webp",
-        "stepNumber": 2,
-        "id": 2802
-    },
-    {
-        "productId": 28,
-        "image": "images/kirigami/easter_eggs_3.webp",
-        "stepNumber": 3,
-        "id": 2803
-    },
-    {
-        "productId": 28,
-        "image": "images/kirigami/easter_eggs_4.webp",
-        "stepNumber": 4,
-        "id": 2804
-    },
-    {
-        "productId": 28,
-        "image": "images/kirigami/easter_eggs_5.webp",
-        "stepNumber": 5,
-        "id": 2805
-    },
-    {
-        "productId": 28,
-        "image": "images/kirigami/easter_eggs_6.webp",
-        "stepNumber": 6,
-        "id": 2806
-    },
-    {
-        "productId": 28,
-        "image": "images/kirigami/easter_eggs_7.webp",
-        "stepNumber": 7,
-        "id": 2807
-    },
-    {
-        "productId": 29,
-        "image": "images/kirigami/pineapples_1.webp",
-        "stepNumber": 1,
-        "id": 2901
-    },
-    {
-        "productId": 29,
-        "image": "images/kirigami/pineapples_2.webp",
-        "stepNumber": 2,
-        "id": 2902
-    },
-    {
-        "productId": 29,
-        "image": "images/kirigami/pineapples_3.webp",
-        "stepNumber": 3,
-        "id": 2903
-    },
-    {
-        "productId": 29,
-        "image": "images/kirigami/pineapples_4.webp",
-        "stepNumber": 4,
-        "id": 2904
-    },
-    {
-        "productId": 29,
-        "image": "images/kirigami/pineapples_5.webp",
-        "stepNumber": 5,
-        "id": 2905
-    },
-    {
-        "productId": 30,
-        "image": "images/kirigami/lucky_horseshoes_1.webp",
-        "stepNumber": 1,
-        "id": 3001
-    },
-    {
-        "productId": 30,
-        "image": "images/kirigami/lucky_horseshoes_2.webp",
-        "stepNumber": 2,
-        "id": 3002
-    },
-    {
-        "productId": 30,
-        "image": "images/kirigami/lucky_horseshoes_3.webp",
-        "stepNumber": 3,
-        "id": 3003
-    },
-    {
-        "productId": 30,
-        "image": "images/kirigami/lucky_horseshoes_4.webp",
-        "stepNumber": 4,
-        "id": 3004
-    },
-    {
-        "productId": 30,
-        "image": "images/kirigami/lucky_horseshoes_5.webp",
-        "stepNumber": 5,
-        "id": 3005
-    },
-    {
-        "productId": 30,
-        "image": "images/kirigami/lucky_horseshoes_6.webp",
-        "stepNumber": 6,
-        "id": 3006
-    },
-    {
-        "productId": 30,
-        "image": "images/kirigami/lucky_horseshoes_7.webp",
-        "stepNumber": 7,
-        "id": 3007
-    },
-    {
-        "productId": 31,
-        "image": "images/kirigami/geometric_1.webp",
-        "stepNumber": 1,
-        "id": 3101
-    },
-    {
-        "productId": 31,
-        "image": "images/kirigami/geometric_2.webp",
-        "stepNumber": 2,
-        "id": 3102
-    },
-    {
-        "productId": 31,
-        "image": "images/kirigami/geometric_3.webp",
-        "stepNumber": 3,
-        "id": 3103
-    },
-    {
-        "productId": 31,
-        "image": "images/kirigami/geometric_4.webp",
-        "stepNumber": 4,
-        "id": 3104
-    },
-    {
-        "productId": 31,
-        "image": "images/kirigami/geometric_5.webp",
-        "stepNumber": 5,
-        "id": 3105
-    },
-    {
-        "productId": 32,
-        "image": "images/kirigami/bubbles_1.webp",
-        "stepNumber": 1,
-        "id": 3201
-    },
-    {
-        "productId": 32,
-        "image": "images/kirigami/bubbles_2.webp",
-        "stepNumber": 2,
-        "id": 3202
-    },
-    {
-        "productId": 32,
-        "image": "images/kirigami/bubbles_3.webp",
-        "stepNumber": 3,
-        "id": 3203
-    },
-    {
-        "productId": 32,
-        "image": "images/kirigami/bubbles_4.webp",
-        "stepNumber": 4,
-        "id": 3204
-    },
-    {
-        "productId": 32,
-        "image": "images/kirigami/bubbles_5.webp",
-        "stepNumber": 5,
-        "id": 3205
-    },
-    {
-        "productId": 32,
-        "image": "images/kirigami/bubbles_6.webp",
-        "stepNumber": 6,
-        "id": 3206
-    },
-    {
-        "productId": 32,
-        "image": "images/kirigami/bubbles_7.webp",
-        "stepNumber": 7,
-        "id": 3207
-    },
-    {
-        "productId": 33,
-        "image": "images/kirigami/star_1.webp",
-        "stepNumber": 1,
-        "id": 3301
-    },
-    {
-        "productId": 33,
-        "image": "images/kirigami/star_2.webp",
-        "stepNumber": 2,
-        "id": 3302
-    },
-    {
-        "productId": 33,
-        "image": "images/kirigami/star_3.webp",
-        "stepNumber": 3,
-        "id": 3303
-    },
-    {
-        "productId": 33,
-        "image": "images/kirigami/star_4.webp",
-        "stepNumber": 4,
-        "id": 3304
-    },
-    {
-        "productId": 33,
-        "image": "images/kirigami/star_5.webp",
-        "stepNumber": 5,
-        "id": 3305
-    },
-    {
-        "productId": 33,
-        "image": "images/kirigami/star_6.webp",
-        "stepNumber": 6,
-        "id": 3306
-    },
-    {
-        "productId": 33,
-        "image": "images/kirigami/star_7.webp",
-        "stepNumber": 7,
-        "id": 3307
-    },
-    {
-        "productId": 33,
-        "image": "images/kirigami/star_8.webp",
-        "stepNumber": 8,
-        "id": 3308
-    },
-    {
-        "productId": 33,
-        "image": "images/kirigami/star_9.webp",
-        "stepNumber": 9,
-        "id": 3309
-    },
-    {
-        "productId": 34,
-        "image": "images/kirigami/directions_1.webp",
-        "stepNumber": 1,
-        "id": 3401
-    },
-    {
-        "productId": 34,
-        "image": "images/kirigami/directions_2.webp",
-        "stepNumber": 2,
-        "id": 3402
-    },
-    {
-        "productId": 34,
-        "image": "images/kirigami/directions_3.webp",
-        "stepNumber": 3,
-        "id": 3403
-    },
-    {
-        "productId": 34,
-        "image": "images/kirigami/directions_4.webp",
-        "stepNumber": 4,
-        "id": 3404
-    },
-    {
-        "productId": 34,
-        "image": "images/kirigami/directions_5.webp",
-        "stepNumber": 5,
-        "id": 3405
-    },
-    {
-        "productId": 35,
-        "image": "images/kirigami/curves_1.webp",
-        "stepNumber": 1,
-        "id": 3501
-    },
-    {
-        "productId": 35,
-        "image": "images/kirigami/curves_2.webp",
-        "stepNumber": 2,
-        "id": 3502
-    },
-    {
-        "productId": 35,
-        "image": "images/kirigami/curves_3.webp",
-        "stepNumber": 3,
-        "id": 3503
-    },
-    {
-        "productId": 35,
-        "image": "images/kirigami/curves_4.webp",
-        "stepNumber": 4,
-        "id": 3504
-    },
-    {
-        "productId": 35,
-        "image": "images/kirigami/curves_5.webp",
-        "stepNumber": 5,
-        "id": 3505
-    },
-    {
-        "productId": 36,
-        "image": "images/kirigami/crystal_1.webp",
-        "stepNumber": 1,
-        "id": 3601
-    },
-    {
-        "productId": 36,
-        "image": "images/kirigami/crystal_2.webp",
-        "stepNumber": 2,
-        "id": 3602
-    },
-    {
-        "productId": 36,
-        "image": "images/kirigami/crystal_3.webp",
-        "stepNumber": 3,
-        "id": 3603
-    },
-    {
-        "productId": 36,
-        "image": "images/kirigami/crystal_4.webp",
-        "stepNumber": 4,
-        "id": 3604
-    },
-    {
-        "productId": 36,
-        "image": "images/kirigami/crystal_5.webp",
-        "stepNumber": 5,
-        "id": 3605
-    },
-    {
-        "productId": 36,
-        "image": "images/kirigami/crystal_6.webp",
-        "stepNumber": 6,
-        "id": 3606
-    },
-    {
-        "productId": 36,
-        "image": "images/kirigami/crystal_7.webp",
-        "stepNumber": 7,
-        "id": 3607
-    },
-    {
-        "productId": 37,
-        "image": "images/kirigami/snowflower_1.webp",
-        "stepNumber": 1,
-        "id": 3701
-    },
-    {
-        "productId": 37,
-        "image": "images/kirigami/snowflower_2.webp",
-        "stepNumber": 2,
-        "id": 3702
-    },
-    {
-        "productId": 37,
-        "image": "images/kirigami/snowflower_3.webp",
-        "stepNumber": 3,
-        "id": 3703
-    },
-    {
-        "productId": 37,
-        "image": "images/kirigami/snowflower_4.webp",
-        "stepNumber": 4,
-        "id": 3704
-    },
-    {
-        "productId": 37,
-        "image": "images/kirigami/snowflower_5.webp",
-        "stepNumber": 5,
-        "id": 3705
-    },
-    {
-        "productId": 37,
-        "image": "images/kirigami/snowflower_6.webp",
-        "stepNumber": 6,
-        "id": 3706
-    },
-    {
-        "productId": 37,
-        "image": "images/kirigami/snowflower_7.webp",
-        "stepNumber": 7,
-        "id": 3707
-    },
-    {
-        "productId": 38,
-        "image": "images/kirigami/fiddleheads_1.webp",
-        "stepNumber": 1,
-        "id": 3801
-    },
-    {
-        "productId": 38,
-        "image": "images/kirigami/fiddleheads_2.webp",
-        "stepNumber": 2,
-        "id": 3802
-    },
-    {
-        "productId": 38,
-        "image": "images/kirigami/fiddleheads_3.webp",
-        "stepNumber": 3,
-        "id": 3803
-    },
-    {
-        "productId": 38,
-        "image": "images/kirigami/fiddleheads_4.webp",
-        "stepNumber": 4,
-        "id": 3804
-    },
-    {
-        "productId": 38,
-        "image": "images/kirigami/fiddleheads_5.webp",
-        "stepNumber": 5,
-        "id": 3805
-    },
-    {
-        "productId": 38,
-        "image": "images/kirigami/fiddleheads_6.webp",
-        "stepNumber": 6,
-        "id": 3806
-    },
-    {
-        "productId": 38,
-        "image": "images/kirigami/fiddleheads_7.webp",
-        "stepNumber": 7,
-        "id": 3807
-    },
-    {
-        "productId": 39,
-        "image": "images/kirigami/starburst_1.webp",
-        "stepNumber": 1,
-        "id": 3901
-    },
-    {
-        "productId": 39,
-        "image": "images/kirigami/starburst_2.webp",
-        "stepNumber": 2,
-        "id": 3902
-    },
-    {
-        "productId": 39,
-        "image": "images/kirigami/starburst_3.webp",
-        "stepNumber": 3,
-        "id": 3903
-    },
-    {
-        "productId": 39,
-        "image": "images/kirigami/starburst_4.webp",
-        "stepNumber": 4,
-        "id": 3904
-    },
-    {
-        "productId": 39,
-        "image": "images/kirigami/starburst_5.webp",
-        "stepNumber": 5,
-        "id": 3905
-    },
-    {
-        "productId": 39,
-        "image": "images/kirigami/starburst_6.webp",
-        "stepNumber": 6,
-        "id": 3906
-    },
-    {
-        "productId": 39,
-        "image": "images/kirigami/starburst_7.webp",
-        "stepNumber": 7,
-        "id": 3907
-    },
-    {
-        "productId": 39,
-        "image": "images/kirigami/starburst_8.webp",
-        "stepNumber": 8,
-        "id": 3908
-    },
-    {
-        "productId": 39,
-        "image": "images/kirigami/starburst_9.webp",
-        "stepNumber": 9,
-        "id": 3909
-    }
+  {
+    "productId": 1,
+    "image": "images/kirigami/camellia_1.webp",
+    "stepNumber": 1,
+    "id": 1
+  },
+  {
+    "productId": 1,
+    "image": "images/kirigami/camellia_2.webp",
+    "stepNumber": 2,
+    "id": 2
+  },
+  {
+    "productId": 1,
+    "image": "images/kirigami/camellia_3.webp",
+    "stepNumber": 3,
+    "id": 3
+  },
+  {
+    "productId": 1,
+    "image": "images/kirigami/camellia_4.webp",
+    "stepNumber": 4,
+    "id": 4
+  },
+  {
+    "productId": 1,
+    "image": "images/kirigami/camellia_5.webp",
+    "stepNumber": 5,
+    "id": 5
+  },
+  {
+    "productId": 1,
+    "image": "images/kirigami/camellia_6.webp",
+    "stepNumber": 6,
+    "id": 6
+  },
+  {
+    "productId": 1,
+    "image": "images/kirigami/camellia_7.webp",
+    "stepNumber": 7,
+    "id": 7
+  },
+  {
+    "productId": 1,
+    "image": "images/kirigami/camellia_8.webp",
+    "stepNumber": 8,
+    "id": 8
+  },
+  {
+    "productId": 1,
+    "image": "images/kirigami/camellia_9.webp",
+    "stepNumber": 9,
+    "id": 9
+  },
+  {
+    "productId": 1,
+    "image": "images/kirigami/camellia_10.webp",
+    "stepNumber": 10,
+    "id": 10
+  },
+  {
+    "productId": 1,
+    "image": "images/kirigami/camellia_11.webp",
+    "stepNumber": 11,
+    "id": 11
+  },
+  {
+    "productId": 1,
+    "image": "images/kirigami/camellia_12.webp",
+    "stepNumber": 12,
+    "id": 12
+  },
+  {
+    "productId": 2,
+    "image": "images/kirigami/classic_ice_crystal_1.webp",
+    "stepNumber": 1,
+    "id": 13
+  },
+  {
+    "productId": 2,
+    "image": "images/kirigami/classic_ice_crystal_2.webp",
+    "stepNumber": 2,
+    "id": 14
+  },
+  {
+    "productId": 2,
+    "image": "images/kirigami/classic_ice_crystal_3.webp",
+    "stepNumber": 3,
+    "id": 15
+  },
+  {
+    "productId": 2,
+    "image": "images/kirigami/classic_ice_crystal_4.webp",
+    "stepNumber": 4,
+    "id": 16
+  },
+  {
+    "productId": 2,
+    "image": "images/kirigami/classic_ice_crystal_5.webp",
+    "stepNumber": 5,
+    "id": 17
+  },
+  {
+    "productId": 2,
+    "image": "images/kirigami/classic_ice_crystal_6.webp",
+    "stepNumber": 6,
+    "id": 18
+  },
+  {
+    "productId": 2,
+    "image": "images/kirigami/classic_ice_crystal_7.webp",
+    "stepNumber": 7,
+    "id": 19
+  },
+  {
+    "productId": 2,
+    "image": "images/kirigami/classic_ice_crystal_8.webp",
+    "stepNumber": 8,
+    "id": 20
+  },
+  {
+    "productId": 2,
+    "image": "images/kirigami/classic_ice_crystal_9.webp",
+    "stepNumber": 9,
+    "id": 21
+  },
+  {
+    "productId": 2,
+    "image": "images/kirigami/classic_ice_crystal_10.webp",
+    "stepNumber": 10,
+    "id": 22
+  },
+  {
+    "productId": 2,
+    "image": "images/kirigami/classic_ice_crystal_11.webp",
+    "stepNumber": 11,
+    "id": 23
+  },
+  {
+    "productId": 2,
+    "image": "images/kirigami/classic_ice_crystal_12.webp",
+    "stepNumber": 12,
+    "id": 24
+  },
+  {
+    "productId": 3,
+    "image": "images/kirigami/crystal_1.webp",
+    "stepNumber": 1,
+    "id": 25
+  },
+  {
+    "productId": 3,
+    "image": "images/kirigami/crystal_2.webp",
+    "stepNumber": 2,
+    "id": 26
+  },
+  {
+    "productId": 3,
+    "image": "images/kirigami/crystal_3.webp",
+    "stepNumber": 3,
+    "id": 27
+  },
+  {
+    "productId": 3,
+    "image": "images/kirigami/crystal_4.webp",
+    "stepNumber": 4,
+    "id": 28
+  },
+  {
+    "productId": 3,
+    "image": "images/kirigami/crystal_5.webp",
+    "stepNumber": 5,
+    "id": 29
+  },
+  {
+    "productId": 3,
+    "image": "images/kirigami/crystal_6.webp",
+    "stepNumber": 6,
+    "id": 30
+  },
+  {
+    "productId": 3,
+    "image": "images/kirigami/crystal_7.webp",
+    "stepNumber": 7,
+    "id": 31
+  },
+  {
+    "productId": 3,
+    "image": "images/kirigami/crystal_8.webp",
+    "stepNumber": 8,
+    "id": 32
+  },
+  {
+    "productId": 3,
+    "image": "images/kirigami/crystal_9.webp",
+    "stepNumber": 9,
+    "id": 33
+  },
+  {
+    "productId": 3,
+    "image": "images/kirigami/crystal_10.webp",
+    "stepNumber": 10,
+    "id": 34
+  },
+  {
+    "productId": 3,
+    "image": "images/kirigami/crystal_11.webp",
+    "stepNumber": 11,
+    "id": 35
+  },
+  {
+    "productId": 3,
+    "image": "images/kirigami/crystal_12.webp",
+    "stepNumber": 12,
+    "id": 36
+  },
+  {
+    "productId": 4,
+    "image": "images/kirigami/double_sakura_1.webp",
+    "stepNumber": 1,
+    "id": 37
+  },
+  {
+    "productId": 4,
+    "image": "images/kirigami/double_sakura_2.webp",
+    "stepNumber": 2,
+    "id": 38
+  },
+  {
+    "productId": 4,
+    "image": "images/kirigami/double_sakura_3.webp",
+    "stepNumber": 3,
+    "id": 39
+  },
+  {
+    "productId": 4,
+    "image": "images/kirigami/double_sakura_4.webp",
+    "stepNumber": 4,
+    "id": 40
+  },
+  {
+    "productId": 4,
+    "image": "images/kirigami/double_sakura_5.webp",
+    "stepNumber": 5,
+    "id": 41
+  },
+  {
+    "productId": 4,
+    "image": "images/kirigami/double_sakura_6.webp",
+    "stepNumber": 6,
+    "id": 42
+  },
+  {
+    "productId": 4,
+    "image": "images/kirigami/double_sakura_7.webp",
+    "stepNumber": 7,
+    "id": 43
+  },
+  {
+    "productId": 4,
+    "image": "images/kirigami/double_sakura_8.webp",
+    "stepNumber": 8,
+    "id": 44
+  },
+  {
+    "productId": 4,
+    "image": "images/kirigami/double_sakura_9.webp",
+    "stepNumber": 9,
+    "id": 45
+  },
+  {
+    "productId": 4,
+    "image": "images/kirigami/double_sakura_10.webp",
+    "stepNumber": 10,
+    "id": 46
+  },
+  {
+    "productId": 4,
+    "image": "images/kirigami/double_sakura_11.webp",
+    "stepNumber": 11,
+    "id": 47
+  },
+  {
+    "productId": 4,
+    "image": "images/kirigami/double_sakura_12.webp",
+    "stepNumber": 12,
+    "id": 48
+  },
+  {
+    "productId": 5,
+    "image": "images/kirigami/fancy_blossom_1.webp",
+    "stepNumber": 1,
+    "id": 49
+  },
+  {
+    "productId": 5,
+    "image": "images/kirigami/fancy_blossom_2.webp",
+    "stepNumber": 2,
+    "id": 50
+  },
+  {
+    "productId": 5,
+    "image": "images/kirigami/fancy_blossom_3.webp",
+    "stepNumber": 3,
+    "id": 51
+  },
+  {
+    "productId": 5,
+    "image": "images/kirigami/fancy_blossom_4.webp",
+    "stepNumber": 4,
+    "id": 52
+  },
+  {
+    "productId": 5,
+    "image": "images/kirigami/fancy_blossom_5.webp",
+    "stepNumber": 5,
+    "id": 53
+  },
+  {
+    "productId": 5,
+    "image": "images/kirigami/fancy_blossom_6.webp",
+    "stepNumber": 6,
+    "id": 54
+  },
+  {
+    "productId": 5,
+    "image": "images/kirigami/fancy_blossom_7.webp",
+    "stepNumber": 7,
+    "id": 55
+  },
+  {
+    "productId": 5,
+    "image": "images/kirigami/fancy_blossom_8.webp",
+    "stepNumber": 8,
+    "id": 56
+  },
+  {
+    "productId": 5,
+    "image": "images/kirigami/fancy_blossom_9.webp",
+    "stepNumber": 9,
+    "id": 57
+  },
+  {
+    "productId": 5,
+    "image": "images/kirigami/fancy_blossom_10.webp",
+    "stepNumber": 10,
+    "id": 58
+  },
+  {
+    "productId": 5,
+    "image": "images/kirigami/fancy_blossom_11.webp",
+    "stepNumber": 11,
+    "id": 59
+  },
+  {
+    "productId": 5,
+    "image": "images/kirigami/fancy_blossom_12.webp",
+    "stepNumber": 12,
+    "id": 60
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_1.webp",
+    "stepNumber": 1,
+    "id": 61
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_2.webp",
+    "stepNumber": 2,
+    "id": 62
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_3.webp",
+    "stepNumber": 3,
+    "id": 63
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_4.webp",
+    "stepNumber": 4,
+    "id": 64
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_5.webp",
+    "stepNumber": 5,
+    "id": 65
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_6.webp",
+    "stepNumber": 6,
+    "id": 66
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_7.webp",
+    "stepNumber": 7,
+    "id": 67
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_8.webp",
+    "stepNumber": 8,
+    "id": 68
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_9.webp",
+    "stepNumber": 9,
+    "id": 69
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_10.webp",
+    "stepNumber": 10,
+    "id": 70
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_11.webp",
+    "stepNumber": 11,
+    "id": 71
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_12.webp",
+    "stepNumber": 12,
+    "id": 72
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_13.webp",
+    "stepNumber": 13,
+    "id": 73
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_14.webp",
+    "stepNumber": 14,
+    "id": 74
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_15.webp",
+    "stepNumber": 15,
+    "id": 75
+  },
+  {
+    "productId": 6,
+    "image": "images/kirigami/four_petal_flower_16.webp",
+    "stepNumber": 16,
+    "id": 76
+  },
+  {
+    "productId": 7,
+    "image": "images/kirigami/handheld_origami_pine_1.webp",
+    "stepNumber": 1,
+    "id": 77
+  },
+  {
+    "productId": 7,
+    "image": "images/kirigami/handheld_origami_pine_2.webp",
+    "stepNumber": 2,
+    "id": 78
+  },
+  {
+    "productId": 7,
+    "image": "images/kirigami/handheld_origami_pine_3.webp",
+    "stepNumber": 3,
+    "id": 79
+  },
+  {
+    "productId": 7,
+    "image": "images/kirigami/handheld_origami_pine_4.webp",
+    "stepNumber": 4,
+    "id": 80
+  },
+  {
+    "productId": 7,
+    "image": "images/kirigami/handheld_origami_pine_5.webp",
+    "stepNumber": 5,
+    "id": 81
+  },
+  {
+    "productId": 7,
+    "image": "images/kirigami/handheld_origami_pine_6.webp",
+    "stepNumber": 6,
+    "id": 82
+  },
+  {
+    "productId": 7,
+    "image": "images/kirigami/handheld_origami_pine_7.webp",
+    "stepNumber": 7,
+    "id": 83
+  },
+  {
+    "productId": 7,
+    "image": "images/kirigami/handheld_origami_pine_8.webp",
+    "stepNumber": 8,
+    "id": 84
+  },
+  {
+    "productId": 7,
+    "image": "images/kirigami/handheld_origami_pine_9.webp",
+    "stepNumber": 9,
+    "id": 85
+  },
+  {
+    "productId": 7,
+    "image": "images/kirigami/handheld_origami_pine_10.webp",
+    "stepNumber": 10,
+    "id": 86
+  },
+  {
+    "productId": 7,
+    "image": "images/kirigami/handheld_origami_pine_11.webp",
+    "stepNumber": 11,
+    "id": 87
+  },
+  {
+    "productId": 7,
+    "image": "images/kirigami/handheld_origami_pine_12.webp",
+    "stepNumber": 12,
+    "id": 88
+  },
+  {
+    "productId": 8,
+    "image": "images/kirigami/heart_1.webp",
+    "stepNumber": 1,
+    "id": 89
+  },
+  {
+    "productId": 8,
+    "image": "images/kirigami/heart_2.webp",
+    "stepNumber": 2,
+    "id": 90
+  },
+  {
+    "productId": 8,
+    "image": "images/kirigami/heart_3.webp",
+    "stepNumber": 3,
+    "id": 91
+  },
+  {
+    "productId": 8,
+    "image": "images/kirigami/heart_4.webp",
+    "stepNumber": 4,
+    "id": 92
+  },
+  {
+    "productId": 8,
+    "image": "images/kirigami/heart_5.webp",
+    "stepNumber": 5,
+    "id": 93
+  },
+  {
+    "productId": 8,
+    "image": "images/kirigami/heart_6.webp",
+    "stepNumber": 6,
+    "id": 94
+  },
+  {
+    "productId": 8,
+    "image": "images/kirigami/heart_7.webp",
+    "stepNumber": 7,
+    "id": 95
+  },
+  {
+    "productId": 8,
+    "image": "images/kirigami/heart_8.webp",
+    "stepNumber": 8,
+    "id": 96
+  },
+  {
+    "productId": 8,
+    "image": "images/kirigami/heart_9.webp",
+    "stepNumber": 9,
+    "id": 97
+  },
+  {
+    "productId": 8,
+    "image": "images/kirigami/heart_10.webp",
+    "stepNumber": 10,
+    "id": 98
+  },
+  {
+    "productId": 8,
+    "image": "images/kirigami/heart_11.webp",
+    "stepNumber": 11,
+    "id": 99
+  },
+  {
+    "productId": 8,
+    "image": "images/kirigami/heart_12.webp",
+    "stepNumber": 12,
+    "id": 100
+  },
+  {
+    "productId": 9,
+    "image": "images/kirigami/heart_flower_1.webp",
+    "stepNumber": 1,
+    "id": 101
+  },
+  {
+    "productId": 9,
+    "image": "images/kirigami/heart_flower_2.webp",
+    "stepNumber": 2,
+    "id": 102
+  },
+  {
+    "productId": 9,
+    "image": "images/kirigami/heart_flower_3.webp",
+    "stepNumber": 3,
+    "id": 103
+  },
+  {
+    "productId": 9,
+    "image": "images/kirigami/heart_flower_4.webp",
+    "stepNumber": 4,
+    "id": 104
+  },
+  {
+    "productId": 9,
+    "image": "images/kirigami/heart_flower_5.webp",
+    "stepNumber": 5,
+    "id": 105
+  },
+  {
+    "productId": 9,
+    "image": "images/kirigami/heart_flower_6.webp",
+    "stepNumber": 6,
+    "id": 106
+  },
+  {
+    "productId": 9,
+    "image": "images/kirigami/heart_flower_7.webp",
+    "stepNumber": 7,
+    "id": 107
+  },
+  {
+    "productId": 9,
+    "image": "images/kirigami/heart_flower_8.webp",
+    "stepNumber": 8,
+    "id": 108
+  },
+  {
+    "productId": 9,
+    "image": "images/kirigami/heart_flower_9.webp",
+    "stepNumber": 9,
+    "id": 109
+  },
+  {
+    "productId": 9,
+    "image": "images/kirigami/heart_flower_10.webp",
+    "stepNumber": 10,
+    "id": 110
+  },
+  {
+    "productId": 9,
+    "image": "images/kirigami/heart_flower_11.webp",
+    "stepNumber": 11,
+    "id": 111
+  },
+  {
+    "productId": 9,
+    "image": "images/kirigami/heart_flower_12.webp",
+    "stepNumber": 12,
+    "id": 112
+  },
+  {
+    "productId": 10,
+    "image": "images/kirigami/heart_to_heart_1.webp",
+    "stepNumber": 1,
+    "id": 113
+  },
+  {
+    "productId": 10,
+    "image": "images/kirigami/heart_to_heart_2.webp",
+    "stepNumber": 2,
+    "id": 114
+  },
+  {
+    "productId": 10,
+    "image": "images/kirigami/heart_to_heart_3.webp",
+    "stepNumber": 3,
+    "id": 115
+  },
+  {
+    "productId": 10,
+    "image": "images/kirigami/heart_to_heart_4.webp",
+    "stepNumber": 4,
+    "id": 116
+  },
+  {
+    "productId": 10,
+    "image": "images/kirigami/heart_to_heart_5.webp",
+    "stepNumber": 5,
+    "id": 117
+  },
+  {
+    "productId": 10,
+    "image": "images/kirigami/heart_to_heart_6.webp",
+    "stepNumber": 6,
+    "id": 118
+  },
+  {
+    "productId": 10,
+    "image": "images/kirigami/heart_to_heart_7.webp",
+    "stepNumber": 7,
+    "id": 119
+  },
+  {
+    "productId": 10,
+    "image": "images/kirigami/heart_to_heart_8.webp",
+    "stepNumber": 8,
+    "id": 120
+  },
+  {
+    "productId": 10,
+    "image": "images/kirigami/heart_to_heart_9.webp",
+    "stepNumber": 9,
+    "id": 121
+  },
+  {
+    "productId": 10,
+    "image": "images/kirigami/heart_to_heart_10.webp",
+    "stepNumber": 10,
+    "id": 122
+  },
+  {
+    "productId": 10,
+    "image": "images/kirigami/heart_to_heart_11.webp",
+    "stepNumber": 11,
+    "id": 123
+  },
+  {
+    "productId": 11,
+    "image": "images/kirigami/mystic_purple_frost_1.webp",
+    "stepNumber": 1,
+    "id": 124
+  },
+  {
+    "productId": 11,
+    "image": "images/kirigami/mystic_purple_frost_2.webp",
+    "stepNumber": 2,
+    "id": 125
+  },
+  {
+    "productId": 11,
+    "image": "images/kirigami/mystic_purple_frost_3.webp",
+    "stepNumber": 3,
+    "id": 126
+  },
+  {
+    "productId": 11,
+    "image": "images/kirigami/mystic_purple_frost_4.webp",
+    "stepNumber": 4,
+    "id": 127
+  },
+  {
+    "productId": 11,
+    "image": "images/kirigami/mystic_purple_frost_5.webp",
+    "stepNumber": 5,
+    "id": 128
+  },
+  {
+    "productId": 11,
+    "image": "images/kirigami/mystic_purple_frost_6.webp",
+    "stepNumber": 6,
+    "id": 129
+  },
+  {
+    "productId": 11,
+    "image": "images/kirigami/mystic_purple_frost_7.webp",
+    "stepNumber": 7,
+    "id": 130
+  },
+  {
+    "productId": 11,
+    "image": "images/kirigami/mystic_purple_frost_8.webp",
+    "stepNumber": 8,
+    "id": 131
+  },
+  {
+    "productId": 11,
+    "image": "images/kirigami/mystic_purple_frost_9.webp",
+    "stepNumber": 9,
+    "id": 132
+  },
+  {
+    "productId": 11,
+    "image": "images/kirigami/mystic_purple_frost_10.webp",
+    "stepNumber": 10,
+    "id": 133
+  },
+  {
+    "productId": 11,
+    "image": "images/kirigami/mystic_purple_frost_11.webp",
+    "stepNumber": 11,
+    "id": 134
+  },
+  {
+    "productId": 11,
+    "image": "images/kirigami/mystic_purple_frost_12.webp",
+    "stepNumber": 12,
+    "id": 135
+  },
+  {
+    "productId": 12,
+    "image": "images/kirigami/peacock_flower_1.webp",
+    "stepNumber": 1,
+    "id": 136
+  },
+  {
+    "productId": 12,
+    "image": "images/kirigami/peacock_flower_2.webp",
+    "stepNumber": 2,
+    "id": 137
+  },
+  {
+    "productId": 12,
+    "image": "images/kirigami/peacock_flower_3.webp",
+    "stepNumber": 3,
+    "id": 138
+  },
+  {
+    "productId": 12,
+    "image": "images/kirigami/peacock_flower_4.webp",
+    "stepNumber": 4,
+    "id": 139
+  },
+  {
+    "productId": 12,
+    "image": "images/kirigami/peacock_flower_5.webp",
+    "stepNumber": 5,
+    "id": 140
+  },
+  {
+    "productId": 12,
+    "image": "images/kirigami/peacock_flower_6.webp",
+    "stepNumber": 6,
+    "id": 141
+  },
+  {
+    "productId": 12,
+    "image": "images/kirigami/peacock_flower_7.webp",
+    "stepNumber": 7,
+    "id": 142
+  },
+  {
+    "productId": 12,
+    "image": "images/kirigami/peacock_flower_8.webp",
+    "stepNumber": 8,
+    "id": 143
+  },
+  {
+    "productId": 12,
+    "image": "images/kirigami/peacock_flower_9.webp",
+    "stepNumber": 9,
+    "id": 144
+  },
+  {
+    "productId": 12,
+    "image": "images/kirigami/peacock_flower_10.webp",
+    "stepNumber": 10,
+    "id": 145
+  },
+  {
+    "productId": 12,
+    "image": "images/kirigami/peacock_flower_11.webp",
+    "stepNumber": 11,
+    "id": 146
+  },
+  {
+    "productId": 12,
+    "image": "images/kirigami/peacock_flower_12.webp",
+    "stepNumber": 12,
+    "id": 147
+  },
+  {
+    "productId": 13,
+    "image": "images/kirigami/pink_quartz_snowflake_1.webp",
+    "stepNumber": 1,
+    "id": 148
+  },
+  {
+    "productId": 13,
+    "image": "images/kirigami/pink_quartz_snowflake_2.webp",
+    "stepNumber": 2,
+    "id": 149
+  },
+  {
+    "productId": 13,
+    "image": "images/kirigami/pink_quartz_snowflake_3.webp",
+    "stepNumber": 3,
+    "id": 150
+  },
+  {
+    "productId": 13,
+    "image": "images/kirigami/pink_quartz_snowflake_4.webp",
+    "stepNumber": 4,
+    "id": 151
+  },
+  {
+    "productId": 13,
+    "image": "images/kirigami/pink_quartz_snowflake_5.webp",
+    "stepNumber": 5,
+    "id": 152
+  },
+  {
+    "productId": 13,
+    "image": "images/kirigami/pink_quartz_snowflake_6.webp",
+    "stepNumber": 6,
+    "id": 153
+  },
+  {
+    "productId": 13,
+    "image": "images/kirigami/pink_quartz_snowflake_7.webp",
+    "stepNumber": 7,
+    "id": 154
+  },
+  {
+    "productId": 13,
+    "image": "images/kirigami/pink_quartz_snowflake_8.webp",
+    "stepNumber": 8,
+    "id": 155
+  },
+  {
+    "productId": 13,
+    "image": "images/kirigami/pink_quartz_snowflake_9.webp",
+    "stepNumber": 9,
+    "id": 156
+  },
+  {
+    "productId": 13,
+    "image": "images/kirigami/pink_quartz_snowflake_10.webp",
+    "stepNumber": 10,
+    "id": 157
+  },
+  {
+    "productId": 13,
+    "image": "images/kirigami/pink_quartz_snowflake_11.webp",
+    "stepNumber": 11,
+    "id": 158
+  },
+  {
+    "productId": 13,
+    "image": "images/kirigami/pink_quartz_snowflake_12.webp",
+    "stepNumber": 12,
+    "id": 159
+  },
+  {
+    "productId": 14,
+    "image": "images/kirigami/plum_blossom_1.webp",
+    "stepNumber": 1,
+    "id": 160
+  },
+  {
+    "productId": 14,
+    "image": "images/kirigami/plum_blossom_2.webp",
+    "stepNumber": 2,
+    "id": 161
+  },
+  {
+    "productId": 14,
+    "image": "images/kirigami/plum_blossom_3.webp",
+    "stepNumber": 3,
+    "id": 162
+  },
+  {
+    "productId": 14,
+    "image": "images/kirigami/plum_blossom_4.webp",
+    "stepNumber": 4,
+    "id": 163
+  },
+  {
+    "productId": 14,
+    "image": "images/kirigami/plum_blossom_5.webp",
+    "stepNumber": 5,
+    "id": 164
+  },
+  {
+    "productId": 14,
+    "image": "images/kirigami/plum_blossom_6.webp",
+    "stepNumber": 6,
+    "id": 165
+  },
+  {
+    "productId": 14,
+    "image": "images/kirigami/plum_blossom_7.webp",
+    "stepNumber": 7,
+    "id": 166
+  },
+  {
+    "productId": 14,
+    "image": "images/kirigami/plum_blossom_8.webp",
+    "stepNumber": 8,
+    "id": 167
+  },
+  {
+    "productId": 14,
+    "image": "images/kirigami/plum_blossom_9.webp",
+    "stepNumber": 9,
+    "id": 168
+  },
+  {
+    "productId": 14,
+    "image": "images/kirigami/plum_blossom_10.webp",
+    "stepNumber": 10,
+    "id": 169
+  },
+  {
+    "productId": 14,
+    "image": "images/kirigami/plum_blossom_11.webp",
+    "stepNumber": 11,
+    "id": 170
+  },
+  {
+    "productId": 14,
+    "image": "images/kirigami/plum_blossom_12.webp",
+    "stepNumber": 12,
+    "id": 171
+  },
+  {
+    "productId": 15,
+    "image": "images/kirigami/pop_heart_1.webp",
+    "stepNumber": 1,
+    "id": 172
+  },
+  {
+    "productId": 15,
+    "image": "images/kirigami/pop_heart_2.webp",
+    "stepNumber": 2,
+    "id": 173
+  },
+  {
+    "productId": 15,
+    "image": "images/kirigami/pop_heart_3.webp",
+    "stepNumber": 3,
+    "id": 174
+  },
+  {
+    "productId": 15,
+    "image": "images/kirigami/pop_heart_4.webp",
+    "stepNumber": 4,
+    "id": 175
+  },
+  {
+    "productId": 15,
+    "image": "images/kirigami/pop_heart_5.webp",
+    "stepNumber": 5,
+    "id": 176
+  },
+  {
+    "productId": 15,
+    "image": "images/kirigami/pop_heart_6.webp",
+    "stepNumber": 6,
+    "id": 177
+  },
+  {
+    "productId": 15,
+    "image": "images/kirigami/pop_heart_7.webp",
+    "stepNumber": 7,
+    "id": 178
+  },
+  {
+    "productId": 15,
+    "image": "images/kirigami/pop_heart_8.webp",
+    "stepNumber": 8,
+    "id": 179
+  },
+  {
+    "productId": 15,
+    "image": "images/kirigami/pop_heart_9.webp",
+    "stepNumber": 9,
+    "id": 180
+  },
+  {
+    "productId": 15,
+    "image": "images/kirigami/pop_heart_10.webp",
+    "stepNumber": 10,
+    "id": 181
+  },
+  {
+    "productId": 15,
+    "image": "images/kirigami/pop_heart_11.webp",
+    "stepNumber": 11,
+    "id": 182
+  },
+  {
+    "productId": 15,
+    "image": "images/kirigami/pop_heart_12.webp",
+    "stepNumber": 12,
+    "id": 183
+  },
+  {
+    "productId": 16,
+    "image": "images/kirigami/sakura_1.webp",
+    "stepNumber": 1,
+    "id": 184
+  },
+  {
+    "productId": 16,
+    "image": "images/kirigami/sakura_2.webp",
+    "stepNumber": 2,
+    "id": 185
+  },
+  {
+    "productId": 16,
+    "image": "images/kirigami/sakura_3.webp",
+    "stepNumber": 3,
+    "id": 186
+  },
+  {
+    "productId": 16,
+    "image": "images/kirigami/sakura_4.webp",
+    "stepNumber": 4,
+    "id": 187
+  },
+  {
+    "productId": 16,
+    "image": "images/kirigami/sakura_5.webp",
+    "stepNumber": 5,
+    "id": 188
+  },
+  {
+    "productId": 16,
+    "image": "images/kirigami/sakura_6.webp",
+    "stepNumber": 6,
+    "id": 189
+  },
+  {
+    "productId": 16,
+    "image": "images/kirigami/sakura_7.webp",
+    "stepNumber": 7,
+    "id": 190
+  },
+  {
+    "productId": 16,
+    "image": "images/kirigami/sakura_8.webp",
+    "stepNumber": 8,
+    "id": 191
+  },
+  {
+    "productId": 16,
+    "image": "images/kirigami/sakura_9.webp",
+    "stepNumber": 9,
+    "id": 192
+  },
+  {
+    "productId": 16,
+    "image": "images/kirigami/sakura_10.webp",
+    "stepNumber": 10,
+    "id": 193
+  },
+  {
+    "productId": 16,
+    "image": "images/kirigami/sakura_11.webp",
+    "stepNumber": 11,
+    "id": 194
+  },
+  {
+    "productId": 16,
+    "image": "images/kirigami/sakura_12.webp",
+    "stepNumber": 12,
+    "id": 195
+  },
+  {
+    "productId": 17,
+    "image": "images/kirigami/sapphire_crystal_1.webp",
+    "stepNumber": 1,
+    "id": 196
+  },
+  {
+    "productId": 17,
+    "image": "images/kirigami/sapphire_crystal_2.webp",
+    "stepNumber": 2,
+    "id": 197
+  },
+  {
+    "productId": 17,
+    "image": "images/kirigami/sapphire_crystal_3.webp",
+    "stepNumber": 3,
+    "id": 198
+  },
+  {
+    "productId": 17,
+    "image": "images/kirigami/sapphire_crystal_4.webp",
+    "stepNumber": 4,
+    "id": 199
+  },
+  {
+    "productId": 17,
+    "image": "images/kirigami/sapphire_crystal_5.webp",
+    "stepNumber": 5,
+    "id": 200
+  },
+  {
+    "productId": 17,
+    "image": "images/kirigami/sapphire_crystal_6.webp",
+    "stepNumber": 6,
+    "id": 201
+  },
+  {
+    "productId": 17,
+    "image": "images/kirigami/sapphire_crystal_7.webp",
+    "stepNumber": 7,
+    "id": 202
+  },
+  {
+    "productId": 17,
+    "image": "images/kirigami/sapphire_crystal_8.webp",
+    "stepNumber": 8,
+    "id": 203
+  },
+  {
+    "productId": 17,
+    "image": "images/kirigami/sapphire_crystal_9.webp",
+    "stepNumber": 9,
+    "id": 204
+  },
+  {
+    "productId": 17,
+    "image": "images/kirigami/sapphire_crystal_10.webp",
+    "stepNumber": 10,
+    "id": 205
+  },
+  {
+    "productId": 17,
+    "image": "images/kirigami/sapphire_crystal_11.webp",
+    "stepNumber": 11,
+    "id": 206
+  },
+  {
+    "productId": 17,
+    "image": "images/kirigami/sapphire_crystal_12.webp",
+    "stepNumber": 12,
+    "id": 207
+  },
+  {
+    "productId": 18,
+    "image": "images/kirigami/snowflower_1.webp",
+    "stepNumber": 1,
+    "id": 208
+  },
+  {
+    "productId": 18,
+    "image": "images/kirigami/snowflower_2.webp",
+    "stepNumber": 2,
+    "id": 209
+  },
+  {
+    "productId": 18,
+    "image": "images/kirigami/snowflower_3.webp",
+    "stepNumber": 3,
+    "id": 210
+  },
+  {
+    "productId": 18,
+    "image": "images/kirigami/snowflower_4.webp",
+    "stepNumber": 4,
+    "id": 211
+  },
+  {
+    "productId": 18,
+    "image": "images/kirigami/snowflower_5.webp",
+    "stepNumber": 5,
+    "id": 212
+  },
+  {
+    "productId": 18,
+    "image": "images/kirigami/snowflower_6.webp",
+    "stepNumber": 6,
+    "id": 213
+  },
+  {
+    "productId": 18,
+    "image": "images/kirigami/snowflower_7.webp",
+    "stepNumber": 7,
+    "id": 214
+  },
+  {
+    "productId": 18,
+    "image": "images/kirigami/snowflower_8.webp",
+    "stepNumber": 8,
+    "id": 215
+  },
+  {
+    "productId": 18,
+    "image": "images/kirigami/snowflower_9.webp",
+    "stepNumber": 9,
+    "id": 216
+  },
+  {
+    "productId": 18,
+    "image": "images/kirigami/snowflower_10.webp",
+    "stepNumber": 10,
+    "id": 217
+  },
+  {
+    "productId": 18,
+    "image": "images/kirigami/snowflower_11.webp",
+    "stepNumber": 11,
+    "id": 218
+  },
+  {
+    "productId": 18,
+    "image": "images/kirigami/snowflower_12.webp",
+    "stepNumber": 12,
+    "id": 219
+  },
+  {
+    "productId": 19,
+    "image": "images/kirigami/stylized_lotus_1.webp",
+    "stepNumber": 1,
+    "id": 220
+  },
+  {
+    "productId": 19,
+    "image": "images/kirigami/stylized_lotus_2.webp",
+    "stepNumber": 2,
+    "id": 221
+  },
+  {
+    "productId": 19,
+    "image": "images/kirigami/stylized_lotus_3.webp",
+    "stepNumber": 3,
+    "id": 222
+  },
+  {
+    "productId": 19,
+    "image": "images/kirigami/stylized_lotus_4.webp",
+    "stepNumber": 4,
+    "id": 223
+  },
+  {
+    "productId": 19,
+    "image": "images/kirigami/stylized_lotus_5.webp",
+    "stepNumber": 5,
+    "id": 224
+  },
+  {
+    "productId": 19,
+    "image": "images/kirigami/stylized_lotus_6.webp",
+    "stepNumber": 6,
+    "id": 225
+  },
+  {
+    "productId": 19,
+    "image": "images/kirigami/stylized_lotus_7.webp",
+    "stepNumber": 7,
+    "id": 226
+  },
+  {
+    "productId": 19,
+    "image": "images/kirigami/stylized_lotus_8.webp",
+    "stepNumber": 8,
+    "id": 227
+  },
+  {
+    "productId": 19,
+    "image": "images/kirigami/stylized_lotus_9.webp",
+    "stepNumber": 9,
+    "id": 228
+  },
+  {
+    "productId": 19,
+    "image": "images/kirigami/stylized_lotus_10.webp",
+    "stepNumber": 10,
+    "id": 229
+  },
+  {
+    "productId": 19,
+    "image": "images/kirigami/stylized_lotus_11.webp",
+    "stepNumber": 11,
+    "id": 230
+  },
+  {
+    "productId": 19,
+    "image": "images/kirigami/stylized_lotus_12.webp",
+    "stepNumber": 12,
+    "id": 231
+  },
+  {
+    "productId": 20,
+    "image": "images/kirigami/tulips_1.webp",
+    "stepNumber": 1,
+    "id": 232
+  },
+  {
+    "productId": 20,
+    "image": "images/kirigami/tulips_2.webp",
+    "stepNumber": 2,
+    "id": 233
+  },
+  {
+    "productId": 20,
+    "image": "images/kirigami/tulips_3.webp",
+    "stepNumber": 3,
+    "id": 234
+  },
+  {
+    "productId": 20,
+    "image": "images/kirigami/tulips_4.webp",
+    "stepNumber": 4,
+    "id": 235
+  },
+  {
+    "productId": 20,
+    "image": "images/kirigami/tulips_5.webp",
+    "stepNumber": 5,
+    "id": 236
+  },
+  {
+    "productId": 20,
+    "image": "images/kirigami/tulips_6.webp",
+    "stepNumber": 6,
+    "id": 237
+  },
+  {
+    "productId": 20,
+    "image": "images/kirigami/tulips_7.webp",
+    "stepNumber": 7,
+    "id": 238
+  },
+  {
+    "productId": 20,
+    "image": "images/kirigami/tulips_8.webp",
+    "stepNumber": 8,
+    "id": 239
+  },
+  {
+    "productId": 20,
+    "image": "images/kirigami/tulips_9.webp",
+    "stepNumber": 9,
+    "id": 240
+  },
+  {
+    "productId": 20,
+    "image": "images/kirigami/tulips_10.webp",
+    "stepNumber": 10,
+    "id": 241
+  },
+  {
+    "productId": 20,
+    "image": "images/kirigami/tulips_11.webp",
+    "stepNumber": 11,
+    "id": 242
+  },
+  {
+    "productId": 20,
+    "image": "images/kirigami/tulips_12.webp",
+    "stepNumber": 12,
+    "id": 243
+  }
 ]

@@ -10,9 +10,8 @@ import javax.inject.Singleton
 class Origami3DAssetDataSource @Inject constructor(
     private val reader: AssetJsonReader
 ) {
-    // 3D Origami dùng chung category với Origami.
     suspend fun getCategories(): List<CategoryEntity> =
-        reader.read("origami/categories.json")
+        reader.read("origami3d/categories.json")
 
     suspend fun getItems(): List<Item3dOrigamiEntity> =
         reader.read("origami3d/items.json")
