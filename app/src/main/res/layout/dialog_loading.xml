@@ -44,7 +44,7 @@
 
                 </FrameLayout>
 
-                <com.fireants.template.ui.component.custom.LoadingDotsTextView
+                <com.pegas.origami.paper.folding.art.ui.component.custom.LoadingDotsTextView
                     android:id="@+id/tvLoadingMessage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

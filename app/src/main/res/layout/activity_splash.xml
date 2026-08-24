@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/rounded_corner" />
 
-        <com.fireants.template.ui.component.custom.LoadingDotsTextView
+        <com.pegas.origami.paper.folding.art.ui.component.custom.LoadingDotsTextView
             android:id="@+id/txtAds"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

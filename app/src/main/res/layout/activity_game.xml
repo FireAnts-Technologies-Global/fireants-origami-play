@@ -84,7 +84,7 @@
         </RelativeLayout>
 
 
-        <com.fireants.template.ui.component.custom.FoldPaperView
+        <com.pegas.origami.paper.folding.art.ui.component.custom.FoldPaperView
             android:id="@+id/foldPaperView"
             android:layout_width="0dp"
             android:layout_height="@dimen/_350sdp"

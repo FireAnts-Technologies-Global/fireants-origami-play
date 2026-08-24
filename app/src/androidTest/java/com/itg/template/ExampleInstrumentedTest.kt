@@ -1,4 +1,4 @@
-package com.fireants.template
+package com.pegas.origami.paper.folding.art
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry

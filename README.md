@@ -252,7 +252,7 @@ This rehydrates `AdRemoteConfig` at runtime with the new placements.
   "icon": "https://.../force_icon.png",
   "title": "Update Required",
   "description": "New features and fixes are waiting for you.",
-  "storeLink": "https://play.google.com/store/apps/details?id=com.fireants.template",
+  "storeLink": "https://play.google.com/store/apps/details?id=com.pegas.origami.paper.folding.art",
   "minVersionCode": 123,
   "force": true
 }

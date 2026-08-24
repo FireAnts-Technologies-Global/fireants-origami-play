@@ -1,6 +1,6 @@
-package com.fireants.template
+package com.pegas.origami.paper.folding.art
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 /**
