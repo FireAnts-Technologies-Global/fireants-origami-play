@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "123456789012",
-    "project_id": "fireants-template",
-    "storage_bucket": "fireants-template.appspot.com"
+    "project_number": "353868182121",
+    "project_id": "r016-origamiplay",
+    "storage_bucket": "r016-origamiplay.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123456789012:android:0123456789abcdef012345",
+        "mobilesdk_app_id": "1:353868182121:android:eddd933071d8faa19068f8",
         "android_client_info": {
           "package_name": "com.pegas.origami.paper.folding.art"
         }
@@ -15,26 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyTemplateReplaceWithRealKey"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:123456789012:android:fedcba9876543210012345",
-        "android_client_info": {
-          "package_name": "com.pegas.origami.paper.folding.art.dev"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyTemplateReplaceWithRealDevKey"
+          "current_key": "AIzaSyD3VpF_bLkuWOCF92izOTZ_8qSfvTeRQJU"
         }
       ],
       "services": {
