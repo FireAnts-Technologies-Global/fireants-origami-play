@@ -13,7 +13,9 @@ import com.revenuecat.purchases.PurchaseParams
 import com.revenuecat.purchases.Purchases
 import com.revenuecat.purchases.getCustomerInfoWith
 import com.revenuecat.purchases.getOfferingsWith
+import com.revenuecat.purchases.models.Period
 import com.revenuecat.purchases.models.StoreProduct
+import com.revenuecat.purchases.models.SubscriptionOption
 import com.revenuecat.purchases.purchaseWith
 import com.revenuecat.purchases.restorePurchasesWith
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,6 +26,9 @@ data class IapUiState(
     val isLoading: Boolean = false,
     val weeklyPrice: String? = null,
     val monthlyPrice: String? = null,
+    val monthlyDiscountPercent: Int? = null,
+    val weeklyTrialInfo: IapTrialInfo? = null,
+    val monthlyTrialInfo: IapTrialInfo? = null,
     val selectedPlan: IapPlan = IapPlan.MONTHLY,
     val activePlan: IapPlan? = null,
     val isPremium: Boolean = false,
@@ -35,6 +40,18 @@ enum class IapPlan {
     WEEKLY,
     MONTHLY
 }
+
+enum class IapTrialUnit {
+    DAY,
+    WEEK,
+    MONTH,
+    YEAR
+}
+
+data class IapTrialInfo(
+    val value: Int,
+    val unit: IapTrialUnit
+)
 
 sealed class IapEvent {
     data object PurchaseSuccess : IapEvent()
@@ -84,6 +101,9 @@ class IapViewModel @Inject constructor() : BaseViewModel() {
                         isLoading = false,
                         weeklyPrice = weeklyPackage?.product?.formattedPrice(),
                         monthlyPrice = monthlyPackage?.product?.formattedPrice(),
+                        monthlyDiscountPercent = calculateMonthlyDiscountPercent(),
+                        weeklyTrialInfo = weeklyPackage?.trialInfo(),
+                        monthlyTrialInfo = monthlyPackage?.trialInfo(),
                         selectedPlan = when {
                             monthlyPackage != null -> IapPlan.MONTHLY
                             weeklyPackage != null -> IapPlan.WEEKLY
@@ -121,8 +141,14 @@ class IapViewModel @Inject constructor() : BaseViewModel() {
             selectedPackage.debugSummary()
         )
         setState { copy(isLoading = true, errorMessage = null, event = null) }
+        val purchaseOption = selectedPackage.purchaseOption()
+        val purchaseParams = if (purchaseOption != null) {
+            PurchaseParams.Builder(activity, purchaseOption).build()
+        } else {
+            PurchaseParams.Builder(activity, selectedPackage).build()
+        }
         Purchases.sharedInstance.purchaseWith(
-            purchaseParams = PurchaseParams.Builder(activity, selectedPackage).build(),
+            purchaseParams = purchaseParams,
             onError = { error, userCancelled ->
                 Timber.tag(TAG).e(
                     "Purchase failed. cancelled=%s code=%s message=%s underlying=%s package=%s",
@@ -231,6 +257,40 @@ class IapViewModel @Inject constructor() : BaseViewModel() {
         return price.formatted
     }
 
+    private fun calculateMonthlyDiscountPercent(): Int? {
+        val weeklyPrice = weeklyPackage?.product?.price ?: return null
+        val monthlyPrice = monthlyPackage?.product?.price ?: return null
+        if (weeklyPrice.currencyCode != monthlyPrice.currencyCode) return null
+        if (weeklyPrice.amountMicros <= 0L || monthlyPrice.amountMicros <= 0L) return null
+
+        val weeklyMonthlyEquivalent = weeklyPrice.amountMicros.toDouble() * WEEKS_PER_YEAR / MONTHS_PER_YEAR
+        val discountPercent =
+            ((weeklyMonthlyEquivalent - monthlyPrice.amountMicros) / weeklyMonthlyEquivalent * 100).toInt()
+        return discountPercent.takeIf { it > 0 }
+    }
+
+    private fun Package.trialInfo(): IapTrialInfo? {
+        val freePhase = purchaseOption()?.freePhase ?: return null
+        if (freePhase.price.amountMicros != 0L) return null
+        return freePhase.billingPeriod.toTrialInfo()
+    }
+
+    private fun Package.purchaseOption(): SubscriptionOption? {
+        val subscriptionOptions = product.subscriptionOptions
+        return subscriptionOptions?.freeTrial ?: product.defaultOption
+    }
+
+    private fun Period.toTrialInfo(): IapTrialInfo? {
+        val trialUnit = when (unit) {
+            Period.Unit.DAY -> IapTrialUnit.DAY
+            Period.Unit.WEEK -> IapTrialUnit.WEEK
+            Period.Unit.MONTH -> IapTrialUnit.MONTH
+            Period.Unit.YEAR -> IapTrialUnit.YEAR
+            Period.Unit.UNKNOWN -> return null
+        }
+        return IapTrialInfo(value = value, unit = trialUnit)
+    }
+
     private fun resolveActivePlan(customerInfo: CustomerInfo): IapPlan? {
         val premiumEntitlement =
             customerInfo.entitlements[BuildConfig.REVENUECAT_ENTITLEMENT_PREMIUM]
@@ -284,5 +344,7 @@ class IapViewModel @Inject constructor() : BaseViewModel() {
 
     companion object {
         private const val TAG = "RevenueCatIAP"
+        private const val WEEKS_PER_YEAR = 52.0
+        private const val MONTHS_PER_YEAR = 12.0
     }
 }

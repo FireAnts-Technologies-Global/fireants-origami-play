@@ -76,6 +76,7 @@ class IapActivity : BaseActivity<ActivityIapBinding>() {
             renderSelectedPlan(state.selectedPlan)
             renderSubscriptionState(state)
             renderPlanNote(state)
+            renderMonthlyDiscount(state)
             state.errorMessage?.let {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
                 viewModel.consumeEvent()
@@ -123,10 +124,16 @@ class IapActivity : BaseActivity<ActivityIapBinding>() {
         mBinding.tvMonthlySubtitle.text =
             if (state.activePlan == IapPlan.MONTHLY) getString(R.string.iap_current_plan)
             else getString(R.string.iap_monthly_subtitle)
+        val trialInfo = selectedTrialInfo(state)
         mBinding.btnContinue.text = when {
             state.isPremium -> getString(R.string.iap_manage_subscription)
-            state.selectedPlan == IapPlan.MONTHLY -> getString(R.string.iap_start_free_trial)
-            else -> getString(R.string.iap_subscribe_weekly)
+            trialInfo != null -> getString(
+                R.string.iap_start_free_trial,
+                formatTrialDuration(trialInfo)
+            )
+
+            state.selectedPlan == IapPlan.WEEKLY -> getString(R.string.iap_subscribe_weekly)
+            else -> getString(R.string.iap_subscribe_monthly)
         }
     }
 
@@ -137,15 +144,67 @@ class IapActivity : BaseActivity<ActivityIapBinding>() {
         }
 
         mBinding.tvPlanNote.visibility = View.VISIBLE
-        mBinding.tvPlanNote.text = when (state.selectedPlan) {
-            IapPlan.WEEKLY -> state.weeklyPrice?.let {
-                getString(R.string.iap_plan_note_weekly, it)
-            }
+        val price = selectedPlanPrice(state)
+        val renewalPeriod = selectedRenewalPeriod(state)
+        val trialInfo = selectedTrialInfo(state)
+        mBinding.tvPlanNote.text = when {
+            price == null -> getString(R.string.iap_plan_note_loading)
+            trialInfo != null -> getString(
+                R.string.iap_plan_note_trial,
+                formatTrialDuration(trialInfo).lowercase(),
+                price,
+                renewalPeriod
+            )
 
-            IapPlan.MONTHLY -> state.monthlyPrice?.let {
-                getString(R.string.iap_plan_note_monthly_trial, it)
-            }
-        } ?: getString(R.string.iap_plan_note_loading)
+            state.selectedPlan == IapPlan.WEEKLY -> getString(R.string.iap_plan_note_weekly, price)
+            else -> getString(R.string.iap_plan_note_monthly, price)
+        }
+    }
+
+    private fun renderMonthlyDiscount(state: IapUiState) {
+        val discountPercent = state.monthlyDiscountPercent
+        if (discountPercent == null || state.isPremium) {
+            mBinding.tvMonthlyDiscount.visibility = View.GONE
+            return
+        }
+
+        mBinding.tvMonthlyDiscount.visibility = View.VISIBLE
+        mBinding.tvMonthlyDiscount.text = getString(R.string.iap_save_50, discountPercent)
+    }
+
+    private fun selectedPlanPrice(state: IapUiState): String? {
+        return when (state.selectedPlan) {
+            IapPlan.WEEKLY -> state.weeklyPrice
+            IapPlan.MONTHLY -> state.monthlyPrice
+        }
+    }
+
+    private fun selectedTrialInfo(state: IapUiState): IapTrialInfo? {
+        return when (state.selectedPlan) {
+            IapPlan.WEEKLY -> state.weeklyTrialInfo
+            IapPlan.MONTHLY -> state.monthlyTrialInfo
+        }
+    }
+
+    private fun selectedRenewalPeriod(state: IapUiState): String {
+        return when (state.selectedPlan) {
+            IapPlan.WEEKLY -> "week"
+            IapPlan.MONTHLY -> "month"
+        }
+    }
+
+    private fun formatTrialDuration(trialInfo: IapTrialInfo): String {
+        val unit = when (trialInfo.unit) {
+            IapTrialUnit.DAY -> "Day"
+            IapTrialUnit.WEEK -> "Week"
+            IapTrialUnit.MONTH -> "Month"
+            IapTrialUnit.YEAR -> "Year"
+        }
+        return if (trialInfo.value == 1) {
+            "1-$unit"
+        } else {
+            "${trialInfo.value}-${unit}s"
+        }
     }
 
     private fun underlineFooterLinks() {

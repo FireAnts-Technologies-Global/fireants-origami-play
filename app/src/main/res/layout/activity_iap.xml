@@ -225,6 +225,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/tvMonthlyDiscount"
                         android:layout_width="@dimen/_68sdp"
                         android:layout_height="@dimen/_22sdp"
                         android:layout_gravity="top|end"
