@@ -8,7 +8,6 @@ import com.bumptech.glide.Glide
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.data.model.game.PaperItem
 import com.pegas.origami.paper.folding.art.databinding.ItemShopBuyHintsBinding
-import com.pegas.origami.paper.folding.art.databinding.ItemShopGetCoinsBinding
 import com.pegas.origami.paper.folding.art.databinding.ItemShopLuckyBagBinding
 import com.pegas.origami.paper.folding.art.databinding.ItemShopPaperBinding
 import com.pegas.origami.paper.folding.art.databinding.ItemShopPaperGroupBinding
@@ -34,7 +33,7 @@ class ShopMultiTypeAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
-            is ShopItem.GetCoins -> R.layout.item_shop_get_coins
+//            is ShopItem.GetCoins -> R.layout.item_shop_get_coins
             is ShopItem.LuckyBag -> R.layout.item_shop_lucky_bag
             is ShopItem.BuyHints -> R.layout.item_shop_buy_hints
             is ShopItem.PaperGroup -> R.layout.item_shop_paper_group
@@ -45,7 +44,7 @@ class ShopMultiTypeAdapter(
 
     override fun setData(binding: ViewDataBinding, item: ShopItem, layoutPosition: Int) {
         when (item) {
-            is ShopItem.GetCoins -> {}
+//            is ShopItem.GetCoins -> {}
             is ShopItem.LuckyBag -> {
                 if (binding is ItemShopLuckyBagBinding) {
                     val status = item.bagStatus
@@ -115,11 +114,11 @@ class ShopMultiTypeAdapter(
 
     override fun onClickViews(binding: ViewDataBinding, obj: ShopItem, layoutPosition: Int) {
         when (obj) {
-            is ShopItem.GetCoins -> {
-                if (binding is ItemShopGetCoinsBinding) {
-                    binding.btnWatchAd.setOnClickListener { listener.onWatchAdClick() }
-                }
-            }
+//            is ShopItem.GetCoins -> {
+//                if (binding is ItemShopGetCoinsBinding) {
+//                    binding.btnWatchAd.setOnClickListener { listener.onWatchAdClick() }
+//                }
+//            }
 
             is ShopItem.LuckyBag -> {
                 if (binding is ItemShopLuckyBagBinding) {

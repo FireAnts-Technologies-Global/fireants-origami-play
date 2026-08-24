@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="@dimen/_280sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_dialog_premium"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_18sdp"
+            android:paddingVertical="@dimen/_18sdp">
+
+            <ImageView
+                android:layout_width="@dimen/_76sdp"
+                android:layout_height="@dimen/_58sdp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/img_premium_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:text="@string/premium_required_title"
+                android:textColor="@color/color_1F0E5A"
+                android:textSize="@dimen/_17sdp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/_3sdp"
+                android:text="@string/premium_required_message"
+                android:textColor="#6E629B"
+                android:textSize="@dimen/_11sdp" />
+
+            <LinearLayout
+                android:id="@+id/btnUpgrade"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/bg_premium"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/_17sdp"
+                    android:layout_height="@dimen/_17sdp"
+                    android:src="@drawable/ic_crown" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:fontFamily="@font/bold"
+                    android:gravity="center"
+                    android:text="@string/premium_upgrade"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/btnLater"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/bg_dialog_premium_later"
+                android:fontFamily="@font/semi_bold"
+                android:gravity="center"
+                android:text="@string/premium_not_now"
+                android:textColor="@color/color_1F0E5A"
+                android:textSize="@dimen/_12sdp" />
+        </LinearLayout>
+    </FrameLayout>
+</layout>

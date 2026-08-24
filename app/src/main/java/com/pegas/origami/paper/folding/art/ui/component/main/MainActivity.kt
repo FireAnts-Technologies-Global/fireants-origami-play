@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.BuildConfig
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
@@ -14,12 +15,14 @@ import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.ads.RemoteConfigUtils
 import com.pegas.origami.paper.folding.art.ads.banner_all
 import com.pegas.origami.paper.folding.art.data.model.ForceUpdateConfig
+import com.pegas.origami.paper.folding.art.data.model.product.ProductItem
 import com.pegas.origami.paper.folding.art.databinding.ActivityMainBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BannerConfig
 import com.pegas.origami.paper.folding.art.ui.bases.BaseActivityWithBanner
 import com.pegas.origami.paper.folding.art.ui.bases.ConsentHandler
 import com.pegas.origami.paper.folding.art.ui.bases.ext.click
 import com.pegas.origami.paper.folding.art.ui.component.dialog.DialogLoading
+import com.pegas.origami.paper.folding.art.ui.component.dialog.DialogPremium
 import com.pegas.origami.paper.folding.art.ui.component.main.dialog.ForceUpdateDialog
 import com.pegas.origami.paper.folding.art.ui.component.main.dialog.NoInternetDialog
 import com.pegas.origami.paper.folding.art.utils.ConnectionLiveData
@@ -44,32 +47,40 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
 
     private val recommendAdapter = ProductItemAdapter(
         onItemClick = { item ->
-            AdsManager.showInterHome(this) {
-                Routes.startStepActivity(this, item)
-            }
+            openProduct(item)
         },
         onFavoriteClick = { item -> viewModel.toggleFavorite(item) }
     )
     private val hotAdapter = ProductItemAdapter(
         onItemClick = { item ->
-            AdsManager.showInterHome(this) {
-                Routes.startStepActivity(this, item)
-            }
+            openProduct(item)
         },
         onFavoriteClick = { item -> viewModel.toggleFavorite(item) }
     )
     private val favoriteAdapter = ProductItemAdapter(
         onItemClick = { item ->
-            AdsManager.showInterHome(this) {
-                Routes.startStepActivity(this, item)
-            }
+            openProduct(item)
         },
         onFavoriteClick = { item -> viewModel.toggleFavorite(item) }
     )
     private val bannerAdapter = BannerAdapter { item ->
+        openProduct(item)
+    }
+
+    private fun openProduct(item: ProductItem) {
+        if (item.isPremium && !AppPurchase.getInstance().isPurchased(this)) {
+            showPremiumDialog()
+            return
+        }
         AdsManager.showInterHome(this) {
             Routes.startStepActivity(this, item)
         }
+    }
+
+    private fun showPremiumDialog() {
+        DialogPremium(this) {
+            Routes.startIapActivity(this)
+        }.show()
     }
     private val autoSlideHandler = Handler(Looper.getMainLooper())
     private var autoSlideRunnable: Runnable? = null
@@ -79,6 +90,14 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
     override fun onResume() {
         super.onResume()
         viewModel.refreshFavoriteState()
+        refreshPremiumBadges()
+    }
+
+    private fun refreshPremiumBadges() {
+        recommendAdapter.notifyDataSetChanged()
+        hotAdapter.notifyDataSetChanged()
+        favoriteAdapter.notifyDataSetChanged()
+        bannerAdapter.notifyDataSetChanged()
     }
 
     override fun initViews() {
@@ -210,6 +229,9 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
             AdsManager.showInterHome(this) {
                 Routes.startShopActivity(this)
             }
+        }
+        mBinding.imgPermium.click {
+            Routes.startIapActivity(this)
         }
         mBinding.imgSetting.click {
             Routes.startSettingActivity(this)

@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.pegas.origami.paper.folding.art.app.AppConstants
 import com.pegas.origami.paper.folding.art.data.model.product.ProductItem
 import com.pegas.origami.paper.folding.art.ui.component.game.GameActivity
+import com.pegas.origami.paper.folding.art.ui.component.iap.IapActivity
 import com.pegas.origami.paper.folding.art.ui.component.language.LanguageActivity
 import com.pegas.origami.paper.folding.art.ui.component.level.LevelActivity
 import com.pegas.origami.paper.folding.art.ui.component.main.MainActivity
@@ -34,6 +35,12 @@ object Routes {
 
     fun startShopActivity(fromActivity: Activity) =
         Intent(fromActivity, ShopActivity::class.java).apply {
+            putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
+            fromActivity.startActivity(this)
+        }
+
+    fun startIapActivity(fromActivity: Activity) =
+        Intent(fromActivity, IapActivity::class.java).apply {
             putExtra(AppConstants.KEY_TRACKING_SCREEN_FROM, fromActivity::class.java.simpleName)
             fromActivity.startActivity(this)
         }

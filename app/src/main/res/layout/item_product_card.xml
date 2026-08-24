@@ -25,14 +25,27 @@
                     android:scaleType="centerCrop" />
             </FrameLayout>
 
-
-            <ImageView
-                android:id="@+id/ivHeart"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="top|end"
-                android:layout_margin="@dimen/_4sdp"
-                android:src="@drawable/ic_favorie" />
+                android:layout_margin="@dimen/_4sdp">
+
+                <ImageView
+                    android:id="@+id/ivVip"
+                    android:layout_width="@dimen/_17sdp"
+                    android:layout_height="@dimen/_17sdp"
+                    android:layout_marginEnd="@dimen/_3sdp"
+                    android:src="@drawable/img_item_vip" />
+
+                <ImageView
+                    android:id="@+id/ivHeart"
+                    android:layout_width="@dimen/_17sdp"
+                    android:layout_height="@dimen/_17sdp"
+                    android:layout_gravity="top|end"
+                    android:src="@drawable/ic_favorie" />
+            </LinearLayout>
+
 
         </FrameLayout>
 

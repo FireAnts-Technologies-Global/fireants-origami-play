@@ -8,10 +8,13 @@ import android.text.style.ForegroundColorSpan
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import com.bumptech.glide.Glide
+import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.data.model.product.ProductItem
 import com.pegas.origami.paper.folding.art.databinding.ItemPaperCraftCardBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BaseListAdapter
+import com.pegas.origami.paper.folding.art.ui.bases.ext.goneView
+import com.pegas.origami.paper.folding.art.ui.bases.ext.visibleView
 import com.pegas.origami.paper.folding.art.ui.component.main.ProductDisplayFormatter
 
 class PaperCraftAdapter(
@@ -28,6 +31,10 @@ class PaperCraftAdapter(
             val stepLabel = context.getString(
                 if (item.stepCount == 1) R.string.step_singular else R.string.step_plural
             )
+            val shouldShowPremiumIcon =
+                item.isPremium && !AppPurchase.getInstance().isPurchased(binding.root.context)
+            if (shouldShowPremiumIcon) binding.ivVip.visibleView() else binding.ivVip.goneView()
+
             binding.tvStepBadge.text = context.getString(
                 R.string.step_count_format,
                 item.stepCount,

@@ -68,7 +68,7 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
                 }
 
                 val items = mutableListOf<ShopItem>()
-                items.add(ShopItem.GetCoins)
+//                items.add(ShopItem.GetCoins)
                 items.add(ShopItem.LuckyBag(state.bagStatus))
                 items.add(ShopItem.BuyHints)
 

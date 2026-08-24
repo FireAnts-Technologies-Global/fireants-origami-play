@@ -5,11 +5,11 @@
     "name": "dragon",
     "image": "images/3d/dragon_12.webp",
     "hasVideo": true,
-    "showReward": true,
     "order": 1,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": false
   },
   {
     "id": 2,
@@ -17,11 +17,11 @@
     "name": "goose_3d",
     "image": "images/3d/goose_3d_12.webp",
     "hasVideo": true,
-    "showReward": true,
     "order": 2,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": false
   },
   {
     "id": 3,
@@ -29,11 +29,11 @@
     "name": "kimono",
     "image": "images/3d/kimono_12.webp",
     "hasVideo": true,
-    "showReward": true,
     "order": 3,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 4,
@@ -41,11 +41,11 @@
     "name": "naruto",
     "image": "images/3d/naruto_12.webp",
     "hasVideo": true,
-    "showReward": true,
     "order": 4,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 5,
@@ -53,11 +53,11 @@
     "name": "peacock",
     "image": "images/3d/peacock_12.webp",
     "hasVideo": true,
-    "showReward": true,
     "order": 5,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 6,
@@ -65,11 +65,11 @@
     "name": "pokeball",
     "image": "images/3d/pokeball_12.webp",
     "hasVideo": true,
-    "showReward": true,
     "order": 6,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 7,
@@ -77,10 +77,10 @@
     "name": "spider",
     "image": "images/3d/spider_12.webp",
     "hasVideo": true,
-    "showReward": true,
     "order": 7,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   }
 ]

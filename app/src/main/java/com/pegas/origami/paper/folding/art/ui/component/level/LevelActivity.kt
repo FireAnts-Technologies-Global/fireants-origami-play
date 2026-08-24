@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
 import com.pegas.origami.paper.folding.art.ads.AdsManager
@@ -15,6 +16,7 @@ import com.pegas.origami.paper.folding.art.ui.bases.BannerConfig
 import com.pegas.origami.paper.folding.art.ui.bases.BaseActivityWithBanner
 import com.pegas.origami.paper.folding.art.ui.bases.ext.click
 import com.pegas.origami.paper.folding.art.ui.component.custom.GridSpacingItemDecoration
+import com.pegas.origami.paper.folding.art.ui.component.dialog.DialogPremium
 import com.pegas.origami.paper.folding.art.ui.component.game.GameActivity
 import com.pegas.origami.paper.folding.art.utils.Routes
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,6 +37,10 @@ class LevelActivity : BaseActivityWithBanner<ActivityLevelBinding>() {
         mBinding.tvTitle.text = getString(R.string.game)
         mBinding.glowBackground.glowColor = ContextCompat.getColor(this, R.color.color_FF9E44)
         levelAdapter = LevelAdapter { levelItem ->
+            if (levelItem.level.isPremium && !AppPurchase.getInstance().isPurchased(this)) {
+                showPremiumDialog()
+                return@LevelAdapter
+            }
             val intent = Intent(this@LevelActivity, GameActivity::class.java).apply {
                 putExtra("LEVEL_ID", levelItem.level.id)
             }
@@ -89,5 +95,14 @@ class LevelActivity : BaseActivityWithBanner<ActivityLevelBinding>() {
     override fun onResume() {
         super.onResume()
         viewModel.loadData()
+        if (::levelAdapter.isInitialized) {
+            levelAdapter.notifyDataSetChanged()
+        }
+    }
+
+    private fun showPremiumDialog() {
+        DialogPremium(this) {
+            Routes.startIapActivity(this)
+        }.show()
     }
 }

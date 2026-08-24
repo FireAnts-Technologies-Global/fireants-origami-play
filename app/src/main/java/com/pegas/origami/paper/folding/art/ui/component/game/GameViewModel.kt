@@ -1,6 +1,8 @@
 package com.pegas.origami.paper.folding.art.ui.component.game
 
+import android.content.Context
 import androidx.lifecycle.viewModelScope
+import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.domain.usecase.game.CompleteLevelUseCase
 import com.pegas.origami.paper.folding.art.domain.usecase.game.GetFoldHintsUseCase
 import com.pegas.origami.paper.folding.art.domain.usecase.game.GetLevelUseCase
@@ -10,6 +12,7 @@ import com.pegas.origami.paper.folding.art.domain.usecase.player.GetPlayerUseCas
 import com.pegas.origami.paper.folding.art.domain.usecase.player.UseHintUseCase
 import com.pegas.origami.paper.folding.art.ui.bases.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -23,6 +26,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class GameViewModel @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val getLevelUseCase: GetLevelUseCase,
     private val getLevelsUseCase: GetLevelsUseCase,
     private val getFoldHintsUseCase: GetFoldHintsUseCase,
@@ -79,7 +83,7 @@ class GameViewModel @Inject constructor(
 
     fun useHint() {
         val currentHints = _state.value.player?.hints ?: 0
-        if (currentHints > 0) {
+        if (currentHints > 0 || AppPurchase.getInstance().isPurchased(context)) {
             val success = useHintUseCase()
             if (success) {
                 viewModelScope.launch { _eventFlow.emit(GameEvent.ShowHint) }

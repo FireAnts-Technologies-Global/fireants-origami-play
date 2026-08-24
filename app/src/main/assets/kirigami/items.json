@@ -5,11 +5,11 @@
     "name": "camellia",
     "image": "images/kirigami/camellia_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 1,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": false
   },
   {
     "id": 2,
@@ -17,11 +17,11 @@
     "name": "classic_ice_crystal",
     "image": "images/kirigami/classic_ice_crystal_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 2,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": false
   },
   {
     "id": 3,
@@ -29,11 +29,11 @@
     "name": "crystal",
     "image": "images/kirigami/crystal_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 3,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": false
   },
   {
     "id": 4,
@@ -41,11 +41,11 @@
     "name": "double_sakura",
     "image": "images/kirigami/double_sakura_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 4,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 5,
@@ -53,11 +53,11 @@
     "name": "fancy_blossom",
     "image": "images/kirigami/fancy_blossom_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 5,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 6,
@@ -65,11 +65,11 @@
     "name": "four_petal_flower",
     "image": "images/kirigami/four_petal_flower_16.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 6,
     "difficulty": "Hard",
     "stepCount": 16,
-    "estimatedTime": "48 min"
+    "estimatedTime": "48 min",
+    "isPremium": true
   },
   {
     "id": 7,
@@ -77,11 +77,11 @@
     "name": "handheld_origami_pine",
     "image": "images/kirigami/handheld_origami_pine_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 7,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 8,
@@ -89,11 +89,11 @@
     "name": "heart",
     "image": "images/kirigami/heart_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 8,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 9,
@@ -101,11 +101,11 @@
     "name": "heart_flower",
     "image": "images/kirigami/heart_flower_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 9,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 10,
@@ -113,11 +113,11 @@
     "name": "heart_to_heart",
     "image": "images/kirigami/heart_to_heart_11.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 10,
     "difficulty": "Easy",
     "stepCount": 11,
-    "estimatedTime": "33 min"
+    "estimatedTime": "33 min",
+    "isPremium": true
   },
   {
     "id": 11,
@@ -125,11 +125,11 @@
     "name": "mystic_purple_frost",
     "image": "images/kirigami/mystic_purple_frost_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 11,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 12,
@@ -137,11 +137,11 @@
     "name": "peacock_flower",
     "image": "images/kirigami/peacock_flower_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 12,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 13,
@@ -149,11 +149,11 @@
     "name": "pink_quartz_snowflake",
     "image": "images/kirigami/pink_quartz_snowflake_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 13,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 14,
@@ -161,11 +161,11 @@
     "name": "plum_blossom",
     "image": "images/kirigami/plum_blossom_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 14,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 15,
@@ -173,11 +173,11 @@
     "name": "pop_heart",
     "image": "images/kirigami/pop_heart_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 15,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 16,
@@ -185,11 +185,11 @@
     "name": "sakura",
     "image": "images/kirigami/sakura_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 16,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 17,
@@ -197,11 +197,11 @@
     "name": "sapphire_crystal",
     "image": "images/kirigami/sapphire_crystal_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 17,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 18,
@@ -209,11 +209,11 @@
     "name": "snowflower",
     "image": "images/kirigami/snowflower_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 18,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 19,
@@ -221,11 +221,11 @@
     "name": "stylized_lotus",
     "image": "images/kirigami/stylized_lotus_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 19,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   },
   {
     "id": 20,
@@ -233,10 +233,10 @@
     "name": "tulips",
     "image": "images/kirigami/tulips_12.webp",
     "hasVideo": false,
-    "showReward": false,
     "order": 20,
     "difficulty": "Easy",
     "stepCount": 12,
-    "estimatedTime": "36 min"
+    "estimatedTime": "36 min",
+    "isPremium": true
   }
 ]

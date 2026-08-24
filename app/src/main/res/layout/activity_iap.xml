@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_purple_gradient">
+
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:src="@drawable/ic_close_iap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgClose">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_12sdp">
+
+                <ImageView
+                    android:id="@+id/imgVip"
+                    android:layout_width="@dimen/_96sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/img_vip" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/unlock_premium_folds"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_21sdp" />
+
+                <TextView
+                    android:id="@+id/tvSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/medium"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:text="@string/iap_subtitle"
+                    android:textColor="#E6DBFF"
+                    android:textSize="@dimen/_11sdp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:orientation="vertical">
+
+                    <include
+                        android:id="@+id/benefitNoAds"
+                        layout="@layout/item_iap_benefit" />
+
+                    <include
+                        android:id="@+id/benefitUnlimitedHints"
+                        layout="@layout/item_iap_benefit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp" />
+
+                    <include
+                        android:id="@+id/benefitPaperStyles"
+                        layout="@layout/item_iap_benefit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planWeekly"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_58sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:background="@drawable/bg_iap_plan"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_12sdp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/bold"
+                            android:includeFontPadding="false"
+                            android:text="@string/iap_weekly_title"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:fontFamily="@font/regular"
+                            android:includeFontPadding="false"
+                            android:text="@string/iap_weekly_subtitle"
+                            android:textColor="#CAB9EF"
+                            android:textSize="@dimen/_10sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvWeeklyPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/bold"
+                            android:includeFontPadding="false"
+                            android:text="@string/iap_price_loading"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:fontFamily="@font/regular"
+                            android:includeFontPadding="false"
+                            android:text="@string/iap_weekly_period"
+                            android:textColor="#DCCEFF"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <LinearLayout
+                        android:id="@+id/planMonthly"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_58sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/bg_iap_plan_selected"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/_16sdp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/bold"
+                                android:includeFontPadding="false"
+                                android:text="@string/iap_monthly_title"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_13sdp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_3sdp"
+                                android:fontFamily="@font/regular"
+                                android:includeFontPadding="false"
+                                android:text="@string/iap_monthly_subtitle"
+                                android:textColor="#CAB9EF"
+                                android:textSize="@dimen/_10sdp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvMonthlyPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/bold"
+                                android:includeFontPadding="false"
+                                android:text="@string/iap_price_loading"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_13sdp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_3sdp"
+                                android:fontFamily="@font/regular"
+                                android:includeFontPadding="false"
+                                android:text="@string/iap_monthly_period"
+                                android:textColor="#DCCEFF"
+                                android:textSize="@dimen/_9sdp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="@dimen/_68sdp"
+                        android:layout_height="@dimen/_22sdp"
+                        android:layout_gravity="top|end"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:background="@drawable/bg_iap_discount"
+                        android:fontFamily="@font/bold"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:text="@string/iap_save_50"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8sdp" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/planYearly"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_58sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/bg_iap_plan"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_16sdp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/bold"
+                            android:includeFontPadding="false"
+                            android:text="@string/iap_yearly_title"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:fontFamily="@font/regular"
+                            android:includeFontPadding="false"
+                            android:text="@string/iap_yearly_subtitle"
+                            android:textColor="#CAB9EF"
+                            android:textSize="@dimen/_10sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvYearlyPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/bold"
+                            android:includeFontPadding="false"
+                            android:text="@string/iap_price_loading"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:fontFamily="@font/regular"
+                            android:includeFontPadding="false"
+                            android:text="@string/iap_yearly_period"
+                            android:textColor="#DCCEFF"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvPlanNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:text="@string/iap_plan_note"
+                    android:textColor="#CAB9EF"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:id="@+id/btnContinue"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_44sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@drawable/bg_iap_cta"
+                    android:fontFamily="@font/bold"
+                    android:gravity="center"
+                    android:text="@string/iap_continue"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableStart="@drawable/bg_iap_bullet"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:fontFamily="@font/medium"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:text="@string/iap_terms_payment"
+                    android:textColor="#E9DCFF"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:drawableStart="@drawable/bg_iap_bullet"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:fontFamily="@font/medium"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:text="@string/iap_terms_renewal"
+                    android:textColor="#E9DCFF"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:drawableStart="@drawable/bg_iap_bullet"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:fontFamily="@font/medium"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:text="@string/iap_terms_limited"
+                    android:textColor="#E9DCFF"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:id="@+id/tvManageSubscriptionNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:drawableStart="@drawable/bg_iap_bullet"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:fontFamily="@font/medium"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:text="@string/iap_terms_manage"
+                    android:textColor="#E9DCFF"
+                    android:textSize="@dimen/_9sdp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvRestore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/regular"
+                        android:text="@string/restore_purchases"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:text="•"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:id="@+id/tvTerms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/regular"
+                        android:text="@string/terms_of_use"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

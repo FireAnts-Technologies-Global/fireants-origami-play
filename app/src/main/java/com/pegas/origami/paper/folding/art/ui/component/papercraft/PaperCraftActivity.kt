@@ -5,17 +5,20 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
 import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.ads.banner_all
 import com.pegas.origami.paper.folding.art.data.model.product.GameType
+import com.pegas.origami.paper.folding.art.data.model.product.ProductItem
 import com.pegas.origami.paper.folding.art.databinding.ActivityPaperCraftBinding
 import com.pegas.origami.paper.folding.art.domain.model.product.HomeProductSection
 import com.pegas.origami.paper.folding.art.ui.bases.BannerConfig
 import com.pegas.origami.paper.folding.art.ui.bases.BaseActivityWithBanner
 import com.pegas.origami.paper.folding.art.ui.bases.ext.click
 import com.pegas.origami.paper.folding.art.ui.component.custom.GridSpacingItemDecoration
+import com.pegas.origami.paper.folding.art.ui.component.dialog.DialogPremium
 import com.pegas.origami.paper.folding.art.utils.Routes
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -41,7 +44,7 @@ class PaperCraftActivity : BaseActivityWithBanner<ActivityPaperCraftBinding>() {
         mBinding.glowBackground.glowColor = ContextCompat.getColor(this, mode.glowColorRes)
 
         adapter = PaperCraftAdapter(
-            onItemClick = { item -> Routes.startStepActivity(this, item) },
+            onItemClick = { item -> openProduct(item) },
             onFavoriteClick = { item -> viewModel.toggleFavorite(item) }
         )
         mBinding.rvItems.layoutManager = GridLayoutManager(this, SPAN_COUNT)
@@ -66,11 +69,26 @@ class PaperCraftActivity : BaseActivityWithBanner<ActivityPaperCraftBinding>() {
         }
     }
 
+    private fun openProduct(item: ProductItem) {
+        if (item.isPremium && !AppPurchase.getInstance().isPurchased(this)) {
+            showPremiumDialog()
+            return
+        }
+        Routes.startStepActivity(this, item)
+    }
+
+    private fun showPremiumDialog() {
+        DialogPremium(this) {
+            Routes.startIapActivity(this)
+        }.show()
+    }
+
     override fun onResume() {
         super.onResume()
         if (::mode.isInitialized) {
             mode.gameType?.let { viewModel.load(it) }
             mode.section?.let { viewModel.load(it) }
+            adapter.notifyDataSetChanged()
         }
     }
 

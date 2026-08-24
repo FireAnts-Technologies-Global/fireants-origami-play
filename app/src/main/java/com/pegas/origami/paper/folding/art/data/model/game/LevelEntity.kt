@@ -7,6 +7,7 @@ data class LevelEntity(
     val id: Int,
     val levelNumber: Int,
     val isLocked: Boolean,
+    val isPremium: Boolean = false,
     val stars: Int,
     val targetPoints: List<Float>
 )

@@ -1,14 +1,18 @@
 package com.pegas.origami.paper.folding.art.data.repository.impl
 
+import android.content.Context
+import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.data.local.pref.OrigamiPreference
 import com.pegas.origami.paper.folding.art.data.model.player.PlayerData
 import com.pegas.origami.paper.folding.art.data.repository.UserRepository
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class UserRepositoryImpl @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val preference: OrigamiPreference
 ) : UserRepository {
 
@@ -74,6 +78,7 @@ class UserRepositoryImpl @Inject constructor(
     }
 
     override fun useHint(): Boolean {
+        if (isPremiumPurchased()) return true
         if (preference.hints <= 0) return false
 
         preference.hints -= 1
@@ -104,7 +109,7 @@ class UserRepositoryImpl @Inject constructor(
     }
 
     override fun isPaperUnlocked(paperId: Int): Boolean =
-        paperId in preference.unlockedPaperIds
+        isPremiumPurchased() || paperId in preference.unlockedPaperIds
 
     override fun claimFreeBag(now: Long): Boolean {
         if (now - preference.lastClaimBag < DAY_IN_MILLIS) {
@@ -128,4 +133,7 @@ class UserRepositoryImpl @Inject constructor(
     companion object {
         private const val DAY_IN_MILLIS = 86_400_000L
     }
+
+    private fun isPremiumPurchased(): Boolean =
+        AppPurchase.getInstance().isPurchased(context)
 }

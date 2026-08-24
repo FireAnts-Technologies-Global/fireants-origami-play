@@ -1,16 +1,20 @@
 package com.pegas.origami.paper.folding.art.data.repository.impl
 
+import android.content.Context
+import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.data.local.asset.GameAssetDataSource
 import com.pegas.origami.paper.folding.art.data.local.pref.OrigamiPreference
 import com.pegas.origami.paper.folding.art.data.model.game.AutoFoldStep
 import com.pegas.origami.paper.folding.art.data.model.game.LevelEntity
 import com.pegas.origami.paper.folding.art.data.model.game.PaperItem
 import com.pegas.origami.paper.folding.art.data.repository.GameRepository
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class GameRepositoryImpl @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val assetDataSource: GameAssetDataSource,
     private val preference: OrigamiPreference
 ) : GameRepository {
@@ -26,10 +30,11 @@ class GameRepositoryImpl @Inject constructor(
     override suspend fun getPapers(): List<PaperItem> {
         val selectedPaperId = preference.selectedPaperId
         val unlockedPaperIds = preference.unlockedPaperIds
+        val isPremiumPurchased = AppPurchase.getInstance().isPurchased(context)
 
         return assetDataSource.getPapers().map { paper ->
             paper.copy(
-                isUnlocked = paper.id in unlockedPaperIds,
+                isUnlocked = isPremiumPurchased || paper.id in unlockedPaperIds,
                 isSelected = paper.id == selectedPaperId
             )
         }

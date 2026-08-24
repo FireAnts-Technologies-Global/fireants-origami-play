@@ -41,6 +41,15 @@
                     android:textSize="17sp" />
             </LinearLayout>
             <ImageView
+                android:id="@+id/imgPermium"
+                android:layout_width="@dimen/_33sdp"
+                android:layout_height="@dimen/_33sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:layout_toStartOf="@id/imgStore"
+                android:src="@drawable/img_permium" />
+
+            <ImageView
                 android:id="@+id/imgStore"
                 android:layout_width="@dimen/_33sdp"
                 android:layout_height="@dimen/_33sdp"

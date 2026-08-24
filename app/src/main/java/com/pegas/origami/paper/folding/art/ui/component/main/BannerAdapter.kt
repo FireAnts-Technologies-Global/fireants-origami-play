@@ -3,10 +3,13 @@ package com.pegas.origami.paper.folding.art.ui.component.main
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import com.bumptech.glide.Glide
+import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.data.model.product.ProductItem
 import com.pegas.origami.paper.folding.art.databinding.ItemBannerCardBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BaseListAdapter
+import com.pegas.origami.paper.folding.art.ui.bases.ext.goneView
+import com.pegas.origami.paper.folding.art.ui.bases.ext.visibleView
 
 class BannerAdapter(
     private val onItemClick: (ProductItem) -> Unit = {}
@@ -18,7 +21,9 @@ class BannerAdapter(
         if (binding is ItemBannerCardBinding) {
             binding.tvBannerTitle.text = ProductDisplayFormatter.name(item)
             binding.tvBannerType.text = ProductDisplayFormatter.bannerMetadata(item)
-
+            val shouldShowPremiumIcon =
+                item.isPremium && !AppPurchase.getInstance().isPurchased(binding.root.context)
+            if (shouldShowPremiumIcon) binding.imgVip.visibleView() else binding.imgVip.goneView()
             if (item.image.isNotEmpty()) {
                 Glide.with(binding.root.context)
                     .load(item.image)

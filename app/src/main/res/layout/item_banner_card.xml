@@ -44,15 +44,29 @@
                         android:textSize="@dimen/_11sdp" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tvBannerTitle"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_6sdp"
-                    android:fontFamily="@font/bold"
-                    android:textColor="#1F0E5A"
-                    android:textSize="@dimen/_12sdp"
-                    tools:text="Fold a Jumping Frog" />
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvBannerTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bold"
+                        android:textColor="#1F0E5A"
+                        android:textSize="@dimen/_12sdp"
+                        tools:text="Fold a Jumping Frog" />
+
+                    <ImageView
+                        android:id="@+id/imgVip"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:src="@drawable/img_item_vip" />
+                </LinearLayout>
+
 
                 <TextView
                     android:id="@+id/tvBannerType"
@@ -92,7 +106,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
             <ImageView
                 android:id="@+id/ivBanner"
                 android:layout_width="90dp"
@@ -101,6 +114,8 @@
                 android:layout_centerVertical="true"
                 android:contentDescription="@string/daily_challenge"
                 android:scaleType="centerCrop" />
+
+
         </RelativeLayout>
 
     </com.google.android.material.card.MaterialCardView>

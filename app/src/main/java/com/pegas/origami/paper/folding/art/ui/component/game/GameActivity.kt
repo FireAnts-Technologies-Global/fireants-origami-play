@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
 import com.pegas.origami.paper.folding.art.ads.AdsManager
@@ -103,6 +104,7 @@ class GameActivity : BaseActivityWithBanner<ActivityGameBinding>() {
                     mBinding.tvCoins.text = getString(R.string.number_format, player.coins)
                     mBinding.tvHintCount.text = getString(R.string.number_format, player.hints)
                 }
+                updateHintBudgetVisibility()
                 updateActionButtons()
                 
                 state.currentLevel?.let { level ->
@@ -249,7 +251,13 @@ class GameActivity : BaseActivityWithBanner<ActivityGameBinding>() {
 
     override fun onResume() {
         super.onResume()
+        updateHintBudgetVisibility()
         audioController.playBackgroundMusic()
+    }
+
+    private fun updateHintBudgetVisibility() {
+        mBinding.tvHintCount.visibility =
+            if (AppPurchase.getInstance().isPurchased(this)) View.GONE else View.VISIBLE
     }
 
     override fun onPause() {
