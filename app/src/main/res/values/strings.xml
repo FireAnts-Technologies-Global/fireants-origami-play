@@ -12,6 +12,12 @@
     <string name="txt_later" translatable="false"><u>Later</u></string>
     <string name="txt_rate_5_star" translatable="false">If you enjoy this app, please consider giving it a 5-star rating in the store.</string>
     <string name="txt_do_you_like_our_app" translatable="false">Do you like our app?</string>
+    <string name="rate_feedback_title" translatable="false">Tell us more</string>
+    <string name="rate_feedback_message" translatable="false">What should we improve for you?</string>
+    <string name="rate_feedback_hint" translatable="false">Type your feedback here...</string>
+    <string name="rate_feedback_reason_required" translatable="false">Please enter your feedback first</string>
+    <string name="rate_feedback_email_subject" translatable="false">%1$s feedback</string>
+    <string name="send_feedback" translatable="false">Send Feedback</string>
     <string name="onboarding_title_1">Stay in control</string>
     <string name="onboarding_des_1">Manage the app experience with clear settings and a simple setup flow.</string>
     <string name="onboarding_title_2">Fast and reliable</string>

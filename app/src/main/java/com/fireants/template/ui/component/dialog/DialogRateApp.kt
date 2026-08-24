@@ -1,9 +1,6 @@
 package com.fireants.template.ui.component.dialog
 
 import android.content.Context
-import android.os.Handler
-import android.os.Looper
-import android.widget.Toast
 import com.fireants.template.R
 import com.fireants.template.databinding.DialogRateAppBinding
 import com.fireants.template.ui.bases.BaseDialog
@@ -34,15 +31,12 @@ class DialogRateApp(
                     dismiss()
                     onRatingHighScore.invoke()
                 } else {
-                    Toast.makeText(
-                        context,
-                        context.getString(R.string.txt_thanks_you_for_rating),
-                        Toast.LENGTH_SHORT
+                    dismiss()
+                    DialogRateFeedback(
+                        context = context,
+                        rating = rating,
+                        onFeedbackSent = onRatingLowScore
                     ).show()
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        dismiss()
-                        onRatingLowScore.invoke()
-                    }, 2000)
                 }
             }
         }

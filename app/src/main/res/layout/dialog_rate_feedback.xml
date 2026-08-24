@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:cardBackgroundColor="#FFFDF0"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#FEAFC0"
+            app:strokeWidth="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bold"
+                    android:gravity="center"
+                    android:lineSpacingExtra="2dp"
+                    android:text="@string/rate_feedback_title"
+                    android:textColor="#E59E00"
+                    android:textSize="@dimen/_22sdp" />
+
+                <TextView
+                    android:id="@+id/tvFeedbackMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/semi_bold"
+                    android:gravity="center"
+                    android:lineSpacingExtra="2dp"
+                    android:text="@string/rate_feedback_message"
+                    android:textColor="#9B82BB"
+                    android:textSize="@dimen/_11sdp" />
+
+                <EditText
+                    android:id="@+id/edtReason"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_96sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@drawable/bg_rate_feedback_input"
+                    android:fontFamily="@font/regular"
+                    android:gravity="top|start"
+                    android:hint="@string/rate_feedback_hint"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:maxLines="5"
+                    android:minLines="4"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/color_1F0E5A"
+                    android:textColorHint="#9B82BB"
+                    android:textSize="@dimen/_11sdp" />
+
+                <TextView
+                    android:id="@+id/btnSendFeedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    android:background="@drawable/bg_play_again"
+                    android:fontFamily="@font/bold"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="@string/send_feedback"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp" />
+
+                <TextView
+                    android:id="@+id/btnCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/semi_bold"
+                    android:text="@string/txt_cancel"
+                    android:textColor="#9B82BB"
+                    android:textSize="@dimen/_11sdp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </FrameLayout>
+</layout>
