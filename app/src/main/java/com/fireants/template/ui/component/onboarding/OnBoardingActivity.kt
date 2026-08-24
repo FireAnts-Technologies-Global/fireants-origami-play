@@ -140,7 +140,7 @@ class OnBoardingActivity : BaseActivity<ActivityOnboardingBinding>() {
                 title = R.string.onboarding_title_1,
                 description = R.string.onboarding_des_1,
                 textButton = R.string.next,
-                imageResId = R.drawable.ic_vietnamese,
+                imageResId = R.drawable.img_ob_1,
                 positionIndicator = 0,
                 isHasNativeOnPage1 = true
             )
@@ -153,7 +153,7 @@ class OnBoardingActivity : BaseActivity<ActivityOnboardingBinding>() {
                 title = R.string.onboarding_title_2,
                 description = R.string.onboarding_des_2,
                 textButton = R.string.next,
-                imageResId = R.drawable.ic_vietnamese,
+                imageResId = R.drawable.img_ob_2,
                 positionIndicator = 1
             )
         )
@@ -165,7 +165,7 @@ class OnBoardingActivity : BaseActivity<ActivityOnboardingBinding>() {
                 title = R.string.onboarding_title_3,
                 description = R.string.onboarding_des_3,
                 textButton = R.string.next,
-                imageResId = R.drawable.ic_vietnamese,
+                imageResId = R.drawable.img_ob_3,
                 positionIndicator = 2,
 
                 )
@@ -176,7 +176,7 @@ class OnBoardingActivity : BaseActivity<ActivityOnboardingBinding>() {
                 title = R.string.onboarding_title_4,
                 description = R.string.onboarding_des_4,
                 textButton = R.string.next,
-                imageResId = R.drawable.ic_vietnamese,
+                imageResId = R.drawable.img_ob_4,
                 positionIndicator = 3,
                 isHasNativeOnPage4 = true
             )

@@ -9,6 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:background="#FEFEFF"
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -122,6 +123,7 @@
                             android:background="@drawable/bg_button_next_onboarding"
                             android:fontFamily="@font/medium"
                             android:gravity="center"
+                            android:textColor="@color/white"
                             android:paddingHorizontal="@dimen/_16sdp"
                             android:paddingVertical="@dimen/_10sdp"
                             android:text="@string/next"

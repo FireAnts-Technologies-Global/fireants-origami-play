@@ -18,14 +18,14 @@
     <string name="rate_feedback_reason_required" translatable="false">Please enter your feedback first</string>
     <string name="rate_feedback_email_subject" translatable="false">%1$s feedback</string>
     <string name="send_feedback" translatable="false">Send Feedback</string>
-    <string name="onboarding_title_1">Stay in control</string>
-    <string name="onboarding_des_1">Manage the app experience with clear settings and a simple setup flow.</string>
-    <string name="onboarding_title_2">Fast and reliable</string>
-    <string name="onboarding_des_2">Launch quickly, keep key actions close, and reduce friction during first use.</string>
-    <string name="onboarding_title_3">Privacy-aware by default</string>
-    <string name="onboarding_des_3">Consent, updates, and core app states are handled in one consistent flow.</string>
-    <string name="onboarding_title_4">Ready when you are</string>
-    <string name="onboarding_des_4">Finish setup and start exploring the app with everything prepared.</string>
+    <string name="onboarding_title_1">Fold Something Amazing</string>
+    <string name="onboarding_des_1">Explore a growing collection of origami and kirigami creations for every skill level.</string>
+    <string name="onboarding_title_2">Follow Every Fold</string>
+    <string name="onboarding_des_2">Learn at your own pace with clear, step-by-step instructions and interactive 3D guides.</string>
+    <string name="onboarding_title_3">Bring Paper to Life</string>
+    <string name="onboarding_des_3">Rotate, zoom, and view each fold from every angle—so tricky steps feel simple.</string>
+    <string name="onboarding_title_4">Learn, Play &amp; Master</string>
+    <string name="onboarding_des_4">Practice through fun challenges, unlock new designs, and become an origami master.</string>
     <string name="applying_selected_language" translatable="false">Applying selected language...</string>
     <string name="text_restart_app">Restart App</string>
     <string name="crash_info_title">Crash Information</string>

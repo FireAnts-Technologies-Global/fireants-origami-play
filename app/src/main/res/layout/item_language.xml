@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_12sdp"
-        app:cardBackgroundColor="#ffffff"
+        app:cardBackgroundColor="#F6F9FB"
         app:cardCornerRadius="@dimen/_40sdp"
         app:cardElevation="0dp"
         app:rippleColor="#10000000"
@@ -57,7 +57,7 @@
                 android:layout_toEndOf="@id/imgFlag"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_13sdp"
-                android:textStyle="bold"
+                android:fontFamily="@font/regular"
                 tools:text="English" />
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>

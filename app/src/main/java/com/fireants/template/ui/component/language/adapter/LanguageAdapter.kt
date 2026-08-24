@@ -1,11 +1,11 @@
 package com.fireants.template.ui.component.language.adapter
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.bumptech.glide.Glide
 import com.fireants.template.databinding.ItemLanguageBinding
 import com.fireants.template.ui.component.language.data.LanguageModel
 
@@ -26,13 +26,14 @@ class LanguageAdapter(
             binding.root.setOnClickListener {
                 onItemLanguageClick(item)
             }
+            Glide.with(binding.root.context).load(item.imageResId).into(binding.imgFlag)
+
         }
 
         fun toggleSelected(isSelected: Boolean) {
             if (binding.rbLanguageSelected.isChecked != isSelected) {
                 binding.rbLanguageSelected.isChecked = isSelected
             }
-            binding.item.strokeColor = if (isSelected) Color.BLACK else Color.TRANSPARENT
         }
     }
 
