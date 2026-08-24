@@ -108,7 +108,7 @@ class ResultActivity : BaseActivity<ActivityResultBinding>() {
             ExploreDestination.ORIGAMI -> Routes.startOrigamiActivity(this)
             ExploreDestination.ORIGAMI_3D -> Routes.startOrigami3DActivity(this)
             ExploreDestination.KIRIGAMI -> Routes.startKirigamiActivity(this)
-            ExploreDestination.GAME -> Routes.startGameActivity(this)
+            ExploreDestination.GAME -> Routes.startLevelActivity(this)
             null -> Unit
         }
     }
