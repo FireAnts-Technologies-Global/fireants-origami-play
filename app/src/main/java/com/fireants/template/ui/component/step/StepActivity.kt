@@ -10,6 +10,7 @@ import com.fireants.template.databinding.ActivityStepBinding
 import com.fireants.template.ui.bases.BaseActivity
 import com.fireants.template.ui.bases.ext.click
 import com.fireants.template.ui.bases.ext.showRateDialog
+import com.fireants.template.utils.AppAudioController
 import com.fireants.template.utils.Routes
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
@@ -19,6 +20,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class StepActivity : BaseActivity<ActivityStepBinding>(){
     private val viewModel: StepViewModel by viewModels()
+    private val audioController by lazy { AppAudioController(this, appSharedPref) }
     private var autoResultJob: Job? = null
     private var rateDialogJob: Job? = null
     private var resultOpened = false
@@ -58,21 +60,26 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
     override fun onClickViews() {
         super.onClickViews()
         mBinding.imgBack.click {
+            audioController.playClickSound()
             onBackPressed()
         }
         mBinding.imgStore.click {
+            audioController.playClickSound()
             Routes.startShopActivity(this)
         }
         mBinding.imgFavourite.click {
+            audioController.playClickSound()
             viewModel.toggleFavorite()
         }
         mBinding.btnLeft.click {
+            audioController.playClickSound()
             cancelAutoResult()
             viewModel.previousStep()
         }
         mBinding.btnRight.click {
             val state = viewModel.state.value
             if (state.steps.isEmpty()) return@click
+            audioController.playClickSound()
             if (state.currentIndex >= state.steps.lastIndex) {
                 openResult(state)
             } else {
@@ -156,9 +163,20 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
         Routes.startResultActivity(this, state.toProductItem())
     }
 
+    override fun onResume() {
+        super.onResume()
+        audioController.playBackgroundMusic()
+    }
+
+    override fun onPause() {
+        audioController.pauseBackgroundMusic()
+        super.onPause()
+    }
+
     override fun onDestroy() {
         cancelAutoResult()
         cancelRateDialog()
+        audioController.release()
         super.onDestroy()
     }
 

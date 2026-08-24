@@ -16,6 +16,7 @@ import com.fireants.template.ui.bases.ext.showRateDialog
 import com.fireants.template.ui.component.custom.FoldPaperView.AutoFoldStep
 import com.fireants.template.ui.component.dialog.DialogComplete
 import com.fireants.template.ui.component.dialog.DialogLoading
+import com.fireants.template.utils.AppAudioController
 import com.fireants.template.utils.Routes
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
@@ -27,6 +28,7 @@ import kotlinx.coroutines.launch
 class GameActivity : BaseActivity<ActivityGameBinding>() {
 
     private val viewModel: GameViewModel by viewModels()
+    private val audioController by lazy { AppAudioController(this, appSharedPref) }
     
     private var movesCount = 0
     private var currentLevelId = 1
@@ -44,15 +46,18 @@ class GameActivity : BaseActivity<ActivityGameBinding>() {
         updateActionButtons()
 
         mBinding.imgBack.setOnClickListener {
+            audioController.playClickSound()
             onBackPressed()
         }
 
         mBinding.imgStore.setOnClickListener {
+            audioController.playClickSound()
             Routes.startShopActivity(this)
         }
 
         mBinding.btnReset.setOnClickListener {
             if (movesCount <= 0) return@setOnClickListener
+            audioController.playClickSound()
             movesCount = 0
             mBinding.foldPaperView.resetPaperToFullSize()
             updateActionButtons()
@@ -60,10 +65,12 @@ class GameActivity : BaseActivity<ActivityGameBinding>() {
 
         mBinding.btnUndo.setOnClickListener {
             if (movesCount <= 0) return@setOnClickListener
+            audioController.playClickSound()
             mBinding.foldPaperView.undoLastStep()
         }
 
         mBinding.btnHint.setOnClickListener {
+            audioController.playClickSound()
             viewModel.useHint()
         }
 
@@ -229,6 +236,16 @@ class GameActivity : BaseActivity<ActivityGameBinding>() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        audioController.playBackgroundMusic()
+    }
+
+    override fun onPause() {
+        audioController.pauseBackgroundMusic()
+        super.onPause()
+    }
+
     override fun onDestroy() {
         completeDialogJob?.cancel()
         rateDialogJob?.cancel()
@@ -236,6 +253,7 @@ class GameActivity : BaseActivity<ActivityGameBinding>() {
         loadingDialog = null
         completeDialog?.dismiss()
         completeDialog = null
+        audioController.release()
         super.onDestroy()
     }
 
