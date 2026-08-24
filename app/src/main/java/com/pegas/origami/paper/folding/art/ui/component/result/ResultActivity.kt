@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
+import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.ads.banner_all
 import com.pegas.origami.paper.folding.art.data.model.product.GameType
 import com.pegas.origami.paper.folding.art.databinding.ActivityResultBinding
@@ -39,6 +40,7 @@ class ResultActivity : BaseActivityWithBanner<ActivityResultBinding>() {
 
     override fun initViews() {
         super.initViews()
+        AdsManager.loadInterBack(this)
         if (!appSharedPref.isRate && !appSharedPref.isRateShownInSession) {
             lifecycleScope.launch {
                 delay(3000)
@@ -72,7 +74,11 @@ class ResultActivity : BaseActivityWithBanner<ActivityResultBinding>() {
 
     override fun onClickViews() {
         super.onClickViews()
-        mBinding.imgBack.click { finish() }
+        mBinding.imgBack.click {
+            AdsManager.showInterBack(this) {
+                finish()
+            }
+        }
         mBinding.imgHome.click { Routes.startMainActivity(this) }
         mBinding.layoutOrigami.click { openExploreDestination(0) }
         mBinding.layoutKirigami.click { openExploreDestination(1) }

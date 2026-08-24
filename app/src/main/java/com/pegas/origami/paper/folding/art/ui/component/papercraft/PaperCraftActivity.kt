@@ -7,6 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
+import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.ads.banner_all
 import com.pegas.origami.paper.folding.art.data.model.product.GameType
 import com.pegas.origami.paper.folding.art.databinding.ActivityPaperCraftBinding
@@ -33,6 +34,7 @@ class PaperCraftActivity : BaseActivityWithBanner<ActivityPaperCraftBinding>() {
 
     override fun initViews() {
         super.initViews()
+        AdsManager.loadInterBack(this)
         mode = PaperCraftMode.fromValue(intent.getStringExtra(EXTRA_MODE))
 
         mBinding.toolBar.tvTitle.text = getString(mode.titleRes)
@@ -55,7 +57,9 @@ class PaperCraftActivity : BaseActivityWithBanner<ActivityPaperCraftBinding>() {
     override fun onClickViews() {
         super.onClickViews()
         mBinding.toolBar.imgBack.click {
-            onBackPressed()
+            AdsManager.showInterBack(this) {
+                onBackPressed()
+            }
         }
         mBinding.searchBar.edtInput.doOnTextChanged { text, _, _, _ ->
             viewModel.search(text?.toString().orEmpty())

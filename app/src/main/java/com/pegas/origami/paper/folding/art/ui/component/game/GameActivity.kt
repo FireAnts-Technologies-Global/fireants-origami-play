@@ -46,14 +46,17 @@ class GameActivity : BaseActivityWithBanner<ActivityGameBinding>() {
     override fun getLayoutActivity(): Int = R.layout.activity_game
 
     override fun initViews() {
+        AdsManager.loadInterBack(this)
         AdsManager.loadInterLevel(this)
         currentLevelId = intent.getIntExtra("LEVEL_ID", 1)
         startLevel(currentLevelId)
         updateActionButtons()
 
         mBinding.imgBack.setOnClickListener {
-            audioController.playClickSound()
-            onBackPressed()
+            AdsManager.showInterBack(this) {
+                audioController.playClickSound()
+                onBackPressed()
+            }
         }
 
         mBinding.imgStore.setOnClickListener {

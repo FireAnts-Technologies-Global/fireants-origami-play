@@ -5,6 +5,7 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
+import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.ads.banner_play
 import com.pegas.origami.paper.folding.art.data.model.product.GameType
 import com.pegas.origami.paper.folding.art.data.model.product.ProductItem
@@ -37,6 +38,7 @@ class StepActivity : BaseActivityWithBanner<ActivityStepBinding>() {
 
     override fun initViews() {
         super.initViews()
+        AdsManager.loadInterBack(this)
         val productId = intent.getIntExtra(EXTRA_PRODUCT_ID, 0)
         val favoriteId = intent.getIntExtra(EXTRA_FAVORITE_ID, 0)
         val gameType = GameType.entries.firstOrNull {
@@ -66,8 +68,10 @@ class StepActivity : BaseActivityWithBanner<ActivityStepBinding>() {
     override fun onClickViews() {
         super.onClickViews()
         mBinding.imgBack.click {
-            audioController.playClickSound()
-            onBackPressed()
+            AdsManager.showInterBack(this) {
+                audioController.playClickSound()
+                onBackPressed()
+            }
         }
         mBinding.imgStore.click {
             audioController.playClickSound()

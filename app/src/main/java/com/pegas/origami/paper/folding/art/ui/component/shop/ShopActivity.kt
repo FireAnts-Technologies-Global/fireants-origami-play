@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.pegas.origami.paper.folding.art.R
+import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.data.model.game.PaperItem
 import com.pegas.origami.paper.folding.art.data.model.shop.ShopConfig
 import com.pegas.origami.paper.folding.art.data.model.shop.ShopResult
@@ -26,6 +27,7 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
     private lateinit var shopAdapter: ShopMultiTypeAdapter
 
     override fun initViews() {
+        AdsManager.loadInterBack(this)
         mBinding.tvHints.isSelected = true
         mBinding.tvStars.isSelected = true
         mBinding.tvCoins.isSelected = true
@@ -48,7 +50,9 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
     override fun onClickViews() {
         super.onClickViews()
         mBinding.imgBack.click {
-            onBackPressed()
+            AdsManager.showInterBack(this) {
+                onBackPressed()
+            }
         }
     }
 

@@ -103,19 +103,6 @@ class FoldPaperView @JvmOverloads constructor(
         color = Color.argb(54, 68, 190, 111)
         style = Paint.Style.FILL
     }
-    private val foldLinePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.argb(205, 28, 118, 132)
-        style = Paint.Style.STROKE
-        strokeWidth = 5f
-        strokeCap = Paint.Cap.ROUND
-        pathEffect = DashPathEffect(floatArrayOf(18f, 12f), 0f)
-    }
-    private val foldLineGlowPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.argb(70, 255, 255, 255)
-        style = Paint.Style.STROKE
-        strokeWidth = 13f
-        strokeCap = Paint.Cap.ROUND
-    }
     private val foldAnchorPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.argb(225, 255, 201, 71)
         style = Paint.Style.FILL
@@ -515,18 +502,10 @@ class FoldPaperView @JvmOverloads constructor(
         canvas.restoreToCount(saveLayer)
         canvas.restore()
 
-        drawFoldPreviewGuide(canvas, lineStartX, lineStartY, lineEndX, lineEndY)
+        drawFoldPreviewGuide(canvas)
     }
 
-    private fun drawFoldPreviewGuide(
-        canvas: Canvas,
-        lineStartX: Float,
-        lineStartY: Float,
-        lineEndX: Float,
-        lineEndY: Float
-    ) {
-        canvas.drawLine(lineStartX, lineStartY, lineEndX, lineEndY, foldLineGlowPaint)
-        canvas.drawLine(lineStartX, lineStartY, lineEndX, lineEndY, foldLinePaint)
+    private fun drawFoldPreviewGuide(canvas: Canvas) {
         canvas.drawCircle(touchStartX, touchStartY, 13f, foldAnchorPaint)
         canvas.drawCircle(touchStartX, touchStartY, 17f, foldAnchorRingPaint)
         canvas.drawCircle(touchX, touchY, 7f, foldAnchorPaint)
