@@ -26,7 +26,7 @@ android {
         versionName "1.0.1"
 
         def formattedDate = new Date().format('MM.dd.yyyy')
-        archivesBaseName = "FireAnts_Base_Project_v${versionName}_v${versionCode}_${formattedDate}"
+        archivesBaseName = "Origami_Play_Project_v${versionName}_v${versionCode}_${formattedDate}"
 
         buildConfigField "String", "FIREANTS_ADS_VERSION", "\"$fireants_ads_sdk\""
         buildConfigField "String", "PLAY_SERVICES_ADS_VERSION", "\"$play_services_ads_version\""
