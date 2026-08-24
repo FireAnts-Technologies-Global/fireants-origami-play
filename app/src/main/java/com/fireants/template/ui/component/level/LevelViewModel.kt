@@ -42,7 +42,7 @@ class LevelViewModel @Inject constructor(
         }
     }
 
-    private fun loadData() {
+    fun loadData() {
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true) }
             

@@ -77,4 +77,9 @@ class LevelActivity : BaseActivity<ActivityLevelBinding>() {
             }
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadData()
+    }
 }
