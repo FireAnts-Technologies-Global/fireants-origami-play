@@ -4,7 +4,18 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
 import android.content.Context
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
+import android.graphics.DashPathEffect
+import android.graphics.Paint
+import android.graphics.Path
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
+import android.graphics.RectF
+import android.graphics.Region
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
@@ -52,19 +63,23 @@ class FoldPaperView @JvmOverloads constructor(
     // Paints
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val paperOuterEdgePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.argb(85, 0, 0, 0)
+        color = Color.argb(95, 49, 36, 21)
         style = Paint.Style.STROKE
-        strokeWidth = 4f
+        strokeWidth = 5f
         strokeJoin = Paint.Join.ROUND
     }
     private val paperInnerEdgePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.argb(190, 255, 255, 255)
+        color = Color.argb(170, 255, 252, 238)
         style = Paint.Style.STROKE
         strokeWidth = 2.5f
         strokeJoin = Paint.Join.ROUND
     }
+    private val paperFrontTintPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.argb(22, 255, 232, 174)
+        style = Paint.Style.FILL
+    }
     private val paperBackShadePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.argb(14, 0, 0, 0)
+        color = Color.argb(34, 82, 104, 136)
         style = Paint.Style.FILL
         xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP)
     }
@@ -74,13 +89,48 @@ class FoldPaperView @JvmOverloads constructor(
         colorFilter = ColorMatrixColorFilter(colorMatrix)
     }
     private val targetPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#444444") // Dark gray
+        color = Color.parseColor("#2E6C7D")
+        style = Paint.Style.STROKE
+        strokeWidth = 6f
+        strokeJoin = Paint.Join.ROUND
+        pathEffect = DashPathEffect(floatArrayOf(22f, 12f), 0f)
+    }
+    private val targetFillPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.argb(32, 46, 108, 125)
+        style = Paint.Style.FILL
+    }
+    private val targetMatchedFillPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.argb(54, 68, 190, 111)
+        style = Paint.Style.FILL
+    }
+    private val foldLinePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.argb(205, 28, 118, 132)
         style = Paint.Style.STROKE
         strokeWidth = 5f
-        pathEffect = DashPathEffect(floatArrayOf(20f, 10f), 0f)
+        strokeCap = Paint.Cap.ROUND
+        pathEffect = DashPathEffect(floatArrayOf(18f, 12f), 0f)
+    }
+    private val foldLineGlowPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.argb(70, 255, 255, 255)
+        style = Paint.Style.STROKE
+        strokeWidth = 13f
+        strokeCap = Paint.Cap.ROUND
+    }
+    private val foldAnchorPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.argb(225, 255, 201, 71)
+        style = Paint.Style.FILL
+    }
+    private val foldAnchorRingPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.argb(190, 28, 118, 132)
+        style = Paint.Style.STROKE
+        strokeWidth = 3f
+    }
+    private val edgeHandlePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.argb(115, 46, 108, 125)
+        style = Paint.Style.FILL
     }
     private val suggestPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#FFEB3B")
+        color = Color.parseColor("#FFC947")
         style = Paint.Style.STROKE
         strokeWidth = 8f
         pathEffect = DashPathEffect(floatArrayOf(15f, 10f), 0f)
@@ -129,6 +179,7 @@ class FoldPaperView @JvmOverloads constructor(
     private var targetScorePixels = 0
     private var targetScoreWidth = 0
     private var targetScoreHeight = 0
+    private var isTargetMatched = false
 
     init {
         setLayerType(LAYER_TYPE_SOFTWARE, null)
@@ -194,7 +245,7 @@ class FoldPaperView @JvmOverloads constructor(
             }
             
             setTargetPolygon(scaledPoints)
-            targetPaint.color = Color.parseColor("#444444")
+            setTargetMatched(false)
             requestRender()
         }
     }
@@ -208,6 +259,7 @@ class FoldPaperView @JvmOverloads constructor(
         foldAnimator?.cancel()
         foldAnimator = null
         isManualFolded = false
+        setTargetMatched(false)
 
         val w = width.toFloat()
         val h = height.toFloat()
@@ -272,6 +324,15 @@ class FoldPaperView @JvmOverloads constructor(
         targetScoreHeight = 0
     }
 
+    private fun setTargetMatched(isMatched: Boolean) {
+        isTargetMatched = isMatched
+        targetPaint.color = if (isMatched) {
+            Color.parseColor("#44BE6F")
+        } else {
+            Color.parseColor("#2E6C7D")
+        }
+    }
+
     private fun getPaperScoreBitmap(w: Int, h: Int): Bitmap {
         val reusableBitmap = paperScoreBitmap
         if (reusableBitmap != null && reusableBitmap.width == w && reusableBitmap.height == h && !reusableBitmap.isRecycled) {
@@ -323,12 +384,36 @@ class FoldPaperView @JvmOverloads constructor(
         drawFoldedPaper(canvas)
         
         if (!targetPath.isEmpty) {
+            canvas.drawPath(
+                targetPath,
+                if (isTargetMatched) targetMatchedFillPaint else targetFillPaint
+            )
             canvas.drawPath(targetPath, targetPaint)
+        }
+
+        if (!isDragging && !isAnimatingComplete && originalPaperRect.width() > 0f) {
+            drawEdgeHandles(canvas)
         }
         
         if (isShowSuggest && currentLevelTarget != null) {
             drawSuggest(canvas)
         }
+    }
+
+    private fun drawEdgeHandles(canvas: Canvas) {
+        val radius = 7f
+        val inset = radius * 2.2f
+        val left = originalPaperRect.left + inset
+        val right = originalPaperRect.right - inset
+        val top = originalPaperRect.top + inset
+        val bottom = originalPaperRect.bottom - inset
+        val centerX = originalPaperRect.centerX()
+        val centerY = originalPaperRect.centerY()
+
+        canvas.drawCircle(centerX, top, radius, edgeHandlePaint)
+        canvas.drawCircle(centerX, bottom, radius, edgeHandlePaint)
+        canvas.drawCircle(left, centerY, radius, edgeHandlePaint)
+        canvas.drawCircle(right, centerY, radius, edgeHandlePaint)
     }
 
     private fun drawSuggest(canvas: Canvas) {
@@ -347,6 +432,7 @@ class FoldPaperView @JvmOverloads constructor(
             canvas.save()
             canvas.clipPath(path)
             canvas.drawBitmap(bitmap, null, originalPaperRect, paint)
+            canvas.drawPath(path, paperFrontTintPaint)
             canvas.restore()
             
             canvas.drawPath(path, paperOuterEdgePaint)
@@ -428,6 +514,22 @@ class FoldPaperView @JvmOverloads constructor(
         canvas.drawRect(-maxLen, -maxLen, maxLen * 2f, maxLen * 2f, paperBackShadePaint)
         canvas.restoreToCount(saveLayer)
         canvas.restore()
+
+        drawFoldPreviewGuide(canvas, lineStartX, lineStartY, lineEndX, lineEndY)
+    }
+
+    private fun drawFoldPreviewGuide(
+        canvas: Canvas,
+        lineStartX: Float,
+        lineStartY: Float,
+        lineEndX: Float,
+        lineEndY: Float
+    ) {
+        canvas.drawLine(lineStartX, lineStartY, lineEndX, lineEndY, foldLineGlowPaint)
+        canvas.drawLine(lineStartX, lineStartY, lineEndX, lineEndY, foldLinePaint)
+        canvas.drawCircle(touchStartX, touchStartY, 13f, foldAnchorPaint)
+        canvas.drawCircle(touchStartX, touchStartY, 17f, foldAnchorRingPaint)
+        canvas.drawCircle(touchX, touchY, 7f, foldAnchorPaint)
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
