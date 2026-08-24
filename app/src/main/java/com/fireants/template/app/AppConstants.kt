@@ -10,8 +10,9 @@ object AppConstants {
 
     internal const val KEY_TRACKING_SCREEN_FROM = "key_tracking_screen_from"
     internal const val LINK_APP = ""
-    internal const val LINK_PRIVACY_POLICY = ""
-    internal const val LINK_TERMS_OF_USE = ""
+    internal const val LINK_PRIVACY_POLICY = "https://sites.google.com/view/r010videovault/home"
+
+    internal const val LINK_TERMS_OF_USE = "https://sites.google.com/view/r010videovault/home"
     internal const val LINK_PLAY_STORE = ""
 
     internal const val KEY_FIRST_LANGUAGE = "KEY_FIRST_LANGUAGE"
