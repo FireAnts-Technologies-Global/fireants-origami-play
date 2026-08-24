@@ -63,7 +63,6 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
             if (!fromSetting) {
                 loadNativeLanguageClick(
                     this,
-                    appSharedPref.firstLanguage,
                     R.layout.layout_native_language_click
                 )
             }
@@ -116,7 +115,6 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
         } else {
             AdsManager.loadNativeOnboarding4(
                 this,
-                appSharedPref.firstOnBoarding,
                 R.layout.layout_native_onboarding
             )
         }

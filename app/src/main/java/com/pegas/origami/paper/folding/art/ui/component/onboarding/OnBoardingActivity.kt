@@ -11,10 +11,8 @@ import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
 import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.ads.RemoteConfigUtils
-import com.pegas.origami.paper.folding.art.ads.native_onboarding_fullscreen_1_1
-import com.pegas.origami.paper.folding.art.ads.native_onboarding_fullscreen_1_3
-import com.pegas.origami.paper.folding.art.ads.native_onboarding_fullscreen_2_1
-import com.pegas.origami.paper.folding.art.ads.native_onboarding_fullscreen_2_3
+import com.pegas.origami.paper.folding.art.ads.native_onboarding_fullscreen12
+import com.pegas.origami.paper.folding.art.ads.native_onboarding_fullscreen23
 import com.pegas.origami.paper.folding.art.databinding.ActivityOnboardingBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BaseActivity
 import com.pegas.origami.paper.folding.art.ui.bases.NavigationBarConfig
@@ -54,26 +52,22 @@ class OnBoardingActivity : BaseActivity<ActivityOnboardingBinding>() {
                 return@postDelayed
             }
 
-            if (appSharedPref.firstOnBoarding)
-                AdRemoteConfig.native_onboarding_fullscreen_1_1 else AdRemoteConfig.native_onboarding_fullscreen_2_1
+
             if (FireAntsAdSdk.getInstance()
                     .shouldDisplayNativeOnboardingFull1
             ) {
                 AdsManager.loadNativeOnboardingFullAfterPage1(
                     this,
-                    appSharedPref.firstOnBoarding,
                     R.layout.layout_native_onboarding_full
                 )
             }
 
-            if (appSharedPref.firstOnBoarding)
-                AdRemoteConfig.native_onboarding_fullscreen_1_3 else AdRemoteConfig.native_onboarding_fullscreen_2_3
+
             if (FireAntsAdSdk.getInstance()
                     .shouldDisplayNativeOnboardingFull2
             ) {
                 AdsManager.loadNativeOnboardingFullAfterPage3(
                     this,
-                    appSharedPref.firstOnBoarding,
                     R.layout.layout_native_onboarding_full
                 )
             }
@@ -187,12 +181,10 @@ class OnBoardingActivity : BaseActivity<ActivityOnboardingBinding>() {
     private fun addNativeFullPageIfEligible(placement: NativeFullPlacement) {
         val config = when (placement) {
             NativeFullPlacement.AFTER_PAGE_1 ->
-                if (appSharedPref.firstOnBoarding) AdRemoteConfig.native_onboarding_fullscreen_1_1
-                else AdRemoteConfig.native_onboarding_fullscreen_2_1
+                AdRemoteConfig.native_onboarding_fullscreen12
 
             NativeFullPlacement.AFTER_PAGE_2 ->
-                if (appSharedPref.firstOnBoarding) AdRemoteConfig.native_onboarding_fullscreen_1_3
-                else AdRemoteConfig.native_onboarding_fullscreen_2_3
+                AdRemoteConfig.native_onboarding_fullscreen23
         }
         val shouldDisplay = when (placement) {
             NativeFullPlacement.AFTER_PAGE_1 -> FireAntsAdSdk.getInstance()

@@ -30,30 +30,29 @@ object AdsManager {
         FAILED
     }
 
+
     val nativeLanguageAdLive = MutableLiveData<ApNativeAd?>()
     val nativeLanguageClickAdLive = MutableLiveData<ApNativeAd?>()
     val nativeLanguageAdStateLive = MutableLiveData(NativeAdLoadState.IDLE)
     val nativeLanguageClickAdStateLive = MutableLiveData(NativeAdLoadState.IDLE)
-    val nativeOnboarding1AdLive = MutableLiveData<ApNativeAd?>()
     val nativeOnboarding4AdLive = MutableLiveData<ApNativeAd?>()
     val nativeOnboardingFullAfterPage1AdLive = MutableLiveData<ApNativeAd?>()
     val nativeOnboardingFullAfterPage3AdLive = MutableLiveData<ApNativeAd?>()
-    val nativeOnboarding1AdStateLive = MutableLiveData(NativeAdLoadState.IDLE)
     val nativeOnboarding4AdStateLive = MutableLiveData(NativeAdLoadState.IDLE)
     val nativeOnboardingFullAfterPage1AdStateLive = MutableLiveData(NativeAdLoadState.IDLE)
     val nativeOnboardingFullAfterPage3AdStateLive = MutableLiveData(NativeAdLoadState.IDLE)
-    val nativeSurveyAdLive = MutableLiveData<ApNativeAd?>()
-    val nativeConfirmUninstallAdLive = MutableLiveData<ApNativeAd?>()
     val nativeWelcomeAdLive = MutableLiveData<ApNativeAd?>()
     val nativeWelcomeAdStateLive = MutableLiveData(NativeAdLoadState.IDLE)
 
-    // Auto-resolve config for each loaded native ad
     private val adConfigMap = mutableMapOf<ApNativeAd, AdUnitConfig>()
     fun getAdConfig(ad: ApNativeAd): AdUnitConfig? = adConfigMap[ad]
 
     private var interSplashAd: ApInterstitialAd? = null
-    private var interOnboarding: ApInterstitialAd? = null
-    private var interWelcomeAd: ApInterstitialAd? = null
+    private var interHomeAd: ApInterstitialAd? = null
+    private var interWelcomeBackAd: ApInterstitialAd? = null
+    private var interBackAd: ApInterstitialAd? = null
+    private var interLevelAd: ApInterstitialAd? = null
+
     private fun loadNativeInternal(
         activity: Activity,
         config: AdUnitConfig,
@@ -89,28 +88,10 @@ object AdsManager {
             })
     }
 
-    fun loadNativeSurvey(activity: Activity, layoutRes: Int) {
-        loadNativeInternal(
-            activity, AdRemoteConfig.native_survey, layoutRes, nativeSurveyAdLive,
-            FireAntsAdSdk.getInstance()
-                .shouldDisplayWidgetUninstall
-        )
-    }
 
-    fun loadNativeConfirmUninstall(activity: Activity, layoutRes: Int) {
-        loadNativeInternal(
-            activity,
-            AdRemoteConfig.native_confirm_uninstall,
-            layoutRes,
-            nativeConfirmUninstallAdLive,
-            FireAntsAdSdk.getInstance()
-                .shouldDisplayWidgetUninstall
-        )
-    }
-
-    fun loadNativeLanguage(activity: Activity, isFirst: Boolean, layoutRes: Int) {
+    fun loadNativeLanguage(activity: Activity, layoutRes: Int) {
         val config =
-            if (isFirst) AdRemoteConfig.native_language_1 else AdRemoteConfig.native_language_2
+            AdRemoteConfig.native_language
         loadNativeInternal(
             activity,
             config,
@@ -120,9 +101,9 @@ object AdsManager {
         )
     }
 
-    fun loadNativeLanguageClick(activity: Activity, isFirst: Boolean, layoutRes: Int) {
+    fun loadNativeLanguageClick(activity: Activity, layoutRes: Int) {
         val config =
-            if (isFirst) AdRemoteConfig.native_language_1_click else AdRemoteConfig.native_language_2_click
+            AdRemoteConfig.native_language_click
         loadNativeInternal(
             activity,
             config,
@@ -132,110 +113,97 @@ object AdsManager {
         )
     }
 
-    fun loadNativeOnboarding(activity: Activity, isFirst: Boolean, layoutRes: Int) {
-        val config =
-            if (isFirst) AdRemoteConfig.native_onboarding_1_1 else AdRemoteConfig.native_onboarding_2_1
+    fun loadNativeOnboarding4(activity: Activity, layoutRes: Int) {
         loadNativeInternal(
-            activity, config, layoutRes, nativeOnboarding1AdLive,
-            FireAntsAdSdk.getInstance()
-                .shouldDisplayNativeOnboardingNormal1,
-            nativeOnboarding1AdStateLive
-        )
-    }
-
-    fun loadNativeOnboarding4(activity: Activity, isFirst: Boolean, layoutRes: Int) {
-        val config =
-            if (isFirst) AdRemoteConfig.native_onboarding_1_4 else AdRemoteConfig.native_onboarding_2_4
-        loadNativeInternal(
-            activity, config, layoutRes, nativeOnboarding4AdLive,
+            activity, AdRemoteConfig.native_onboarding_page4, layoutRes, nativeOnboarding4AdLive,
             FireAntsAdSdk.getInstance()
                 .shouldDisplayNativeOnboardingNormal2,
             nativeOnboarding4AdStateLive
         )
     }
 
-    fun loadNativeOnboardingFullAfterPage1(activity: Activity, isFirst: Boolean, layoutRes: Int) {
-        val config =
-            if (isFirst) AdRemoteConfig.native_onboarding_fullscreen_1_1 else AdRemoteConfig.native_onboarding_fullscreen_2_1
+    fun loadNativeOnboardingFullAfterPage1(activity: Activity, layoutRes: Int) {
         loadNativeInternal(
-            activity, config, layoutRes, nativeOnboardingFullAfterPage1AdLive,
+            activity,
+            AdRemoteConfig.native_onboarding_fullscreen12,
+            layoutRes,
+            nativeOnboardingFullAfterPage1AdLive,
             FireAntsAdSdk.getInstance().shouldDisplayNativeOnboardingFull1,
             nativeOnboardingFullAfterPage1AdStateLive
         )
     }
 
-    fun loadNativeOnboardingFullAfterPage3(activity: Activity, isFirst: Boolean, layoutRes: Int) {
-        val config =
-            if (isFirst) AdRemoteConfig.native_onboarding_fullscreen_1_3 else AdRemoteConfig.native_onboarding_fullscreen_2_3
+    fun loadNativeOnboardingFullAfterPage3(activity: Activity, layoutRes: Int) {
         loadNativeInternal(
-            activity, config, layoutRes, nativeOnboardingFullAfterPage3AdLive,
+            activity,
+            AdRemoteConfig.native_onboarding_fullscreen23,
+            layoutRes,
+            nativeOnboardingFullAfterPage3AdLive,
             FireAntsAdSdk.getInstance().shouldDisplayNativeOnboardingFull2,
             nativeOnboardingFullAfterPage3AdStateLive
         )
     }
 
+
     fun loadNativeWelcome(activity: Activity, layoutRes: Int) {
         loadNativeInternal(
-            activity, AdRemoteConfig.native_welcome, layoutRes, nativeWelcomeAdLive,
+            activity, AdRemoteConfig.native_welcome_back, layoutRes, nativeWelcomeAdLive,
             FireAntsAdSdk.getInstance()
                 .shouldDisplayNativeWelcomeBack,
             nativeWelcomeAdStateLive
         )
     }
 
-    // ── Dashboard / Test helpers (ignore shouldDisplay) ──
 
-    /** Dedicated LiveData for customization preview – won't collide with real flows */
-    val nativeDashboardPreviewLive = MutableLiveData<ApNativeAd?>()
-
-    /**
-     * Load a native ad for dashboard preview purposes.
-     * Bypasses all shouldDisplay checks so it always loads.
-     */
-    fun loadNativeForDashboard(activity: Activity, configKey: String, layoutRes: Int) {
-        val config = try {
-            AdRemoteConfig.getInstance().ads[configKey]
-                ?: AdUnitConfig(id = "", isEnable = false)
-        } catch (_: Exception) {
-            AdUnitConfig(id = "", isEnable = false)
-        }
-        // Force shouldDisplay = true to bypass SDK limits
-        loadNativeInternal(
-            activity,
-            config,
-            layoutRes,
-            nativeDashboardPreviewLive,
-            shouldDisplay = true
-        )
-    }
-
-    /** Load native language ad for dashboard – ignores shouldDisplay */
-    fun loadNativeLanguageForDashboard(activity: Activity, layoutRes: Int) {
-        loadNativeForDashboard(activity, "native_language_1", layoutRes)
-    }
-
-    /** Load native onboarding full for dashboard – ignores shouldDisplay */
-    fun loadNativeFullForDashboard(activity: Activity, layoutRes: Int) {
-        loadNativeForDashboard(activity, "native_onboarding_fullscreen_1_3", layoutRes)
-    }
-
-    fun loadInterOnboarding(context: Context, ignoreLimit: Boolean = false) {
-        val config = AdRemoteConfig.inter_onboarding
+    fun loadInterWelcome(context: Context, ignoreLimit: Boolean = false) {
+        val config = AdRemoteConfig.inter_welcome_back
         if (!config.isEnable
             || AppPurchase.getInstance().isPurchased(context)
             || (!ignoreLimit && !FireAntsAdSdk.getInstance()
-                .shouldDisplayInterOnboarding)
+                .shouldDisplayInterWelcomeBack)
         ) {
-            interOnboarding = null
+            interWelcomeBackAd = null
             return
         }
-        interOnboarding =
+        interWelcomeBackAd =
+            FireAntsAdSdk.getInstance()
+                .getInterstitialAds(context, config.id, object : AdCallback() {})
+    }
+    fun showInterWelcome(context: Context, ignoreLimit: Boolean = false, onAction: () -> Unit) {
+        val interstitial = interWelcomeBackAd
+        if (interstitial != null && interstitial.isReady && !AppPurchase.getInstance()
+                .isPurchased(context) && (ignoreLimit ||
+                    FireAntsAdSdk.getInstance()
+                        .shouldDisplayInterWelcomeBack)
+        ) {
+            FireAntsAdSdk.getInstance()
+                .forceShowInterstitial(context, interstitial, object : AdCallback() {
+                    override fun onNextAction() {
+                        super.onNextAction()
+                        onAction()
+                    }
+                }, false)
+        } else {
+            onAction()
+        }
+    }
+
+    fun loadInterHome(context: Context, ignoreLimit: Boolean = false) {
+        val config = AdRemoteConfig.inter_home
+        if (!config.isEnable
+            || AppPurchase.getInstance().isPurchased(context)
+            || (!ignoreLimit)
+        ) {
+            interHomeAd = null
+            return
+        }
+        interHomeAd =
             FireAntsAdSdk.getInstance()
                 .getInterstitialAds(context, config.id, object : AdCallback() {})
     }
 
-    fun showInterOnboarding(context: Context, ignoreLimit: Boolean = false, onAction: () -> Unit) {
-        val interstitial = interOnboarding
+    fun showInterHome(context: Context, ignoreLimit: Boolean = false, onAction: () -> Unit) {
+        val interstitial = interHomeAd
         if (interstitial != null && interstitial.isReady && !AppPurchase.getInstance()
                 .isPurchased(context) && (ignoreLimit)
         ) {
@@ -245,33 +213,61 @@ object AdsManager {
                         super.onNextAction()
                         onAction()
                     }
-                }, true)
+                }, false)
         } else {
             onAction()
         }
     }
 
-    fun loadInterWelcome(context: Context, ignoreLimit: Boolean = false) {
-        val config = AdRemoteConfig.inter_welcome
+    fun loadInterBack(context: Context, ignoreLimit: Boolean = false) {
+        val config = AdRemoteConfig.inter_back
         if (!config.isEnable
             || AppPurchase.getInstance().isPurchased(context)
-            || (!ignoreLimit && !FireAntsAdSdk.getInstance()
-                .shouldDisplayInterWelcomeBack)
+            || (!ignoreLimit)
         ) {
-            interWelcomeAd = null
+            interBackAd = null
             return
         }
-        interWelcomeAd =
+        interBackAd =
             FireAntsAdSdk.getInstance()
                 .getInterstitialAds(context, config.id, object : AdCallback() {})
     }
 
-    fun showInterWelcome(context: Context, ignoreLimit: Boolean = false, onAction: () -> Unit) {
-        val interstitial = interWelcomeAd
+    fun showInterBack(context: Context, ignoreLimit: Boolean = false, onAction: () -> Unit) {
+        val interstitial = interBackAd
         if (interstitial != null && interstitial.isReady && !AppPurchase.getInstance()
-                .isPurchased(context) && (ignoreLimit ||
-                    FireAntsAdSdk.getInstance()
-                        .shouldDisplayInterWelcomeBack)
+                .isPurchased(context) && (ignoreLimit)
+        ) {
+            FireAntsAdSdk.getInstance()
+                .forceShowInterstitial(context, interstitial, object : AdCallback() {
+                    override fun onNextAction() {
+                        super.onNextAction()
+                        onAction()
+                    }
+                }, false)
+        } else {
+            onAction()
+        }
+    }
+
+    fun loadInterLevel(context: Context, ignoreLimit: Boolean = false) {
+        val config = AdRemoteConfig.inter_level
+        if (!config.isEnable
+            || AppPurchase.getInstance().isPurchased(context)
+            || (!ignoreLimit)
+        ) {
+            interLevelAd = null
+            return
+        }
+        interLevelAd =
+            FireAntsAdSdk.getInstance()
+                .getInterstitialAds(context, config.id, object : AdCallback() {})
+    }
+
+    fun showInterLevel(context: Context, ignoreLimit: Boolean = false, onAction: () -> Unit) {
+        val interstitial = interLevelAd
+        if (interstitial != null && interstitial.isReady && !AppPurchase.getInstance()
+                .isPurchased(context) && (ignoreLimit)
         ) {
             FireAntsAdSdk.getInstance()
                 .forceShowInterstitial(context, interstitial, object : AdCallback() {
@@ -346,21 +342,26 @@ object AdsManager {
         nativeLanguageAdLive.postValue(null)
         nativeLanguageClickAdLive.postValue(null)
         nativeLanguageAdStateLive.postValue(NativeAdLoadState.IDLE)
-        nativeLanguageClickAdStateLive.postValue(NativeAdLoadState.IDLE)
-        nativeOnboarding1AdLive.postValue(null)
+        nativeLanguageClickAdStateLive.postValue(
+            NativeAdLoadState.IDLE
+        )
         nativeOnboarding4AdLive.postValue(null)
         nativeOnboardingFullAfterPage1AdLive.postValue(null)
         nativeOnboardingFullAfterPage3AdLive.postValue(null)
-        nativeOnboarding1AdStateLive.postValue(NativeAdLoadState.IDLE)
         nativeOnboarding4AdStateLive.postValue(NativeAdLoadState.IDLE)
-        nativeOnboardingFullAfterPage1AdStateLive.postValue(NativeAdLoadState.IDLE)
-        nativeOnboardingFullAfterPage3AdStateLive.postValue(NativeAdLoadState.IDLE)
-        nativeSurveyAdLive.postValue(null)
-        nativeConfirmUninstallAdLive.postValue(null)
+        nativeOnboardingFullAfterPage1AdStateLive.postValue(
+            NativeAdLoadState.IDLE
+        )
+        nativeOnboardingFullAfterPage3AdStateLive.postValue(
+            NativeAdLoadState.IDLE
+        )
         nativeWelcomeAdLive.postValue(null)
         nativeWelcomeAdStateLive.postValue(NativeAdLoadState.IDLE)
         interSplashAd = null
-        interWelcomeAd = null
+        interHomeAd = null
+        interWelcomeBackAd = null
+        interBackAd = null
+        interLevelAd = null
     }
 
     private fun Context.isNetworkAvailable(): Boolean {

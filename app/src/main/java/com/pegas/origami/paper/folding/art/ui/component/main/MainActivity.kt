@@ -11,7 +11,7 @@ import com.pegas.origami.paper.folding.art.BuildConfig
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
 import com.pegas.origami.paper.folding.art.ads.RemoteConfigUtils
-import com.pegas.origami.paper.folding.art.ads.banner_home
+import com.pegas.origami.paper.folding.art.ads.banner_all
 import com.pegas.origami.paper.folding.art.data.model.ForceUpdateConfig
 import com.pegas.origami.paper.folding.art.databinding.ActivityMainBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BannerConfig
@@ -32,7 +32,7 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
 
     private val viewModel: MainViewModel by viewModels()
 
-    override val bannerConfig = BannerConfig(AdRemoteConfig.banner_home, false)
+    override val bannerConfig = BannerConfig(AdRemoteConfig.banner_all, false)
     private lateinit var consentHandler: ConsentHandler
     private val delayHandler = Handler(Looper.getMainLooper())
     private var delayRunnable: Runnable? = null
