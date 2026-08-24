@@ -52,7 +52,11 @@ class IapActivity : BaseActivity<ActivityIapBinding>() {
             viewModel.selectPlan(IapPlan.MONTHLY)
         }
         mBinding.btnContinue.click {
-            viewModel.purchaseSelectedPlan(this)
+            if (viewModel.state.value?.isPremium == true) {
+                openGooglePlaySubscriptions()
+            } else {
+                viewModel.purchaseSelectedPlan(this)
+            }
         }
         mBinding.tvRestore.click {
             viewModel.restorePurchases()
@@ -70,6 +74,8 @@ class IapActivity : BaseActivity<ActivityIapBinding>() {
             mBinding.tvMonthlyPrice.text =
                 state.monthlyPrice ?: getString(R.string.iap_price_loading)
             renderSelectedPlan(state.selectedPlan)
+            renderSubscriptionState(state)
+            renderPlanNote(state)
             state.errorMessage?.let {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
                 viewModel.consumeEvent()
@@ -108,6 +114,38 @@ class IapActivity : BaseActivity<ActivityIapBinding>() {
         mBinding.planMonthly.setBackgroundResource(
             if (selectedPlan == IapPlan.MONTHLY) R.drawable.bg_iap_plan_selected else R.drawable.bg_iap_plan
         )
+    }
+
+    private fun renderSubscriptionState(state: IapUiState) {
+        mBinding.tvWeeklySubtitle.text =
+            if (state.activePlan == IapPlan.WEEKLY) getString(R.string.iap_current_plan)
+            else getString(R.string.iap_weekly_subtitle)
+        mBinding.tvMonthlySubtitle.text =
+            if (state.activePlan == IapPlan.MONTHLY) getString(R.string.iap_current_plan)
+            else getString(R.string.iap_monthly_subtitle)
+        mBinding.btnContinue.text = when {
+            state.isPremium -> getString(R.string.iap_manage_subscription)
+            state.selectedPlan == IapPlan.MONTHLY -> getString(R.string.iap_start_free_trial)
+            else -> getString(R.string.iap_subscribe_weekly)
+        }
+    }
+
+    private fun renderPlanNote(state: IapUiState) {
+        if (state.isPremium) {
+            mBinding.tvPlanNote.visibility = View.GONE
+            return
+        }
+
+        mBinding.tvPlanNote.visibility = View.VISIBLE
+        mBinding.tvPlanNote.text = when (state.selectedPlan) {
+            IapPlan.WEEKLY -> state.weeklyPrice?.let {
+                getString(R.string.iap_plan_note_weekly, it)
+            }
+
+            IapPlan.MONTHLY -> state.monthlyPrice?.let {
+                getString(R.string.iap_plan_note_monthly_trial, it)
+            }
+        } ?: getString(R.string.iap_plan_note_loading)
     }
 
     private fun underlineFooterLinks() {

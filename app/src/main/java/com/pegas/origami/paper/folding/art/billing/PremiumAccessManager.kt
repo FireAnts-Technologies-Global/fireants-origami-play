@@ -11,12 +11,18 @@ import java.util.concurrent.atomic.AtomicBoolean
 object PremiumAccessManager {
     private val revenueCatPremium = AtomicBoolean(false)
 
-    fun refresh() {
-        if (!Purchases.isConfigured) return
+    fun refresh(onComplete: (() -> Unit)? = null) {
+        if (!Purchases.isConfigured) {
+            onComplete?.invoke()
+            return
+        }
         Purchases.sharedInstance.getCustomerInfoWith(
-            onError = {},
+            onError = {
+                onComplete?.invoke()
+            },
             onSuccess = { customerInfo ->
                 update(customerInfo)
+                onComplete?.invoke()
             }
         )
     }

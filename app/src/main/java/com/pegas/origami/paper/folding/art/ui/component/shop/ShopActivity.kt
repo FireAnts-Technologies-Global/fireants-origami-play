@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdsManager
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.data.model.game.PaperItem
 import com.pegas.origami.paper.folding.art.data.model.shop.BagReward
 import com.pegas.origami.paper.folding.art.data.model.shop.ShopConfig
@@ -174,20 +175,37 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
         }
     }
 
+    private fun buyHintWithCoinsOrShowPremium(cost: Int, onBuy: () -> Unit) {
+        if (PremiumAccessManager.isPremium(this)) {
+            DialogPremium(
+                context = this,
+                titleRes = R.string.shop_unlimited_hints_title,
+                messageRes = R.string.shop_unlimited_hints_message,
+                actionTextRes = R.string.got_it,
+                showLaterButton = false
+            ) {
+                // DialogPremium dismisses before invoking this callback.
+            }.show()
+            return
+        }
+
+        buyWithCoinsOrShowPremium(cost, onBuy)
+    }
+
     override fun onBuy1HintClick() {
-        buyWithCoinsOrShowPremium(250) {
+        buyHintWithCoinsOrShowPremium(250) {
             viewModel.buyHint(amount = 1, cost = 250)
         }
     }
 
     override fun onBuy3HintsClick() {
-        buyWithCoinsOrShowPremium(637) {
+        buyHintWithCoinsOrShowPremium(637) {
             viewModel.buyHint(amount = 3, cost = 637)
         }
     }
 
     override fun onBuy5HintsClick() {
-        buyWithCoinsOrShowPremium(1000) {
+        buyHintWithCoinsOrShowPremium(1000) {
             viewModel.buyHint(amount = 5, cost = 1000)
         }
     }

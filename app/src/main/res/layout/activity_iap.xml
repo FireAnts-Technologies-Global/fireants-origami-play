@@ -115,6 +115,7 @@
                             android:textSize="@dimen/_13sdp" />
 
                         <TextView
+                            android:id="@+id/tvWeeklySubtitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_3sdp"
@@ -184,6 +185,7 @@
                                 android:textSize="@dimen/_13sdp" />
 
                             <TextView
+                                android:id="@+id/tvMonthlySubtitle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_3sdp"
@@ -308,7 +310,7 @@
                     android:fontFamily="@font/regular"
                     android:gravity="center"
                     android:lineSpacingExtra="@dimen/_2sdp"
-                    android:text="@string/iap_plan_note"
+                    android:text="@string/iap_plan_note_loading"
                     android:textColor="#CAB9EF"
                     android:textSize="@dimen/_9sdp" />
 

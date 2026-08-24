@@ -25,6 +25,7 @@ data class IapUiState(
     val weeklyPrice: String? = null,
     val monthlyPrice: String? = null,
     val selectedPlan: IapPlan = IapPlan.MONTHLY,
+    val activePlan: IapPlan? = null,
     val isPremium: Boolean = false,
     val errorMessage: String? = null,
     val event: IapEvent? = null
@@ -96,6 +97,7 @@ class IapViewModel @Inject constructor() : BaseViewModel() {
     }
 
     fun selectPlan(plan: IapPlan) {
+        if (_state.value?.isPremium == true) return
         setState { copy(selectedPlan = plan, event = null) }
     }
 
@@ -187,17 +189,27 @@ class IapViewModel @Inject constructor() : BaseViewModel() {
             onError = {},
             onSuccess = { customerInfo ->
                 PremiumAccessManager.update(customerInfo)
-                setState { copy(isPremium = PremiumAccessManager.isPremium(customerInfo)) }
+                val activePlan = resolveActivePlan(customerInfo)
+                setState {
+                    copy(
+                        isPremium = PremiumAccessManager.isPremium(customerInfo),
+                        activePlan = activePlan,
+                        selectedPlan = activePlan ?: selectedPlan
+                    )
+                }
             }
         )
     }
 
     private fun handleCustomerInfo(customerInfo: CustomerInfo, event: IapEvent) {
         PremiumAccessManager.update(customerInfo)
+        val activePlan = resolveActivePlan(customerInfo)
         setState {
             copy(
                 isLoading = false,
                 isPremium = PremiumAccessManager.isPremium(customerInfo),
+                activePlan = activePlan,
+                selectedPlan = activePlan ?: selectedPlan,
                 event = event
             )
         }
@@ -217,6 +229,43 @@ class IapViewModel @Inject constructor() : BaseViewModel() {
 
     private fun StoreProduct.formattedPrice(): String {
         return price.formatted
+    }
+
+    private fun resolveActivePlan(customerInfo: CustomerInfo): IapPlan? {
+        val premiumEntitlement =
+            customerInfo.entitlements[BuildConfig.REVENUECAT_ENTITLEMENT_PREMIUM]
+                ?.takeIf { it.isActive }
+        val activePlanId = premiumEntitlement?.productPlanIdentifier
+        if (!activePlanId.isNullOrBlank()) {
+            when (activePlanId) {
+                weeklyPackage?.googleBasePlanId() -> return IapPlan.WEEKLY
+                monthlyPackage?.googleBasePlanId() -> return IapPlan.MONTHLY
+            }
+        }
+
+        val activeProductIds = buildSet {
+            addAll(customerInfo.activeSubscriptions)
+            addAll(customerInfo.allPurchasedProductIds)
+            premiumEntitlement?.productIdentifier?.let(::add)
+        }
+        return when {
+            weeklyPackage?.matchesAnyProductId(activeProductIds) == true -> IapPlan.WEEKLY
+            monthlyPackage?.matchesAnyProductId(activeProductIds) == true -> IapPlan.MONTHLY
+            else -> null
+        }
+    }
+
+    private fun Package.googleBasePlanId(): String? {
+        return (product as? com.revenuecat.purchases.models.GoogleStoreProduct)?.basePlanId
+    }
+
+    private fun Package.matchesAnyProductId(productIds: Set<String>): Boolean {
+        val googleProduct = product as? com.revenuecat.purchases.models.GoogleStoreProduct
+        val packageProductIds = buildSet {
+            add(product.id)
+            googleProduct?.productId?.let(::add)
+        }
+        return productIds.any { it in packageProductIds }
     }
 
     private fun Package.debugSummary(): String {

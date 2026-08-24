@@ -15,6 +15,7 @@ import com.pegas.origami.paper.folding.art.ads.banner_splash
 import com.pegas.origami.paper.folding.art.ads.inter_splash
 import com.pegas.origami.paper.folding.art.app.AppConstants
 import com.pegas.origami.paper.folding.art.app.GlobalApp
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.databinding.ActivitySplashBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BannerConfig
 import com.pegas.origami.paper.folding.art.ui.bases.BaseActivityWithBanner
@@ -44,6 +45,8 @@ class SplashActivity : BaseActivityWithBanner<ActivitySplashBinding>(), RemoteCo
         )
 
     private var getConfigSuccess = false
+    private var isCheckingPremiumBeforeAds = false
+    private var hasMovedNext = false
     private lateinit var consentHandler: ConsentHandler
 
     override fun getLayoutActivity() = R.layout.activity_splash
@@ -94,6 +97,23 @@ class SplashActivity : BaseActivityWithBanner<ActivitySplashBinding>(), RemoteCo
 
     private fun checkRemoteConfigResult() {
         (application as? GlobalApp)?.applyInterstitialInterval(RemoteConfigUtils.getInterInterval())
+        AdRemoteConfig.initialize(this, RemoteConfigUtils.getAdRemoteConfig())
+        isCheckingPremiumBeforeAds = true
+        PremiumAccessManager.refresh {
+            runOnUiThread {
+                isCheckingPremiumBeforeAds = false
+                checkPremiumAndLoadAds()
+            }
+        }
+    }
+
+    private fun checkPremiumAndLoadAds() {
+        if (PremiumAccessManager.isPremium(this)) {
+            AdsManager.clearAll()
+            mBinding.frBanner.goneView()
+            moveActivity()
+            return
+        }
 
         if (AdRemoteConfig.banner_splash.isEnable) {
             bannerConfig = BannerConfig(
@@ -104,7 +124,6 @@ class SplashActivity : BaseActivityWithBanner<ActivitySplashBinding>(), RemoteCo
         } else {
             mBinding.frBanner.goneView()
         }
-        AdRemoteConfig.initialize(this, RemoteConfigUtils.getAdRemoteConfig())
         loadNativeLanguage(this, R.layout.layout_native_language)
 
         if (AdRemoteConfig.inter_splash.isEnable && isNetwork(this@SplashActivity)) {
@@ -128,6 +147,8 @@ class SplashActivity : BaseActivityWithBanner<ActivitySplashBinding>(), RemoteCo
 
 
     private fun moveActivity() {
+        if (hasMovedNext) return
+        hasMovedNext = true
         Routes.startLanguageActivity(this, null)
         finish()
     }
@@ -135,6 +156,7 @@ class SplashActivity : BaseActivityWithBanner<ActivitySplashBinding>(), RemoteCo
 
     override fun onResume() {
         super.onResume()
+        if (isCheckingPremiumBeforeAds || PremiumAccessManager.isPremium(this)) return
         FireAntsAdSdk.getInstance()
             .onCheckShowSplashWhenFail(this@SplashActivity, object : AdCallback() {
                 override fun onNextAction() {

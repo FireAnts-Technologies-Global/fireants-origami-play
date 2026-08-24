@@ -60,7 +60,7 @@ abstract class BaseActivityWithBanner<VB : ViewDataBinding> : BaseActivity<VB>()
 
     override fun onResume() {
         super.onResume()
-        reloadBannerIfNeeded()
+        refreshBanner()
     }
 
     override fun onPause() {
@@ -77,9 +77,20 @@ abstract class BaseActivityWithBanner<VB : ViewDataBinding> : BaseActivity<VB>()
     protected fun loadBanner() {
         val frAds = findViewById<FrameLayout>(R.id.fr_banner)
 
+        if (frAds == null) {
+            timeNeedReloadBanner = 0
+            cleanupHandler()
+            return
+        }
+
         if (!shouldShowBanner()) {
             timeNeedReloadBanner = 0
-            frAds?.goneView()
+            AdsManager.loadBanner(
+                this@BaseActivityWithBanner,
+                bannerConfig.adUnitConfig,
+                frAds,
+                bannerConfig.isCollapse
+            )
             cleanupHandler()
             return
         }
@@ -110,6 +121,14 @@ abstract class BaseActivityWithBanner<VB : ViewDataBinding> : BaseActivity<VB>()
             )
         } else {
             cleanupHandler()
+        }
+    }
+
+    private fun refreshBanner() {
+        if (shouldShowBanner()) {
+            reloadBannerIfNeeded()
+        } else {
+            loadBanner()
         }
     }
 

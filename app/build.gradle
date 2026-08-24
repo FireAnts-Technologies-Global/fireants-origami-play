@@ -22,8 +22,8 @@ android {
         applicationId "com.pegas.origami.paper.folding.art"
         minSdkVersion min_sdk_version
         targetSdk target_sdk_version
-        versionCode 100
-        versionName "1.0.0"
+        versionCode 101
+        versionName "1.0.1"
 
         def formattedDate = new Date().format('MM.dd.yyyy')
         archivesBaseName = "FireAnts_Base_Project_v${versionName}_v${versionCode}_${formattedDate}"
