@@ -9,9 +9,9 @@ import com.fireants.template.data.model.product.ProductItem
 import com.fireants.template.databinding.ActivityStepBinding
 import com.fireants.template.ui.bases.BaseActivity
 import com.fireants.template.ui.bases.ext.click
+import com.fireants.template.ui.bases.ext.showRateDialog
 import com.fireants.template.utils.Routes
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.getValue
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -20,6 +20,7 @@ import kotlinx.coroutines.launch
 class StepActivity : BaseActivity<ActivityStepBinding>(){
     private val viewModel: StepViewModel by viewModels()
     private var autoResultJob: Job? = null
+    private var rateDialogJob: Job? = null
     private var resultOpened = false
 
     override fun getLayoutActivity(): Int {
@@ -99,7 +100,28 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
                     .load(ASSET_PREFIX + currentStep.image)
                     .fitCenter()
                     .into(mBinding.imgPreview)
+                scheduleRateDialogIfNeeded(state)
                 scheduleAutoResultIfNeeded(state)
+            }
+        }
+    }
+
+    private fun scheduleRateDialogIfNeeded(state: StepState) {
+        val stepNumber = state.currentIndex + 1
+        if (
+            stepNumber !in RATE_DIALOG_STEP_RANGE ||
+            appSharedPref.isRate ||
+            appSharedPref.isRateShownInSession ||
+            rateDialogJob?.isActive == true
+        ) {
+            return
+        }
+
+        rateDialogJob = lifecycleScope.launch {
+            delay(RATE_DIALOG_DELAY_MS)
+            appSharedPref.isRateShownInSession = true
+            showRateDialog(this@StepActivity, false) {
+                appSharedPref.isRate = true
             }
         }
     }
@@ -122,6 +144,11 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
         autoResultJob = null
     }
 
+    private fun cancelRateDialog() {
+        rateDialogJob?.cancel()
+        rateDialogJob = null
+    }
+
     private fun openResult(state: StepState) {
         if (resultOpened || state.steps.isEmpty()) return
         resultOpened = true
@@ -131,6 +158,7 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
 
     override fun onDestroy() {
         cancelAutoResult()
+        cancelRateDialog()
         super.onDestroy()
     }
 
@@ -145,6 +173,8 @@ class StepActivity : BaseActivity<ActivityStepBinding>(){
         const val EXTRA_ESTIMATED_TIME = "extra_estimated_time"
         private const val ASSET_PREFIX = "file:///android_asset/"
         private const val AUTO_RESULT_DELAY_MS = 3_000L
+        private const val RATE_DIALOG_DELAY_MS = 2_000L
+        private val RATE_DIALOG_STEP_RANGE = 7..8
     }
 }
 

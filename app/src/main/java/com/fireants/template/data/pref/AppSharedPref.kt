@@ -23,4 +23,5 @@ interface AppSharedPref {
     var isMusicEnabled: Boolean
 
     var isSoundFxEnabled: Boolean
+    var isRateShownInSession: Boolean
 }

@@ -15,7 +15,6 @@ import com.fireants.template.app.ResumeAdsEntryRule
 import com.fireants.template.databinding.ActivitySettingBinding
 import com.fireants.template.ui.bases.BaseActivity
 import com.fireants.template.ui.bases.ext.click
-
 import com.fireants.template.ui.bases.ext.showRateDialog
 import com.fireants.template.ui.component.language.data.LanguageData
 import com.fireants.template.utils.Routes
@@ -91,8 +90,9 @@ class SettingActivity : BaseActivity<ActivitySettingBinding>() {
                 Toast.LENGTH_SHORT
             ).show()
         } else {
-            appSharedPref.isRate = true
-            showRateDialog(this@SettingActivity, false)
+            showRateDialog(this@SettingActivity, false) {
+                appSharedPref.isRate = true
+            }
         }
     }
 

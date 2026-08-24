@@ -12,6 +12,7 @@ import com.bumptech.glide.request.transition.Transition
 import com.fireants.template.R
 import com.fireants.template.databinding.ActivityGameBinding
 import com.fireants.template.ui.bases.BaseActivity
+import com.fireants.template.ui.bases.ext.showRateDialog
 import com.fireants.template.ui.component.custom.FoldPaperView.AutoFoldStep
 import com.fireants.template.ui.component.dialog.DialogComplete
 import com.fireants.template.ui.component.dialog.DialogLoading
@@ -33,6 +34,7 @@ class GameActivity : BaseActivity<ActivityGameBinding>() {
     private var completeDialog: DialogComplete? = null
     private var loadingDialog: DialogLoading? = null
     private var completeDialogJob: Job? = null
+    private var rateDialogJob: Job? = null
 
     override fun getLayoutActivity(): Int = R.layout.activity_game
 
@@ -193,6 +195,7 @@ class GameActivity : BaseActivity<ActivityGameBinding>() {
             stars = stars,
             coinsEarned = coinsEarned,
             onPlayAgainClick = {
+                scheduleRateDialogAfterGameCompleteIfNeeded()
                 startLevel(currentLevelId)
             },
             onContinueClick = {
@@ -200,6 +203,7 @@ class GameActivity : BaseActivity<ActivityGameBinding>() {
                 if (nextLevelId == null) {
                     finish()
                 } else {
+                    scheduleRateDialogAfterGameCompleteIfNeeded()
                     startLevel(nextLevelId)
                 }
             }
@@ -207,8 +211,27 @@ class GameActivity : BaseActivity<ActivityGameBinding>() {
         completeDialog?.show()
     }
 
+    private fun scheduleRateDialogAfterGameCompleteIfNeeded() {
+        if (
+            appSharedPref.isRate ||
+            appSharedPref.isRateShownInSession ||
+            rateDialogJob?.isActive == true
+        ) {
+            return
+        }
+
+        appSharedPref.isRateShownInSession = true
+        rateDialogJob = lifecycleScope.launch {
+            delay(RATE_DIALOG_AFTER_COMPLETE_DELAY_MS)
+            showRateDialog(this@GameActivity, false) {
+                appSharedPref.isRate = true
+            }
+        }
+    }
+
     override fun onDestroy() {
         completeDialogJob?.cancel()
+        rateDialogJob?.cancel()
         loadingDialog?.dismiss()
         loadingDialog = null
         completeDialog?.dismiss()
@@ -218,5 +241,6 @@ class GameActivity : BaseActivity<ActivityGameBinding>() {
 
     companion object {
         private const val COMPLETE_LOADING_DELAY_MS = 2_500L
+        private const val RATE_DIALOG_AFTER_COMPLETE_DELAY_MS = 300L
     }
 }

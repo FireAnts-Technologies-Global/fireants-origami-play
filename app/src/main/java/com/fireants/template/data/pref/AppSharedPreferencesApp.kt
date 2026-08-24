@@ -24,6 +24,9 @@ class AppSharedPreferencesApp(context: Context) : AppSharedPref {
         private const val IS_MUSIC_ENABLED = "is_music_enabled"
 
         private const val IS_SOUND_FX_ENABLED = "is_sound_fx_enabled"
+
+        private const val IS_RATE_SHOWN_IN_SESSION = "is_rate_shown_in_session"
+
     }
 
     override val sharedPref: SharedPreferences =
@@ -55,6 +58,10 @@ class AppSharedPreferencesApp(context: Context) : AppSharedPref {
     override var isRate: Boolean
         get() = sharedPref.getBoolean(IS_RATE, false)
         set(value) = editor.putBoolean(IS_RATE, value).apply()
+
+    override var isRateShownInSession: Boolean
+        get() = sharedPref.getBoolean(IS_RATE_SHOWN_IN_SESSION, false)
+        set(value) = editor.putBoolean(IS_RATE_SHOWN_IN_SESSION, value).apply()
 
     override var isMusicEnabled: Boolean
         get() = sharedPref.getBoolean(IS_MUSIC_ENABLED, false)

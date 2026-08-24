@@ -7,8 +7,8 @@ import android.view.WindowManager
 import androidx.databinding.ViewDataBinding
 import com.fireants.template.app.AppConstants
 import com.fireants.template.ui.component.dialog.DialogRateApp
-import com.fireants.template.utils.EasyPreferences
 import com.fireants.template.utils.EasyPreferences.set
+import com.fireants.template.utils.LocalStorageUtils
 import com.google.android.gms.tasks.Task
 import com.google.android.play.core.review.ReviewInfo
 import com.google.android.play.core.review.ReviewManager
@@ -77,33 +77,45 @@ fun View.click(action: (view: View?) -> Unit) {
 }
 
 fun showRateDialog(
-    activity: Activity, isFinish: Boolean
+    activity: Activity, isFinish: Boolean, onRated: (() -> Unit)? = null
 ) {
-    val dialog = DialogRateApp(activity, onRating = {
-        val manager: ReviewManager = ReviewManagerFactory.create(activity)
-        val request: Task<ReviewInfo> = manager.requestReviewFlow()
-        request.addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                val reviewInfo: ReviewInfo = task.result
-                val flow: Task<Void> = manager.launchReviewFlow(
-                    activity, reviewInfo
-                )
-                flow.addOnSuccessListener {
-                    EasyPreferences.defaultPrefs(activity)[AppConstants.KEY_SET_SHOW_DIALOG_RATE] =
-                        true
+    val dialog = DialogRateApp(
+        activity,
+        onRatingHighScore = {
+            onRated?.invoke()
+            val manager: ReviewManager = ReviewManagerFactory.create(activity)
+            val request: Task<ReviewInfo> = manager.requestReviewFlow()
+            request.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val reviewInfo: ReviewInfo = task.result
+                    val flow: Task<Void> = manager.launchReviewFlow(
+                        activity, reviewInfo
+                    )
+                    flow.addOnSuccessListener {
+                        LocalStorageUtils.defaultPrefs(activity)[AppConstants.KEY_SET_SHOW_DIALOG_RATE] =
+                            true
+                        if (isFinish) {
+                            activity.finishAffinity()
+                            activity.finish()
+                        }
+                    }
+                } else {
                     if (isFinish) {
                         activity.finishAffinity()
                         activity.finish()
                     }
                 }
-            } else {
-                if (isFinish) {
-                    activity.finishAffinity()
-                    activity.finish()
-                }
+            }
+        },
+        onRatingLowScore = {
+            onRated?.invoke()
+            LocalStorageUtils.defaultPrefs(activity)[AppConstants.KEY_SET_SHOW_DIALOG_RATE] = true
+            if (isFinish) {
+                activity.finishAffinity()
+                activity.finish()
             }
         }
-    })
+    )
     try {
         dialog.show()
     } catch (e: WindowManager.BadTokenException) {

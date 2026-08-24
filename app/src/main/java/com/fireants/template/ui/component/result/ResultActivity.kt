@@ -10,9 +10,11 @@ import com.fireants.template.data.model.product.GameType
 import com.fireants.template.databinding.ActivityResultBinding
 import com.fireants.template.ui.bases.BaseActivity
 import com.fireants.template.ui.bases.ext.click
+import com.fireants.template.ui.bases.ext.showRateDialog
 import com.fireants.template.ui.component.main.ProductDisplayFormatter
 import com.fireants.template.utils.Routes
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -31,6 +33,15 @@ class ResultActivity : BaseActivity<ActivityResultBinding>() {
 
     override fun initViews() {
         super.initViews()
+        if (!appSharedPref.isRate && !appSharedPref.isRateShownInSession) {
+            lifecycleScope.launch {
+                delay(3000)
+                appSharedPref.isRateShownInSession = true
+                showRateDialog(this@ResultActivity, false) {
+                    appSharedPref.isRate = true
+                }
+            }
+        }
         mBinding.rvYouMayLike.apply {
             layoutManager = LinearLayoutManager(
                 this@ResultActivity,

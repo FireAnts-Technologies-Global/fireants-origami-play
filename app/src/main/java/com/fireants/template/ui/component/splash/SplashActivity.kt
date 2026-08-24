@@ -50,6 +50,7 @@ class SplashActivity : BaseActivityWithBanner<ActivitySplashBinding>(), RemoteCo
 
     override fun initViews() {
         super.initViews()
+        appSharedPref.isRateShownInSession = false
         AdsManager.clearAll()
         RemoteConfigUtils.init(this, this)
         consentHandler = ConsentHandler(
