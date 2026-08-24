@@ -151,6 +151,8 @@
     <string name="premium">Premium</string>
     <string name="premium_required_title">Premium Required</string>
     <string name="premium_required_message">Unlock Premium to access this content, use unlimited hints, and open every paper style.</string>
+    <string name="shop_premium_title">Not Enough Coins</string>
+    <string name="shop_premium_message">Upgrade to Premium to use unlimited hints and unlock every paper style without spending coins.</string>
     <string name="premium_not_now">Not Now</string>
     <string name="premium_upgrade">Unlock Premium</string>
     <string name="bag_reward_coin">Mystery Bag opened! You got %1$d coins.</string>

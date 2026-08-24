@@ -164,7 +164,11 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
         if (currentCoins >= cost) {
             onBuy()
         } else {
-            DialogPremium(this) {
+            DialogPremium(
+                context = this,
+                titleRes = R.string.shop_premium_title,
+                messageRes = R.string.shop_premium_message
+            ) {
                 Routes.startIapActivity(this)
             }.show()
         }
