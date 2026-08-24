@@ -9,6 +9,7 @@ import com.pegas.origami.paper.folding.art.ads.RemoteConfigUtils
 import com.pegas.origami.paper.folding.art.ads.populateNativeAdView
 import com.pegas.origami.paper.folding.art.app.AppConstants
 import com.pegas.origami.paper.folding.art.app.AppConstants.DEFAULT_TIME_DELAY_SHOW_LANGUAGE_DONE_BUTTON
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.databinding.ActivityLanguageBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BaseActivity
 import com.pegas.origami.paper.folding.art.ui.bases.NavigationBarConfig
@@ -61,7 +62,7 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
         initLayout()
 
         mBinding.root.postDelayed({
-            if (!fromSetting) {
+            if (shouldShowLanguageAds()) {
                 loadNativeLanguageClick(
                     this,
                     R.layout.layout_native_language_click
@@ -73,7 +74,7 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
 
     override fun observeData() {
         super.observeData()
-        if (!fromSetting) {
+        if (shouldShowLanguageAds()) {
             listenLanguageAd()
         } else {
             hideLanguageAd()
@@ -111,7 +112,7 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
     }
 
     private fun initAds() {
-        if (fromSetting) {
+        if (!shouldShowLanguageAds()) {
             hideLanguageAd()
         } else {
             AdsManager.loadNativeOnboarding4(
@@ -133,6 +134,10 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
     }
 
     private fun listenLanguageClickAd() {
+        if (!shouldShowLanguageAds()) {
+            hideLanguageAd()
+            return
+        }
         AdsManager.nativeLanguageAdLive.removeObservers(this)
         AdsManager.nativeLanguageAdStateLive.removeObservers(this)
         AdsManager.nativeLanguageClickAdStateLive.removeObservers(this)
@@ -146,6 +151,10 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
     }
 
     private fun renderLanguageAdState(state: AdsManager.NativeAdLoadState) {
+        if (!shouldShowLanguageAds()) {
+            hideLanguageAd()
+            return
+        }
         when (state) {
             AdsManager.NativeAdLoadState.IDLE,
             AdsManager.NativeAdLoadState.LOADING -> showLanguageAdLoading()
@@ -156,7 +165,10 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
     }
 
     private fun showLanguageAdLoading() {
-        if (fromSetting) return
+        if (!shouldShowLanguageAds()) {
+            hideLanguageAd()
+            return
+        }
         mBinding.flAds.visibleView()
         mBinding.flAdContent.goneView()
         mBinding.shimmerAds.shimmerNativeLarge.visibleView()
@@ -170,7 +182,7 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
     }
 
     private fun showNativeLanguage(ad: ApNativeAd) {
-        if (fromSetting) {
+        if (!shouldShowLanguageAds()) {
             hideLanguageAd()
             return
         }
@@ -186,6 +198,10 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
             mBinding.flAdContent,
             mBinding.shimmerAds.shimmerNativeLarge
         )
+    }
+
+    private fun shouldShowLanguageAds(): Boolean {
+        return !fromSetting && !PremiumAccessManager.isPremium(this)
     }
 
     private fun enableDoneButton() {

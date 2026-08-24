@@ -8,6 +8,7 @@ import com.fireants.adsdk.ads.wrapper.ApNativeAd
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.ads.populateNativeAdView
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.databinding.FragmentOnboardingPageBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BaseFragment
 import com.pegas.origami.paper.folding.art.ui.bases.ext.click
@@ -59,6 +60,11 @@ class OnboardingPageFragment : BaseFragment<FragmentOnboardingPageBinding>() {
     }
 
     private fun observeAdChannel() {
+        if (!shouldShowAds()) {
+            renderNoAd()
+            return
+        }
+
         val channels: Pair<MutableLiveData<ApNativeAd?>, MutableLiveData<AdsManager.NativeAdLoadState>> =
             when {
                 onboardingItem.isHasNativeOnPage4 ->
@@ -84,6 +90,11 @@ class OnboardingPageFragment : BaseFragment<FragmentOnboardingPageBinding>() {
     }
 
     private fun renderAdState(state: AdsManager.NativeAdLoadState) {
+        if (!shouldShowAds()) {
+            renderNoAd()
+            return
+        }
+
         when (state) {
             AdsManager.NativeAdLoadState.IDLE,
             AdsManager.NativeAdLoadState.LOADING -> renderAdLoading()
@@ -94,11 +105,20 @@ class OnboardingPageFragment : BaseFragment<FragmentOnboardingPageBinding>() {
     }
 
     private fun renderLoadedAd(ad: ApNativeAd) {
+        if (!shouldShowAds()) {
+            renderNoAd()
+            return
+        }
         renderAdLoading()
         renderAd(ad)
     }
 
     private fun renderAdLoading() {
+        if (!shouldShowAds()) {
+            renderNoAd()
+            return
+        }
+
         if (onboardingItem.nativeFullPlacement != null) {
             mBinding.layoutAdsFull.visibleView()
             mBinding.layoutAdFullContent.goneView()
@@ -118,6 +138,11 @@ class OnboardingPageFragment : BaseFragment<FragmentOnboardingPageBinding>() {
     }
 
     private fun renderAd(ad: ApNativeAd?) {
+        if (!shouldShowAds()) {
+            renderNoAd()
+            return
+        }
+
         if (onboardingItem.nativeFullPlacement != null) {
             if (ad != null) {
                 mBinding.layoutAdsFull.visibleView()
@@ -158,10 +183,16 @@ class OnboardingPageFragment : BaseFragment<FragmentOnboardingPageBinding>() {
     }
 
     private fun renderNoAd() {
+        mBinding.shimmerAds.shimmerNativeMedium.stopShimmer()
+        mBinding.shimmerAdsFull.shimmerNativeFull.stopShimmer()
         mBinding.layoutContent.visibleView()
         mBinding.layoutAds.goneView()
         mBinding.layoutAdsFull.invisibleView()
         mBinding.imgCloseAdsFull.invisibleView()
+    }
+
+    private fun shouldShowAds(): Boolean {
+        return !PremiumAccessManager.isPremium(requireContext())
     }
 
     private fun updateLayout() {
