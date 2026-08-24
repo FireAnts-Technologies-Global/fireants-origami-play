@@ -9,11 +9,11 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
 import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.ads.banner_play
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.databinding.ActivityGameBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BannerConfig
 import com.pegas.origami.paper.folding.art.ui.bases.BaseActivityWithBanner
@@ -257,7 +257,7 @@ class GameActivity : BaseActivityWithBanner<ActivityGameBinding>() {
 
     private fun updateHintBudgetVisibility() {
         mBinding.tvHintCount.visibility =
-            if (AppPurchase.getInstance().isPurchased(this)) View.GONE else View.VISIBLE
+            if (PremiumAccessManager.isPremium(this)) View.GONE else View.VISIBLE
     }
 
     override fun onPause() {

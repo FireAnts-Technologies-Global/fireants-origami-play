@@ -3,8 +3,8 @@ package com.pegas.origami.paper.folding.art.ui.component.level
 import androidx.core.content.ContextCompat
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
-import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.R
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.databinding.ItemLevelBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BaseListAdapter
 import com.pegas.origami.paper.folding.art.ui.bases.ext.goneView
@@ -22,7 +22,7 @@ class LevelAdapter(
             binding.tvLevelNumber.text =
                 context.getString(R.string.number_format, item.level.levelNumber)
             val shouldShowPremiumIcon =
-                item.level.isPremium && !AppPurchase.getInstance().isPurchased(context)
+                item.level.isPremium && !PremiumAccessManager.isPremium(context)
             if (shouldShowPremiumIcon) binding.ivVip.visibleView() else binding.ivVip.goneView()
             val isUnlocked = item.progress?.isUnlocked == true || !item.level.isLocked
             if (!isUnlocked) {

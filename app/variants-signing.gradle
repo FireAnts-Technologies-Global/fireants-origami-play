@@ -3,8 +3,8 @@ android {
     productFlavors {
         dev {
             dimension "distribution"
-            applicationIdSuffix ".dev"
-            versionNameSuffix "-dev"
+//            applicationIdSuffix ".dev"
+//            versionNameSuffix "-dev"
         }
         prod {
             dimension "distribution"

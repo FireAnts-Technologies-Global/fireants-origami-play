@@ -1,7 +1,7 @@
 package com.pegas.origami.paper.folding.art.data.repository.impl
 
 import android.content.Context
-import com.fireants.adsdk.billing.AppPurchase
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.data.local.pref.OrigamiPreference
 import com.pegas.origami.paper.folding.art.data.model.player.PlayerData
 import com.pegas.origami.paper.folding.art.data.repository.UserRepository
@@ -135,5 +135,5 @@ class UserRepositoryImpl @Inject constructor(
     }
 
     private fun isPremiumPurchased(): Boolean =
-        AppPurchase.getInstance().isPurchased(context)
+        PremiumAccessManager.isPremium(context)
 }

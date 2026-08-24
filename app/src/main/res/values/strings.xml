@@ -145,6 +145,9 @@
     <string name="restore_purchases">Restore Purchases</string>
     <string name="iap_purchase_coming_soon">Purchases will be available soon</string>
     <string name="iap_restore_coming_soon">Restore purchases will be available soon</string>
+    <string name="iap_purchase_success">Premium unlocked successfully.</string>
+    <string name="iap_restore_success">Premium purchase restored.</string>
+    <string name="iap_restore_empty">No active Premium purchase found.</string>
     <string name="premium_content">Premium Content</string>
     <string name="unlock_this_content_by_purchasing_a_premium_package_or_watching_an_ad.">Unlock this content by purchasing a Premium package or watching an ad.</string>
     <string name="buy_premium">Buy Premium</string>

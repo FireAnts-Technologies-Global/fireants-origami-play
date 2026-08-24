@@ -17,6 +17,7 @@ import com.pegas.origami.paper.folding.art.app.AppConstants
 import com.pegas.origami.paper.folding.art.databinding.ActivityIapBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BaseActivity
 import com.pegas.origami.paper.folding.art.ui.bases.ext.click
+import com.pegas.origami.paper.folding.art.ui.bases.ext.goneView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,8 +34,10 @@ class IapActivity : BaseActivity<ActivityIapBinding>() {
         mBinding.benefitUnlimitedHints.tvBenefit.text =
             getString(R.string.iap_benefit_unlimited_hints)
         mBinding.benefitPaperStyles.tvBenefit.text = getString(R.string.iap_benefit_paper_styles)
+        mBinding.planYearly.goneView()
         underlineFooterLinks()
         setupSubscriptionSectionLink()
+        viewModel.load()
     }
 
     override fun onClickViews() {
@@ -42,15 +45,69 @@ class IapActivity : BaseActivity<ActivityIapBinding>() {
         mBinding.imgClose.click {
             finish()
         }
+        mBinding.planWeekly.click {
+            viewModel.selectPlan(IapPlan.WEEKLY)
+        }
+        mBinding.planMonthly.click {
+            viewModel.selectPlan(IapPlan.MONTHLY)
+        }
         mBinding.btnContinue.click {
-            Toast.makeText(this, R.string.iap_purchase_coming_soon, Toast.LENGTH_SHORT).show()
+            viewModel.purchaseSelectedPlan(this)
         }
         mBinding.tvRestore.click {
-            Toast.makeText(this, R.string.iap_restore_coming_soon, Toast.LENGTH_SHORT).show()
+            viewModel.restorePurchases()
         }
         mBinding.tvTerms.click {
             openLink(AppConstants.LINK_TERMS_OF_USE)
         }
+    }
+
+    override fun observeData() {
+        super.observeData()
+        viewModel.state.observe(this) { state ->
+            if (state.isLoading) showLoading() else hideLoading()
+            mBinding.tvWeeklyPrice.text = state.weeklyPrice ?: getString(R.string.iap_price_loading)
+            mBinding.tvMonthlyPrice.text =
+                state.monthlyPrice ?: getString(R.string.iap_price_loading)
+            renderSelectedPlan(state.selectedPlan)
+            state.errorMessage?.let {
+                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+                viewModel.consumeEvent()
+            }
+            when (state.event) {
+                IapEvent.PurchaseSuccess -> {
+                    Toast.makeText(this, R.string.iap_purchase_success, Toast.LENGTH_SHORT).show()
+                    viewModel.consumeEvent()
+                    finish()
+                }
+
+                IapEvent.RestoreSuccess -> {
+                    Toast.makeText(this, R.string.iap_restore_success, Toast.LENGTH_SHORT).show()
+                    viewModel.consumeEvent()
+                    finish()
+                }
+
+                IapEvent.NoPurchaseToRestore -> {
+                    Toast.makeText(this, R.string.iap_restore_empty, Toast.LENGTH_SHORT).show()
+                    viewModel.consumeEvent()
+                }
+
+                IapEvent.PurchaseCancelled -> {
+                    viewModel.consumeEvent()
+                }
+
+                null -> Unit
+            }
+        }
+    }
+
+    private fun renderSelectedPlan(selectedPlan: IapPlan) {
+        mBinding.planWeekly.setBackgroundResource(
+            if (selectedPlan == IapPlan.WEEKLY) R.drawable.bg_iap_plan_selected else R.drawable.bg_iap_plan
+        )
+        mBinding.planMonthly.setBackgroundResource(
+            if (selectedPlan == IapPlan.MONTHLY) R.drawable.bg_iap_plan_selected else R.drawable.bg_iap_plan
+        )
     }
 
     private fun underlineFooterLinks() {

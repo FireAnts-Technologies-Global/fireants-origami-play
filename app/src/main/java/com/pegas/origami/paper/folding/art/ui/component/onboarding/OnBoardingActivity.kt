@@ -6,13 +6,13 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.fireants.adsdk.ads.FireAntsAdSdk
-import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
 import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.ads.RemoteConfigUtils
 import com.pegas.origami.paper.folding.art.ads.native_onboarding_fullscreen12
 import com.pegas.origami.paper.folding.art.ads.native_onboarding_fullscreen23
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.databinding.ActivityOnboardingBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BaseActivity
 import com.pegas.origami.paper.folding.art.ui.bases.NavigationBarConfig
@@ -48,7 +48,7 @@ class OnBoardingActivity : BaseActivity<ActivityOnboardingBinding>() {
         initPage()
         initOnboardingItems()
         mBinding.root.postDelayed({
-            if (AppPurchase.getInstance().isPurchased(this)) {
+            if (PremiumAccessManager.isPremium(this)) {
                 return@postDelayed
             }
 
@@ -193,7 +193,7 @@ class OnBoardingActivity : BaseActivity<ActivityOnboardingBinding>() {
             NativeFullPlacement.AFTER_PAGE_2 -> FireAntsAdSdk.getInstance()
                 .shouldDisplayNativeOnboardingFull2
         }
-        val isPurchased = AppPurchase.getInstance().isPurchased(this)
+        val isPurchased = PremiumAccessManager.isPremium(this)
         if (isNetwork(this) && config.isEnable && shouldDisplay && !isPurchased) {
             onboardingItems.add(OnboardingItem(nativeFullPlacement = placement))
         }

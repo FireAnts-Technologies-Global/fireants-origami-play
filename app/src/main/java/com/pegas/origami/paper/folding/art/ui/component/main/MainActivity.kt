@@ -7,13 +7,13 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
-import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.BuildConfig
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
 import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.ads.RemoteConfigUtils
 import com.pegas.origami.paper.folding.art.ads.banner_all
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.data.model.ForceUpdateConfig
 import com.pegas.origami.paper.folding.art.data.model.product.ProductItem
 import com.pegas.origami.paper.folding.art.databinding.ActivityMainBinding
@@ -68,7 +68,7 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
     }
 
     private fun openProduct(item: ProductItem) {
-        if (item.isPremium && !AppPurchase.getInstance().isPurchased(this)) {
+        if (item.isPremium && !PremiumAccessManager.isPremium(this)) {
             showPremiumDialog()
             return
         }

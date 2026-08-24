@@ -6,11 +6,11 @@ import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
 import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.ads.banner_all
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.databinding.ActivityLevelBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BannerConfig
 import com.pegas.origami.paper.folding.art.ui.bases.BaseActivityWithBanner
@@ -37,7 +37,7 @@ class LevelActivity : BaseActivityWithBanner<ActivityLevelBinding>() {
         mBinding.tvTitle.text = getString(R.string.game)
         mBinding.glowBackground.glowColor = ContextCompat.getColor(this, R.color.color_FF9E44)
         levelAdapter = LevelAdapter { levelItem ->
-            if (levelItem.level.isPremium && !AppPurchase.getInstance().isPurchased(this)) {
+            if (levelItem.level.isPremium && !PremiumAccessManager.isPremium(this)) {
                 showPremiumDialog()
                 return@LevelAdapter
             }

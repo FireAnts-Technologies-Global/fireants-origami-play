@@ -5,11 +5,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
 import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.ads.banner_all
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.data.model.product.GameType
 import com.pegas.origami.paper.folding.art.data.model.product.ProductItem
 import com.pegas.origami.paper.folding.art.databinding.ActivityPaperCraftBinding
@@ -70,7 +70,7 @@ class PaperCraftActivity : BaseActivityWithBanner<ActivityPaperCraftBinding>() {
     }
 
     private fun openProduct(item: ProductItem) {
-        if (item.isPremium && !AppPurchase.getInstance().isPurchased(this)) {
+        if (item.isPremium && !PremiumAccessManager.isPremium(this)) {
             showPremiumDialog()
             return
         }

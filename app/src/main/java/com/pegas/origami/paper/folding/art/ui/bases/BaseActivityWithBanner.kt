@@ -5,10 +5,10 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.FrameLayout
 import androidx.databinding.ViewDataBinding
-import com.fireants.adsdk.billing.AppPurchase
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdUnitConfig
 import com.pegas.origami.paper.folding.art.ads.AdsManager
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.ui.bases.ext.goneView
 import com.pegas.origami.paper.folding.art.ui.bases.ext.visibleView
 
@@ -115,7 +115,7 @@ abstract class BaseActivityWithBanner<VB : ViewDataBinding> : BaseActivity<VB>()
 
     private fun shouldShowBanner(): Boolean {
         val isAdEnabled = bannerConfig.adUnitConfig.isEnable
-                && !AppPurchase.getInstance().isPurchased
+                && !PremiumAccessManager.isPremium(this)
         val frAds = findViewById<FrameLayout>(R.id.fr_banner)
         return isAdEnabled && frAds != null
     }

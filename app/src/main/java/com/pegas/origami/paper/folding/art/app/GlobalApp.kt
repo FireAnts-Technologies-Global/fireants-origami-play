@@ -15,9 +15,13 @@ import com.pegas.origami.paper.folding.art.BuildConfig
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
 import com.pegas.origami.paper.folding.art.ads.RemoteConfigUtils
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.ui.component.language.LanguageActivity
 import com.pegas.origami.paper.folding.art.ui.component.onboarding.OnBoardingActivity
 import com.pegas.origami.paper.folding.art.ui.component.splash.SplashActivity
+import com.revenuecat.purchases.LogLevel
+import com.revenuecat.purchases.Purchases
+import com.revenuecat.purchases.PurchasesConfiguration
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
@@ -46,6 +50,7 @@ class GlobalApp : AdsMultiDexApplication() {
             Timber.plant(Timber.DebugTree())
         }
         initAdRemoteConfig()
+        initRevenueCat()
         initAds()
 
         // Unconditionally register lifecycle observer and callbacks so dynamic welcome/resume toggling works during testing
@@ -77,6 +82,14 @@ class GlobalApp : AdsMultiDexApplication() {
         AppOpenManager.getInstance().disableAppResumeWithActivity(OnBoardingActivity::class.java)
         FireAntsAdSdk.getInstance().prepareLoadingAdsDialogLayout = R.layout.layout_prepare_ads
         FireAntsAdSdk.getInstance().resumeLoadingDialogLayout = R.layout.layout_welcome_back
+    }
+
+    private fun initRevenueCat() {
+        Purchases.logLevel = if (BuildConfig.DEBUG) LogLevel.DEBUG else LogLevel.INFO
+        Purchases.configure(
+            PurchasesConfiguration.Builder(this, BuildConfig.REVENUECAT_API_KEY).build()
+        )
+        PremiumAccessManager.refresh()
     }
 
     fun applyInterstitialInterval(intervalSeconds: Int) {

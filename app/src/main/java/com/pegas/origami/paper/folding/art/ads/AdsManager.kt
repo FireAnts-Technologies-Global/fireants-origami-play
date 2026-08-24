@@ -13,11 +13,11 @@ import androidx.lifecycle.MutableLiveData
 import com.fireants.adsdk.ads.FireAntsAdSdk
 import com.fireants.adsdk.ads.wrapper.ApInterstitialAd
 import com.fireants.adsdk.ads.wrapper.ApNativeAd
-import com.fireants.adsdk.billing.AppPurchase
 import com.fireants.adsdk.funtion.AdCallback
 import com.fireants.adsdk.util.AppConstant
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.ui.bases.ext.goneView
 import timber.log.Timber
 
@@ -62,7 +62,7 @@ object AdsManager {
         stateLiveData: MutableLiveData<NativeAdLoadState>? = null,
     ) {
         if (!config.isEnable
-            || AppPurchase.getInstance().isPurchased(activity)
+            || PremiumAccessManager.isPremium(activity)
             || !activity.isNetworkAvailable()
             || !shouldDisplay
         ) {
@@ -158,7 +158,7 @@ object AdsManager {
     fun loadInterWelcome(context: Context, ignoreLimit: Boolean = false) {
         val config = AdRemoteConfig.inter_welcome_back
         if (!config.isEnable
-            || AppPurchase.getInstance().isPurchased(context)
+            || PremiumAccessManager.isPremium(context)
             || (!ignoreLimit && !FireAntsAdSdk.getInstance()
                 .shouldDisplayInterWelcomeBack)
         ) {
@@ -171,8 +171,7 @@ object AdsManager {
     }
     fun showInterWelcome(context: Context, ignoreLimit: Boolean = false, onAction: () -> Unit) {
         val interstitial = interWelcomeBackAd
-        if (interstitial != null && interstitial.isReady && !AppPurchase.getInstance()
-                .isPurchased(context) && (ignoreLimit ||
+        if (interstitial != null && interstitial.isReady && !PremiumAccessManager.isPremium(context) && (ignoreLimit ||
                     FireAntsAdSdk.getInstance()
                         .shouldDisplayInterWelcomeBack)
         ) {
@@ -190,7 +189,7 @@ object AdsManager {
 
     fun loadInterHome(context: Context) {
         val config = AdRemoteConfig.inter_home
-        if (!config.isEnable || AppPurchase.getInstance().isPurchased(context)) {
+        if (!config.isEnable || PremiumAccessManager.isPremium(context)) {
             interHomeAd = null
             return
         }
@@ -200,8 +199,7 @@ object AdsManager {
 
     fun showInterHome(context: Context, onAction: () -> Unit) {
         val interstitial = interHomeAd
-        if (interstitial != null && interstitial.isReady && !AppPurchase.getInstance()
-                .isPurchased(context)
+        if (interstitial != null && interstitial.isReady && !PremiumAccessManager.isPremium(context)
         ) {
             FireAntsAdSdk.getInstance()
                 .forceShowInterstitial(context, interstitial, object : AdCallback() {
@@ -218,7 +216,7 @@ object AdsManager {
 
     fun loadInterBack(context: Context) {
         val config = AdRemoteConfig.inter_back
-        if (!config.isEnable || AppPurchase.getInstance().isPurchased(context)) {
+        if (!config.isEnable || PremiumAccessManager.isPremium(context)) {
             interBackAd = null
             return
         }
@@ -228,8 +226,7 @@ object AdsManager {
 
     fun showInterBack(context: Context, onAction: () -> Unit) {
         val interstitial = interBackAd
-        if (interstitial != null && interstitial.isReady && !AppPurchase.getInstance()
-                .isPurchased(context)
+        if (interstitial != null && interstitial.isReady && !PremiumAccessManager.isPremium(context)
         ) {
             FireAntsAdSdk.getInstance()
                 .forceShowInterstitial(context, interstitial, object : AdCallback() {
@@ -246,7 +243,7 @@ object AdsManager {
 
     fun loadInterLevel(context: Context) {
         val config = AdRemoteConfig.inter_level
-        if (!config.isEnable || AppPurchase.getInstance().isPurchased(context)) {
+        if (!config.isEnable || PremiumAccessManager.isPremium(context)) {
             interLevelAd = null
             return
         }
@@ -256,8 +253,7 @@ object AdsManager {
 
     fun showInterLevel(context: Context, onAction: () -> Unit) {
         val interstitial = interLevelAd
-        if (interstitial != null && interstitial.isReady && !AppPurchase.getInstance()
-                .isPurchased(context)
+        if (interstitial != null && interstitial.isReady && !PremiumAccessManager.isPremium(context)
         ) {
             FireAntsAdSdk.getInstance()
                 .forceShowInterstitial(context, interstitial, object : AdCallback() {
@@ -279,7 +275,7 @@ object AdsManager {
         frAds: FrameLayout,
         isCollapse: Boolean,
     ) {
-        if (adUnitConfig.isEnable) {
+        if (adUnitConfig.isEnable && !PremiumAccessManager.isPremium(activity)) {
             removeBannerView(activity, frAds)
             if (isCollapse) FireAntsAdSdk.getInstance().loadCollapsibleBanner(
                 activity,

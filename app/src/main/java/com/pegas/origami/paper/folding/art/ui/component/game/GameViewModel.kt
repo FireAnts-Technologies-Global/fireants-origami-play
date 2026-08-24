@@ -2,7 +2,7 @@ package com.pegas.origami.paper.folding.art.ui.component.game
 
 import android.content.Context
 import androidx.lifecycle.viewModelScope
-import com.fireants.adsdk.billing.AppPurchase
+import com.pegas.origami.paper.folding.art.billing.PremiumAccessManager
 import com.pegas.origami.paper.folding.art.domain.usecase.game.CompleteLevelUseCase
 import com.pegas.origami.paper.folding.art.domain.usecase.game.GetFoldHintsUseCase
 import com.pegas.origami.paper.folding.art.domain.usecase.game.GetLevelUseCase
@@ -83,7 +83,7 @@ class GameViewModel @Inject constructor(
 
     fun useHint() {
         val currentHints = _state.value.player?.hints ?: 0
-        if (currentHints > 0 || AppPurchase.getInstance().isPurchased(context)) {
+        if (currentHints > 0 || PremiumAccessManager.isPremium(context)) {
             val success = useHintUseCase()
             if (success) {
                 viewModelScope.launch { _eventFlow.emit(GameEvent.ShowHint) }

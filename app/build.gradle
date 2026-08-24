@@ -10,6 +10,11 @@ plugins {
 
 apply from: 'variants-signing.gradle'
 
+def buildConfigString = { String propertyName ->
+    def value = providers.gradleProperty(propertyName).getOrElse("")
+    "\"${value}\""
+}
+
 android {
     compileSdk compile_sdk_version
 
@@ -26,6 +31,11 @@ android {
         buildConfigField "String", "FIREANTS_ADS_VERSION", "\"$fireants_ads_sdk\""
         buildConfigField "String", "PLAY_SERVICES_ADS_VERSION", "\"$play_services_ads_version\""
         buildConfigField "String", "GDPR_MODULE_VERSION", "\"$fireants_consent\""
+        buildConfigField "String", "REVENUECAT_API_KEY", buildConfigString("revenuecat.apiKey")
+        buildConfigField "String", "REVENUECAT_ENTITLEMENT_PREMIUM", buildConfigString("revenuecat.entitlementPremium")
+        buildConfigField "String", "REVENUECAT_OFFERING_DEFAULT", buildConfigString("revenuecat.offeringDefault")
+        buildConfigField "String", "REVENUECAT_PACKAGE_WEEKLY", buildConfigString("revenuecat.packageWeekly")
+        buildConfigField "String", "REVENUECAT_PACKAGE_MONTHLY", buildConfigString("revenuecat.packageMonthly")
     }
 
     bundle {
@@ -152,6 +162,7 @@ dependencies {
 
     // Billing
     implementation "com.android.billingclient:billing:$billing_version"
+    implementation 'com.revenuecat.purchases:purchases:10.15.1'
 
     // Lifecycle
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle_version"
