@@ -41,11 +41,23 @@
                 android:clipToPadding="false"
                 android:paddingHorizontal="@dimen/_12sdp"
                 android:paddingBottom="@dimen/_18sdp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/fr_banner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/searchBar" />
 
+            <FrameLayout
+                android:id="@+id/fr_banner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <include
+                    android:id="@+id/include"
+                    layout="@layout/layout_banner_control"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.pegas.origami.paper.folding.art.ui.component.custom.GlowBackgroundView>

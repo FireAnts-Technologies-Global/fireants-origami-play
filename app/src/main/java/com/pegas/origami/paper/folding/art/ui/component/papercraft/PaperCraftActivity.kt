@@ -6,10 +6,13 @@ import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.pegas.origami.paper.folding.art.R
+import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
+import com.pegas.origami.paper.folding.art.ads.banner_all
 import com.pegas.origami.paper.folding.art.data.model.product.GameType
 import com.pegas.origami.paper.folding.art.databinding.ActivityPaperCraftBinding
 import com.pegas.origami.paper.folding.art.domain.model.product.HomeProductSection
-import com.pegas.origami.paper.folding.art.ui.bases.BaseActivity
+import com.pegas.origami.paper.folding.art.ui.bases.BannerConfig
+import com.pegas.origami.paper.folding.art.ui.bases.BaseActivityWithBanner
 import com.pegas.origami.paper.folding.art.ui.bases.ext.click
 import com.pegas.origami.paper.folding.art.ui.component.custom.GridSpacingItemDecoration
 import com.pegas.origami.paper.folding.art.utils.Routes
@@ -17,7 +20,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class PaperCraftActivity : BaseActivity<ActivityPaperCraftBinding>() {
+class PaperCraftActivity : BaseActivityWithBanner<ActivityPaperCraftBinding>() {
+    override val bannerConfig = BannerConfig(AdRemoteConfig.banner_all, false)
 
     private val viewModel: PaperCraftViewModel by viewModels()
     private lateinit var adapter: PaperCraftAdapter

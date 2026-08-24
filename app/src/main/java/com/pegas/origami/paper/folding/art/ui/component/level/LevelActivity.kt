@@ -7,8 +7,11 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.pegas.origami.paper.folding.art.R
+import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
+import com.pegas.origami.paper.folding.art.ads.banner_all
 import com.pegas.origami.paper.folding.art.databinding.ActivityLevelBinding
-import com.pegas.origami.paper.folding.art.ui.bases.BaseActivity
+import com.pegas.origami.paper.folding.art.ui.bases.BannerConfig
+import com.pegas.origami.paper.folding.art.ui.bases.BaseActivityWithBanner
 import com.pegas.origami.paper.folding.art.ui.bases.ext.click
 import com.pegas.origami.paper.folding.art.ui.component.custom.GridSpacingItemDecoration
 import com.pegas.origami.paper.folding.art.ui.component.game.GameActivity
@@ -18,7 +21,8 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class LevelActivity : BaseActivity<ActivityLevelBinding>() {
+class LevelActivity : BaseActivityWithBanner<ActivityLevelBinding>() {
+    override val bannerConfig = BannerConfig(AdRemoteConfig.banner_all, false)
 
     private val viewModel: LevelViewModel by viewModels()
     private lateinit var levelAdapter: LevelAdapter

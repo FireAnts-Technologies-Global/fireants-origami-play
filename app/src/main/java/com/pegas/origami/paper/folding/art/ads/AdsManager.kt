@@ -188,24 +188,20 @@ object AdsManager {
         }
     }
 
-    fun loadInterHome(context: Context, ignoreLimit: Boolean = false) {
+    fun loadInterHome(context: Context) {
         val config = AdRemoteConfig.inter_home
-        if (!config.isEnable
-            || AppPurchase.getInstance().isPurchased(context)
-            || (!ignoreLimit)
-        ) {
+        if (!config.isEnable || AppPurchase.getInstance().isPurchased(context)) {
             interHomeAd = null
             return
         }
-        interHomeAd =
-            FireAntsAdSdk.getInstance()
-                .getInterstitialAds(context, config.id, object : AdCallback() {})
+        interHomeAd = FireAntsAdSdk.getInstance()
+            .getInterstitialAds(context, config.id, object : AdCallback() {})
     }
 
-    fun showInterHome(context: Context, ignoreLimit: Boolean = false, onAction: () -> Unit) {
+    fun showInterHome(context: Context, onAction: () -> Unit) {
         val interstitial = interHomeAd
         if (interstitial != null && interstitial.isReady && !AppPurchase.getInstance()
-                .isPurchased(context) && (ignoreLimit)
+                .isPurchased(context)
         ) {
             FireAntsAdSdk.getInstance()
                 .forceShowInterstitial(context, interstitial, object : AdCallback() {
@@ -213,30 +209,27 @@ object AdsManager {
                         super.onNextAction()
                         onAction()
                     }
-                }, false)
+                }, true)
+
         } else {
             onAction()
         }
     }
 
-    fun loadInterBack(context: Context, ignoreLimit: Boolean = false) {
+    fun loadInterBack(context: Context) {
         val config = AdRemoteConfig.inter_back
-        if (!config.isEnable
-            || AppPurchase.getInstance().isPurchased(context)
-            || (!ignoreLimit)
-        ) {
+        if (!config.isEnable || AppPurchase.getInstance().isPurchased(context)) {
             interBackAd = null
             return
         }
-        interBackAd =
-            FireAntsAdSdk.getInstance()
-                .getInterstitialAds(context, config.id, object : AdCallback() {})
+        interBackAd = FireAntsAdSdk.getInstance()
+            .getInterstitialAds(context, config.id, object : AdCallback() {})
     }
 
-    fun showInterBack(context: Context, ignoreLimit: Boolean = false, onAction: () -> Unit) {
+    fun showInterBack(context: Context, onAction: () -> Unit) {
         val interstitial = interBackAd
         if (interstitial != null && interstitial.isReady && !AppPurchase.getInstance()
-                .isPurchased(context) && (ignoreLimit)
+                .isPurchased(context)
         ) {
             FireAntsAdSdk.getInstance()
                 .forceShowInterstitial(context, interstitial, object : AdCallback() {
@@ -244,30 +237,27 @@ object AdsManager {
                         super.onNextAction()
                         onAction()
                     }
-                }, false)
+                }, true)
+
         } else {
             onAction()
         }
     }
 
-    fun loadInterLevel(context: Context, ignoreLimit: Boolean = false) {
+    fun loadInterLevel(context: Context) {
         val config = AdRemoteConfig.inter_level
-        if (!config.isEnable
-            || AppPurchase.getInstance().isPurchased(context)
-            || (!ignoreLimit)
-        ) {
+        if (!config.isEnable || AppPurchase.getInstance().isPurchased(context)) {
             interLevelAd = null
             return
         }
-        interLevelAd =
-            FireAntsAdSdk.getInstance()
-                .getInterstitialAds(context, config.id, object : AdCallback() {})
+        interLevelAd = FireAntsAdSdk.getInstance()
+            .getInterstitialAds(context, config.id, object : AdCallback() {})
     }
 
-    fun showInterLevel(context: Context, ignoreLimit: Boolean = false, onAction: () -> Unit) {
+    fun showInterLevel(context: Context, onAction: () -> Unit) {
         val interstitial = interLevelAd
         if (interstitial != null && interstitial.isReady && !AppPurchase.getInstance()
-                .isPurchased(context) && (ignoreLimit)
+                .isPurchased(context)
         ) {
             FireAntsAdSdk.getInstance()
                 .forceShowInterstitial(context, interstitial, object : AdCallback() {
@@ -275,11 +265,13 @@ object AdsManager {
                         super.onNextAction()
                         onAction()
                     }
-                }, false)
+                }, true)
+
         } else {
             onAction()
         }
     }
+
 
     fun loadBanner(
         activity: AppCompatActivity,

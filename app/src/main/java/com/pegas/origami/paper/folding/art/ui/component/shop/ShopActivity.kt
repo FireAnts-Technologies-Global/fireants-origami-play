@@ -7,6 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.data.model.game.PaperItem
 import com.pegas.origami.paper.folding.art.data.model.shop.ShopConfig
+import com.pegas.origami.paper.folding.art.data.model.shop.ShopResult
 import com.pegas.origami.paper.folding.art.databinding.ActivityShopBinding
 import com.pegas.origami.paper.folding.art.ui.bases.BaseActivity
 import com.pegas.origami.paper.folding.art.ui.bases.ext.click
@@ -80,16 +81,16 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
                 when (event) {
                     is ShopEvent.ShowMessage -> {
                         val msg = when (val result = event.result) {
-                            is com.pegas.origami.paper.folding.art.data.model.shop.ShopResult.Success -> getString(
+                            is ShopResult.Success -> getString(
                                 R.string.purchase_success
                             )
 
-                            is com.pegas.origami.paper.folding.art.data.model.shop.ShopResult.NotEnoughCoins -> getString(
+                            is ShopResult.NotEnoughCoins -> getString(
                                 R.string.not_enough_coins,
                                 result.missingAmount
                             )
 
-                            is com.pegas.origami.paper.folding.art.data.model.shop.ShopResult.NotEnoughStars -> getString(
+                            is ShopResult.NotEnoughStars -> getString(
                                 R.string.not_enough_stars,
                                 result.missingAmount
                             )

@@ -6,9 +6,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.pegas.origami.paper.folding.art.R
+import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
+import com.pegas.origami.paper.folding.art.ads.banner_all
 import com.pegas.origami.paper.folding.art.data.model.product.GameType
 import com.pegas.origami.paper.folding.art.databinding.ActivityResultBinding
-import com.pegas.origami.paper.folding.art.ui.bases.BaseActivity
+import com.pegas.origami.paper.folding.art.ui.bases.BannerConfig
+import com.pegas.origami.paper.folding.art.ui.bases.BaseActivityWithBanner
 import com.pegas.origami.paper.folding.art.ui.bases.ext.click
 import com.pegas.origami.paper.folding.art.ui.bases.ext.showRateDialog
 import com.pegas.origami.paper.folding.art.ui.component.main.ProductDisplayFormatter
@@ -18,7 +21,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ResultActivity : BaseActivity<ActivityResultBinding>() {
+class ResultActivity : BaseActivityWithBanner<ActivityResultBinding>() {
+
+    override val bannerConfig = BannerConfig(AdRemoteConfig.banner_all, false)
+
     private val viewModel: ResultViewModel by viewModels()
     private var exploreDestinations: List<ExploreDestination> = emptyList()
 

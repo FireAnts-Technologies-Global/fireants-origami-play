@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.pegas.origami.paper.folding.art.BuildConfig
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
+import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.ads.RemoteConfigUtils
 import com.pegas.origami.paper.folding.art.ads.banner_all
 import com.pegas.origami.paper.folding.art.data.model.ForceUpdateConfig
@@ -42,19 +43,33 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
     private var cachedForceUpdateConfig: ForceUpdateConfig? = null
 
     private val recommendAdapter = ProductItemAdapter(
-        onItemClick = { item -> Routes.startStepActivity(this, item) },
+        onItemClick = { item ->
+            AdsManager.showInterHome(this) {
+                Routes.startStepActivity(this, item)
+            }
+        },
         onFavoriteClick = { item -> viewModel.toggleFavorite(item) }
     )
     private val hotAdapter = ProductItemAdapter(
-        onItemClick = { item -> Routes.startStepActivity(this, item) },
+        onItemClick = { item ->
+            AdsManager.showInterHome(this) {
+                Routes.startStepActivity(this, item)
+            }
+        },
         onFavoriteClick = { item -> viewModel.toggleFavorite(item) }
     )
     private val favoriteAdapter = ProductItemAdapter(
-        onItemClick = { item -> Routes.startStepActivity(this, item) },
+        onItemClick = { item ->
+            AdsManager.showInterHome(this) {
+                Routes.startStepActivity(this, item)
+            }
+        },
         onFavoriteClick = { item -> viewModel.toggleFavorite(item) }
     )
     private val bannerAdapter = BannerAdapter { item ->
-        Routes.startStepActivity(this, item)
+        AdsManager.showInterHome(this) {
+            Routes.startStepActivity(this, item)
+        }
     }
     private val autoSlideHandler = Handler(Looper.getMainLooper())
     private var autoSlideRunnable: Runnable? = null
@@ -68,6 +83,7 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
 
     override fun initViews() {
         super.initViews()
+        AdsManager.loadInterHome(this)
         noInternetDialog = NoInternetDialog(this)
         forceUpdateDialog = ForceUpdateDialog(this)
         dialogLoading = DialogLoading(this)
@@ -191,31 +207,47 @@ class MainActivity : BaseActivityWithBanner<ActivityMainBinding>() {
     override fun onClickViews() {
         super.onClickViews()
         mBinding.imgStore.click {
-            Routes.startShopActivity(this)
+            AdsManager.showInterHome(this) {
+                Routes.startShopActivity(this)
+            }
         }
         mBinding.imgSetting.click {
             Routes.startSettingActivity(this)
         }
         mBinding.btnGameMode.click {
-            Routes.startLevelActivity(this)
+            AdsManager.showInterHome(this) {
+                Routes.startLevelActivity(this)
+            }
         }
         mBinding.btnKirigami.click {
-            Routes.startKirigamiActivity(this)
+            AdsManager.showInterHome(this) {
+                Routes.startKirigamiActivity(this)
+            }
         }
         mBinding.btnOrigamiMode.click {
-            Routes.startOrigamiActivity(this)
+            AdsManager.showInterHome(this) {
+                Routes.startOrigamiActivity(this)
+            }
         }
         mBinding.btn3DOrigami.click {
-            Routes.startOrigami3DActivity(this)
+            AdsManager.showInterHome(this) {
+                Routes.startOrigami3DActivity(this)
+            }
         }
         mBinding.tvSeeAllRecommend.click {
-            Routes.startRecommendedActivity(this)
+            AdsManager.showInterHome(this) {
+                Routes.startRecommendedActivity(this)
+            }
         }
         mBinding.tvSeeAllHot.click {
-            Routes.startHotActivity(this)
+            AdsManager.showInterHome(this) {
+                Routes.startHotActivity(this)
+            }
         }
         mBinding.tvSeeAllFavorite.click {
-            Routes.startFavoriteActivity(this)
+            AdsManager.showInterHome(this) {
+                Routes.startFavoriteActivity(this)
+            }
         }
     }
 

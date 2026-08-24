@@ -10,8 +10,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.pegas.origami.paper.folding.art.R
+import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
+import com.pegas.origami.paper.folding.art.ads.AdsManager
+import com.pegas.origami.paper.folding.art.ads.banner_play
 import com.pegas.origami.paper.folding.art.databinding.ActivityGameBinding
-import com.pegas.origami.paper.folding.art.ui.bases.BaseActivity
+import com.pegas.origami.paper.folding.art.ui.bases.BannerConfig
+import com.pegas.origami.paper.folding.art.ui.bases.BaseActivityWithBanner
 import com.pegas.origami.paper.folding.art.ui.bases.ext.showRateDialog
 import com.pegas.origami.paper.folding.art.ui.component.custom.FoldPaperView.AutoFoldStep
 import com.pegas.origami.paper.folding.art.ui.component.dialog.DialogComplete
@@ -25,8 +29,9 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class GameActivity : BaseActivity<ActivityGameBinding>() {
+class GameActivity : BaseActivityWithBanner<ActivityGameBinding>() {
 
+    override val bannerConfig = BannerConfig(AdRemoteConfig.banner_play, false)
     private val viewModel: GameViewModel by viewModels()
     private val audioController by lazy { AppAudioController(this, appSharedPref) }
     
@@ -41,6 +46,7 @@ class GameActivity : BaseActivity<ActivityGameBinding>() {
     override fun getLayoutActivity(): Int = R.layout.activity_game
 
     override fun initViews() {
+        AdsManager.loadInterLevel(this)
         currentLevelId = intent.getIntExtra("LEVEL_ID", 1)
         startLevel(currentLevelId)
         updateActionButtons()
@@ -206,12 +212,14 @@ class GameActivity : BaseActivity<ActivityGameBinding>() {
                 startLevel(currentLevelId)
             },
             onContinueClick = {
-                val nextLevelId = viewModel.state.value.nextLevelId
-                if (nextLevelId == null) {
-                    finish()
-                } else {
-                    scheduleRateDialogAfterGameCompleteIfNeeded()
-                    startLevel(nextLevelId)
+                AdsManager.showInterLevel(this) {
+                    val nextLevelId = viewModel.state.value.nextLevelId
+                    if (nextLevelId == null) {
+                        finish()
+                    } else {
+                        scheduleRateDialogAfterGameCompleteIfNeeded()
+                        startLevel(nextLevelId)
+                    }
                 }
             }
         )

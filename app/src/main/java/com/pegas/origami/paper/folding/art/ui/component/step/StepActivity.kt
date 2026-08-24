@@ -4,10 +4,13 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.pegas.origami.paper.folding.art.R
+import com.pegas.origami.paper.folding.art.ads.AdRemoteConfig
+import com.pegas.origami.paper.folding.art.ads.banner_play
 import com.pegas.origami.paper.folding.art.data.model.product.GameType
 import com.pegas.origami.paper.folding.art.data.model.product.ProductItem
 import com.pegas.origami.paper.folding.art.databinding.ActivityStepBinding
-import com.pegas.origami.paper.folding.art.ui.bases.BaseActivity
+import com.pegas.origami.paper.folding.art.ui.bases.BannerConfig
+import com.pegas.origami.paper.folding.art.ui.bases.BaseActivityWithBanner
 import com.pegas.origami.paper.folding.art.ui.bases.ext.click
 import com.pegas.origami.paper.folding.art.ui.bases.ext.showRateDialog
 import com.pegas.origami.paper.folding.art.utils.AppAudioController
@@ -18,7 +21,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class StepActivity : BaseActivity<ActivityStepBinding>(){
+class StepActivity : BaseActivityWithBanner<ActivityStepBinding>() {
+    override val bannerConfig = BannerConfig(AdRemoteConfig.banner_play, false)
+
     private val viewModel: StepViewModel by viewModels()
     private val audioController by lazy { AppAudioController(this, appSharedPref) }
     private var autoResultJob: Job? = null
