@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -53,12 +54,15 @@
                             style="@style/SettingTitle"
                             android:text="@string/music" />
 
-                        <androidx.appcompat.widget.SwitchCompat
+                        <androidx.appcompat.widget.AppCompatCheckBox
                             android:id="@+id/switch_music"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:thumbTint="@color/white"
-                            app:trackTint="@color/color_9779F4" />
+                            android:layout_width="@dimen/_48sdp"
+                            android:layout_height="@dimen/_26sdp"
+                            android:background="@drawable/bg_settings_switch"
+                            android:button="@null"
+                            android:clickable="false"
+                            android:focusable="false"
+                            tools:checked="false" />
                     </LinearLayout>
 
                     <View style="@style/SettingDivider" />
@@ -78,12 +82,15 @@
                             style="@style/SettingTitle"
                             android:text="@string/sound_fx" />
 
-                        <androidx.appcompat.widget.SwitchCompat
+                        <androidx.appcompat.widget.AppCompatCheckBox
                             android:id="@+id/switch_sound_fx"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:thumbTint="@color/white"
-                            app:trackTint="@color/color_9779F4" />
+                            android:layout_width="@dimen/_48sdp"
+                            android:layout_height="@dimen/_26sdp"
+                            android:background="@drawable/bg_settings_switch"
+                            android:button="@null"
+                            android:clickable="false"
+                            android:focusable="false"
+                            tools:checked="true" />
                     </LinearLayout>
                 </LinearLayout>
 

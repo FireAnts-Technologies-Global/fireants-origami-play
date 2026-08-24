@@ -274,4 +274,17 @@
         <item name="android:background">@drawable/ads_native_common_bg</item>
     </style>
 
+    <style name="Widget.App.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="android:minWidth">@dimen/_56sdp</item>
+        <item name="android:minHeight">@dimen/_32sdp</item>
+        <item name="showText">false</item>
+        <item name="thumbIcon">@null</item>
+        <item name="thumbTint">@color/settings_switch_thumb_tint</item>
+        <item name="thumbTrackGapSize">@dimen/_4sdp</item>
+        <item name="trackDecorationTint">@android:color/transparent</item>
+        <item name="trackHeight">@dimen/_32sdp</item>
+        <item name="trackTint">@color/settings_switch_track_tint</item>
+        <item name="useMaterialThemeColors">false</item>
+    </style>
+
 </resources>
