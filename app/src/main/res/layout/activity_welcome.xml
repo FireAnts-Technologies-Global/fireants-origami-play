@@ -68,7 +68,7 @@
 
             <include
                 android:id="@+id/shimmer_ads"
-                layout="@layout/layout_shimmer_native_large" />
+                layout="@layout/layout_shimmer_native_small" />
 
         </FrameLayout>
 

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.gms.ads.nativead.NativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:id="@+id/shimmer_native_small"
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    tools:ignore="HardcodedText,SpUsage">
+    tools:ignore="SpUsage, HardcodedText">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,7 +21,7 @@
             android:layout_marginTop="12dp"
             android:adjustViewBounds="true"
             android:contentDescription="@null"
-            android:src="@color/colorPrimary"
+            android:src="@color/lightTransparent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,14 +45,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="8dp"
-            android:lines="1"
-            android:textColor="@color/white"
-            android:textSize="14sp"
+            android:background="@color/lightTransparent"
+            android:textColor="#000000"
+            android:textSize="12dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/ad_icon"
-            app:layout_constraintStart_toEndOf="@id/ad_icon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/ad_icon"
-            tools:text="Headline" />
+            app:layout_constraintStart_toEndOf="@id/ad_icon"
+            app:layout_constraintTop_toTopOf="@id/ad_icon" />
 
         <TextView
             android:id="@+id/ad_advertiser"
@@ -59,44 +60,40 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginTop="2dp"
-            android:lines="1"
-            android:textColor="@color/white"
-            android:textSize="12sp"
+            android:background="@color/lightTransparent"
+            android:textColor="#000000"
+            android:textSize="12dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/ad_headline"
             app:layout_constraintStart_toStartOf="@id/ad_icon"
-            app:layout_constraintTop_toBottomOf="@id/ad_headline"
-            tools:text="Ad advertiser" />
-
-
+            app:layout_constraintTop_toBottomOf="@id/ad_headline" />
 
         <TextView
             android:id="@+id/ad_body"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="@color/white"
-            android:textSize="12sp"
+            android:layout_marginTop="9dp"
+            android:background="@color/lightTransparent"
+            android:paddingVertical="3dp"
+            android:textColor="#000000"
+            android:textSize="12dp"
             app:layout_constraintEnd_toEndOf="@id/ad_advertiser"
             app:layout_constraintStart_toStartOf="@id/ad_app_icon"
-            app:layout_constraintTop_toBottomOf="@id/ad_advertiser"
-            tools:text="ad body" />
+            app:layout_constraintTop_toBottomOf="@id/ad_advertiser" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ad_call_to_action"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="@dimen/_6sdp"
+            android:layout_marginTop="9dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/bg_btn_native_cta"
+            android:background="@color/lightTransparent"
             android:textAllCaps="false"
-            android:textColor="@color/black"
+            android:textColor="#ffffff"
             android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/ad_body"
             app:layout_constraintStart_toStartOf="@id/ad_body"
-            app:layout_constraintTop_toBottomOf="@id/ad_body"
-            tools:text="Install" />
+            app:layout_constraintTop_toBottomOf="@id/ad_body" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</com.google.android.gms.ads.nativead.NativeAdView>
+</com.facebook.shimmer.ShimmerFrameLayout>

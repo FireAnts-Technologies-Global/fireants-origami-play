@@ -45,9 +45,9 @@
     "heightCTA": 45,
     "positionCTA": "BOTTOM",
     "components": [
+      "media",
       "icon_headline",
       "body",
-      "media",
       "cta"
     ],
     "enable_ua_check": true
@@ -59,9 +59,9 @@
     "heightCTA": 45,
     "positionCTA": "BOTTOM",
     "components": [
+      "media",
       "icon_headline",
       "body",
-      "media",
       "cta"
     ],
     "enable_ua_check": true

@@ -1,6 +1,7 @@
 package com.pegas.origami.paper.folding.art.ui.component.language
 
 import com.fireants.adsdk.ads.wrapper.ApNativeAd
+import com.fireants.devconfig.utils.setOnAdminAdToggleListener
 import com.pegas.origami.paper.folding.art.R
 import com.pegas.origami.paper.folding.art.ads.AdsManager
 import com.pegas.origami.paper.folding.art.ads.AdsManager.loadNativeLanguageClick
@@ -214,9 +215,9 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
     }
 
     private fun forceEnableShowAd() {
-//        mBinding.tvTitle.setOnAdminAdToggleListener {
-//            Routes.startSplashActivity(this@LanguageActivity)
-//            finish()
-//        }
+        mBinding.tvTitle.setOnAdminAdToggleListener {
+            Routes.startSplashActivity(this@LanguageActivity)
+            finish()
+        }
     }
 }

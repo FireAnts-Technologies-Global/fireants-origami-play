@@ -53,12 +53,12 @@ class WelcomeActivity : BaseActivity<ActivityWelcomeBinding>() {
     private fun showWelcomeAdLoading() {
         mBinding.frAds.visibleView()
         mBinding.frAdContent.goneView()
-        mBinding.shimmerAds.shimmerNativeLarge.visibleView()
-        mBinding.shimmerAds.shimmerNativeLarge.startShimmer()
+        mBinding.shimmerAds.shimmerNativeSmall.visibleView()
+        mBinding.shimmerAds.shimmerNativeSmall.startShimmer()
     }
 
     private fun hideWelcomeAd() {
-        mBinding.shimmerAds.shimmerNativeLarge.stopShimmer()
+        mBinding.shimmerAds.shimmerNativeSmall.stopShimmer()
         mBinding.frAdContent.goneView()
         mBinding.frAds.goneView()
     }
@@ -74,7 +74,7 @@ class WelcomeActivity : BaseActivity<ActivityWelcomeBinding>() {
             this,
             ad,
             mBinding.frAdContent,
-            mBinding.shimmerAds.shimmerNativeLarge
+            mBinding.shimmerAds.shimmerNativeSmall
         )
     }
 }
