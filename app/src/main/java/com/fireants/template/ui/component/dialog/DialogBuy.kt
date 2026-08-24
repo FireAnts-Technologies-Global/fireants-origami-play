@@ -27,7 +27,7 @@ class DialogBuy(
         setCancelable(true)
         setCanceledOnTouchOutside(true)
 
-        mBinding.tvCost.text = cost.toString()
+        mBinding.tvCost.text = mBinding.root.context.getString(R.string.number_format, cost)
 
         if (currentCoins >= cost) {
             mBinding.tvBuy.isEnabled = true

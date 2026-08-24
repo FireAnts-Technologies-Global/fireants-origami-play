@@ -84,13 +84,13 @@ class GameActivity : BaseActivity<ActivityGameBinding>() {
         lifecycleScope.launch {
             viewModel.state.collectLatest { state ->
                 state.player?.let { player ->
-                    mBinding.tvCoins.text = "${player.coins}"
-                    mBinding.tvHintCount.text = "${player.hints}"
+                    mBinding.tvCoins.text = getString(R.string.number_format, player.coins)
+                    mBinding.tvHintCount.text = getString(R.string.number_format, player.hints)
                 }
                 updateActionButtons()
                 
                 state.currentLevel?.let { level ->
-                    mBinding.tvTitle.text = "Level ${level.levelNumber}"
+                    mBinding.tvTitle.text = getString(R.string.level_title, level.levelNumber)
                     if (level.targetPoints.isNotEmpty()) {
                         mBinding.foldPaperView.setLevelTarget(level.targetPoints.toFloatArray())
                     }

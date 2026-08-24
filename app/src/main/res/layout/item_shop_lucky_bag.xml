@@ -139,7 +139,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/bold"
-                            android:text="5"
+                            android:text="@string/value_5"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_9sdp" />
                     </LinearLayout>
@@ -189,7 +189,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/bold"
-                            android:text="5"
+                            android:text="@string/value_5"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_9sdp" />
                     </LinearLayout>
@@ -239,7 +239,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/bold"
-                            android:text="45"
+                            android:text="@string/value_45"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_9sdp" />
                     </LinearLayout>

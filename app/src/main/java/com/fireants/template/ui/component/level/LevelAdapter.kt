@@ -18,7 +18,8 @@ class LevelAdapter(
     override fun setData(binding: ViewDataBinding, item: LevelItemUI, layoutPosition: Int) {
         if (binding is ItemLevelBinding) {
             val context = binding.root.context
-            binding.tvLevelNumber.text = item.level.levelNumber.toString()
+            binding.tvLevelNumber.text =
+                context.getString(R.string.number_format, item.level.levelNumber)
             val isUnlocked = item.progress?.isUnlocked == true || !item.level.isLocked
             if (!isUnlocked) {
                 binding.container.setBackgroundResource(R.drawable.bg_level_lock)

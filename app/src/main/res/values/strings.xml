@@ -2,9 +2,6 @@
 <resources>
     <string name="app_name" translatable="false">Fire Ants Base</string>
     <string name="language" translatable="false">Language</string>
-    <string name="get_started">Get Started</string>
-    <string name="next">Next</string>
-    <string name="txt_thanks_you_for_rating">Thanks for your rating!</string>
     <string name="txt_later" translatable="false">
         <u>Later</u>
     </string>
@@ -16,6 +13,29 @@
     <string name="rate_feedback_reason_required" translatable="false">Please enter your feedback first</string>
     <string name="rate_feedback_email_subject" translatable="false">%1$s feedback</string>
     <string name="send_feedback" translatable="false">Send Feedback</string>
+    <string name="version_format" translatable="false">v%s</string>
+    <string name="kirigami" translatable="false">Kirigami</string>
+    <string name="origami_3d" translatable="false">3D Origami</string>
+    <string name="origami" translatable="false">Origami</string>
+    <string name="mode_3d" translatable="false">3D</string>
+    <string name="step_progress" translatable="false">Step %1$d/%2$d</string>
+    <string name="ad_label" translatable="false">Ad</string>
+    <string name="number_format" translatable="false">%1$d</string>
+    <string name="loading_dots_format" translatable="false">%1$s%2$s</string>
+    <string name="value_1" translatable="false">1</string>
+    <string name="value_5" translatable="false">5</string>
+    <string name="value_45" translatable="false">45</string>
+    <string name="coin_amount_250" translatable="false">250</string>
+    <string name="coin_amount_300" translatable="false">300</string>
+    <string name="coin_amount_500" translatable="false">500</string>
+    <string name="coin_amount_637" translatable="false">637</string>
+    <string name="coin_amount_800" translatable="false">800</string>
+    <string name="coin_amount_1000" translatable="false">1000</string>
+    <string name="discount_15" formatted="false" translatable="false">-15%</string>
+    <string name="discount_20" formatted="false" translatable="false">-20%</string>
+    <string name="get_started">Get Started</string>
+    <string name="next">Next</string>
+    <string name="txt_thanks_you_for_rating">Thanks for your rating!</string>
     <string name="onboarding_title_1">Fold Something Amazing</string>
     <string name="onboarding_des_1">Explore a growing collection of origami and kirigami creations for every skill level.</string>
     <string name="onboarding_title_2">Follow Every Fold</string>
@@ -42,7 +62,6 @@
     <string name="privacy_policy">Privacy Policy</string>
     <string name="terms_of_use">Terms of Use</string>
     <string name="check_for_update">Check for Update</string>
-    <string name="version_format" translatable="false">v%s</string>
     <string name="privacy_policy_not_configured">Privacy Policy URL is not configured</string>
     <string name="terms_not_configured">Terms of Use URL is not configured</string>
     <string name="no_app_available_to_open_link">No app available to open this link</string>
@@ -56,13 +75,9 @@
     <string name="level">Level</string>
     <string name="welcome_back">Welcome back,</string>
     <string name="origami_master">Origami Master 👋</string>
-    <string name="kirigami" translatable="false">Kirigami</string>
-    <string name="origami_3d" translatable="false">3D Origami</string>
-    <string name="origami" translatable="false">Origami</string>
     <string name="daily_challenge">Daily Challenge</string>
     <string name="start_challenge">Start challenge</string>
     <string name="explore_modes">Explore Modes</string>
-    <string name="mode_3d" translatable="false">3D</string>
     <string name="mode_game">Game</string>
     <string name="recommended_for_you">Recommended for you</string>
     <string name="see_all">See all</string>
@@ -91,7 +106,6 @@
     <string name="play_again">Play Again</string>
     <string name="continue_game">Continue</string>
     <string name="reward">Reward</string>
-    <string name="step_progress" translatable="false">Step %1$d/%2$d</string>
     <string name="favorites">Favorites</string>
     <string name="congrats">Congrats!</string>
     <string name="you_completed_it">YOU COMPLETED IT!</string>
@@ -100,4 +114,10 @@
     <string name="you_may_like">You May Like</string>
     <string name="view_all">View All &gt;</string>
     <string name="share_creation_message">I completed %1$s in %2$s!</string>
+    <string name="select_a_language">Select a language</string>
+    <string name="level_title">Level %1$d</string>
+    <string name="step_count_format">%1$d %2$s</string>
+    <string name="step_singular">Step</string>
+    <string name="step_plural">Steps</string>
+    <string name="metadata_format">%1$s • %2$s</string>
 </resources>

@@ -35,7 +35,8 @@ class DialogComplete(
         mBinding.ivStar3.setImageResource(
             if (stars >= 3) R.drawable.ic_star_complate_on else R.drawable.ic_star_complate_off
         )
-        mBinding.tvRewardCoins.text = coinsEarned.toString()
+        mBinding.tvRewardCoins.text =
+            mBinding.root.context.getString(R.string.number_format, coinsEarned)
 
         mBinding.tvPlayAgain.click {
             dismiss()

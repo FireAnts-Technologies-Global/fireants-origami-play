@@ -57,9 +57,9 @@ class ShopActivity : BaseActivity<ActivityShopBinding>(), ShopInteractionListene
         lifecycleScope.launch {
             viewModel.state.collectLatest { state ->
                 state.player?.let { player ->
-                    mBinding.tvCoins.text = "${player.coins}"
-                    mBinding.tvStars.text = "${player.stars}"
-                    mBinding.tvHints.text = "${player.hints}"
+                    mBinding.tvCoins.text = getString(R.string.number_format, player.coins)
+                    mBinding.tvStars.text = getString(R.string.number_format, player.stars)
+                    mBinding.tvHints.text = getString(R.string.number_format, player.hints)
                 }
 
                 val items = mutableListOf<ShopItem>()

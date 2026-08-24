@@ -1,5 +1,6 @@
 package com.fireants.template.ui.component.papercraft
 
+import android.content.Context
 import android.graphics.Color
 import android.text.SpannableString
 import android.text.Spanned
@@ -23,8 +24,16 @@ class PaperCraftAdapter(
     override fun setData(binding: ViewDataBinding, item: ProductItem, layoutPosition: Int) {
         if (binding is ItemPaperCraftCardBinding) {
             binding.tvName.text = ProductDisplayFormatter.name(item)
-            binding.tvStepBadge.text = "${item.stepCount} ${if (item.stepCount == 1) "Step" else "Steps"}"
-            binding.tvMeta.text = metadata(item)
+            val context = binding.root.context
+            val stepLabel = context.getString(
+                if (item.stepCount == 1) R.string.step_singular else R.string.step_plural
+            )
+            binding.tvStepBadge.text = context.getString(
+                R.string.step_count_format,
+                item.stepCount,
+                stepLabel
+            )
+            binding.tvMeta.text = metadata(context, item)
             binding.ivHeart.setImageResource(
                 if (item.isFavorite) R.drawable.ic_favourite_on else R.drawable.ic_favourite_off
             )
@@ -43,8 +52,8 @@ class PaperCraftAdapter(
         }
     }
 
-    private fun metadata(item: ProductItem): SpannableString {
-        val text = "${item.difficulty} • ${item.estimatedTime}"
+    private fun metadata(context: Context, item: ProductItem): SpannableString {
+        val text = context.getString(R.string.metadata_format, item.difficulty, item.estimatedTime)
         val span = SpannableString(text)
         span.setSpan(
             ForegroundColorSpan(difficultyColor(item.difficulty)),

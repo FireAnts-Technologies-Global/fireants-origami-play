@@ -89,7 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bold"
-                    android:text="250"
+                    android:text="@string/coin_amount_250"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_9sdp" />
             </LinearLayout>
@@ -143,7 +143,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bold"
-                    android:text="637"
+                    android:text="@string/coin_amount_637"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_9sdp" />
             </LinearLayout>
@@ -198,7 +198,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bold"
-                    android:text="1000"
+                    android:text="@string/coin_amount_1000"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_9sdp" />
             </LinearLayout>
@@ -213,7 +213,7 @@
             android:fontFamily="@font/bold"
             android:paddingHorizontal="@dimen/_5sdp"
             android:paddingVertical="@dimen/_2sdp"
-            android:text="-15%"
+            android:text="@string/discount_15"
             android:textColor="@color/white"
             android:textSize="@dimen/_8sdp"
             app:layout_constraintBottom_toTopOf="@id/btnBuy3Hints"
@@ -229,7 +229,7 @@
             android:fontFamily="@font/bold"
             android:paddingHorizontal="@dimen/_5sdp"
             android:paddingVertical="@dimen/_2sdp"
-            android:text="-20%"
+            android:text="@string/discount_20"
             android:textColor="@color/white"
             android:textSize="@dimen/_9sdp"
             app:layout_constraintBottom_toTopOf="@id/btnBuy5Hints"

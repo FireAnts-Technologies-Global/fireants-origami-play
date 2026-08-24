@@ -41,7 +41,8 @@ class LoadingDotsTextView @JvmOverloads constructor(
         animationRunnable = object : Runnable {
             override fun run() {
                 dotCount = (dotCount % maxDots) + 1
-                text = "$baseText${".".repeat(dotCount)}"
+                text =
+                    context.getString(R.string.loading_dots_format, baseText, ".".repeat(dotCount))
                 handler.postDelayed(this, animationDelay)
             }
         }
@@ -55,4 +56,3 @@ class LoadingDotsTextView @JvmOverloads constructor(
         }
     }
 }
-

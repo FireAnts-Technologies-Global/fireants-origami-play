@@ -59,8 +59,8 @@ class LevelActivity : BaseActivity<ActivityLevelBinding>() {
         lifecycleScope.launch {
             viewModel.state.collectLatest { state ->
                 state.player?.let { player ->
-                    mBinding.tvCoins.text = "${player.coins}"
-                    mBinding.tvStars.text = "${player.stars}"
+                    mBinding.tvCoins.text = getString(R.string.number_format, player.coins)
+                    mBinding.tvStars.text = getString(R.string.number_format, player.stars)
                 }
                 
                 levelAdapter.submitList(state.levelItems)
