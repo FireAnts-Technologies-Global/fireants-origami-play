@@ -36,7 +36,7 @@
                     android:background="@drawable/bg_setting_card"
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/_14sdp"
-                    android:paddingVertical="@dimen/_10sdp">
+                    android:paddingVertical="@dimen/_4sdp">
 
                     <LinearLayout
                         android:id="@+id/rlt_music"
@@ -94,7 +94,7 @@
                     android:background="@drawable/bg_setting_card"
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/_14sdp"
-                    android:paddingVertical="@dimen/_10sdp">
+                    android:paddingVertical="@dimen/_4sdp">
 
                     <LinearLayout
                         android:id="@+id/rlt_language"
@@ -104,8 +104,7 @@
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 style="@style/SettingIcon"
-                                android:src="@drawable/ic_language"
-                                app:tint="@color/color_9779F4" />
+                                android:src="@drawable/ic_language" />
                         </FrameLayout>
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -130,8 +129,7 @@
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 style="@style/SettingIcon"
-                                android:src="@drawable/ic_share"
-                                app:tint="@color/color_9779F4" />
+                                android:src="@drawable/ic_share" />
                         </FrameLayout>
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -152,8 +150,7 @@
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 style="@style/SettingIcon"
-                                android:src="@drawable/ic_rate"
-                                app:tint="@color/color_9779F4" />
+                                android:src="@drawable/ic_rate" />
                         </FrameLayout>
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -174,8 +171,7 @@
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 style="@style/SettingIcon"
-                                android:src="@drawable/ic_feedback"
-                                app:tint="@color/color_9779F4" />
+                                android:src="@drawable/ic_feedback" />
                         </FrameLayout>
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -194,7 +190,7 @@
                     android:background="@drawable/bg_setting_card"
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/_14sdp"
-                    android:paddingVertical="@dimen/_10sdp">
+                    android:paddingVertical="@dimen/_4sdp">
 
                     <LinearLayout
                         android:id="@+id/rlt_policy"
@@ -204,8 +200,7 @@
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 style="@style/SettingIcon"
-                                android:src="@drawable/ic_policy"
-                                app:tint="@color/color_9779F4" />
+                                android:src="@drawable/ic_policy" />
                         </FrameLayout>
 
                         <androidx.appcompat.widget.AppCompatTextView
