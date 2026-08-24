@@ -420,5 +420,143 @@
       0.35,
       0.35
     ]
+  },
+  {
+    "id": 22,
+    "levelNumber": 22,
+    "isLocked": true,
+    "stars": 0,
+    "targetPoints": [
+      1,
+      0.5,
+      1,
+      1,
+      0.5,
+      1,
+      0.5,
+      0.5
+    ]
+  },
+  {
+    "id": 23,
+    "levelNumber": 23,
+    "isLocked": true,
+    "stars": 0,
+    "targetPoints": [
+      1,
+      1,
+      0,
+      1,
+      0.5,
+      0.5
+    ]
+  },
+  {
+    "id": 24,
+    "levelNumber": 24,
+    "isLocked": true,
+    "stars": 0,
+    "targetPoints": [
+      0.75,
+      0,
+      0.75,
+      1,
+      0.25,
+      1,
+      0.25,
+      0
+    ]
+  },
+  {
+    "id": 25,
+    "levelNumber": 25,
+    "isLocked": true,
+    "stars": 0,
+    "targetPoints": [
+      1,
+      0.75,
+      0,
+      0.75,
+      0,
+      0.25,
+      1,
+      0.25
+    ]
+  },
+  {
+    "id": 26,
+    "levelNumber": 26,
+    "isLocked": true,
+    "stars": 0,
+    "targetPoints": [
+      1,
+      1,
+      0.5,
+      0.5,
+      0.5,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "id": 27,
+    "levelNumber": 27,
+    "isLocked": true,
+    "stars": 0,
+    "targetPoints": [
+      0.34,
+      0.6,
+      0.5,
+      0.2,
+      0.66,
+      0.6
+    ]
+  },
+  {
+    "id": 28,
+    "levelNumber": 28,
+    "isLocked": true,
+    "stars": 0,
+    "targetPoints": [
+      1,
+      1,
+      0.5,
+      1,
+      0.5,
+      0.5,
+      1,
+      0.8
+    ]
+  },
+  {
+    "id": 29,
+    "levelNumber": 29,
+    "isLocked": true,
+    "stars": 0,
+    "targetPoints": [
+      0.5,
+      0.5,
+      0.85,
+      0.5,
+      0.5,
+      0.85
+    ]
+  },
+  {
+    "id": 30,
+    "levelNumber": 30,
+    "isLocked": true,
+    "stars": 0,
+    "targetPoints": [
+      0.5,
+      0.9,
+      0.42,
+      0.5,
+      0.5,
+      0.1,
+      0.58,
+      0.5
+    ]
   }
 ]
