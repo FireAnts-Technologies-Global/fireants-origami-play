@@ -86,11 +86,16 @@ class FoldPaperView @JvmOverloads constructor(
         pathEffect = DashPathEffect(floatArrayOf(15f, 10f), 0f)
         strokeCap = Paint.Cap.ROUND
     }
+    private val scorePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.WHITE
+        style = Paint.Style.FILL
+    }
 
     private val EDGE_TOUCH_THRESHOLD = 80f
     private val THREE_STAR_THRESHOLD = 0.05f
     private val TWO_STAR_THRESHOLD = 0.08f
     private val ONE_STAR_THRESHOLD = 0.12f
+    private val SCORE_SAMPLE_STEP = 4
 
     private var currentPaperPath = Path()
     private val tempFrontPath = Path()
@@ -110,12 +115,20 @@ class FoldPaperView @JvmOverloads constructor(
     private var isDragging = false
 
     private var isAnimatingComplete = false
-    private var animationProgress = 0f
     private var foldAnimator: ValueAnimator? = null
     
     private var isShowSuggest = false
     private var suggestAlpha = 0f
     private val originalPaperRect = RectF()
+    private val paperBounds = RectF()
+    private val targetBounds = RectF()
+    private val foldClipPath = Path()
+    private val newPaperPath = Path()
+    private var paperScoreBitmap: Bitmap? = null
+    private var targetScoreSamples: BooleanArray? = null
+    private var targetScorePixels = 0
+    private var targetScoreWidth = 0
+    private var targetScoreHeight = 0
 
     init {
         setLayerType(LAYER_TYPE_SOFTWARE, null)
@@ -128,12 +141,12 @@ class FoldPaperView @JvmOverloads constructor(
     fun setPaperBitmap(bitmap: Bitmap) {
         this.paperBitmap = bitmap
         if (width <= 0 || height <= 0) {
-            invalidate()
+            requestRender()
             return
         }
         if (foldHistory.isNotEmpty()) {
             reconstructFromHistory()
-            invalidate()
+            requestRender()
             return
         }
         
@@ -148,7 +161,7 @@ class FoldPaperView @JvmOverloads constructor(
             historyBitmaps.push(newBitmap)
             currentBackgroundBitmap = newBitmap
         }
-        invalidate()
+        requestRender()
     }
 
     private fun setTargetPolygon(points: FloatArray) {
@@ -159,6 +172,7 @@ class FoldPaperView @JvmOverloads constructor(
                 targetPath.lineTo(points[i], points[i + 1])
             }
             targetPath.close()
+            clearTargetScoreCache()
         }
     }
 
@@ -181,7 +195,7 @@ class FoldPaperView @JvmOverloads constructor(
             
             setTargetPolygon(scaledPoints)
             targetPaint.color = Color.parseColor("#444444")
-            invalidate()
+            requestRender()
         }
     }
 
@@ -199,7 +213,12 @@ class FoldPaperView @JvmOverloads constructor(
         val h = height.toFloat()
         if (w == 0f || h == 0f) return
 
-        historyBitmaps.clear()
+        if (paperScoreBitmap?.width != width || paperScoreBitmap?.height != height) {
+            paperScoreBitmap?.recycle()
+            paperScoreBitmap = null
+        }
+        clearTargetScoreCache()
+        recycleHistoryBitmaps()
         currentBackgroundBitmap = null
         currentPaperPath.reset()
 
@@ -217,14 +236,13 @@ class FoldPaperView @JvmOverloads constructor(
         val initialBitmap = Bitmap.createBitmap(w.toInt(), h.toInt(), Bitmap.Config.ARGB_8888)
         drawPaperTexture(Canvas(initialBitmap), currentPaperPath)
         
-        historyBitmaps.clear()
         foldHistory.clear()
         historyBitmaps.push(initialBitmap)
         currentBackgroundBitmap = initialBitmap
         onFoldHistoryChanged?.invoke(foldHistory.size)
         
         resetTouchData()
-        invalidate()
+        requestRender()
     }
 
     private fun resetTouchData() {
@@ -232,6 +250,72 @@ class FoldPaperView @JvmOverloads constructor(
         touchY = 0f
         touchStartX = 0f
         touchStartY = 0f
+    }
+
+    private fun requestRender() {
+        postInvalidateOnAnimation()
+    }
+
+    private fun recycleHistoryBitmaps() {
+        for (bitmap in historyBitmaps) {
+            if (!bitmap.isRecycled) {
+                bitmap.recycle()
+            }
+        }
+        historyBitmaps.clear()
+    }
+
+    private fun clearTargetScoreCache() {
+        targetScoreSamples = null
+        targetScorePixels = 0
+        targetScoreWidth = 0
+        targetScoreHeight = 0
+    }
+
+    private fun getPaperScoreBitmap(w: Int, h: Int): Bitmap {
+        val reusableBitmap = paperScoreBitmap
+        if (reusableBitmap != null && reusableBitmap.width == w && reusableBitmap.height == h && !reusableBitmap.isRecycled) {
+            reusableBitmap.eraseColor(Color.TRANSPARENT)
+            return reusableBitmap
+        }
+
+        paperScoreBitmap?.recycle()
+        return Bitmap.createBitmap(w, h, Bitmap.Config.ALPHA_8).also {
+            paperScoreBitmap = it
+        }
+    }
+
+    private fun ensureTargetScoreSamples(w: Int, h: Int): BooleanArray {
+        val cachedSamples = targetScoreSamples
+        if (cachedSamples != null && targetScoreWidth == w && targetScoreHeight == h) {
+            return cachedSamples
+        }
+
+        val targetBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ALPHA_8)
+        Canvas(targetBitmap).drawPath(targetPath, scorePaint)
+
+        val sampleColumns = (w + SCORE_SAMPLE_STEP - 1) / SCORE_SAMPLE_STEP
+        val sampleRows = (h + SCORE_SAMPLE_STEP - 1) / SCORE_SAMPLE_STEP
+        val samples = BooleanArray(sampleColumns * sampleRows)
+        var targetPixels = 0
+        var index = 0
+
+        for (x in 0 until w step SCORE_SAMPLE_STEP) {
+            for (y in 0 until h step SCORE_SAMPLE_STEP) {
+                val isTarget = Color.alpha(targetBitmap.getPixel(x, y)) > 0
+                samples[index++] = isTarget
+                if (isTarget) {
+                    targetPixels++
+                }
+            }
+        }
+
+        targetBitmap.recycle()
+        targetScoreSamples = samples
+        targetScorePixels = targetPixels
+        targetScoreWidth = w
+        targetScoreHeight = h
+        return samples
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -248,9 +332,9 @@ class FoldPaperView @JvmOverloads constructor(
     }
 
     private fun drawSuggest(canvas: Canvas) {
-        val paperBounds = RectF()
+        paperBounds.setEmpty()
         currentPaperPath.computeBounds(paperBounds, true)
-        val targetBounds = RectF()
+        targetBounds.setEmpty()
         targetPath.computeBounds(targetBounds, true)
         
         suggestPaint.alpha = (suggestAlpha * 255).toInt()
@@ -378,22 +462,24 @@ class FoldPaperView @JvmOverloads constructor(
                 touchY = touchStartY
                 maxDragDistance = 0f
                 isDragging = true
-                invalidate()
+                requestRender()
                 return true
             }
 
             MotionEvent.ACTION_MOVE -> {
-                val dist = hypot((touchX - touchStartX).toDouble(), (touchY - touchStartY).toDouble()).toFloat()
-                if (dist > maxDragDistance) {
-                    maxDragDistance = dist
-                }
-
                 if (isDragging || touchStartX != 0f) {
                     isDragging = true
                     val coerced = coerceTouchToPaperBounds(event.x, event.y)
+                    if (abs(coerced.first - touchX) < 0.5f && abs(coerced.second - touchY) < 0.5f) {
+                        return true
+                    }
                     touchX = coerced.first
                     touchY = coerced.second
-                    invalidate()
+                    val dist = hypot((touchX - touchStartX).toDouble(), (touchY - touchStartY).toDouble()).toFloat()
+                    if (dist > maxDragDistance) {
+                        maxDragDistance = dist
+                    }
+                    requestRender()
                 }
                 return true
             }
@@ -404,7 +490,7 @@ class FoldPaperView @JvmOverloads constructor(
                 if (dist > 10f) {
                     isManualFolded = true
                     calculateStarsAndCheckWin()
-                    animateFoldComplete()
+                    completeFold()
                 }
                 return true
             }
@@ -434,34 +520,25 @@ class FoldPaperView @JvmOverloads constructor(
         return Pair(coercedX, coercedY)
     }
 
-    private fun animateFoldComplete() {
-        isAnimatingComplete = true
-        val animator = ValueAnimator.ofFloat(0f, 1f)
-        animator.duration = 350L
-        animator.interpolator = DecelerateInterpolator()
-        animator.addUpdateListener {
-            animationProgress = it.animatedValue as Float
-            invalidate()
+    private fun completeFold() {
+        isAnimatingComplete = false
+        isDragging = false
+        foldAnimator = null
+
+        val dx = touchX - touchStartX
+        val dy = touchY - touchStartY
+        if (hypot(dx.toDouble(), dy.toDouble()).toFloat() <= 10f) {
+            resetTouchData()
+            requestRender()
+            return
         }
-        animator.addListener(object : AnimatorListenerAdapter() {
-            override fun onAnimationEnd(animation: Animator) {
-                isAnimatingComplete = false
-                isDragging = false
-                foldAnimator = null
-                
-                val dx = touchX - touchStartX
-                val dy = touchY - touchStartY
-                
-                foldHistory.push(FoldGesture(touchStartX, touchStartY, touchX, touchY))
-                saveStepAndNext(false)
-                applyFoldClip(dx, dy)
-                onFoldHistoryChanged?.invoke(foldHistory.size)
-                resetTouchData()
-                invalidate()
-            }
-        })
-        animator.start()
-        foldAnimator = animator
+
+        foldHistory.push(FoldGesture(touchStartX, touchStartY, touchX, touchY))
+        saveStepAndNext(false)
+        applyFoldClip(dx, dy)
+        onFoldHistoryChanged?.invoke(foldHistory.size)
+        resetTouchData()
+        requestRender()
     }
 
     private fun applyFoldClip(dx: Float, dy: Float) {
@@ -483,7 +560,7 @@ class FoldPaperView @JvmOverloads constructor(
         val lineEndX = midX - extX
         val lineEndY = midY - extY
 
-        val foldClipPath = Path()
+        foldClipPath.reset()
         foldClipPath.moveTo(lineStartX, lineStartY)
         foldClipPath.lineTo(lineEndX, lineEndY)
         val py = (dy / dist) * maxLen
@@ -491,7 +568,7 @@ class FoldPaperView @JvmOverloads constructor(
         foldClipPath.lineTo(lineStartX + extY, lineStartY + py)
         foldClipPath.close()
 
-        val newPaperPath = Path()
+        newPaperPath.reset()
         newPaperPath.op(currentPaperPath, foldClipPath, Path.Op.INTERSECT)
         currentPaperPath.set(newPaperPath)
     }
@@ -511,7 +588,7 @@ class FoldPaperView @JvmOverloads constructor(
         if (resetTouch) {
             resetTouchData()
         }
-        invalidate()
+        requestRender()
     }
 
     private fun calculateStarsAndCheckWin() {
@@ -519,38 +596,27 @@ class FoldPaperView @JvmOverloads constructor(
         val h = height
         if (w <= 0 || h <= 0) return
 
-        val targetBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ALPHA_8)
-        val targetCanvas = Canvas(targetBitmap)
-        val tPaint = Paint()
-        tPaint.color = Color.WHITE
-        tPaint.style = Paint.Style.FILL
-        targetCanvas.drawPath(targetPath, tPaint)
-
-        val paperBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ALPHA_8)
+        val targetSamples = ensureTargetScoreSamples(w, h)
+        val paperBitmap = getPaperScoreBitmap(w, h)
         drawFoldedPaper(Canvas(paperBitmap))
 
         var differingPixels = 0
-        var targetPixels = 0
+        var index = 0
 
-        // Step by 4 to optimize checking
-        for (x in 0 until w step 4) {
-            for (y in 0 until h step 4) {
-                val tPix = if (Color.alpha(targetBitmap.getPixel(x, y)) > 0) 1 else 0
+        for (x in 0 until w step SCORE_SAMPLE_STEP) {
+            for (y in 0 until h step SCORE_SAMPLE_STEP) {
+                val tPix = if (targetSamples[index++]) 1 else 0
                 val pPix = if (Color.alpha(paperBitmap.getPixel(x, y)) > 0) 1 else 0
                 
-                if (tPix != 0) targetPixels++
                 if ((tPix == 0 || pPix == 0) && tPix != pPix) {
                     differingPixels++
                 }
             }
         }
 
-        targetBitmap.recycle()
-        paperBitmap.recycle()
+        if (targetScorePixels == 0) return
 
-        if (targetPixels == 0) return
-
-        val differenceRatio = differingPixels.toFloat() / targetPixels.toFloat()
+        val differenceRatio = differingPixels.toFloat() / targetScorePixels.toFloat()
         val stars = when {
             differenceRatio <= THREE_STAR_THRESHOLD -> 3
             differenceRatio <= TWO_STAR_THRESHOLD -> 2
@@ -566,7 +632,7 @@ class FoldPaperView @JvmOverloads constructor(
         } else {
             targetPaint.color = Color.parseColor("#444444")
         }
-        invalidate()
+        requestRender()
     }
 
     fun undoLastStep() {
@@ -581,7 +647,7 @@ class FoldPaperView @JvmOverloads constructor(
         }
         onFoldHistoryChanged?.invoke(foldHistory.size)
         resetTouchData()
-        invalidate()
+        requestRender()
     }
 
     private fun reconstructFromHistory() {
@@ -627,7 +693,7 @@ class FoldPaperView @JvmOverloads constructor(
         animator.repeatMode = ValueAnimator.REVERSE
         animator.addUpdateListener {
             suggestAlpha = it.animatedValue as Float
-            invalidate()
+            requestRender()
         }
         animator.start()
         suggestAnimator = animator
@@ -661,12 +727,12 @@ class FoldPaperView @JvmOverloads constructor(
             val coerced = coerceTouchToPaperBounds(currentX, currentY)
             touchX = coerced.first
             touchY = coerced.second
-            invalidate()
+            requestRender()
         }
         animator.addListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator) {
                 calculateStarsAndCheckWin()
-                animateFoldComplete()
+                completeFold()
             }
         })
         animator.start()
