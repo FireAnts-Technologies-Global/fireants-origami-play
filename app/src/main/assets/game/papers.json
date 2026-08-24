@@ -1,82 +1,141 @@
 [
   {
     "id": 1,
-    "textureRes": "#F0EFEC",
-    "imagePreview": "images/paper/paper_texture_white.webp",
+    "textureRes": "#61C9D4",
+    "imagePreview": "images/paper/01-cyan-grid.webp",
     "isUnlocked": true,
     "isSelected": true
   },
   {
     "id": 2,
-    "textureRes": "#F2ACBF",
-    "imagePreview": "images/paper/paper_texture_pink.webp",
+    "textureRes": "#F57A3D",
+    "imagePreview": "images/paper/02-orange-speckle.webp",
     "isUnlocked": false,
     "isSelected": false
   },
   {
     "id": 3,
-    "textureRes": "#F85006",
-    "imagePreview": "images/paper/paper_texture_orange_splash.webp",
+    "textureRes": "#BCA7E8",
+    "imagePreview": "images/paper/03-lavender-fiber.webp",
     "isUnlocked": false,
     "isSelected": false
   },
   {
     "id": 4,
-    "textureRes": "#F0E3A6",
-    "imagePreview": "images/paper/paper_texture_beige.webp",
+    "textureRes": "#21314C",
+    "imagePreview": "images/paper/04-navy-speckle.webp",
     "isUnlocked": false,
     "isSelected": false
   },
   {
     "id": 5,
-    "textureRes": "#C3E0C0",
-    "imagePreview": "images/paper/paper_texture_sage_green.webp",
+    "textureRes": "#BFE9D0",
+    "imagePreview": "images/paper/05-mint-pulp.webp",
     "isUnlocked": false,
     "isSelected": false
   },
   {
     "id": 6,
-    "textureRes": "#F5B107",
-    "imagePreview": "images/paper/paper_texture_yellow.webp",
+    "textureRes": "#B88D62",
+    "imagePreview": "images/paper/06-kraft-pulp.webp",
     "isUnlocked": false,
     "isSelected": false
   },
   {
     "id": 7,
-    "textureRes": "#72CC6C",
-    "imagePreview": "images/paper/paper_texture_green.webp",
+    "textureRes": "#F5A4B8",
+    "imagePreview": "images/paper/07-pink-terrazzo.webp",
     "isUnlocked": false,
     "isSelected": false
   },
   {
     "id": 8,
-    "textureRes": "#9FD3E6",
-    "imagePreview": "images/paper/paper_texture_sky_blue.webp",
+    "textureRes": "#F7D75C",
+    "imagePreview": "images/paper/08-yellow-grid.webp",
     "isUnlocked": false,
     "isSelected": false
   },
   {
     "id": 9,
-    "textureRes": "#08C2E9",
-    "imagePreview": "images/paper/paper_texture_cyan.webp",
+    "textureRes": "#3F4348",
+    "imagePreview": "images/paper/09-charcoal-fiber.webp",
     "isUnlocked": false,
     "isSelected": false
   },
   {
     "id": 10,
-    "imagePreview": "images/paper/paper_texture_kraft.webp",
+    "textureRes": "#F4F1EA",
+    "imagePreview": "images/paper/10-white-embossed.webp",
     "isUnlocked": false,
     "isSelected": false
   },
   {
     "id": 11,
-    "imagePreview": "images/paper/paper_texture_paper_texture_grid.webp",
+    "textureRes": "#91CDEA",
+    "imagePreview": "images/paper/11-sky-crayon-stripes.webp",
     "isUnlocked": false,
     "isSelected": false
   },
   {
     "id": 12,
-    "imagePreview": "images/paper/paper_texture_noice.webp",
+    "textureRes": "#F08D7F",
+    "imagePreview": "images/paper/12-coral-confetti.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 13,
+    "textureRes": "#AFC99D",
+    "imagePreview": "images/paper/13-sage-botanical-fiber.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 14,
+    "textureRes": "#F3E4C7",
+    "imagePreview": "images/paper/14-cream-ink-dots.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 15,
+    "textureRes": "#9B74D7",
+    "imagePreview": "images/paper/15-purple-marble-pulp.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 16,
+    "textureRes": "#2FAFAD",
+    "imagePreview": "images/paper/16-teal-linen-weave.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 17,
+    "textureRes": "#B84A47",
+    "imagePreview": "images/paper/17-red-rice-fiber.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 18,
+    "textureRes": "#F0B48F",
+    "imagePreview": "images/paper/18-peach-stipple.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 19,
+    "textureRes": "#5B5B5F",
+    "imagePreview": "images/paper/19-graphite-recycled.webp",
+    "isUnlocked": false,
+    "isSelected": false
+  },
+  {
+    "id": 20,
+    "textureRes": "#D7C2A2",
+    "imagePreview": "images/paper/20-beige-diagonal-grid.webp",
     "isUnlocked": false,
     "isSelected": false
   }
