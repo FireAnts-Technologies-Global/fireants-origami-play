@@ -126,7 +126,7 @@ class SplashActivity : BaseActivityWithBanner<ActivitySplashBinding>(), RemoteCo
         }
         loadNativeLanguage(this, R.layout.layout_native_language)
 
-        if (AdRemoteConfig.inter_splash.isEnable && isNetwork(this@SplashActivity)) {
+        if (AdRemoteConfig.inter_splash.isEnable && isNetwork(this@SplashActivity) && !PremiumAccessManager.isPremium(this)) {
             Admob.getInstance().setOpenActivityAfterShowInterAds(false)
             FireAntsAdSdk.getInstance().loadSplashInterstitialAds(
                 this,
