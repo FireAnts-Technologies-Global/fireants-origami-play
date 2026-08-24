@@ -222,5 +222,6 @@ class OnBoardingActivity : BaseActivity<ActivityOnboardingBinding>() {
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
     }
 }

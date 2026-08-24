@@ -173,4 +173,6 @@ dependencies {
 
     // ShapeView
     implementation 'io.github.impeterwayne:shape-view:1.0.0'
+
+    testImplementation 'junit:junit:4.13.2'
 }

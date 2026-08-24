@@ -1,15 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="app_name" translatable="false">Fire Ants Base</string>
     <string name="language" translatable="false">Language</string>
-    <string name="ads_are_about_to_be_shown">Ads are about to be shown...</string>
-    <string name="please_select_language">Choose your language</string>
     <string name="get_started">Get Started</string>
     <string name="next">Next</string>
-    <string name="txt_continue">Continue</string>
-    <string name="txt_request_record_permission">Recording is the permission required for the app to work</string>
-    <string name="txt_denie">To use this feature, you need permission</string>
     <string name="txt_thanks_you_for_rating">Thanks for your rating!</string>
-    <string name="txt_later" translatable="false"><u>Later</u></string>
+    <string name="txt_later" translatable="false">
+        <u>Later</u>
+    </string>
     <string name="txt_rate_5_star" translatable="false">If you enjoy this app, please consider giving it a 5-star rating in the store.</string>
     <string name="txt_do_you_like_our_app" translatable="false">Do you like our app?</string>
     <string name="rate_feedback_title" translatable="false">Tell us more</string>
@@ -26,29 +24,14 @@
     <string name="onboarding_des_3">Rotate, zoom, and view each fold from every angle—so tricky steps feel simple.</string>
     <string name="onboarding_title_4">Learn, Play &amp; Master</string>
     <string name="onboarding_des_4">Practice through fun challenges, unlock new designs, and become an origami master.</string>
-    <string name="applying_selected_language" translatable="false">Applying selected language...</string>
-    <string name="text_restart_app">Restart App</string>
-    <string name="crash_info_title">Crash Information</string>
     <string name="close">Close</string>
-    <string name="ad_config_invalid_message">Invalid ad configuration. Please verify ad_config.json.</string>
-    <string name="content_confirm_uninstall">Why are you removing the app?</string>
-    <string name="try_again">Try Again</string>
-    <string name="still_want_to_uninstall">Still want to uninstall?</string>
-    <string name="issues_encountered_during_usage">Issues encountered during usage</string>
     <string name="txt_cancel">Cancel</string>
-    <string name="txt_uninstall">Uninstall</string>
-    <string name="survey_1">A feature is not working</string>
-    <string name="survey_2">Too many ads</string>
-    <string name="survey_3">I don’t need it</string>
-    <string name="survey_4">Other</string>
     <string name="loading_label">Loading</string>
-    <string name="loading">Please wait a moment</string>
     <string name="no_internet_title">No Internet Connection</string>
     <string name="no_internet_message">Please check your network settings to continue using the app.</string>
     <string name="open_settings">Open Settings</string>
     <string name="force_update_message">A new version is available. Please update to continue using the app.</string>
     <string name="update_now">Update Now</string>
-    <string name="update_later">Maybe Later</string>
     <string name="setting">Settings</string>
     <string name="music">Music</string>
     <string name="sound_fx">Sound Fx</string>
@@ -68,15 +51,7 @@
     <string name="let_me_recommend">Let me recommend this app</string>
     <string name="share_to">Share to</string>
     <string name="we_re_better_than_ever">The app keeps getting better</string>
-    <string name="feature_does_not_working">A feature is not working</string>
-    <string name="too_many_ads">Too many ads</string>
-    <string name="i_don_t_need_it">I don’t need it</string>
-    <string name="other">Other</string>
-    <string name="uninstall_text">Uninstall</string>
-    <string name="dont_miss">Before you uninstall, consider keeping the app for the tools and settings you already set up.</string>
-    <string name="over92">Many users keep the app because it remains useful over time.</string>
     <string name="start">Start</string>
-    <string name="game_mode">Game Mode</string>
     <string name="game">Game</string>
     <string name="level">Level</string>
     <string name="welcome_back">Welcome back,</string>
@@ -84,7 +59,6 @@
     <string name="kirigami" translatable="false">Kirigami</string>
     <string name="origami_3d" translatable="false">3D Origami</string>
     <string name="origami" translatable="false">Origami</string>
-    <string name="processing">Processing</string>
     <string name="daily_challenge">Daily Challenge</string>
     <string name="start_challenge">Start challenge</string>
     <string name="explore_modes">Explore Modes</string>
@@ -103,9 +77,7 @@
     <string name="get_free_mystery_bag">Get 1 FREE Mystery Bag!</string>
     <string name="title_shop">✨ THE SHOP ✨</string>
     <string name="free_bag">Free Bag</string>
-    <string name="bag_1">1 Bag</string>
     <string name="bag_10">10 Bag</string>
-    <string name="hint_1">X1 Hint</string>
     <string name="hint_3">X3 Hint</string>
     <string name="hint_5">X5 Hint</string>
     <string name="claim">Claim</string>
@@ -126,6 +98,6 @@
     <string name="share_my_creation">Share My Creation</string>
     <string name="explore_more">Explore More</string>
     <string name="you_may_like">You May Like</string>
-    <string name="view_all">View All ></string>
+    <string name="view_all">View All &gt;</string>
     <string name="share_creation_message">I completed %1$s in %2$s!</string>
 </resources>
